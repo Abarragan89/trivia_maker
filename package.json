@@ -1,0 +1,23 @@
+{
+  "name": "trivia_maker",
+  "version": "1.0.0",
+  "description": "Trivia game maker for educational and recreational purposes",
+  "main": "server.js",
+  "scripts": {
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abarragan89/trivia_maker.git"
+  },
+  "author": "Anthony Barragan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abarragan89/trivia_maker/issues"
+  },
+  "homepage": "https://github.com/Abarragan89/trivia_maker#readme",
+  "dependencies": {
+    "concurrently": "^7.2.2",
+    "create-react-app": "^1.2.1"
+  }
+}
