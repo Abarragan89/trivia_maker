@@ -1,0 +1,16 @@
+@import '../../index.scss';
+
+main {
+    padding: 2rem;
+    
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    section {
+        margin: 0 auto;
+        border: 1px solid; 
+        width: 500px;
+        height: 500px;
+    }
+}

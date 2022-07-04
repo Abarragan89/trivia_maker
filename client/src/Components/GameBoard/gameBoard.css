@@ -1,0 +1,15 @@
+.category-columns {
+  display: flex;
+}
+
+.column {
+  padding: 10px 5px;
+}
+.column h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.column li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}/*# sourceMappingURL=gameBoard.css.map */

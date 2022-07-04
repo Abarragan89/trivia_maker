@@ -1,0 +1,18 @@
+@import '../../index.scss';
+
+.category-columns {
+    display: flex;
+}
+
+.column {
+    padding: 10px 5px;
+    h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    li {
+        list-style-type: none;
+        margin-bottom: 5px;
+    }
+}

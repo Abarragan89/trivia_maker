@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 /////////// COMPONENTS ////////////////
-import GamePage from './GamePage/gamePage.js' 
+import GamePage from './Pages/GamePage/gamePage.js' 
 
 function App() {
   return (
