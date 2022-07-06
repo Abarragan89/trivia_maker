@@ -1,0 +1,47 @@
+p {
+  font-size: 2em;
+}
+
+.questionContainer {
+  background-color: rgba(2, 179, 250, 0.667);
+  border-radius: 5px;
+  min-height: 500px;
+  max-width: 100%;
+  margin: 10px auto;
+  padding: 15px;
+}
+.questionContainer h4 {
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+  font-size: 1.2em;
+  letter-spacing: 0.2em;
+}
+.questionContainer .cardQuestion {
+  text-align: center;
+  padding: 20px 10px;
+  line-height: 1.3em;
+  font-size: 1.5rem;
+}
+.questionContainer button {
+  font-size: 2rem;
+  background-color: black;
+  border: none;
+  padding: 3px 45px;
+  top: -1px;
+}
+.questionContainer button:first-child {
+  color: red;
+}
+.questionContainer button:last-child {
+  color: green;
+}
+.questionContainer button:hover {
+  cursor: pointer;
+  color: white;
+}
+.questionContainer .grading-icon {
+  vertical-align: middle;
+  position: relative;
+  top: -0.125em;
+}/*# sourceMappingURL=modal.css.map */

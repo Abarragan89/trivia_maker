@@ -1,4 +1,6 @@
 import './gameBoard.css'
+import Modal from '../Modal/modal';
+import { useState } from 'react';
 
 function GameBoard() {
     const questionLog = [
@@ -63,14 +65,31 @@ function GameBoard() {
             ]
         },
     ]
+    
+    const [isModal, setIsModal] = useState(false)
+    const [currentQuestionSet, setCurrentQuestionSet] = useState('')
+
+    function toggleModal(project) {
+        setCurrentQuestionSet(project)
+        setIsModal(!isModal)
+    }
+
+    function closeModal() {
+        setIsModal(!isModal);
+    }
     return (
         <div className='category-columns'>
+            {isModal && <Modal questionData={currentQuestionSet} onClose={closeModal} />}
             {questionLog.map((question, index) => (
-                <div className='column'>
+                <div className='column' key={index + question.category}>
                     <h3>{question.category}</h3>
                     <ul>
                         {question.clues.map((set, index) => (
-                            <li><button>{set.question}</button></li>
+                            <li 
+                            key={index}
+                            onClick={() => toggleModal(set)}>
+                            <button>{set.question}</button>
+                            </li>
                         ))}
                     </ul>
                 </div>
