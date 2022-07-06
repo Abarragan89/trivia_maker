@@ -8,14 +8,12 @@ import {
 
 /////////// COMPONENTS ////////////////
 import GamePage from './Pages/GamePage/gamePage.js' 
-import Question from './Components/Question/question'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/gamepage' element={<GamePage />}></Route>
-        <Route path='/question' element={<Question />}></Route>
+        <Route path="/gamepage" element={<GamePage />}></Route>
       </Routes>
     </BrowserRouter>
   );

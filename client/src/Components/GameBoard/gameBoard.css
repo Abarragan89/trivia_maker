@@ -4,22 +4,12 @@
 
 .column {
   padding: 10px 5px;
-  flex: 1;
 }
 .column h3 {
   text-align: center;
-  height: 50px;
-  vertical-align: middle;
+  margin-bottom: 10px;
 }
 .column li {
   list-style-type: none;
   margin-bottom: 5px;
-}
-.column button {
-  width: 100%;
-  padding: 15px;
-}
-.column .disabledButton {
-  opacity: 0.1;
-  background-color: black;
 }/*# sourceMappingURL=gameBoard.css.map */
