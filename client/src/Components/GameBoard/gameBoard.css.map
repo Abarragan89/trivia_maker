@@ -1,1 +1,1 @@
-{"version":3,"sources":["gameBoard.scss","gameBoard.css"],"names":[],"mappings":"AAEA;EACI,aAAA;ACDJ;;ADIA;EACI,iBAAA;ACDJ;ADEI;EACI,kBAAA;EACA,mBAAA;ACAR;ADGI;EACI,qBAAA;EACA,kBAAA;ACDR","file":"gameBoard.css"}
+{"version":3,"sources":["gameBoard.scss","gameBoard.css"],"names":[],"mappings":"AAEA;EACI,aAAA;ACDJ;;ADIA;EACI,iBAAA;EACA,OAAA;ACDJ;ADEI;EACI,kBAAA;EACA,YAAA;EACA,sBAAA;ACAR;ADEI;EACI,qBAAA;EACA,kBAAA;ACAR;ADEI;EACI,WAAA;EACA,aAAA;ACAR;ADEI;EACI,YAAA;EACA,uBAAA;ACAR","file":"gameBoard.css"}

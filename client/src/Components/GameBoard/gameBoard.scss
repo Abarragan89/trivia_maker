@@ -6,13 +6,22 @@
 
 .column {
     padding: 10px 5px;
+    flex: 1;
     h3 {
         text-align: center;
-        margin-bottom: 10px;
+        height: 50px;
+        vertical-align: middle;
     }
-
     li {
         list-style-type: none;
         margin-bottom: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    .disabledButton {
+        opacity: 0.1;
+        background-color: black;;
     }
 }

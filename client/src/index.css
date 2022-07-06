@@ -4,3 +4,55 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Utility Function */
+
+.flex-box-sb {
+    display: flex;
+    justify-content: space-between;
+}
+.flex-box-sa {
+    display: flex;
+    justify-content: space-around;
+}
+.flex-box-se {
+    display: flex;
+    justify-content: space-evenly;
+}
+.flex-box-c {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-box-col-sa {
+    display: flex; 
+    justify-content: space-around;
+    flex-direction: column;
+}
+.flex-box-col-se {
+    display: flex; 
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.flex-box-col-sb {
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.mt-1 {
+    margin-top: .25em;
+}
+
+.mt-2 {
+    margin-top: .5em;
+}
+.mt-3 {
+    margin-top: .75em;
+}
+.mt-4 {
+    margin-top: 1em;
+}
+.mt-5 {
+    margin-top: 1.25em;
+}
