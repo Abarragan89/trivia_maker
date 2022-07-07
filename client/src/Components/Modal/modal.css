@@ -70,6 +70,10 @@
   margin: 0 auto;
 }
 
+.button:disabled {
+  opacity: 0.5%;
+}
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -87,6 +91,23 @@
     opacity: 1;
   }
 }
-.button:disabled {
-  opacity: 0.5%;
+@-webkit-keyframes bonusAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes bonusAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=modal.css.map */
