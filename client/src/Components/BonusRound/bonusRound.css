@@ -1,1 +1,8 @@
-/*# sourceMappingURL=bonusRound.css.map */
+#canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+section {
+  background-color: antiquewhite;
+}/*# sourceMappingURL=bonusRound.css.map */
