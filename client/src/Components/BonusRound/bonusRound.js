@@ -1,70 +1,73 @@
-import { useEffect, useRef, useState } from 'react';
 import './bonusRound.css'
-
+import { useRef, useEffect } from "react";
+import frameRenderer from "../FrameRenderer/frameRenderer";
 
 function BonusRound() {
-    const canvasRef = useRef(null)
-    const [pause, setPause] = useState(false)
+  const canvasRef = useRef(null);
+  const requestIdRef = useRef(null);
+  const ballRef = useRef({ x: 50, y: 50, vx: 3.9, vy: 3.3, radius: 5 });
+  const size = { width: 300, height: 150 };
 
-    useEffect(() => {
-        const canvas = canvasRef.current
-        const ctx = canvas.getContext('2d')
-
-        // Particle constructor
-        class Particle {
-            constructor(xPos, yPos, radius, color, speed, ) {
-                this.x = xPos;
-                this.y = yPos;
-                this.color = color;
-                this.speed = speed;
-                this.radius = radius
-
-                this.dx = 1 * this.speed
-            }
-            update() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
-                this.draw(ctx)
-                if((this.x + this.radius) > canvas.width) {
-                    this.dx = -this.dx
-                }
-                if((this.x - this.radius) < 0) {
-                    this.dx = -this.dx
-                }
-                
-                this.x += this.dx;
-            }
-            draw () {
-                ctx.fillStyle = this.color;
-                ctx.lineWidth = 1
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-                ctx.fill()
-            }
-        }
-
-
-        const bumper = new Particle(15, 15, 8, 'green', 3)
-        function animate() {
-            if(pause) {
-                return
-            }  
-            requestAnimationFrame(animate);
-            bumper.update()
-        }
-        animate();
-    },[])
-    
-    function hitBonus () {
-        setPause(!pause)
-        console.log(pause)
+  const updateBall = () => {
+    const ball = ballRef.current;
+    ball.x += ball.vx;
+    ball.y += ball.vy;
+    if (ball.x + ball.radius >= size.width) {
+      ball.vx = -ball.vx;
+      ball.x = size.width - ball.radius;
     }
-    return (
-        <section>
-            <p>This is the bonus round!!!</p>
-            <canvas id='canvas'ref={canvasRef} />
-            <button onClick={hitBonus}>stop</button>
-        </section>
-    )
+    if (ball.x - ball.radius <= 0) {
+      ball.vx = -ball.vx;
+      ball.x = ball.radius;
+    }
+    if (ball.y + ball.radius >= size.height) {
+      ball.vy = -ball.vy;
+      ball.y = size.height - ball.radius;
+    }
+    if (ball.y - ball.radius <= 0) {
+      ball.vy = -ball.vy;
+      ball.y = ball.radius;
+    }
+  };
+
+  const renderFrame = () => {
+    const ctx = canvasRef.current.getContext("2d");
+    updateBall();
+    // draws the circle
+    frameRenderer.call(ctx, size, ballRef.current);
+  };
+
+  const tick = () => {
+    if (!canvasRef.current) return;
+    renderFrame();
+    requestIdRef.current = requestAnimationFrame(tick);
+  };
+
+  useEffect(() => {
+    requestIdRef.current = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(requestIdRef.current);
+    };
+  }, []);
+
+  function stop() {
+    console.log('stop')
+    cancelAnimationFrame(requestIdRef.current)
+    console.log(ballRef)
+  }
+
+//   
+
+
+
+  return (
+  <>
+      <canvas id='canvas' ref={canvasRef} />
+      <button onClick={stop}>Stop</button>
+
+  </>
+    
+  ) 
 }
 
 export default BonusRound;
