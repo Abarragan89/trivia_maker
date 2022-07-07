@@ -1,1 +1,32 @@
 /*# sourceMappingURL=index.css.map */
+
+/* UTILITY Classes */
+.flex-box-sa {
+    display: flex;
+    justify-content: space-around;
+}
+.flex-box-sb {
+    display: flex;
+    justify-content: space-between;
+}
+.flex-box-se {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.flex-box-col-se {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.flex-box-col-sb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.flex-box-col-sa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
