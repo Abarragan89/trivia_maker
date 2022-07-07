@@ -64,104 +64,33 @@ function GameBoard() {
                 },
             ]
         },
-        {
-            category: 'Philosophy',
-            clues: [
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '100',
-                },
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '200',
-                },
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '300',
-                },
-            ]
-        },
-        {
-            category: 'Spanish',
-            clues: [
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '100',
-                },
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '200',
-                },
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '300',
-                },
-            ]
-        },
-        {
-            category: 'PE',
-            clues: [
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '100',
-                },
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '200',
-                },
-                {
-                    question: 'what are you ss?',
-                    answer: 'coding',
-                    points: '300',
-                },
-            ]
-        },
     ]
-
+    
     const [isModal, setIsModal] = useState(false)
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
 
     function toggleModal(project) {
         setCurrentQuestionSet(project)
         setIsModal(!isModal)
-        disableButton(project.listEl)
     }
 
     function closeModal() {
         setIsModal(!isModal);
     }
-
-    // disable the buttons that have been clicked
-    function disableButton(listElId) {
-        let listEl = document.getElementById(listElId)
-            listEl.setAttribute('disabled', 'true')
-    }
     return (
-        <div className='category-columns flex-box-sa'>
+        <div className='category-columns'>
             {isModal && <Modal questionData={currentQuestionSet} onClose={closeModal} />}
             {questionLog.map((question, index) => (
                 <div className='column' key={index + question.category}>
                     <h3>{question.category}</h3>
                     <ul>
-                        {question.clues.map((set, index) => {
-                            {/* get the id of the button that will be disabled. */}
-                            set.listEl = index + question.category
-                            return (
-                                <li
-                                    key={index}
-                                    onClick={() => toggleModal(set)}>
-                                    <button id={index + question.category}>{set.points}</button>
-                                </li>
-                            )
-                        })}
+                        {question.clues.map((set, index) => (
+                            <li 
+                            key={index}
+                            onClick={() => toggleModal(set)}>
+                            <button>{set.question}</button>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             ))}
