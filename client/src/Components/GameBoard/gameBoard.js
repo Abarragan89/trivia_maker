@@ -125,16 +125,15 @@ function GameBoard({ h1ref }) {
             ]
         },
     ]
-
-    console.log('h1ref from child', h1ref)
-
     const [isModal, setIsModal] = useState(false)
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
 
     function toggleModal(project) {
-        // h1ref.scrollIntoView();
-
-
+        h1ref.current.scrollIntoView(
+            {behavior: 'auto',
+            block: 'center',
+            inline: 'center'}
+        );
         setCurrentQuestionSet(project)
         setIsModal(!isModal)
         disableButton(project.listEl)

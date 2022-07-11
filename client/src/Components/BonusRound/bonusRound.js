@@ -5,8 +5,8 @@ import frameRenderer from "../FrameRenderer/frameRenderer";
 function BonusRound() {
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
-  const ballRef = useRef({ x: 50, y: 50, vx: 3.9, vy: 3.3, radius: 5 });
-  const size = { width: 300, height: 150 };
+  const ballRef = useRef({ x: 50, y: 50, vx: 6, vy: 6, radius: 5 });
+  const size = { width: 300, height: 400 };
 
   const updateBall = () => {
     const ball = ballRef.current;
@@ -56,15 +56,11 @@ function BonusRound() {
     console.log(ballRef)
   }
 
-//   
-
-
-
   return (
   <>
-      <canvas id='canvas' ref={canvasRef} />
+      <h1>Bonus Round!!!</h1>
+      <canvas id='canvas' height="400" width="300" ref={canvasRef} />
       <button onClick={stop}>Stop</button>
-
   </>
     
   ) 
