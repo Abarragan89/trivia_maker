@@ -2,7 +2,7 @@ import './gameBoard.css'
 import Modal from '../Modal/modal';
 import { useState } from 'react';
 
-function GameBoard() {
+function GameBoard({ h1ref }) {
     const questionLog = [
         {
             category: 'math',
@@ -126,10 +126,15 @@ function GameBoard() {
         },
     ]
 
+    console.log('h1ref from child', h1ref)
+
     const [isModal, setIsModal] = useState(false)
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
 
     function toggleModal(project) {
+        // h1ref.scrollIntoView();
+
+
         setCurrentQuestionSet(project)
         setIsModal(!isModal)
         disableButton(project.listEl)
@@ -145,6 +150,7 @@ function GameBoard() {
             listEl.setAttribute('disabled', 'true')
     }
     return (
+    <>
         <div className='category-columns flex-box-sa'>
             {isModal && <Modal questionData={currentQuestionSet} onClose={closeModal} />}
             {questionLog.map((question, index) => (
@@ -166,6 +172,9 @@ function GameBoard() {
                 </div>
             ))}
         </div>
+
+    </>
+        
     )
 }
 

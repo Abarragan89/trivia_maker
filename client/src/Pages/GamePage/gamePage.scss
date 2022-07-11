@@ -2,11 +2,7 @@
 
 main {
     padding: 2rem;
-    width: 100%;
-    width: 500px;
-    height: 500px;
     margin: 0 auto;
-    
     h1 {
         font-size: 2rem;
         text-align: center;
@@ -14,5 +10,11 @@ main {
     section {
         margin: 0 auto;
         border: 1px solid; 
+    }
+}
+
+@media screen and (max-width: 595px) {
+    main {
+        width: 500px
     }
 }

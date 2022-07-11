@@ -1,8 +1,39 @@
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 main {
   padding: 2rem;
-  width: 100%;
-  width: 500px;
-  height: 500px;
   margin: 0 auto;
 }
 main h1 {
@@ -12,4 +43,10 @@ main h1 {
 main section {
   margin: 0 auto;
   border: 1px solid;
+}
+
+@media screen and (max-width: 595px) {
+  main {
+    width: 500px;
+  }
 }/*# sourceMappingURL=gamePage.css.map */
