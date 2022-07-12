@@ -1,0 +1,56 @@
+#question-accordion {
+  margin: 100px auto;
+  width: 90%;
+}
+#question-accordion textarea {
+  display: block;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+}
+#question-accordion input {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 80%;
+}
+#question-accordion label {
+  display: block;
+  text-align: center;
+}
+#question-accordion .question-content {
+  padding: 0 10px;
+  max-height: 0;
+  overflow-y: scroll;
+  transition: max-height 0.5s;
+}
+#question-accordion .single-question-div {
+  border: 1px solid black;
+  padding: 5px;
+}
+#question-accordion li {
+  display: block;
+  list-style: none;
+  width: 100%;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+#question-accordion li input[type=radio] {
+  display: none;
+}
+#question-accordion li input[type=radio]:checked + .question-content {
+  max-height: 1500px;
+}
+#question-accordion label {
+  padding: 10px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+#question-accordion label span {
+  transform: rotate(90deg);
+  font-size: 22px;
+}/*# sourceMappingURL=createGame.css.map */

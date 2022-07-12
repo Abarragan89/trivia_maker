@@ -1,0 +1,20 @@
+@import '../../index.scss';
+
+.column {
+    flex: 1;
+    margin: 0 auto;
+    h3 {
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+    ul {
+        padding: 0;
+    }
+    li {
+        list-style-type: none;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+}

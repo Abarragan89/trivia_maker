@@ -1,0 +1,118 @@
+/* styles for the modal */
+.modalBackdrop {
+  background: rgba(0, 0, 0, 0.75);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 900;
+}
+
+.modalContainer {
+  border-radius: 5px;
+  margin: 100px auto;
+  width: 90vw;
+  -webkit-animation: fadeIn 0.5s;
+          animation: fadeIn 0.5s;
+}
+.modalContainer .modalHeader {
+  background-color: green;
+  height: 30px;
+}
+.modalContainer h4 {
+  display: inline;
+  vertical-align: text-top;
+  position: relative;
+  font-size: 1.2em;
+  letter-spacing: 0.2em;
+  margin: 2px;
+}
+.modalContainer .cardQuestionText {
+  text-align: center;
+  padding: 20px 10px;
+  line-height: 1.3em;
+  font-size: 1.5rem;
+}
+.modalContainer button {
+  font-size: 1.5rem;
+  background-color: black;
+  border: none;
+  padding: 3px 45px;
+  top: -1px;
+  margin: 0 10px;
+  margin-bottom: 10px;
+}
+.modalContainer button:first-child {
+  color: red;
+}
+.modalContainer button:last-child {
+  color: green;
+}
+.modalContainer button:hover {
+  cursor: pointer;
+  color: white;
+}
+.modalContainer #exitModal {
+  font-size: 1.3rem;
+  color: black;
+  margin: 6px;
+  margin-right: 15px;
+}
+.modalContainer .grading-icon {
+  vertical-align: middle;
+  position: relative;
+  top: -0.125rem;
+}
+.modalContainer .questionContainer {
+  background-color: red;
+  margin: 0 auto;
+}
+
+.button:disabled {
+  opacity: 0.5%;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes bonusAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes bonusAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 500) {
+  .modalContainer {
+    width: 80%;
+  }
+}/*# sourceMappingURL=modal.css.map */
