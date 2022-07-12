@@ -44,6 +44,7 @@ function BonusRound() {
   };
 
   useEffect(() => {
+    document.getElementById('stop-ball-btn').focus()
     requestIdRef.current = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(requestIdRef.current);
@@ -60,7 +61,7 @@ function BonusRound() {
   <>
       <h1>Bonus Round!!!</h1>
       <canvas id='canvas' height="400" width="300" ref={canvasRef} />
-      <button onClick={stop}>Stop</button>
+      <button id='stop-ball-btn' onClick={stop}>Stop</button>
   </>
     
   ) 

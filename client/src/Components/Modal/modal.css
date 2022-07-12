@@ -110,4 +110,9 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+@media screen and (max-width: 500) {
+  .modalContainer {
+    width: 80%;
+  }
 }/*# sourceMappingURL=modal.css.map */
