@@ -7,8 +7,8 @@ const {
 
 // Set up GET all POST at /api/pizzas
 router.route('/').get(getAllGames)
-router.route('/create/:userId/').post(createGame);
 
+router.route('/create/:userId/').post(createGame);
 router.route('/delete/:gameId').delete(deleteGame)
 
 module.exports = router;

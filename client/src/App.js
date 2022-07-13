@@ -13,13 +13,13 @@ import CreateGame from './Pages/CreateGame/createGame.js';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/create-game" element={<CreateGame />}></Route>
         <Route path="/gamepage" element={<GamePage />}></Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 

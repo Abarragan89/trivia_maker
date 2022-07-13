@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Abarragan89/trivia_maker#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "concurrently": "^7.2.2",
     "create-react-app": "^1.2.1"

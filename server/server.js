@@ -4,7 +4,6 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 
-
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 app.use(require('./routes'))
