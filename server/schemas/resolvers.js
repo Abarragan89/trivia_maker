@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Game } = require('../models');
 const { signToken } = require('../utils/auth');
+require('dotenv').config();
 
 const resolvers = {
     // Queries
@@ -10,9 +11,6 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
-                    .populate('posts')
-                    .populate('friends');
-
                 return userData;
             }
 

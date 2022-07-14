@@ -41,7 +41,7 @@
   display: none;
 }
 #question-accordion li input[type=radio]:checked + .question-content {
-  max-height: 1500px;
+  max-height: 300px;
 }
 #question-accordion label {
   padding: 10px;
