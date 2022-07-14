@@ -10,7 +10,6 @@ function HomePage() {
             {loggedIn ?
                 <section>
                     <Link to={`/create-game`}>Create Game</Link>
-                    {/* <Link to='/' */}
                 </section>
                 :
                 <Login />
