@@ -21,7 +21,7 @@ function CreateGame() {
             ...acc, [input.id]: input.value
         }), {})
         console.log(categoryData)
-        console.log(formData)
+        console.log(formData) 
     }
     return (
         <>
