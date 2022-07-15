@@ -11,15 +11,16 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
+                    .populate('games')
                 return userData;
             }
-
             throw new AuthenticationError('Not logged in');
         },
         // Get single User by ID
         user: async (parent, { _id }) => {
             return User.findOne({ _id })
                 .select('-__v -password')
+                .populate('games')
         },
         // Get all users
         users: async () => {
@@ -31,6 +32,10 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
         },
+        getUserGames: async (parent, { gameId }, context) => {
+            return Game.findOne({ _id: gameId })
+        }
+     
     },
     //Mutations
     Mutation: {
@@ -52,7 +57,7 @@ const resolvers = {
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Incorrect Password');
             }
 
             const token = signToken(user);
@@ -63,14 +68,15 @@ const resolvers = {
                 const game = await Game.create({
                     gameTopic: args.topic,
                     categories: args.categories,
-                    questionAnswers: args.questions
+                    questions: args.questions,
+                    answers: args.answers
                 })
                 const user = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { games: game._id } },
                     { new: true }
                 )
-            return user;
+            return game;
             }
         throw new AuthenticationError('You need to be logged in!');
         }

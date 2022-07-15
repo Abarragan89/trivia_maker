@@ -9,6 +9,7 @@ import {
 import GamePage from './Pages/GamePage/gamePage.js'; 
 import HomePage from './Pages/HomePage/homePage.js';
 import CreateGame from './Pages/CreateGame/createGame.js';
+import MyGames from './Pages/MyGames/myGames.js';
 
 // import Apollo Client package for context
 import {
@@ -53,9 +54,10 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/create-game" element={<CreateGame />}></Route>
-          <Route path="/gamepage" element={<GamePage />}></Route>
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/create-game' element={<CreateGame />}></Route>
+          <Route path='/gamepage/:gameId' element={<GamePage />}></Route>
+          <Route path='/my-games' element={<MyGames />}></Route>
         </Routes>
       </Router>
     </ApolloProvider>

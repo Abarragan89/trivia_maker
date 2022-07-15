@@ -5,20 +5,15 @@ const typeDefs = gql `
         _id: ID
         username: String 
         email: String
-        games: [String]   
+        games: [Game] 
     }
-    type questionsAnswers {
-        key: String 
-        question: String 
-    }
-
 
     type Game {
         _id: ID 
         gameTopic: String 
         categories: [String]
-        createdBy: User 
-        questions: [questionsAnswers]
+        answers: [[String]]
+        questions: [[String]]
     }
     type Auth {
         token: ID!
@@ -30,11 +25,12 @@ const typeDefs = gql `
         users: [User]
         user(_id: ID!): User
         userByName(username: String!): User
+        getUserGames(gameId: ID!): Game
     }
     type Mutation {
         login(email: String!, password: String!): Auth 
         addUser(username: String!, password: String!, email: String!): Auth 
-        createGame(questions: String!, topic: String!, categories:[String]): Game
+        createGame(answers: [[String]]! questions: [[String]]!, topic: String!, categories:[String]!): Game
     }
 `;
 

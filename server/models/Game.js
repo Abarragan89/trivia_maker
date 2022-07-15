@@ -2,10 +2,12 @@ const { Schema, model } = require('mongoose');
 
 const GameSchema = new Schema({
     gameTopic: {
-        type: String
+        type: String,
+        require: true
     },
-    categories: [],
-    questionAnswers: []
+    questions: [],
+    answers: [],
+    categories: []
 })
 
 const Game = model('game', GameSchema);

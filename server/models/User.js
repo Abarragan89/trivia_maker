@@ -26,7 +26,7 @@ const userSchema = new Schema(
               ref: 'game'
             }
         ],
-    }
+    },
 );
 
 // set up pre-save middleware to create password

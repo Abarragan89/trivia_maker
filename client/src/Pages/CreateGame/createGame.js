@@ -1,12 +1,17 @@
 import './createGame.css';
 import Auth from '../../utils/auth';
+import { useMutation } from '@apollo/client'
+import { CREATE_GAME } from '../../utils/mutations'
 
 function CreateGame() {
     // used to check if the user is logged in
     const loggedIn = Auth.loggedIn()
 
+    // Set up mutation
+    const [createGame] = useMutation(CREATE_GAME)
+
     // Create the Game
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         // loop through answers and make a 5 x 5 Array
         let allAnswers = [];
@@ -58,7 +63,17 @@ function CreateGame() {
         // Get game topic
         let topic = document.querySelector('#game-topic').value;
         console.log('topic ', topic)
-        
+
+        const {data} = await createGame({
+            variables: {
+                answers: allAnswers,
+                questions: allQuestions,
+                categories: allCategories,
+                topic: topic
+            }
+        })
+        console.log(data)
+        window.location.replace('/')
     }
     return (
         <>

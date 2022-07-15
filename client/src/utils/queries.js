@@ -1,12 +1,28 @@
 import { gql } from '@apollo/client'
 
-// Query or homepage(user info)
+// Query for homepage and User Game info(user info)
 export const QUERY_ME_BASIC = gql`
-  {
-    me {
+query Me {
+  me {
+    _id
+    username
+    email
+    games {
       _id
-      username
-      profilePic
+      gameTopic
     }
   }
+}
+`;
+
+// Get Game information for specific game play
+export const QUERY_GAME_INFO = gql `
+query GetUserGames($gameId: ID!) {
+  getUserGames(gameId: $gameId) {
+    gameTopic
+    categories
+    answers
+    questions
+  }
+}
 `;
