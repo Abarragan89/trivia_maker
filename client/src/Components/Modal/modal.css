@@ -35,15 +35,6 @@
   line-height: 1.3em;
   font-size: 1.5rem;
 }
-.modalContainer button {
-  font-size: 1.5rem;
-  background-color: black;
-  border: none;
-  padding: 3px 45px;
-  top: -1px;
-  margin: 0 10px;
-  margin-bottom: 10px;
-}
 .modalContainer button:first-child {
   color: red;
 }

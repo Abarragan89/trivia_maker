@@ -324,7 +324,7 @@ function CreateGame() {
             }
         })
         console.log('data', data)
-        // window.location.replace('/')
+        window.location.replace('/')
     }
     return (
         <>

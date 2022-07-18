@@ -19,10 +19,16 @@ query Me {
 export const QUERY_GAME_INFO = gql `
 query GetUserGames($gameId: ID!) {
   getUserGames(gameId: $gameId) {
+    _id
     gameTopic
-    categories
-    answers
-    questions
+    gameData {
+      category
+      clues {
+        answer
+        points
+        question
+      }
+    }
   }
 }
 `;
