@@ -63,20 +63,22 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        createGame: async (parent, args, context) => {
+        createGame: async (parent, {topic, gameData }, context) => {
             if (context.user) {
-                const game = await Game.create({
-                    gameTopic: args.topic,
-                    categories: args.categories,
-                    questions: args.questions,
-                    answers: args.answers
-                })
-                const user = await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { games: game._id } },
-                    { new: true }
-                )
-            return game;
+                try {
+                    const game = await Game.create({
+                        gameTopic: topic,
+                        gameData: gameData
+                    })
+                    const user = await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { $addToSet: { games: game._id } },
+                        { new: true }
+                    )
+                    return game;
+                } catch(e) {
+                    console.log(e)
+                }
             }
         throw new AuthenticationError('You need to be logged in!');
         }

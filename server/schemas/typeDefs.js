@@ -7,17 +7,36 @@ const typeDefs = gql `
         email: String
         games: [Game] 
     }
+    type categorySet {
+        category: String
+        clues: [cluesInfo]
+    } 
+    type cluesInfo {
+        answer: String
+        points: Int
+        question: String 
+    }
 
     type Game {
         _id: ID 
         gameTopic: String 
-        categories: [String]
-        answers: [[String]]
-        questions: [[String]]
+        gameData: [categorySet]
     }
     type Auth {
         token: ID!
         user: User
+    }
+
+    input cluesInput {
+        answer: String
+        points: Int
+        question: String 
+    }
+
+    
+    input categorySetInput {
+        category: String
+        clues: [cluesInput]
     }
 
     type Query {  
@@ -30,7 +49,7 @@ const typeDefs = gql `
     type Mutation {
         login(email: String!, password: String!): Auth 
         addUser(username: String!, password: String!, email: String!): Auth 
-        createGame(answers: [[String]]! questions: [[String]]!, topic: String!, categories:[String]!): Game
+        createGame( gameData: [categorySetInput]!  topic: String!): Game
     }
 `;
 

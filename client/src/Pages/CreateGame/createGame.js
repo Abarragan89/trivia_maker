@@ -317,15 +317,13 @@ function CreateGame() {
         console.log('topic ', topic)
 
 
-        // const {data} = await createGame({
-        //     variables: {
-        //         answers: allAnswers,
-        //         questions: allQuestions,
-        //         categories: allCategories,
-        //         topic: topic
-        //     }
-        // })
-        // console.log(data)
+        const {data} = await createGame({
+            variables: {
+                gameData: allAnswers,
+                topic: topic
+            }
+        })
+        console.log('data', data)
         // window.location.replace('/')
     }
     return (
