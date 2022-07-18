@@ -28,14 +28,19 @@ function Modal({ questionData, onClose }) {
                     <BonusRound />
                     :
                     <article className='questionContainer flex-box-col-sa'>
-                        {showAnswer ? <p className='cardQuestionText'>{questionData.answer}</p> 
-                        : <p className='cardQuestionText'>{questionData.question}</p>}
+                        {showAnswer ? <p className='cardQuestionText'>{questionData.answer}</p>
+                            : <p className='cardQuestionText'>{questionData.question}</p>}
 
                         <div className='flex-box-sb'>
-                            {showAnswer ? <button onClick={() => setShowAnswer(false)}>Hide Answer</button> : 
-                            <button onClick={() => setShowAnswer(true)}>Show Answer</button> }
-                            <button onClick={() => removePoints(questionData.points)}><FaTimes className='grading-icon' /></button>
-                            <button onClick={bonusRound}><FaCheck className='grading-icon' /></button>
+                            {showAnswer ?
+                                <>
+                                    <button onClick={() => setShowAnswer(false)}>Hide Answer</button>
+                                    <button onClick={() => removePoints(questionData.points)}><FaTimes className='grading-icon' /></button>
+                                    <button onClick={bonusRound}><FaCheck className='grading-icon' /></button>
+                                </>
+                                :
+                                <button onClick={() => setShowAnswer(true)}>Show Answer</button>
+                            }
                         </div>
                     </article>
                 }
