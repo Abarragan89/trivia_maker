@@ -44,10 +44,10 @@ function frameRenderer(size, ball) {
     winningCirles(150, 175, 15, 'x5', 'green');
     winningCirles(100, 325, 25, 'x4', 'orange');
     winningCirles(250, 225, 25, 'x4', 'orange');
-    winningCirles(250, 350, 35, 'x3', 'blue');
-    winningCirles(50, 50, 35, 'x3', 'blue');
-    winningCirles(230, 100, 40, 'x2', 'purple');
-    winningCirles(80, 200, 40, 'x2', 'purple');
+    winningCirles(230, 100, 35, 'x3', 'blue');
+    winningCirles(80, 200, 35, 'x3', 'blue');
+    winningCirles(250, 350, 40, 'x2', 'purple');
+    winningCirles(50, 50, 40, 'x2', 'purple');
 
     drawCircle(ball.x, ball.y, ball.radius, "white");
   }
