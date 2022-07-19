@@ -6,7 +6,7 @@ function BonusRound() {
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
   // Make speed 6
-  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 3, vy: 3, radius: 5 });
+  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 6, vy: 6, radius: 5 });
   const size = { width: 300, height: 400 };
 
   const updateBall = () => {
@@ -88,7 +88,7 @@ function BonusRound() {
       let distance4y1 = bonusBallY - 225;
       let distance4x2 = bonusBallX - 100;
       let distance4y2 = bonusBallY - 325;
-      let radii_sum4 = 5 + 35;
+      let radii_sum4 = 5 + 25;
       if (distance4x1 * distance4x1 + distance4y1 * distance4y1 <= radii_sum4 * radii_sum4
         || 
         distance4x2 * distance4x2 + distance4y2 * distance4y2 <= radii_sum4 * radii_sum4) {
@@ -98,7 +98,7 @@ function BonusRound() {
       // If close to the two x5, multiply points by two for user
       let distance5x1 = bonusBallX - 150;
       let distance5y1 = bonusBallY - 175;
-      let radii_sum5 = 5 + 35;
+      let radii_sum5 = 5 + 15;
       if (distance5x1 * distance5x1 + distance5y1 * distance5y1 <= radii_sum5 * radii_sum5) {
           console.log('collided with five')
         }

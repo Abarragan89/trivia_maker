@@ -55,6 +55,13 @@ function GameBoard({ h1ref }) {
                             {question.clues.map((set, index) => {
                                 {/* get the id of the button that will be disabled. */}
                                 set.listEl = index + question.category
+                                if (!set.points) {
+                                   return (
+                                    <li>
+                                        <p>NA</p>
+                                    </li>
+                                   ) 
+                                }
                                 return (
                                     <li
                                         key={index}

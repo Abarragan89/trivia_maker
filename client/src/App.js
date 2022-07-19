@@ -10,6 +10,7 @@ import GamePage from './Pages/GamePage/gamePage.js';
 import HomePage from './Pages/HomePage/homePage.js';
 import CreateGame from './Pages/CreateGame/createGame.js';
 import MyGames from './Pages/MyGames/myGames.js';
+import PlayerInput from './Pages/PlayerInput/playerInput.js';
 
 // import Apollo Client package for context
 import {
@@ -58,6 +59,8 @@ function App() {
           <Route path='/create-game' element={<CreateGame />}></Route>
           <Route path='/gamepage/:gameId' element={<GamePage />}></Route>
           <Route path='/my-games' element={<MyGames />}></Route>
+          <Route path='/players/:gameId' element={<PlayerInput />}></Route>
+
         </Routes>
       </Router>
     </ApolloProvider>
