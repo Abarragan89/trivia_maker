@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
 
-function Modal({ questionData, onClose }) {
+function Modal({ questionData, onClose, players }) {
     // remove points if user gets question wrong
     function removePoints(questionPoints) {
         console.log(500 - questionPoints);
@@ -16,6 +16,14 @@ function Modal({ questionData, onClose }) {
         const modal = document.getElementById('modalContainer')
         modal.style.animation = 'bonusAppear 1s'
         setCorrectAnswer(true)
+
+    // Make function for subtracting points
+
+    // Make function for transfering points to the bonus round
+
+    // Not here, but multiply points by x landed
+
+    // How do I incorporate the game class to start and end a game? 
     }
     return (
         <div className='modalBackdrop'>
@@ -25,7 +33,7 @@ function Modal({ questionData, onClose }) {
                     <p id='exitModal' onClick={onClose}><FaTimes /></p>
                 </div>
                 {correctAnswer ?
-                    <BonusRound />
+                    <BonusRound players={players}/>
                     :
                     <article className='questionContainer flex-box-col-sa'>
                         {showAnswer ? <p className='cardQuestionText'>{questionData.answer}</p>

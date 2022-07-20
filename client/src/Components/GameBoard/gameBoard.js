@@ -5,19 +5,12 @@ import { QUERY_GAME_INFO } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 
-function GameBoard({ h1ref }) {
+function GameBoard({ h1ref, players }) {
     const gameId = useParams().gameId
-    console.log(gameId)
-
     const { data } = useQuery(QUERY_GAME_INFO, {
         variables: { gameId }
     })
-    console.log(data)
-    const gameTopic = data?.getUserGames.gameTopic || '';
-    console.log('gameTopic', gameTopic)
     const gameData = data?.getUserGames.gameData || [];
-    console.log('game data ', gameData)
-
 
     const [isModal, setIsModal] = useState(false)
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
@@ -44,10 +37,11 @@ function GameBoard({ h1ref }) {
         let listEl = document.getElementById(listElId)
         listEl.setAttribute('disabled', 'true')
     }
+
     return (
         <>
             <div className='category-columns flex-box-sa'>
-                {isModal && <Modal questionData={currentQuestionSet} onClose={closeModal} />}
+                {isModal && <Modal questionData={currentQuestionSet} onClose={closeModal} players={players}/>}
                 {gameData.map((question, index) => (
                     <div className='column' key={index + question.category}>
                         <h3>{question.category}</h3>
@@ -57,7 +51,7 @@ function GameBoard({ h1ref }) {
                                 set.listEl = index + question.category
                                 if (!set.points) {
                                    return (
-                                    <li>
+                                    <li key={index}>
                                         <p>NA</p>
                                     </li>
                                    ) 

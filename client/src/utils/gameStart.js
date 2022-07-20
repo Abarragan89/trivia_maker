@@ -3,11 +3,11 @@ class Player {
         this.name = name
         this.score = 0
     }
-    addPoints() {
-
+    addPoints(points) {
+        this.score += points
     }
-    subtractPoints() {
-
+    subtractPoints(points) {
+        this.score -= points
     }
 }
 
@@ -22,4 +22,4 @@ class GameStart {
     // end game
 }
 
-export default GameStart;
+export {GameStart, Player};

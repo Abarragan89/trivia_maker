@@ -40,7 +40,7 @@ main h1 {
   font-size: 2rem;
   text-align: center;
 }
-main section {
+main #gameBoard {
   margin: 0 auto;
   border: 1px solid;
 }

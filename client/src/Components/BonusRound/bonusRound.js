@@ -2,7 +2,7 @@ import './bonusRound.css'
 import { useRef, useEffect } from "react";
 import frameRenderer from "../FrameRenderer/frameRenderer";
 
-function BonusRound() {
+function BonusRound({ players }) {
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
   // Make speed 6

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import ConfirmGameModal  from '../../Components/ConfirmGameModal/confirmGameModal'
+import ConfirmGameModal  from '../../Components/ConfirmGameModal/confirmGameModal';
+import { Player } from '../../utils/gameStart'
 
 function PlayerInput() {
     const [showPlayerNames, setShowPlayerNames] = useState(false);
@@ -24,19 +25,21 @@ function PlayerInput() {
         )
     }
 
-    const playerNames = [];
+    const [playerNameArray, setPlayerNameArray] = useState([])
     function handleGameStart(e) {
         e.preventDefault();
         const names = document.querySelectorAll("[data-player]");
         for (let player of names) {
-            playerNames.push(player.value);
+
+            setPlayerNameArray(playerNameArray => [...playerNameArray, new Player(player.value)])
         }
         setShowConfirmationModal(true)
+        console.log(playerNameArray)
     }
 
     return (
         <>
-        {showConfirmationModal && <ConfirmGameModal players={playerNames} />}
+        {showConfirmationModal && <ConfirmGameModal players={playerNameArray} />}
             <h2>Players</h2>
             {showPlayerNames ?
                 <form onSubmit={handleGameStart}>

@@ -9,9 +9,7 @@ function MyGames() {
     const { data } = useQuery(QUERY_ME_BASIC);
 
     // user information
-    const userGames = data?.me.games || [];
-    console.log(data)
-    console.log(userGames)
+    const userGames = data?.me?.games || [];
 
     return (
         <>
