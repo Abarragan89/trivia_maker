@@ -17,7 +17,7 @@ function GamePage() {
     })
 
     const gameTopic = data?.getUserGames.gameTopic || '';
-    const h1Text = useRef(null)
+    const h1Text = useRef(null) 
 
     return (
         <main>

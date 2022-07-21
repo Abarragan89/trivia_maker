@@ -4,10 +4,18 @@ import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
 
-function Modal({ questionData, onClose, players }) {
-    // remove points if user gets question wrong
-    function removePoints(questionPoints) {
-        console.log(500 - questionPoints);
+function Modal({ questionData, onClose, players, game }) {
+    console.log('inside the modal',game.current)
+
+    // If the player gets the answer wrong
+    function wrongAnswer(questionPoints) {
+        game.current.decreaseQuestions();
+        console.log('current player', game.current.currentPlayer)
+        // game.current.currentPlayer.score -= questionPoints
+        game.current.subtractPoints(questionPoints)
+        game.current.switchPlayer();
+        onClose();
+        game.current.endGame();
     }
 
     const [correctAnswer, setCorrectAnswer] = useState(false)
@@ -24,6 +32,9 @@ function Modal({ questionData, onClose, players }) {
     // Not here, but multiply points by x landed
 
     // How do I incorporate the game class to start and end a game? 
+
+    // subtract from question everyTime question if picked
+
     }
     return (
         <div className='modalBackdrop'>
@@ -43,7 +54,7 @@ function Modal({ questionData, onClose, players }) {
                             {showAnswer ?
                                 <>
                                     <button onClick={() => setShowAnswer(false)}>Hide Answer</button>
-                                    <button onClick={() => removePoints(questionData.points)}><FaTimes className='grading-icon' /></button>
+                                    <button onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
                                     <button onClick={bonusRound}><FaCheck className='grading-icon' /></button>
                                 </>
                                 :

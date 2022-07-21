@@ -21,6 +21,7 @@ query GetUserGames($gameId: ID!) {
   getUserGames(gameId: $gameId) {
     _id
     gameTopic
+    questionCount
     gameData {
       category
       clues {

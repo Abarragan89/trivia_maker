@@ -25,6 +25,8 @@ function PlayerInput() {
         )
     }
 
+
+    // create the player objects
     const [playerNameArray, setPlayerNameArray] = useState([])
     function handleGameStart(e) {
         e.preventDefault();

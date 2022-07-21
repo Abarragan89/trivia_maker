@@ -12,14 +12,35 @@ class Player {
 }
 
 class GameStart {
-    constructor(players) {
-        this.players = [players]
+    constructor(questions, players ) {
+        this.players = players
+        this.questions = questions
+        this.currentPlayer = players[0]
     }
-    displayScores () {
+    // displayScores () {
 
+    // }
+    subtractPlayerPoints(points) {
+        this.currentPlayer.subtractPoints(points)
     }
-    // switch turns
+    // switch players
+    switchPlayer() {
+        if(this.players.indexOf(this.currentPlayer) + 1 >= this.players.length){
+            this.currentPlayer = this.players[0];
+        } else {
+            this.currentPlayer = this.players[this.players.indexOf(this.currentPlayer) + 1]
+        }
+    }
+    // decrease questions
+    decreaseQuestions() {
+        this.questions -= 1;
+    }
     // end game
+    endGame() {
+        if (this.questions === 0) {
+            alert('game ended')
+        }
+    }
 }
 
 export {GameStart, Player};
