@@ -21,7 +21,9 @@ const typeDefs = gql `
         _id: ID 
         gameTopic: String 
         gameData: [categorySet]
+        questionCount: Int   
     }
+
     type Auth {
         token: ID!
         user: User

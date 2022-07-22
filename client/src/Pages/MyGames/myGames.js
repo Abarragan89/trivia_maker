@@ -9,9 +9,7 @@ function MyGames() {
     const { data } = useQuery(QUERY_ME_BASIC);
 
     // user information
-    const userGames = data?.me.games || [];
-    console.log(data)
-    console.log(userGames)
+    const userGames = data?.me?.games || [];
 
     return (
         <>
@@ -19,7 +17,7 @@ function MyGames() {
             <>
                 <p>My Games</p>
                 {userGames.map((game, index) => (
-                    <Link key={index} to={`/gamepage/${game._id}`}>{game.gameTopic}</Link>
+                    <Link key={index} to={`/players/${game._id}`}>{game.gameTopic}</Link>
                 ))}
             </>
             :
