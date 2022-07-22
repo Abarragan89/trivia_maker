@@ -4,7 +4,12 @@ import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
 
-function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
+function Modal({ 
+    questionData, 
+    onClose, 
+    game, 
+    scoreChange, 
+    setScoreChange }) {
 
     // This triggers the bonus round
     const [correctAnswer, setCorrectAnswer] = useState(false)
@@ -21,6 +26,7 @@ function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
     const [playerScore, setPlayerScore] = useState(game.currentPlayer.score)
     // this function works as a ticker to visually display the player's score increasing
     function increasePlayerScore(points) {
+        game.decreaseQuestions();
         let playerIntegerScore = parseInt(playerScore)
         let counter = 0;
         const visualIncrease = setInterval(() => {
@@ -37,7 +43,6 @@ function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
         decreasePlayerScore(questionPoints);
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
-        game.endGame();
         setScoreChange(scoreChange + 1);
     }
     // visually display the score decreasing
@@ -58,8 +63,8 @@ function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
                 <div className='modalHeader flex-box-sb'>
-                    <h4>{game.currentPlayer.name}<span>{playerScore}</span></h4>
-                    <p id='exitModal' onClick={onClose}><FaTimes /></p>
+                    <h4>{game.currentPlayer.name}</h4>
+                    <h3>{playerScore}</h3>
                 </div>
                 {correctAnswer ?
                     <BonusRound

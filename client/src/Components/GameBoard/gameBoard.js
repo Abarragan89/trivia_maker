@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { QUERY_GAME_INFO } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-// import { GameStart } from '../../utils/gameStart';
+import WinnerPodium from '../WinnerPodium/winnerPodium';
 
 function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     const gameId = useParams().gameId
@@ -29,8 +29,13 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
         disableButton(questionButton.listEl)
     }
 
+    const [endGameData, setEndGameData] = useState(null)
+    console.log(endGameData)
     function closeModal() {
         setIsModal(!isModal);
+        if(game.endGame()) {
+            setEndGameData(game.endGame())
+        }
         game.switchPlayer();
     }
 
@@ -77,6 +82,9 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                         </ul>
                     </div>
                 ))}
+            {endGameData &&
+                <WinnerPodium endGameData={endGameData}/>
+            }    
             </div>
         </>
     )

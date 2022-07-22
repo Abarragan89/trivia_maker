@@ -13,10 +13,12 @@ class Player {
 
 class GameStart {
     constructor(questions, players ) {
+        // create an array of player instances
         this.players = players.map(player => {
             return new Player(player)
         })
         this.questions = questions
+        // set player one as the default current player
         this.currentPlayer = this.players[0]
     }
     subtractPlayerPoints(points) {
@@ -37,7 +39,21 @@ class GameStart {
     // end game
     endGame() {
         if (this.questions === 0) {
-            alert('game ended')
+            let winner = [];
+            let highscore = null;
+            this.players.forEach(player => {
+                console.log('in class', player.name)
+                if (!highscore) {
+                    highscore = parseInt(player.score);
+                    winner.push(player.name)
+                    return;
+                } else if (player.score >= highscore) {
+                    highscore = parseInt(player.score);
+                    winner.push(player.name) 
+                    return;
+                }
+            })
+            return {winner, highscore};
         }
     }
 }
