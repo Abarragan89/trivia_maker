@@ -3,7 +3,7 @@ class Player {
         this.name = name
         this.score = 0
     }
-    addPoints(points) {
+    addPoints(points) {  
         this.score += points
     }
     subtractPoints(points) {
@@ -13,19 +13,18 @@ class Player {
 
 class GameStart {
     constructor(questions, players ) {
-        this.players = players
+        this.players = players.map(player => {
+            return new Player(player)
+        })
         this.questions = questions
-        this.currentPlayer = players[0]
+        this.currentPlayer = this.players[0]
     }
-    // displayScores () {
-
-    // }
     subtractPlayerPoints(points) {
         this.currentPlayer.subtractPoints(points)
     }
     // switch players
     switchPlayer() {
-        if(this.players.indexOf(this.currentPlayer) + 1 >= this.players.length){
+        if(this.players.indexOf(this.currentPlayer) + 1 === this.players.length){
             this.currentPlayer = this.players[0];
         } else {
             this.currentPlayer = this.players[this.players.indexOf(this.currentPlayer) + 1]
@@ -42,5 +41,4 @@ class GameStart {
         }
     }
 }
-
 export {GameStart, Player};

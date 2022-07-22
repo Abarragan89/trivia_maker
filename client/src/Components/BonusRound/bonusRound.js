@@ -1,12 +1,19 @@
 import './bonusRound.css'
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import frameRenderer from "../FrameRenderer/frameRenderer";
 
-function BonusRound({ players }) {
+function BonusRound({ 
+  pointValue, 
+  game, 
+  scoreChange, 
+  setScoreChange,
+  closeModal, 
+  increasePlayerScore
+  }) {
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
-  // Make speed 6
-  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 6, vy: 6, radius: 5 });
+  // Make speed 5
+  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 5, vy: 5, radius: 5 });
   const size = { width: 300, height: 400 };
 
   const updateBall = () => {
@@ -52,14 +59,13 @@ function BonusRound({ players }) {
     };
   }, []);
 
+
+  const [multiplier, setMultiplier] = useState(1);
   function stop() {
-    console.log('stop')
     cancelAnimationFrame(requestIdRef.current)
-    console.log(ballRef.current.x)
-    console.log(ballRef.current.y)
     const bonusBallX = ballRef.current.x;
     const bonusBallY = ballRef.current.y;
-    
+
     // If close to the two X2, multiply points by two for user
     let distance2x1 = bonusBallX - 50;
     let distance2y1 = bonusBallY - 50;
@@ -67,54 +73,87 @@ function BonusRound({ players }) {
     let distance2y2 = bonusBallY - 350;
     let radii_sum2 = 5 + 40;
     if (distance2x1 * distance2x1 + distance2y1 * distance2y1 <= radii_sum2 * radii_sum2
-      || 
+      ||
       distance2x2 * distance2x2 + distance2y2 * distance2y2 <= radii_sum2 * radii_sum2) {
-        console.log('collided with two')
-      }
-      // If close to the two X3, multiply points by two for user
-      let distance3x1 = bonusBallX - 80;
-      let distance3y1 = bonusBallY - 200;
-      let distance3x2 = bonusBallX - 230;
-      let distance3y2 = bonusBallY - 100;
-      let radii_sum3 = 5 + 35;
-      if (distance3x1 * distance3x1 + distance3y1 * distance3y1 <= radii_sum3 * radii_sum3
-        || 
-        distance3x2 * distance3x2 + distance3y2 * distance3y2 <= radii_sum3 * radii_sum3) {
-          console.log('collided with three')
-        }
-      
-      // If close to the two X4, multiply points by two for user
-      let distance4x1 = bonusBallX - 250;
-      let distance4y1 = bonusBallY - 225;
-      let distance4x2 = bonusBallX - 100;
-      let distance4y2 = bonusBallY - 325;
-      let radii_sum4 = 5 + 25;
-      if (distance4x1 * distance4x1 + distance4y1 * distance4y1 <= radii_sum4 * radii_sum4
-        || 
-        distance4x2 * distance4x2 + distance4y2 * distance4y2 <= radii_sum4 * radii_sum4) {
-          console.log('collided with four')
-        }
-      
-      // If close to the two x5, multiply points by two for user
-      let distance5x1 = bonusBallX - 150;
-      let distance5y1 = bonusBallY - 175;
-      let radii_sum5 = 5 + 15;
-      if (distance5x1 * distance5x1 + distance5y1 * distance5y1 <= radii_sum5 * radii_sum5) {
-          console.log('collided with five')
-        }
-      
-      // If you hit nothing
-      
+      console.log('collided with two');
+      setMultiplier(2);
+      pointMultiplier(pointValue, 2);
+      return;
+    }
+    // If close to the two X3, multiply points by two for user
+    let distance3x1 = bonusBallX - 80;
+    let distance3y1 = bonusBallY - 200;
+    let distance3x2 = bonusBallX - 230;
+    let distance3y2 = bonusBallY - 100;
+    let radii_sum3 = 5 + 35;
+    if (distance3x1 * distance3x1 + distance3y1 * distance3y1 <= radii_sum3 * radii_sum3
+      ||
+      distance3x2 * distance3x2 + distance3y2 * distance3y2 <= radii_sum3 * radii_sum3) {
+      console.log('collided with three');
+      setMultiplier(3);
+      pointMultiplier(pointValue, 3);
+      return;
     }
 
+    // If close to the two X4, multiply points by two for user
+    let distance4x1 = bonusBallX - 250;
+    let distance4y1 = bonusBallY - 225;
+    let distance4x2 = bonusBallX - 100;
+    let distance4y2 = bonusBallY - 325;
+    let radii_sum4 = 5 + 25;
+    if (distance4x1 * distance4x1 + distance4y1 * distance4y1 <= radii_sum4 * radii_sum4
+      ||
+      distance4x2 * distance4x2 + distance4y2 * distance4y2 <= radii_sum4 * radii_sum4) {
+      console.log('collided with four')
+      setMultiplier(4)
+      pointMultiplier(pointValue, 4)
+      return;
+    }
+
+    // If close to the two x5, multiply points by two for user
+    let distance5x1 = bonusBallX - 150;
+    let distance5y1 = bonusBallY - 175;
+    let radii_sum5 = 5 + 15;
+    if (distance5x1 * distance5x1 + distance5y1 * distance5y1 <= radii_sum5 * radii_sum5) {
+      setMultiplier(5);
+      pointMultiplier(pointValue, 5);
+      return;
+    }
+    console.log('missed')
+    setMultiplier(1);
+    pointMultiplier(pointValue, 1);
+  }
+
+  const [ballStopped, setBallStopped] = useState(false);
+  function pointMultiplier(points, multiplier) {
+    game.currentPlayer.addPoints(points * multiplier);
+    setScoreChange(scoreChange + 1);
+    setBallStopped(true);
+    increasePlayerScore(points * multiplier)
+  }
+
   return (
-  <>
+    <>
       <h1>Bonus Round!!!</h1>
       <canvas id='canvas' height="400" width="300" ref={canvasRef} />
-      <button id='stop-ball-btn' onClick={stop}>Stop</button>
-  </>
-    
-  ) 
+      {
+        ballStopped ?
+          <>
+          {
+            multiplier > 1 
+            ? 
+            <div>x{multiplier}!!</div>
+            :
+            <div>Aw, nice try.</div>
+          }
+            <button id='stop-ball-btn' onClick={closeModal}>Next Player</button>
+          </>
+          :
+          <button id='stop-ball-btn' onClick={stop}>Stop</button>
+      }
+    </>
+
+  )
 }
 
 export default BonusRound;

@@ -33,7 +33,7 @@ function PlayerInput() {
         const names = document.querySelectorAll("[data-player]");
         for (let player of names) {
 
-            setPlayerNameArray(playerNameArray => [...playerNameArray, new Player(player.value)])
+            setPlayerNameArray(playerNameArray => [...playerNameArray, (player.value)])
         }
         setShowConfirmationModal(true)
         console.log(playerNameArray)
