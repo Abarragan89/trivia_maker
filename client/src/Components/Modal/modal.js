@@ -5,19 +5,12 @@ import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
 
 function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
-    // If the player gets the answer wrong
-    function wrongAnswer(questionPoints) {
-        game.decreaseQuestions();
-        game.currentPlayer.subtractPoints(questionPoints)
-        onClose();
-        game.endGame();
-        setScoreChange(scoreChange + 1);
-    }
 
+    // This triggers the bonus round
     const [correctAnswer, setCorrectAnswer] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
-
     const [pointValue, setPointValue] = useState(0)
+
     function bonusRound(points) {
         setPointValue(points)
         const modal = document.getElementById('modalContainer')
@@ -25,23 +18,42 @@ function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
         setCorrectAnswer(true)
     }
 
-
-    let [playerScore, setPlayerScore] = useState(game.currentPlayer.score)
-    
-    console.log('playerscore', playerScore)
+    const [playerScore, setPlayerScore] = useState(game.currentPlayer.score)
+    // this function works as a ticker to visually display the player's score increasing
     function increasePlayerScore(points) {
         let playerIntegerScore = parseInt(playerScore)
         let counter = 0;
         const visualIncrease = setInterval(() => {
-                setPlayerScore(playerIntegerScore++)
-                counter++;
-                if (counter > points) {
-                    clearInterval(visualIncrease)
-                }
+            setPlayerScore(playerIntegerScore++)
+            counter++;
+            if (counter > points) {
+                clearInterval(visualIncrease)
+            }
         }, 15)
     }
-    
 
+    // If the player gets the answer wrong
+    function wrongAnswer(questionPoints) {
+        decreasePlayerScore(questionPoints);
+        game.decreaseQuestions();
+        game.currentPlayer.subtractPoints(questionPoints)
+        game.endGame();
+        setScoreChange(scoreChange + 1);
+    }
+    // visually display the score decreasing
+    const [wrongAnswerChosen, setWrongAnswerChosen] = useState(false)
+    function decreasePlayerScore(points) {
+        setWrongAnswerChosen(true)
+        let playerIntegerScore = parseInt(playerScore)
+        let counter = 0;
+        const visualIncrease = setInterval(() => {
+            setPlayerScore(playerIntegerScore--)
+            counter++;
+            if (counter > points) {
+                clearInterval(visualIncrease)
+            }
+        }, 15)
+    }
     return (
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
@@ -66,9 +78,15 @@ function Modal({ questionData, onClose, game, scoreChange, setScoreChange }) {
                         <div className='flex-box-sb'>
                             {showAnswer ?
                                 <>
-                                    <button onClick={() => setShowAnswer(false)}>Hide Answer</button>
-                                    <button onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
-                                    <button onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>
+                                    {wrongAnswerChosen ?
+                                        <button onClick={onClose}>Next Player</button>
+                                        :
+                                        <>
+                                            <button onClick={() => setShowAnswer(false)}>Hide Answer</button>
+                                            <button onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
+                                            <button onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>
+                                        </>
+                                    }
                                 </>
                                 :
                                 <button onClick={() => setShowAnswer(true)}>Show Answer</button>
