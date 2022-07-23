@@ -28,7 +28,7 @@ function GamePage() {
     const [scoreChange, setScoreChange] = useState(0)
 
     return (
-        <main>
+        <main id='main-gamepage'>
             <h1 ref={h1Text}>{gameTopic}</h1>
             <section id="gameBoard">
                 <GameBoard 

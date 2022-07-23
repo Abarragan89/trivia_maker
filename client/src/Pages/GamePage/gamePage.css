@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 /* UTILITY Classes */
 .flex-box-sa {
   display: flex;
@@ -32,21 +38,21 @@
   justify-content: space-around;
 }
 
-main {
+#main-gamepage {
   padding: 2rem;
   margin: 0 auto;
 }
-main h1 {
+#main-gamepage h1 {
   font-size: 2rem;
   text-align: center;
 }
-main #gameBoard {
+#main-gamepage #gameBoard {
   margin: 0 auto;
   border: 1px solid;
 }
 
-@media screen and (max-width: 595px) {
-  main {
-    width: 500px;
+@media screen and (max-width: 800px) {
+  #main-gamepage {
+    width: 800px;
   }
 }/*# sourceMappingURL=gamePage.css.map */

@@ -32,12 +32,21 @@ const GameSchema = new Schema(
             type: String,
             require: true
         },
-        gameData: [gameData]
+        gameData: [gameData],
+        
+        public: {
+            type: Boolean,
+            default: false
+        },
+        creator: {
+            type: Schema.Types.ObjectId,
+            ref: 'user'
+        }
     },
     {
         toJSON: {
             virtuals: true
-        }
+        },
     }
 )
 
@@ -55,5 +64,8 @@ GameSchema.virtual('questionCount').get(function () {
 
 })
 
+
+
 const Game = model('game', GameSchema);
+
 module.exports = Game;

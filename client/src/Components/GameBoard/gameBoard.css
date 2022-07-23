@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 /* UTILITY Classes */
 .flex-box-sa {
   display: flex;
@@ -32,15 +38,69 @@
   justify-content: space-around;
 }
 
+.font-cat-0 {
+  font-size: 1.4rem;
+}
+
+.font-cat-10 {
+  font-size: 1.4rem;
+}
+
+.font-cat-20 {
+  font-size: 1.2rem;
+}
+
+.font-cat-30 {
+  font-size: 1.1rem;
+}
+
+.font-cat-40 {
+  font-size: 0.85rem;
+}
+
+.font-cat-50 {
+  font-size: 0.8rem;
+}
+
+.font-cat-60 {
+  font-size: 0.75rem;
+}
+
+.font-cat-70 {
+  font-size: 0.8rem;
+}
+
+.font-cat-80 {
+  font-size: 0.75rem;
+}
+
+.font-cat-90 {
+  font-size: 0.72rem;
+}
+
+.font-cat-100 {
+  font-size: 0.71rem;
+}
+
+.font-cat-110 {
+  font-size: 0.7rem;
+}
+
 .column {
   flex: 1;
   margin: 0 auto;
 }
 .column h3 {
   text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 0 auto;
   margin-bottom: 10px;
-  height: 50px;
+  height: 70px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
 }
 .column ul {
   padding: 0;
@@ -49,4 +109,10 @@
   list-style-type: none;
   margin-bottom: 8px;
   text-align: center;
+}
+.column li button {
+  padding: 15% 20%;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
 }/*# sourceMappingURL=gameBoard.css.map */

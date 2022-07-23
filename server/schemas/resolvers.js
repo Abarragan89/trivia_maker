@@ -34,8 +34,12 @@ const resolvers = {
         },
         getUserGames: async (parent, { gameId }, context) => {
             return Game.findOne({ _id: gameId })
+        },
+        getPublicGames: async () => {
+            return Game.find({
+                public: true
+            }).populate('creator')
         }
-     
     },
     //Mutations
     Mutation: {
@@ -63,12 +67,14 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        createGame: async (parent, {topic, gameData }, context) => {
+        createGame: async (parent, {topic, gameData, public }, context) => {
             if (context.user) {
                 try {
                     const game = await Game.create({
                         gameTopic: topic,
-                        gameData: gameData
+                        gameData: gameData,
+                        public: public,
+                        creator: context.user._id
                     })
                     const user = await User.findOneAndUpdate(
                         { _id: context.user._id },
@@ -81,6 +87,17 @@ const resolvers = {
                 }
             }
         throw new AuthenticationError('You need to be logged in!');
+        },
+        deleteGame: async (parent, { gameId }, context) => {
+            if(context.user) {
+                try {
+                    const game = await Game.deleteOne({ _id: gameId })
+                    return game;
+                } catch(e) {
+                    console.log(e)
+                }
+            }
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 }

@@ -25,18 +25,20 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_GAME = gql `
-mutation Mutation($gameData: [categorySetInput]!, $topic: String!) {
-  createGame(gameData: $gameData, topic: $topic) {
+mutation Mutation($gameData: [categorySetInput]!, $topic: String!, $public: Boolean) {
+  createGame(gameData: $gameData, topic: $topic, public: $public) {
     _id
     gameTopic
+    questionCount
+    public
     gameData {
       category
       clues {
-          answer
-          points
-          question
-        }
+        answer
+        points
+        question
       }
     }
   }
+}
 `;

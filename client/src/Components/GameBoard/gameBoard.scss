@@ -1,13 +1,61 @@
 @import '../../index.scss';
 
+// List for category fonts. Generate dynamically based on word count
+// They are rounded to the nearest 10
+.font-cat-0 {
+    font-size: 1.4rem;
+}
+.font-cat-10 {
+    font-size: 1.4rem;
+}
+.font-cat-20 {
+    font-size: 1.2rem;
+}
+.font-cat-30 {
+    font-size: 1.1rem;
+}
+.font-cat-40 {
+    font-size: .85rem;
+}
+.font-cat-50 {
+    font-size: .8rem;
+}
+.font-cat-60 {
+    font-size: .75rem;
+
+}
+.font-cat-70 {
+    font-size: .8rem;
+    
+}
+.font-cat-80 {
+    font-size: .75rem;
+    
+}
+.font-cat-90 {
+    font-size: .72rem;
+    
+}
+.font-cat-100 {
+    font-size: .71rem;
+    
+}
+.font-cat-110 {
+    font-size: .7rem;
+}
+
 .column {
     flex: 1;
     margin: 0 auto;
     h3 {
         text-align: center;
+        height: fit-content;
         margin: 0 auto;
         margin-bottom: 10px;
-        height: 50px;
+        height: 70px;
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 5px;
     }
     ul {
         padding: 0;
@@ -16,5 +64,12 @@
         list-style-type: none;
         margin-bottom: 8px;
         text-align: center;
+
+        button {
+            padding: 15% 20%;
+            font-size: 1.5rem;
+            border: 1px solid black;
+            border-radius: 4px
+        }
     }
 }

@@ -33,3 +33,17 @@ query GetUserGames($gameId: ID!) {
   }
 }
 `;
+
+export const QUERY_PUBLIC_GAMES = gql `
+query GetPublicGames {
+  getPublicGames {
+    _id
+    gameTopic
+    questionCount
+    creator {
+      username
+      _id
+    }
+  }
+}
+`;

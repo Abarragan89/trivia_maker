@@ -1,17 +1,60 @@
-#question-accordion {
-    margin: 100px auto;
+#create-game-form {
+    margin: 0 auto;
+    margin-top: 80px;
     width: 90%;
+
+    div:first-child {
+        text-align: center;
+        margin-bottom: 20px;
+
+        #public-game {
+            margin-right: 5px;
+            height: 18px;
+            width: 18px;
+            accent-color: blue;
+        }
+        label {
+            font-size: 1.2em;
+        }
+    }
+    .create-game-txt-input {
+        padding: 5px;
+        font-size: 1rem;
+        border-radius: 4px;
+        border: 1px solid black;
+    }
+}
+
+
+// Styles and logic for the accordion
+#question-accordion {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 0;
+
+    .point-label{
+        margin-left: 10%;
+        margin-bottom: 2px;
+        font-size: 1.2em;
+    }
+
     textarea {
         display: block;
         width: 80%;
         height: 50px;
         margin: 0 auto;
+        margin-bottom: 10px;
     }
     input {
         display: block;
         margin: 0 auto;
-        margin-bottom: 10px;
-        width: 80%;
+        width: 60%;
+        font-size: 1rem;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+    input:focus {
+        outline: none;
     }
     label {
         display: block;
@@ -25,7 +68,7 @@
         transition: max-height 0.5s;
     }
     .single-question-div {
-        border: 1px solid black;
+        // border-bottom: 1px solid black;
         padding: 5px
     }
     li {

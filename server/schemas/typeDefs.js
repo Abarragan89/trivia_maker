@@ -22,6 +22,8 @@ const typeDefs = gql `
         gameTopic: String 
         gameData: [categorySet]
         questionCount: Int   
+        public: Boolean
+        creator: User
     }
 
     type Auth {
@@ -47,11 +49,13 @@ const typeDefs = gql `
         user(_id: ID!): User
         userByName(username: String!): User
         getUserGames(gameId: ID!): Game
+        getPublicGames: [Game]
     }
     type Mutation {
         login(email: String!, password: String!): Auth 
         addUser(username: String!, password: String!, email: String!): Auth 
-        createGame( gameData: [categorySetInput]!  topic: String!): Game
+        createGame( gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
+        deleteGame( gameId: ID!): Game
     }
 `;
 

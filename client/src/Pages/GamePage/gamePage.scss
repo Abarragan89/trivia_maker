@@ -1,6 +1,6 @@
 @import '../../index.scss';
 
-main {
+#main-gamepage {
     padding: 2rem;
     margin: 0 auto;
 
@@ -15,8 +15,8 @@ main {
     }
 }
 
-@media screen and (max-width: 595px) {
-    main {
-        width: 500px
+@media screen and (max-width: 800px) {
+    #main-gamepage {
+        width: 800px
     }
 }

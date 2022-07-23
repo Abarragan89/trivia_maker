@@ -2,6 +2,7 @@ import './createGame.css';
 import Auth from '../../utils/auth';
 import { useMutation } from '@apollo/client'
 import { CREATE_GAME } from '../../utils/mutations'
+import '../../Components/Login/login.css'
 
 function CreateGame() {
     // used to check if the user is logged in
@@ -282,7 +283,7 @@ function CreateGame() {
         // add clue sets to category objects
         let clues1Array = [c1s1, c1s2, c1s3, c1s4, c1s5]
         category1.clues = clues1Array
-        
+
         let clues2Array = [c2s1, c2s2, c2s3, c2s4, c2s5]
         category2.clues = clues2Array
 
@@ -295,57 +296,57 @@ function CreateGame() {
         let clues5Array = [c5s1, c5s2, c5s3, c5s4, c5s5]
         category5.clues = clues5Array
 
-        if(category1.clues.length !==0) {
+        if (category1.clues.length !== 0) {
             allAnswers.push(category1)
         }
-        if(category2.clues.length !==0) {
+        if (category2.clues.length !== 0) {
             allAnswers.push(category2)
         }
-        if(category3.clues.length !==0) {
+        if (category3.clues.length !== 0) {
             allAnswers.push(category3)
         }
-        if(category4.clues.length !==0) {
+        if (category4.clues.length !== 0) {
             allAnswers.push(category4)
         }
-        if(category5.clues.length !==0) {
+        if (category5.clues.length !== 0) {
             allAnswers.push(category5)
         }
-
-        console.log('answers ', allAnswers)
-        // Get game topic
+        // Get game topic and check to see if it's public
         let topic = document.querySelector('#game-topic').value;
-        console.log('topic ', topic)
+        let publicGame = document.querySelector('#public-game').checked
 
-
-        const {data} = await createGame({
+        await createGame({
             variables: {
                 gameData: allAnswers,
-                topic: topic
+                topic: topic,
+                public: publicGame
             }
         })
-        console.log('data', data)
         window.location.replace('/')
     }
     return (
         <>
             {loggedIn ?
-                <form id="create-game-form" onSubmit={handleSubmit}>
-                    <label htmlFor='game-topic'>Topic</label>
-                    <input type='text' id='game-topic' name='game-topic'></input>
+                <form id='create-game-form' onSubmit={handleSubmit}>
+                    <div className='flex-box-sb'>
+                        <input type='text' className='create-game-txt-input' placeholder='Topic' id='game-topic' name='game-topic' required></input>
+                        <div>
+                            <input type='checkbox' id='public-game' name='public-game'></input>
+                            <label htmlFor='public-game'>Make Public</label>
+                        </div>
+                    </div>
+                    <p>Insert as many or as little questions as you like. </p>
                     <ul id='question-accordion'>
                         <li>
                             <label htmlFor='category-one-radio' className='flex-box-sb'>Category One</label>
                             <input type='radio' id='category-one-radio' name='accordion'></input>
                             <section className='question-content'>
-
-                                <label htmlFor='category-one-name'>Category</label>
-                                <input type='text' data-category='c1' data-name='category' className='question-input' name='category-name' />
+                                <input type='text' data-category='c1' placeholder='Category Name' data-name='category' className='question-input' name='category-name' />
 
                                 <div className='single-question-div'>
-                                    <label htmlFor='c1-q1'>$100 Question</label>
-                                    <textarea data-category='c1' name='q1' className='question-input'></textarea>
-                                    <label htmlFor='c1-a1'>Answer</label>
-                                    <textarea data-category='c1' name='a1' className='question-input'></textarea>
+                                    <p className='point-label'>100 Points</p>
+                                    <textarea data-category='c1' placeholder='Question' name='q1' className='question-input'></textarea>
+                                    <textarea data-category='c1' placeholder='Answer'name='a1' className='question-input'></textarea>
                                 </div>
 
                                 <div className='single-question-div'>

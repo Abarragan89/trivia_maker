@@ -57,9 +57,11 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                 scoreChange={scoreChange}
                 setScoreChange={setScoreChange}    
                 />}
+
+                {/* console.log(question.category.length) */}
                 {gameData.map((question, index) => (
                     <div className='column' key={index + question.category}>
-                        <h3>{question.category}</h3>
+                        <h3 className={question.category ? `font-cat-${Math.floor(question.category.length/10) * 10}` : '' }>{question.category}</h3>
                         <ul>
                             {question.clues.map((set, index) => {
                                 {/* get the id of the button that will be disabled. */}
@@ -67,7 +69,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                                 if (!set.points) {
                                    return (
                                     <li key={index}>
-                                        <p>NA</p>
+                                    <button className='questionButtons' id={index + question.category} disabled>N/A</button>
                                     </li>
                                    ) 
                                 }
