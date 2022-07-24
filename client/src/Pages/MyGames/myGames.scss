@@ -1,0 +1,25 @@
+@import '../../index.scss';
+
+#mygames-main {
+    h2 {
+        text-align: center;
+        color: $tertiaryColor;
+        margin-bottom: 30px;
+        background-color: $secondaryColor;
+        padding: 10px 0;
+        font-size: 1.7em;
+    }
+    div {
+        align-items:center;
+    }
+    #my-games-card {
+        border: 1px solid $secondaryColor;
+        width: 80%;
+        margin-bottom: 30px;
+        border-radius: 4px;
+        padding: 10px
+    }
+    #my-games-btn-div {
+        align-items: flex-end;
+    }
+}

@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 #search-form {
     text-align: center;
 }
@@ -30,13 +32,15 @@
             display: block;
             width: 170px;
             text-decoration: none;
-            color: black;
+            color: $tertiaryColor;
             margin: 0 auto;
-            border: 1px solid black;
+            border: 1px solid $tertiaryColor;
             border-radius: 4px;
             margin-bottom: 10px;
             padding: 10px 50px;
             text-align: center;
+            font-weight: 700;
+            background-color: $secondaryColor;
         }
     }
 
@@ -45,22 +49,35 @@
 
 
 .public-game-card {
-    border: 1px solid black;
+    border: 1px solid $secondaryColor;
     border-radius: 4px;
     width: 100%;
     padding: 5px 10px;
     margin-bottom: 20px;
+    background-color: $tertiaryColor;
 
     header {
         text-align: center;
-        font-size: 1.2em;
+        font-size: 1.3em;
         font-weight: bold;
         margin-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        color: $secondaryColor;
+        border-bottom: 1px solid $secondaryColor;
     }
-
+    p {
+        color: $gray;
+        font-size: 1.2em;
+        padding: 10px;
+    }
     div {
         flex-wrap: wrap;
     }
+}
+
+.public-game-card:hover header {
+    font-style: italic;
 }
 
 @media screen and (max-width: 590px) {

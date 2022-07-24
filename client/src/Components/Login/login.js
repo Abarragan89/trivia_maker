@@ -1,6 +1,7 @@
 import { ADD_USER, LOGIN_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
+import Header from '../Header/header';
 import Auth from '../../utils/auth'
 import './login.css'
 
@@ -78,32 +79,43 @@ function Login() {
         });
     };
 
+    
+
     return (
         <>
-            {isUser ?
-                <>
-                    <form onSubmit={handleSubmitLogin} className='flex-box-col-se login-form'>
-                        <legend><span>Login</span></legend>
-                        <p>Welcome Back</p>
-                        <input type='text' className='login-input' placeholder='Email' name='email' onChange={handleChangeLogin}></input>
-                        <input type='password' className='login-input' placeholder='Password' name='password' onChange={handleChangeLogin}></input>
-                        <button type='submit' className='login-btn'>Login</button>
-                    </form>
-                    <p className='switch-login'>Or<span onClick={() => setIsUser(false)}>create an account.</span></p>
-                </>
-                :
-                <>
-                    <form onSubmit={handleSubmitSignup} className='flex-box-col-se login-form'>
-                        <legend><span>Sign up</span></legend>
-                        <p>Create a free account to start making trivia games!</p>
-                        <input type='text' className='login-input' placeholder='Username' name='username' onChange={handleChangeSignup} autoFocus></input>
-                        <input type='text' className='login-input' placeholder='Email' name='email' onChange={handleChangeSignup}></input>
-                        <input type='password' className='login-input' placeholder='Password' name='password' onChange={handleChangeSignup}></input>
-                        <button type='submit' className='login-btn'>Sign up</button>
-                    </form>
-                    <p className='switch-login'>Already have an accout?<span onClick={() => setIsUser(true)}>Sign in.</span></p>
-                </>
-            }
+            <Header />
+            <main className='flex-box-sb'>
+                <section>
+                    <p>This is the info sess</p>
+                </section>
+                <aside>
+                    {isUser ?
+                        <>
+                            <form onSubmit={handleSubmitLogin} className='flex-box-col-se login-form'>
+                                <legend><span>Login</span></legend>
+                                <p>Welcome Back</p>
+                                <input type='text' className='login-input' placeholder='Email' name='email' onChange={handleChangeLogin}></input>
+                                <input type='password' className='login-input' placeholder='Password' name='password' onChange={handleChangeLogin}></input>
+                                <button type='submit' className='login-btn'>Login</button>
+                            </form>
+                            <p className='switch-login'>Or<span onClick={() => setIsUser(false)}>create an account.</span></p>
+                        </>
+                        :
+                        <>
+                            <form onSubmit={handleSubmitSignup} className='flex-box-col-se login-form'>
+                                <legend><span>Sign up</span></legend>
+                                <p>Create a free account to start making trivia games!</p>
+                                <input type='text' className='login-input' placeholder='Username' name='username' onChange={handleChangeSignup} autoFocus></input>
+                                <input type='text' className='login-input' placeholder='Email' name='email' onChange={handleChangeSignup}></input>
+                                <input type='password' className='login-input' placeholder='Password' name='password' onChange={handleChangeSignup}></input>
+                                <button type='submit' className='login-btn'>Sign up</button>
+                            </form>
+                            <p className='switch-login'>Already have an accout?<span onClick={() => setIsUser(true)}>Sign in.</span></p>
+                        </>
+                    }
+                </aside>
+            </main>
+
         </>
     )
 }

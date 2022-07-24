@@ -10,6 +10,7 @@ query Me {
     games {
       _id
       gameTopic
+      questionCount
     }
   }
 }

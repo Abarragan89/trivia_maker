@@ -46,37 +46,24 @@ body {
   justify-content: space-around;
 }
 
-#main-header {
-  width: auto;
-  margin: 0 auto;
-  background-color: #15133C;
-  padding: 0 20px;
+#mygames-main h2 {
+  text-align: center;
+  color: #15133C;
   margin-bottom: 30px;
-  height: 90px;
+  background-color: #EC994B;
+  padding: 10px 0;
+  font-size: 1.7em;
+}
+#mygames-main div {
   align-items: center;
 }
-#main-header h2 {
-  color: #EC994B;
-  display: inline-block;
-  margin-right: 20px;
-}
-#main-header button {
-  background-color: #EC994B;
-  padding: 5px;
-  border: 1px solid #73777B;
+#mygames-main #my-games-card {
+  border: 1px solid #EC994B;
+  width: 80%;
+  margin-bottom: 30px;
   border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 10px;
 }
-#main-header #signup-login-link {
-  color: #EC994B;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-#main-header #signup-login-link:hover {
-  cursor: pointer;
-  font-style: italic;
-}
-#main-header #signup-login-link:active {
-  color: #73777B;
-}/*# sourceMappingURL=header.css.map */
+#mygames-main #my-games-btn-div {
+  align-items: flex-end;
+}/*# sourceMappingURL=myGames.css.map */

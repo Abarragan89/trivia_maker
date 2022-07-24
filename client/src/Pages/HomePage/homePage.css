@@ -1,3 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 #search-form {
   text-align: center;
 }
@@ -27,30 +75,46 @@
   display: block;
   width: 170px;
   text-decoration: none;
-  color: black;
+  color: #15133C;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid #15133C;
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 10px 50px;
   text-align: center;
+  font-weight: 700;
+  background-color: #EC994B;
 }
 
 .public-game-card {
-  border: 1px solid black;
+  border: 1px solid #EC994B;
   border-radius: 4px;
   width: 100%;
   padding: 5px 10px;
   margin-bottom: 20px;
+  background-color: #15133C;
 }
 .public-game-card header {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  color: #EC994B;
+  border-bottom: 1px solid #EC994B;
+}
+.public-game-card p {
+  color: #73777B;
+  font-size: 1.2em;
+  padding: 10px;
 }
 .public-game-card div {
   flex-wrap: wrap;
+}
+
+.public-game-card:hover header {
+  font-style: italic;
 }
 
 @media screen and (max-width: 590px) {

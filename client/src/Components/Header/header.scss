@@ -1,9 +1,37 @@
+@import '../../index.scss';
+
 #main-header {
     width: auto;
     margin: 0 auto;
-    background-color: blue;
+    background-color: $tertiaryColor;
     padding: 0 20px;
     margin-bottom: 30px;
-    height: 70px;
+    height: 90px;
     align-items: center;
+
+    h2 {
+        color: $secondaryColor;
+        display: inline-block;
+        margin-right: 20px;
+    }
+    button {
+        background-color: $secondaryColor;
+        padding: 5px;
+        border: 1px solid $gray;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    #signup-login-link {
+        color: $secondaryColor;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    #signup-login-link:hover {
+        cursor: pointer;
+        font-style: italic;
+    }
+    #signup-login-link:active {
+        color: $gray;
+    }
 }
