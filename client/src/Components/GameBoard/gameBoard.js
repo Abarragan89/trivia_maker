@@ -44,6 +44,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
         let listEl = document.getElementById(listElId)
         listEl.setAttribute('disabled', 'true')
         listEl.removeAttribute('class', 'activeQuestions')
+        listEl.setAttribute('class', 'deactivated-button')
     }
 
     return (
@@ -69,7 +70,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                                 if (!set.points) {
                                    return (
                                     <li key={index}>
-                                    <button className='questionButtons' id={index + question.category} disabled>N/A</button>
+                                    <button className='deactivated-button' id={index + question.category} disabled>N/A</button>
                                     </li>
                                    ) 
                                 }

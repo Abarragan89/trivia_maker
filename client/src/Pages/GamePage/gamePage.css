@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 /* UTILITY Classes */
 .flex-box-sa {
   display: flex;
@@ -45,10 +53,14 @@
 #main-gamepage h1 {
   font-size: 2rem;
   text-align: center;
+  color: #15133C;
+  font-family: "Mochiy Pop One", sans-serif;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #15133C;
+  padding-bottom: 10px;
 }
 #main-gamepage #gameBoard {
   margin: 0 auto;
-  border: 1px solid;
 }
 
 @media screen and (max-width: 800px) {

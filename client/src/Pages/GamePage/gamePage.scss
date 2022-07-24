@@ -7,11 +7,15 @@
     h1 {
         font-size: 2rem;
         text-align: center;
+        color: $tertiaryColor;
+        font-family: $pointNumber;
+        margin-bottom: 15px;
+        border-bottom: 1px solid $tertiaryColor;
+        padding-bottom: 10px;
     }
 
     #gameBoard {
         margin: 0 auto;
-        border: 1px solid;
     }
 }
 

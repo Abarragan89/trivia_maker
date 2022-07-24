@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 /* UTILITY Classes */
 .flex-box-sa {
   display: flex;
@@ -43,7 +51,7 @@
 }
 
 .font-cat-10 {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
 }
 
 .font-cat-20 {
@@ -92,27 +100,40 @@
 }
 .column h3 {
   text-align: center;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   margin: 0 auto;
   margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
   height: 70px;
   border: 1px solid black;
   border-radius: 4px;
   padding: 5px;
+  color: #EC994B;
+  background-color: #15133C;
+  font-weight: 400;
 }
 .column ul {
   padding: 0;
 }
 .column li {
   list-style-type: none;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 .column li button {
-  padding: 15% 20%;
-  font-size: 1.5rem;
+  padding: 15% 19%;
+  width: 100%;
+  font-size: 2.2rem;
   border: 1px solid black;
   border-radius: 4px;
+  color: white;
+  font-family: "Mochiy Pop One", sans-serif;
+  background-color: #EC994B;
+}
+.column li .deactivated-button {
+  background-color: #73777B;
+  color: gray;
 }/*# sourceMappingURL=gameBoard.css.map */

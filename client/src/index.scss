@@ -5,8 +5,24 @@
     box-sizing: border-box;
 }
 
+// Variables for Colors
+$primaryColor: #F1EEE9;
+$secondaryColor: #EC994B;
+$tertiaryColor: #15133C;
+$gray: #73777B;
 
-$primaryColor: blue;
+// Variables for Fonts
+$pointNumber:'Mochiy Pop One', sans-serif;
+$primaryFont: 'Roboto', sans-serif;
+
+
+html {
+    background-color: $primaryColor;
+}
+
+body {
+    font-family: $primaryFont;
+}
 
 /* UTILITY Classes */
 .flex-box-sa {

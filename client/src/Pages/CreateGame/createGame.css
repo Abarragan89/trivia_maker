@@ -1,9 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #73777B;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #15133C;
+  width: 8px;
+}
+
 #create-game-form {
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 20px;
   width: 90%;
 }
 #create-game-form div:first-child {
+  flex-wrap: wrap;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -11,16 +81,31 @@
   margin-right: 5px;
   height: 18px;
   width: 18px;
-  accent-color: blue;
+  margin-top: 10px;
+  accent-color: #15133C;
 }
 #create-game-form div:first-child label {
-  font-size: 1.2em;
+  font-size: 1.1em;
+  color: #15133C;
 }
 #create-game-form .create-game-txt-input {
   padding: 5px;
+  padding-right: 30px;
   font-size: 1rem;
   border-radius: 4px;
   border: 1px solid black;
+  margin-right: 30px;
+}
+#create-game-form #create-game-btn {
+  padding: 8px 30px;
+  display: block;
+  border: 1px solid #15133C;
+  border-radius: 4px;
+  background-color: green;
+  color: #F1EEE9;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
 }
 
 #question-accordion {
@@ -28,32 +113,87 @@
   margin-bottom: 30px;
   padding: 0;
 }
+#question-accordion .category-label {
+  font-size: 1.5rem;
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  color: #15133C;
+}
 #question-accordion .point-label {
   margin-left: 10%;
-  margin-bottom: 2px;
-  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Mochiy Pop One", sans-serif;
+  color: #73777B;
 }
 #question-accordion textarea {
   display: block;
   width: 80%;
-  height: 50px;
+  height: 60px;
   margin: 0 auto;
   margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  border: 2px solid #15133C;
+  border-radius: 4px;
+  background-color: #F1EEE9;
+}
+#question-accordion textarea::-moz-placeholder {
+  color: #73777B;
+}
+#question-accordion textarea:-ms-input-placeholder {
+  color: #73777B;
+}
+#question-accordion textarea::placeholder {
+  color: #73777B;
+}
+#question-accordion textarea:-ms-input-placeholder {
+  color: #73777B;
+}
+#question-accordion textarea::-ms-input-placeholder {
+  color: #73777B;
+}
+#question-accordion textarea:focus {
+  outline: none;
 }
 #question-accordion input {
   display: block;
-  margin: 0 auto;
-  width: 60%;
-  font-size: 1rem;
+  width: 100%;
   border: none;
   border-bottom: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 1.1rem;
+  color: #15133C;
+}
+#question-accordion input::-moz-placeholder {
+  color: #15133C;
+  font-size: 1.1rem;
+}
+#question-accordion input:-ms-input-placeholder {
+  color: #15133C;
+  font-size: 1.1rem;
+}
+#question-accordion input::placeholder {
+  color: #15133C;
+  font-size: 1.1rem;
+}
+#question-accordion input:-ms-input-placeholder {
+  color: #15133C;
+  font-size: 1.1rem;
+}
+#question-accordion input::-ms-input-placeholder {
+  color: #15133C;
+  font-size: 1.1rem;
 }
 #question-accordion input:focus {
   outline: none;
-}
-#question-accordion label {
-  display: block;
-  text-align: center;
 }
 #question-accordion .question-content {
   padding: 0 10px;
@@ -62,7 +202,9 @@
   transition: max-height 0.5s;
 }
 #question-accordion .single-question-div {
-  padding: 5px;
+  border-bottom: 3px solid black;
+  margin-top: 20px;
+  padding-bottom: 30px;
 }
 #question-accordion li {
   display: block;
@@ -72,6 +214,7 @@
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 10px;
+  background-color: #EC994B;
 }
 #question-accordion li input[type=radio] {
   display: none;
@@ -80,10 +223,7 @@
   max-height: 300px;
 }
 #question-accordion label {
-  padding: 10px;
   align-items: center;
-  font-size: 18px;
-  font-weight: 500;
   cursor: pointer;
 }
 #question-accordion label span {

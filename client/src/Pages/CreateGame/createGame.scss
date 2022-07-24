@@ -1,9 +1,38 @@
+@import '../../index.scss';
+
+
+// Styles for the scroll bars
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $tertiaryColor;
+    width: 8px;
+}
+
+
+
+// styles for outside the accordion
 #create-game-form {
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 20px;
     width: 90%;
 
     div:first-child {
+        flex-wrap: wrap;
         text-align: center;
         margin-bottom: 20px;
 
@@ -11,17 +40,34 @@
             margin-right: 5px;
             height: 18px;
             width: 18px;
-            accent-color: blue;
+            margin-top: 10px;
+            accent-color: $tertiaryColor;
         }
+
         label {
-            font-size: 1.2em;
+            font-size: 1.1em;
+            color: $tertiaryColor;
         }
     }
+
     .create-game-txt-input {
         padding: 5px;
+        padding-right: 30px;
         font-size: 1rem;
         border-radius: 4px;
         border: 1px solid black;
+        margin-right: 30px;
+    }
+    #create-game-btn {
+        padding: 8px 30px;
+        display: block;
+        border: 1px solid $tertiaryColor;
+        border-radius: 4px;
+        background-color: green;
+        color: $primaryColor;
+        font-size: 1rem;
+        font-family: $primaryFont;
+        margin: 0 auto;
     }
 }
 
@@ -32,45 +78,101 @@
     margin-bottom: 30px;
     padding: 0;
 
-    .point-label{
+    .category-label {
+        font-size: 1.5rem;
+        display: block;
+        text-align: left;
+        font-weight: 700;
+        color: $tertiaryColor
+    }
+
+    .point-label {
         margin-left: 10%;
-        margin-bottom: 2px;
-        font-size: 1.2em;
+        margin-bottom: 10px;
+        font-size: 1.3em;
+        margin-top: 10px;
+        text-align: center;
+        font-family: $pointNumber;
+        color: $gray;
     }
 
     textarea {
         display: block;
         width: 80%;
-        height: 50px;
+        height: 60px;
         margin: 0 auto;
         margin-bottom: 10px;
+        padding: 5px;
+        font-size: 1rem;
+        font-family: $primaryFont;
+        border: 2px solid $tertiaryColor;
+        border-radius: 4px;
+        background-color: $primaryColor;
     }
+
+    textarea::placeholder {
+        color: $gray;
+    }
+
+    textarea:-ms-input-placeholder {
+        color: $gray
+    }
+
+    textarea::-ms-input-placeholder {
+        color: $gray
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
     input {
         display: block;
-        margin: 0 auto;
-        width: 60%;
-        font-size: 1rem;
+        width: 100%;
         border: none;
         border-bottom: 1px solid black;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        background-color: transparent;
+        padding: 5px;
+        font-size: 1.1rem;
+        color: $tertiaryColor;
     }
+
+    input::placeholder {
+        color: $tertiaryColor;
+        font-size: 1.1rem;
+    }
+
+    input:-ms-input-placeholder {
+        color: $tertiaryColor;
+        font-size: 1.1rem;
+
+    }
+
+    input::-ms-input-placeholder {
+        color: $tertiaryColor;
+        font-size: 1.1rem;
+
+    }
+
     input:focus {
         outline: none;
     }
-    label {
-        display: block;
-        text-align: center;
 
-    }
-    .question-content{
+    .question-content {
         padding: 0 10px;
         max-height: 0;
         overflow-y: scroll;
         transition: max-height 0.5s;
     }
+
     .single-question-div {
-        // border-bottom: 1px solid black;
-        padding: 5px
+        border-bottom: 3px solid black;
+        margin-top: 20px;
+        padding-bottom: 30px;
     }
+
     li {
         display: block;
         list-style: none;
@@ -79,20 +181,20 @@
         padding: 5px;
         border-radius: 5px;
         margin-bottom: 10px;
+        background-color: $secondaryColor;
+
 
         input[type="radio"] {
             display: none;
         }
-        input[type="radio"]:checked + .question-content{
+
+        input[type="radio"]:checked+.question-content {
             max-height: 300px;
         }
     }
 
     label {
-        padding: 10px;
         align-items: center;
-        font-size: 18px;
-        font-weight: 500;
         cursor: pointer;
 
         span {
