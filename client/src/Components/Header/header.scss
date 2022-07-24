@@ -22,6 +22,13 @@
         font-size: 1rem;
         font-weight: bold;
     }
+    button:hover {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+    button:active {
+        color: $gray;
+    }
     #signup-login-link {
         color: $secondaryColor;
         font-size: 1.3rem;

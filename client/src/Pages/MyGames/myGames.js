@@ -30,8 +30,8 @@ function MyGames() {
                                     <div className='flex-box-sb'>
                                         <h4>{game.gameTopic}</h4>
                                         <div>
-                                        <Link id='play-btn' to={`/players/${game._id}`}><FaPlay/></Link>
-                                        <button id='edit-btn'><MdEdit/></button>
+                                        <Link title='Play game' id='play-btn' to={`/players/${game._id}`}><FaPlay/></Link>
+                                        <button title='Edit game' id='edit-btn'><MdEdit/></button>
                                         </div>
                                     </div>
                                     <div id='my-games-info-div' className='flex-box-sb'>

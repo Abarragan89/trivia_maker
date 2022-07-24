@@ -5,7 +5,8 @@ import { QUERY_PUBLIC_GAMES } from '../../utils/queries'
 import { useQuery } from '@apollo/client';
 import Header from '../../Components/Header/header';
 import './homePage.css';
-
+import { GoPlus } from 'react-icons/go';
+import { AiFillEye } from 'react-icons/ai';
 
 function HomePage() {
     // check if user is logged in
@@ -15,7 +16,6 @@ function HomePage() {
     const { data } = useQuery(QUERY_PUBLIC_GAMES)
 
     const publicGames = data?.getPublicGames || [];
-    console.log(publicGames)
 
     return (
         <>
@@ -30,17 +30,21 @@ function HomePage() {
                             <section>
                                 {publicGames &&
                                     publicGames.map((game, index) => (
-                                        <Link id='link-to-public' key={index} to={`/players/${game._id}`}>
+                                        <article id='link-to-public' key={index} to={`/players/${game._id}`}>
                                             <div className='public-game-card'>
-                                                <header>
-                                                    {game.gameTopic}
+                                                <header className='flex-box-sb'>
+                                                    <h2>{game.gameTopic}</h2>
+                                                    <div>
+                                                        <button title='Add to your games' className='public-feed-btns'><GoPlus /></button><br />
+                                                        <button title='View questions' className='public-feed-btns'><AiFillEye /></button>
+                                                    </div>
                                                 </header>
                                                 <div className='flex-box-sb'>
                                                     <p>Creator: {game.creator.username}</p>
                                                     <p>Questions: {game.questionCount}</p>
                                                 </div>
                                             </div>
-                                        </Link>
+                                        </article>
                                     ))
                                 }
                             </section>

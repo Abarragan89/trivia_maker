@@ -52,6 +52,7 @@ body {
   margin: 40px 10%;
   border: 5px solid #15133C;
   border-radius: 4px;
+  background-color: white;
 }
 #player-input-section h2 {
   margin-bottom: 30px;

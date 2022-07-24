@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.modalBackdrop {
+  background: rgba(0, 0, 0, 0.75);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 900;
+}
+.modalBackdrop .modalContainer {
+  border-radius: 5px;
+  margin: 100px auto;
+  width: 90vw;
+  -webkit-animation: fadeIn 0.5s;
+          animation: fadeIn 0.5s;
+  background-color: #EC994B;
+  padding: 20px 50px;
+  border: 5px solid #15133C;
+}
+.modalBackdrop .modalContainer div {
+  flex-wrap: wrap;
+}
+.modalBackdrop .modalContainer h2 {
+  color: #15133C;
+  font-size: 2.5em;
+}
+.modalBackdrop .modalContainer .player-names-confirmation {
+  font-size: 2em;
+  font-family: "Mochiy Pop One", sans-serif;
+  color: #F1EEE9;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.modalBackdrop .modalContainer a {
+  display: inline-block;
+  margin-top: 80px;
+  text-decoration: none;
+  color: #EC994B;
+  border: 1px solid #15133C;
+  background-color: #15133C;
+  border-radius: 4px;
+  font-size: 1.4em;
+  padding: 10px 40px;
+}
+.modalBackdrop .modalContainer a:hover {
+  cursor: pointer;
+  color: #F1EEE9;
+}
+.modalBackdrop .modalContainer a:active {
+  color: #73777B;
+  border: 1px solid transparent;
+}
+.modalBackdrop .modalContainer #cancel-confirmation {
+  font-size: 0.9em;
+  padding: 10px 20px;
+  color: #EC994B;
+  margin-top: 20px;
+}/*# sourceMappingURL=confirmGame.css.map */

@@ -73,6 +73,7 @@ body {
 }
 #homepage-feed aside a {
   display: block;
+  font-size: 1.25em;
   width: 170px;
   text-decoration: none;
   color: #15133C;
@@ -85,6 +86,14 @@ body {
   font-weight: 700;
   background-color: #EC994B;
 }
+#homepage-feed aside a:hover {
+  cursor: pointer;
+  color: #F1EEE9;
+}
+#homepage-feed aside a:active {
+  color: #73777B;
+  border: 1px solid transparent;
+}
 
 .public-game-card {
   border: 5px solid #15133C;
@@ -95,14 +104,17 @@ body {
   background-color: white;
 }
 .public-game-card header {
-  text-align: center;
-  font-size: 1.4em;
-  font-weight: bold;
   margin-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 10px;
-  color: #15133C;
   border-bottom: 1px solid #EC994B;
+}
+.public-game-card h2 {
+  text-align: left;
+  font-size: 1.4em;
+  margin-right: 20px;
+  font-weight: bold;
+  color: #15133C;
 }
 .public-game-card p {
   color: #73777B;
@@ -112,9 +124,20 @@ body {
 .public-game-card div {
   flex-wrap: wrap;
 }
-
-.public-game-card:hover header {
-  font-style: italic;
+.public-game-card .public-feed-btns {
+  background-color: white;
+  border: none;
+  font-size: 1.7em;
+}
+.public-game-card .public-feed-btns:first-child {
+  margin-bottom: 10px;
+}
+.public-game-card .public-feed-btns:hover {
+  cursor: pointer;
+  color: #EC994B;
+}
+.public-game-card .public-feed-btns:active {
+  color: #73777B;
 }
 
 @media screen and (max-width: 590px) {
@@ -133,5 +156,8 @@ body {
   }
   #homepage-feed aside a {
     padding: 10px 30px;
+  }
+  .public-game-card h2 {
+    font-size: 1.2em;
   }
 }/*# sourceMappingURL=homePage.css.map */

@@ -30,6 +30,7 @@
         flex-basis: 1;
         a {
             display: block;
+            font-size: 1.25em;
             width: 170px;
             text-decoration: none;
             color: $tertiaryColor;
@@ -42,11 +43,18 @@
             font-weight: 700;
             background-color: $secondaryColor;
         }
+        a:hover {
+            cursor: pointer;
+            color: $primaryColor;
+        }
+        a:active {
+            color: $gray;
+            border: 1px solid transparent;
+        }
     }
 
 
 }
-
 
 .public-game-card {
     border: 5px solid $tertiaryColor;
@@ -57,14 +65,17 @@
     background-color: white;
 
     header {
-        text-align: center;
-        font-size: 1.4em;
-        font-weight: bold;
         margin-bottom: 10px;
         padding-top: 20px;
         padding-bottom: 10px;
-        color: $tertiaryColor;
         border-bottom: 1px solid $secondaryColor;
+    }
+    h2 {
+        text-align: left;
+        font-size: 1.4em;
+        margin-right: 20px;
+        font-weight: bold;    
+        color: $tertiaryColor;
     }
     p {
         color: $gray;
@@ -74,10 +85,21 @@
     div {
         flex-wrap: wrap;
     }
-}
-
-.public-game-card:hover header {
-    font-style: italic;
+    .public-feed-btns {
+        background-color: white;
+        border: none;
+        font-size: 1.7em;
+    }
+    .public-feed-btns:first-child {
+        margin-bottom: 10px;
+    }
+    .public-feed-btns:hover {
+        cursor: pointer;
+        color: $secondaryColor;
+    }
+    .public-feed-btns:active {
+        color: $gray;
+    }
 }
 
 @media screen and (max-width: 590px) {
@@ -98,6 +120,11 @@
             a {
                 padding: 10px 30px;
             }
+        }
+    }
+    .public-game-card {
+        h2 {
+            font-size: 1.2em;
         }
     }
 }

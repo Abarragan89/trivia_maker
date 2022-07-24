@@ -49,7 +49,12 @@ function PlayerInput() {
         <>
             <Header />
             <section id='player-input-section'>
-                {showConfirmationModal && <ConfirmGameModal players={playerNameArray} />}
+                {showConfirmationModal && 
+                <ConfirmGameModal 
+                players={playerNameArray} 
+                setShowConfirmationModal={setShowConfirmationModal}
+                showConfirmationModal={showConfirmationModal}    
+                />}
                 <h2>Players</h2>
                 {showPlayerNames ?
                     <form id='player-names-form' onSubmit={handleGameStart}>
@@ -60,7 +65,7 @@ function PlayerInput() {
                     <>
                         <form id='player-amount-form' onSubmit={handlePlayerCount}>
                             <label htmlFor='player-count'>How many players/teams?</label>
-                            <input type='text' id='player-count' maxlength="2" required></input>
+                            <input type='text' id='player-count' maxLength="2" required></input>
                             <span id='error'></span>
                             <button className='player-input-button' type='submit'>Continue</button>
                         </form>

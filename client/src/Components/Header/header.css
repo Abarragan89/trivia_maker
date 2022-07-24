@@ -68,6 +68,13 @@ body {
   font-size: 1rem;
   font-weight: bold;
 }
+#main-header button:hover {
+  color: #F1EEE9;
+  cursor: pointer;
+}
+#main-header button:active {
+  color: #73777B;
+}
 #main-header #signup-login-link {
   color: #EC994B;
   font-size: 1.3rem;

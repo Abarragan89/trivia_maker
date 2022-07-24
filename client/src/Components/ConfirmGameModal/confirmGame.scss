@@ -1,0 +1,62 @@
+@import '../../index.scss';
+
+.modalBackdrop {
+    background: rgba(0, 0, 0, .75);
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 900;
+
+    .modalContainer {
+        border-radius: 5px;
+        margin: 100px auto;
+        width: 90vw;
+        animation: fadeIn .5s;
+        background-color: $secondaryColor;
+        padding: 20px 50px;
+        border: 5px solid $tertiaryColor;
+
+        div {
+            flex-wrap: wrap;
+        }
+        h2 {
+            color: $tertiaryColor;
+            font-size: 2.5em;
+        }
+        .player-names-confirmation {
+            font-size: 2em;
+            font-family: $pointNumber;
+            color: $primaryColor;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 80px;
+            text-decoration: none;
+            color: $secondaryColor;
+            border: 1px solid $tertiaryColor;
+            background-color: $tertiaryColor;
+            border-radius: 4px;
+            font-size: 1.4em;
+            padding: 10px 40px;
+        }
+        a:hover {
+            cursor: pointer;
+            color: $primaryColor;
+        }
+        a:active {
+            color: $gray;
+            border: 1px solid transparent;
+        }
+        #cancel-confirmation {
+            font-size: .9em;
+            padding: 10px 20px;
+            color: $secondaryColor;
+            margin-top: 20px;
+        }
+    }
+}

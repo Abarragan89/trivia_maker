@@ -2,6 +2,7 @@ import { QUERY_ME_BASIC } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import './header.css'
+import { Link } from 'react-router-dom';
 
 
 function Header() {
@@ -17,7 +18,7 @@ function Header() {
 
         <header id='main-header' className='flex-box-sb'>
             <div>
-                <p>Logo</p>
+                <Link to='/'><p>Logo</p></Link>
             </div>
             {loggedIn &&
                 <div>
