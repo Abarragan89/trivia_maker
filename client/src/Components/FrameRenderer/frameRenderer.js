@@ -2,7 +2,7 @@ function frameRenderer(size, ball) {
     this.clearRect(0, 0, size.width, size.height);
 
     const drawBackground = () => {
-      this.fillStyle = 'black';
+      this.fillStyle = '#15133C';
       this.fillRect(0, 0, size.width, size.height)
     }
   

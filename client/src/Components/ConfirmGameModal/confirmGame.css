@@ -46,7 +46,7 @@ body {
   justify-content: space-around;
 }
 
-.modalBackdrop {
+.confirmationModalBackdrop {
   background: rgba(0, 0, 0, 0.75);
   bottom: 0;
   left: 0;
@@ -56,7 +56,7 @@ body {
   top: 0;
   z-index: 900;
 }
-.modalBackdrop .modalContainer {
+.confirmationModalBackdrop .modalContainer {
   border-radius: 5px;
   margin: 100px auto;
   width: 90vw;
@@ -66,21 +66,21 @@ body {
   padding: 20px 50px;
   border: 5px solid #15133C;
 }
-.modalBackdrop .modalContainer div {
+.confirmationModalBackdrop .modalContainer div {
   flex-wrap: wrap;
 }
-.modalBackdrop .modalContainer h2 {
+.confirmationModalBackdrop .modalContainer h2 {
   color: #15133C;
   font-size: 2.5em;
 }
-.modalBackdrop .modalContainer .player-names-confirmation {
+.confirmationModalBackdrop .modalContainer .player-names-confirmation {
   font-size: 2em;
   font-family: "Mochiy Pop One", sans-serif;
   color: #F1EEE9;
   margin-right: 20px;
   margin-left: 20px;
 }
-.modalBackdrop .modalContainer a {
+.confirmationModalBackdrop .modalContainer a {
   display: inline-block;
   margin-top: 80px;
   text-decoration: none;
@@ -91,15 +91,15 @@ body {
   font-size: 1.4em;
   padding: 10px 40px;
 }
-.modalBackdrop .modalContainer a:hover {
+.confirmationModalBackdrop .modalContainer a:hover {
   cursor: pointer;
   color: #F1EEE9;
 }
-.modalBackdrop .modalContainer a:active {
+.confirmationModalBackdrop .modalContainer a:active {
   color: #73777B;
   border: 1px solid transparent;
 }
-.modalBackdrop .modalContainer #cancel-confirmation {
+.confirmationModalBackdrop .modalContainer #cancel-confirmation {
   font-size: 0.9em;
   padding: 10px 20px;
   color: #EC994B;

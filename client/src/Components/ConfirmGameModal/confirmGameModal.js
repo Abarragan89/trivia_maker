@@ -13,7 +13,7 @@ function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationM
     console.log(players)
 
     return (
-        <div className='modalBackdrop'>
+        <div className='confirmationModalBackdrop'>
             <div className='modalContainer'>
                 <h2>{confirmGameData.gameTopic}</h2>
                 <div className='flex-box-sa'>

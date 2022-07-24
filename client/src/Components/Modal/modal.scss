@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 /* styles for the modal */
 .modalBackdrop {
     background: rgba(0, 0, 0, .75);
@@ -12,22 +14,27 @@
 
 .modalContainer {
     border-radius: 5px;
-    margin: 100px auto;
+    margin: 50px auto;
     width: 90vw;
     animation: fadeIn .5s;
+    background-color: $primaryColor;
 
     .modalHeader {
-        background-color: green;
-        height: 30px;
+        border-bottom: 3px solid $secondaryColor;
+        padding-bottom: 10px;
     }
 
     h4 {
         display: inline;
         vertical-align: text-top;
         position: relative;
-        font-size: 1.2em;
+        font-size: 2em;
         letter-spacing: .2em;
         margin: 2px;
+        font-family: $pointNumber;
+    }
+    h3 {
+        font-size: 2.5em;
     }
 
     .cardQuestionText {
@@ -35,19 +42,12 @@
         padding: 20px 10px;
         line-height: 1.3em;
         font-size: 1.5rem;
+        color: $tertiaryColor;
     }
 
-    button:first-child {
-        color: red;
-    }
-
-    button:last-child {
-        color: green;
-    }
-
-    button:hover {
+    modal-buttons:hover {
         cursor: pointer;
-        color: white;
+        color: $gray;
     }
 
     #exitModal {
@@ -64,8 +64,49 @@
     }
 
     .questionContainer {
-        background-color: red;
+        background-color: $primaryColor;
         margin: 0 auto;
+        min-height: 200px;
+        margin-top: 0px;
+        border-radius: 0 0 4px 4px; 
+        margin-bottom: 20px;
+
+        #modal-button-div {
+            flex-wrap: wrap;
+
+            #correct-answer {
+                background-color: green;
+            }
+            #wrong-answer {
+                background-color: $red;
+            }
+            #correct-answer:hover, #wrong-answer:hover {
+                color: $primaryColor;
+            }
+            #correct-answer:active, #wrong-answer:active {
+                color: $secondaryColor;
+            }
+        }
+        .modal-buttons {
+            font-size: 1.3em;
+            border: none;
+            padding: 5px 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-top: 20px;
+            font-weight: 700;
+            background-color: $gray;
+            color: $tertiaryColor;
+        }
+        .modal-buttons:hover {
+            background-color: $secondaryColor;
+        }
+        .modal-buttons:active {
+            color: $primaryColor;
+        }
+        .modal-button:nth-child(1) {
+            background-color: green;
+        }
     }
 }
 

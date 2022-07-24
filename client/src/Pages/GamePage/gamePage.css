@@ -50,7 +50,7 @@ body {
   padding: 2rem;
   margin: 0 auto;
 }
-#main-gamepage h1 {
+#main-gamepage #game-title {
   font-size: 2rem;
   text-align: center;
   color: #15133C;

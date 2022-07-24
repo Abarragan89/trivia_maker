@@ -30,7 +30,7 @@ function GamePage() {
 
     return (
         <main id='main-gamepage'>
-            <h1 ref={h1Text}>{gameTopic}</h1>
+            <h1 id='game-title' ref={h1Text}>{gameTopic}</h1>
             <section id="gameBoard">
                 <GameBoard 
                 game={game} 

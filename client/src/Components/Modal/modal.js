@@ -82,21 +82,21 @@ function Modal({
                         {showAnswer ? <p className='cardQuestionText'>{questionData.answer}</p>
                             : <p className='cardQuestionText'>{questionData.question}</p>}
 
-                        <div className='flex-box-sb'>
+                        <div id='modal-button-div' className='flex-box-se'>
                             {showAnswer ?
                                 <>
                                     {wrongAnswerChosen ?
-                                        <button onClick={onClose}>Next Player</button>
+                                        <button className='modal-buttons' onClick={onClose}>Next Player</button>
                                         :
                                         <>
-                                            <button onClick={() => setShowAnswer(false)}>Hide Answer</button>
-                                            <button onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
-                                            <button onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>
+                                            <button className='modal-buttons' onClick={() => setShowAnswer(false)}>Hide Answer</button>
+                                            <button id='wrong-answer' className='modal-buttons' onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
+                                            <button id='correct-answer' className='modal-buttons' onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>
                                         </>
                                     }
                                 </>
                                 :
-                                <button onClick={() => setShowAnswer(true)}>Show Answer</button>
+                                <button className='modal-buttons' onClick={() => setShowAnswer(true)}>Show Answer</button>
                             }
                         </div>
                     </article>

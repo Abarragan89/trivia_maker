@@ -97,9 +97,14 @@
             background-color: $secondaryColor;
 
         }
+        button:not(:disabled):hover {
+            cursor: pointer;
+            color: $tertiaryColor;
+        }
         .deactivated-button {
             background-color: $gray;
             color: gray;
         }
+
     }
 }

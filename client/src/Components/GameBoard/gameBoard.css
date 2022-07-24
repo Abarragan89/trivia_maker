@@ -147,6 +147,10 @@ body {
   font-family: "Mochiy Pop One", sans-serif;
   background-color: #EC994B;
 }
+.column li button:not(:disabled):hover {
+  cursor: pointer;
+  color: #15133C;
+}
 .column li .deactivated-button {
   background-color: #73777B;
   color: gray;
