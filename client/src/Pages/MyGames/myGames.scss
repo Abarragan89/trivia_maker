@@ -8,18 +8,56 @@
         background-color: $secondaryColor;
         padding: 10px 0;
         font-size: 1.7em;
+        letter-spacing: .5em;
     }
     div {
         align-items:center;
     }
     #my-games-card {
-        border: 1px solid $secondaryColor;
-        width: 80%;
+        border: 5px solid $tertiaryColor;
+        width: 90%;
         margin-bottom: 30px;
         border-radius: 4px;
-        padding: 10px
-    }
-    #my-games-btn-div {
-        align-items: flex-end;
+        padding: 10px;
+        background-color: white;
+
+        h4 {
+            font-size: 1.8em;
+            margin-right: 20px;
+        }
+
+        #play-btn {
+            display: block;
+            color: $tertiaryColor;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        #play-btn:hover {
+            color: $secondaryColor;
+        }
+        #play-btn:active {
+            color: $gray;
+        }
+
+        #edit-btn {
+            font-size: 1.6em;
+            color: $tertiaryColor;
+            border: none;
+            background-color: white;
+        }
+        #edit-btn:active {
+            color: $gray;
+        }
+        #edit-btn:hover {
+            color: $secondaryColor;
+            cursor: pointer;
+        }
+        #my-games-info-div {
+            border-top: 1px solid $secondaryColor;
+            padding-top: 20px;
+            margin-top: 10px;
+
+        }
     }
 }

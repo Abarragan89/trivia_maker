@@ -1,0 +1,73 @@
+@import '../../index.scss';
+
+#player-input-section {
+    text-align: center;
+    padding: 30px 0;
+    margin: 40px 10%;
+    border: 5px solid $tertiaryColor;
+    border-radius: 4px;
+
+    h2 {
+        margin-bottom: 30px;
+        font-family: $pointNumber;
+    }
+    .player-input-button {
+        display: block;
+        margin: 0 auto;
+        padding: 8px 40px;
+        font-size: 1.3em;
+        margin-top: 30px;
+        border: 1px solid $tertiaryColor;
+        border-radius: 4px;
+        background-color: $secondaryColor;
+        font-weight: 700;
+    }
+    .player-input-button:hover {
+        color: white;
+        cursor: pointer;
+    }
+    .player-input-button:active {
+        color: $gray;
+        border: 1px solid transparent;
+    }
+    #player-count {
+        font-size: 1.6em;
+        width: 60px;
+        text-align: center;
+        border-radius: 4px;
+        padding: 10px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        background-color: $tertiaryColor;
+        color: $secondaryColor;
+
+        option {
+            background-color: blue;
+        }
+    }
+    #player-amount-form {
+        label {
+            font-size: 1.3em;
+            color: $tertiaryColor
+        }
+        #error {
+            display: block;
+            margin-top: 20px;
+            color: rgb(205, 0, 0);
+        }
+    }
+    .player-names-input {
+        font-size: 1.6em;
+        text-align: center;
+        border-radius: 4px;
+        padding: 10px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        background-color: $tertiaryColor;
+        color: $secondaryColor;
+    }
+
+}
+

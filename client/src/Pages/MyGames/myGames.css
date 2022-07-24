@@ -53,17 +53,51 @@ body {
   background-color: #EC994B;
   padding: 10px 0;
   font-size: 1.7em;
+  letter-spacing: 0.5em;
 }
 #mygames-main div {
   align-items: center;
 }
 #mygames-main #my-games-card {
-  border: 1px solid #EC994B;
-  width: 80%;
+  border: 5px solid #15133C;
+  width: 90%;
   margin-bottom: 30px;
   border-radius: 4px;
   padding: 10px;
+  background-color: white;
 }
-#mygames-main #my-games-btn-div {
-  align-items: flex-end;
+#mygames-main #my-games-card h4 {
+  font-size: 1.8em;
+  margin-right: 20px;
+}
+#mygames-main #my-games-card #play-btn {
+  display: block;
+  color: #15133C;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+#mygames-main #my-games-card #play-btn:hover {
+  color: #EC994B;
+}
+#mygames-main #my-games-card #play-btn:active {
+  color: #73777B;
+}
+#mygames-main #my-games-card #edit-btn {
+  font-size: 1.6em;
+  color: #15133C;
+  border: none;
+  background-color: white;
+}
+#mygames-main #my-games-card #edit-btn:active {
+  color: #73777B;
+}
+#mygames-main #my-games-card #edit-btn:hover {
+  color: #EC994B;
+  cursor: pointer;
+}
+#mygames-main #my-games-card #my-games-info-div {
+  border-top: 1px solid #EC994B;
+  padding-top: 20px;
+  margin-top: 10px;
 }/*# sourceMappingURL=myGames.css.map */

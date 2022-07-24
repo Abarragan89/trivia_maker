@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#player-input-section {
+  text-align: center;
+  padding: 30px 0;
+  margin: 40px 10%;
+  border: 5px solid #15133C;
+  border-radius: 4px;
+}
+#player-input-section h2 {
+  margin-bottom: 30px;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+#player-input-section .player-input-button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 40px;
+  font-size: 1.3em;
+  margin-top: 30px;
+  border: 1px solid #15133C;
+  border-radius: 4px;
+  background-color: #EC994B;
+  font-weight: 700;
+}
+#player-input-section .player-input-button:hover {
+  color: white;
+  cursor: pointer;
+}
+#player-input-section .player-input-button:active {
+  color: #73777B;
+  border: 1px solid transparent;
+}
+#player-input-section #player-count {
+  font-size: 1.6em;
+  width: 60px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #15133C;
+  color: #EC994B;
+}
+#player-input-section #player-count option {
+  background-color: blue;
+}
+#player-input-section #player-amount-form label {
+  font-size: 1.3em;
+  color: #15133C;
+}
+#player-input-section #player-amount-form #error {
+  display: block;
+  margin-top: 20px;
+  color: rgb(205, 0, 0);
+}
+#player-input-section .player-names-input {
+  font-size: 1.6em;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #15133C;
+  color: #EC994B;
+}/*# sourceMappingURL=playerInput.css.map */

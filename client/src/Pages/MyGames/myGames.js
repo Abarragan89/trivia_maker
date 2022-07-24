@@ -4,7 +4,9 @@ import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/header'
 import './myGames.css'
-
+import { MdEdit } from 'react-icons/md'
+import { FaPlay } from 'react-icons/fa'
+ 
 function MyGames() {
     const isLoggedIn = Auth.loggedIn()
 
@@ -24,15 +26,17 @@ function MyGames() {
                         <h2>My Games</h2>
                         <div className='flex-box-col-sa'>
                             {userGames.map((game, index) => (
-                                <div id='my-games-card'>
+                                <div id='my-games-card' key={index}>
                                     <div className='flex-box-sb'>
-                                        <p>{game.gameTopic}</p>
-                                        <p>Questions:{game.questionCount}</p>
+                                        <h4>{game.gameTopic}</h4>
+                                        <div>
+                                        <Link id='play-btn' to={`/players/${game._id}`}><FaPlay/></Link>
+                                        <button id='edit-btn'><MdEdit/></button>
+                                        </div>
                                     </div>
-                                    <div id='my-games-btn-div' className='flex-box-sa'>
-                                        <Link key={index} to={`/players/${game._id}`}>Play</Link>
-                                        <button>Edit</button>
-                                        <button>Delete</button>
+                                    <div id='my-games-info-div' className='flex-box-sb'>
+                                        <p>Questions:{game.questionCount}</p>
+                                        <p>Creator: {game.creator.username}</p>
                                     </div>
                                 </div>
                             ))}
@@ -40,7 +44,7 @@ function MyGames() {
                     </main>
                 </>
                 :
-                <p>You need to be logged in to see this page</p>
+                <p>You need to be <span><Link to='/'>logged in </Link></span>to see this page</p>
 
             }
         </>

@@ -63,7 +63,7 @@ body {
 #main-header button {
   background-color: #EC994B;
   padding: 5px;
-  border: 1px solid #73777B;
+  border: 1px solid black;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: bold;

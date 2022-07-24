@@ -11,6 +11,10 @@ query Me {
       _id
       gameTopic
       questionCount
+      creator {
+        username
+        _id
+      }
     }
   }
 }

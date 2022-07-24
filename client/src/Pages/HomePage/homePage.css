@@ -63,7 +63,7 @@ body {
   text-decoration: none;
 }
 #homepage-feed section {
-  margin: 5% 10%;
+  margin: 5% 5%;
   flex-grow: 2;
 }
 #homepage-feed aside {
@@ -87,26 +87,26 @@ body {
 }
 
 .public-game-card {
-  border: 1px solid #EC994B;
+  border: 5px solid #15133C;
   border-radius: 4px;
   width: 100%;
   padding: 5px 10px;
   margin-bottom: 20px;
-  background-color: #15133C;
+  background-color: white;
 }
 .public-game-card header {
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-weight: bold;
   margin-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 10px;
-  color: #EC994B;
+  color: #15133C;
   border-bottom: 1px solid #EC994B;
 }
 .public-game-card p {
   color: #73777B;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 10px;
 }
 .public-game-card div {
