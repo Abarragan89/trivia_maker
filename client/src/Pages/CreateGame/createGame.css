@@ -63,7 +63,7 @@ body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #15133C;
+  background: #EC994B;
   width: 8px;
 }
 
@@ -97,15 +97,24 @@ body {
   margin-right: 30px;
 }
 #create-game-form #create-game-btn {
-  padding: 8px 30px;
   display: block;
-  border: 1px solid #15133C;
-  border-radius: 4px;
-  background-color: green;
-  color: #F1EEE9;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
   margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px 40px;
+  background-color: #EC994B;
+  border: none;
+  border-radius: 4px;
+  color: #15133C;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: 0.2s;
+}
+#create-game-form #create-game-btn:hover {
+  color: #F1EEE9;
+  cursor: pointer;
+}
+#create-game-form #create-game-btn:active {
+  border-radius: 10px;
 }
 
 #question-accordion {
@@ -118,16 +127,15 @@ body {
   display: block;
   text-align: left;
   font-weight: 700;
-  color: #15133C;
+  color: #73777B;
 }
 #question-accordion .point-label {
-  margin-left: 10%;
   margin-bottom: 10px;
   font-size: 1.3em;
   margin-top: 10px;
   text-align: center;
   font-family: "Mochiy Pop One", sans-serif;
-  color: #73777B;
+  color: #EC994B;
 }
 #question-accordion textarea {
   display: block;
@@ -138,7 +146,7 @@ body {
   padding: 5px;
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
-  border: 2px solid #15133C;
+  border: 2px solid #73777B;
   border-radius: 4px;
   background-color: #F1EEE9;
 }
@@ -164,32 +172,32 @@ body {
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #F1EEE9;
   margin-top: 20px;
   margin-bottom: 30px;
   background-color: transparent;
   padding: 5px;
   font-size: 1.1rem;
-  color: #15133C;
+  color: #EC994B;
 }
 #question-accordion input::-moz-placeholder {
-  color: #15133C;
+  color: #EC994B;
   font-size: 1.1rem;
 }
 #question-accordion input:-ms-input-placeholder {
-  color: #15133C;
+  color: #EC994B;
   font-size: 1.1rem;
 }
 #question-accordion input::placeholder {
-  color: #15133C;
+  color: #EC994B;
   font-size: 1.1rem;
 }
 #question-accordion input:-ms-input-placeholder {
-  color: #15133C;
+  color: #EC994B;
   font-size: 1.1rem;
 }
 #question-accordion input::-ms-input-placeholder {
-  color: #15133C;
+  color: #EC994B;
   font-size: 1.1rem;
 }
 #question-accordion input:focus {
@@ -202,7 +210,7 @@ body {
   transition: max-height 0.5s;
 }
 #question-accordion .single-question-div {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #F1EEE9;
   margin-top: 20px;
   padding-bottom: 30px;
 }
@@ -214,7 +222,7 @@ body {
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 10px;
-  background-color: #EC994B;
+  background-color: #15133C;
 }
 #question-accordion li input[type=radio] {
   display: none;

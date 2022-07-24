@@ -43,6 +43,8 @@ function Modal({
         decreasePlayerScore(questionPoints);
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
+
+        // game.switchPlayer();
         setScoreChange(scoreChange + 1);
     }
     // visually display the score decreasing

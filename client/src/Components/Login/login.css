@@ -103,7 +103,7 @@ body {
 }
 .login-form .login-btn:hover {
   cursor: pointer;
-  color: white;
+  color: #F1EEE9;
 }
 .login-form .login-btn:active {
   border-radius: 10px;

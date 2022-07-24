@@ -30,13 +30,13 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     }
 
     const [endGameData, setEndGameData] = useState(null)
-    console.log(endGameData)
     function closeModal() {
         setIsModal(!isModal);
         if(game.endGame()) {
             setEndGameData(game.endGame())
         }
         game.switchPlayer();
+        setScoreChange(scoreChange++)
     }
 
     // disable the buttons that have been clicked
@@ -58,8 +58,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                 scoreChange={scoreChange}
                 setScoreChange={setScoreChange}    
                 />}
-
-                {/* console.log(question.category.length) */}
+                <p id='upNext'>Up Next: <span>{game && game.currentPlayer.name}</span></p>
                 {gameData.map((question, index) => (
                     <div className='column' key={index + question.category}>
                         <h3 className={question.category ? `font-cat-${Math.floor(question.category.length/10) * 10}` : '' }>{question.category}</h3>

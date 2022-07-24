@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ConfirmGameModal  from '../../Components/ConfirmGameModal/confirmGameModal';
-import { Player } from '../../utils/gameStart'
 
 function PlayerInput() {
     const [showPlayerNames, setShowPlayerNames] = useState(false);

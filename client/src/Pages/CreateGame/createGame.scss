@@ -19,7 +19,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: $tertiaryColor;
+    background: $secondaryColor;
     width: 8px;
 }
 
@@ -59,15 +59,24 @@
         margin-right: 30px;
     }
     #create-game-btn {
-        padding: 8px 30px;
         display: block;
-        border: 1px solid $tertiaryColor;
-        border-radius: 4px;
-        background-color: green;
-        color: $primaryColor;
-        font-size: 1rem;
-        font-family: $primaryFont;
         margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px 40px;
+        background-color: $secondaryColor;
+        border: none;
+        border-radius: 4px;
+        color: $tertiaryColor;
+        font-size: 1.2em;
+        font-weight: 600;
+        transition: .2s;
+    }
+    #create-game-btn:hover {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+    #create-game-btn:active {
+        border-radius: 10px;
     }
 }
 
@@ -83,17 +92,16 @@
         display: block;
         text-align: left;
         font-weight: 700;
-        color: $tertiaryColor
+        color: $gray
     }
 
     .point-label {
-        margin-left: 10%;
         margin-bottom: 10px;
         font-size: 1.3em;
         margin-top: 10px;
         text-align: center;
         font-family: $pointNumber;
-        color: $gray;
+        color: $secondaryColor;
     }
 
     textarea {
@@ -105,7 +113,7 @@
         padding: 5px;
         font-size: 1rem;
         font-family: $primaryFont;
-        border: 2px solid $tertiaryColor;
+        border: 2px solid $gray;
         border-radius: 4px;
         background-color: $primaryColor;
     }
@@ -130,28 +138,28 @@
         display: block;
         width: 100%;
         border: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $primaryColor;
         margin-top: 20px;
         margin-bottom: 30px;
         background-color: transparent;
         padding: 5px;
         font-size: 1.1rem;
-        color: $tertiaryColor;
+        color: $secondaryColor;
     }
 
     input::placeholder {
-        color: $tertiaryColor;
+        color: $secondaryColor;
         font-size: 1.1rem;
     }
 
     input:-ms-input-placeholder {
-        color: $tertiaryColor;
+        color: $secondaryColor;
         font-size: 1.1rem;
 
     }
 
     input::-ms-input-placeholder {
-        color: $tertiaryColor;
+        color: $secondaryColor;
         font-size: 1.1rem;
 
     }
@@ -168,7 +176,7 @@
     }
 
     .single-question-div {
-        border-bottom: 3px solid black;
+        border-bottom: 3px solid $primaryColor;
         margin-top: 20px;
         padding-bottom: 30px;
     }
@@ -181,7 +189,7 @@
         padding: 5px;
         border-radius: 5px;
         margin-bottom: 10px;
-        background-color: $secondaryColor;
+        background-color: $tertiaryColor;
 
 
         input[type="radio"] {

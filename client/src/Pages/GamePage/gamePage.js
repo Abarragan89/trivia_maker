@@ -8,6 +8,9 @@ import { useQuery } from '@apollo/client';
 import { useParams, useLocation } from 'react-router-dom';
 
 function GamePage() {
+    // pass this state to children to trigger rerender of parents
+    const [scoreChange, setScoreChange] = useState(0)
+    
     // Get game data and player data
     const gameId = useParams().gameId
     const players  = useLocation().state
@@ -19,13 +22,11 @@ function GamePage() {
     const h1Text = useRef(null) 
 
     // Create Game 
-    // const game = useRef(null)
     const [game, setGame] = useState(null)
+
     useEffect(() => {
         setGame(new GameStart(questionAmount, players))   
     },[questionAmount, players]) 
-
-    const [scoreChange, setScoreChange] = useState(0)
 
     return (
         <main id='main-gamepage'>
@@ -38,12 +39,13 @@ function GamePage() {
                 setScoreChange={setScoreChange}   
                 /> 
             </section>
-            <section>
-                <p>{game && game.currentPlayer.name}'s turn</p>
-                <h2>Players</h2>
-                {game && game.players.map((player, index) => (
-                    <p key={index}>{player.name}  {player.score}</p>
-                ))}
+            <section id='player-info'>
+                <h2>Scoreboard</h2>
+                <div id='players-score-div' className='flex-box-col-sb'>
+                    {game && game.players.map((player, index) => (
+                            <p key={index} className='player-score'>{player.name} <span>{player.score}</span></p>
+                    ))}
+                </div>
             </section>
         </main>
     )

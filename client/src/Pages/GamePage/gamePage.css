@@ -55,12 +55,39 @@ body {
   text-align: center;
   color: #15133C;
   font-family: "Mochiy Pop One", sans-serif;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #15133C;
+  margin-bottom: 45px;
+  border-bottom: 2px solid #15133C;
   padding-bottom: 10px;
 }
 #main-gamepage #gameBoard {
   margin: 0 auto;
+}
+#main-gamepage #player-info p {
+  font-size: 1.4em;
+  font-family: "Mochiy Pop One", sans-serif;
+  color: #15133C;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#main-gamepage #player-info p span {
+  color: #EC994B;
+}
+#main-gamepage #player-info {
+  text-align: center;
+}
+#main-gamepage #player-info h2 {
+  border-bottom: 3px solid #EC994B;
+  padding-bottom: 5px;
+  font-size: 2em;
+  margin-top: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+#main-gamepage .player-score span {
+  margin-left: 50px;
+}
+#main-gamepage .player-score {
+  font-size: 1.2em;
 }
 
 @media screen and (max-width: 800px) {
