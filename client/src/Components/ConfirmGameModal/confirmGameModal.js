@@ -22,7 +22,7 @@ function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationM
                     ))}
                 </div>
                 <Link state={players} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br/>
-                <Link id='cancel-confirmation' to={`/players/${gameId}`} onClick={() => setShowConfirmationModal(false)}>Cancel</Link>
+                <Link id='cancel-confirmation' to='/my-games' onClick={() => setShowConfirmationModal(false)}>Cancel</Link>
             </div>
         </div>
     )
