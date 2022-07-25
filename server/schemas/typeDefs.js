@@ -56,6 +56,7 @@ const typeDefs = gql `
         addUser(username: String!, password: String!, email: String!): Auth 
         createGame( gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
         deleteGame( gameId: ID!): Game
+        updateGame(gameId: ID!, gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
     }
 `;
 

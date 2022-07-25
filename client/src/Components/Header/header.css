@@ -46,6 +46,12 @@ body {
   justify-content: space-around;
 }
 
+#home-logo {
+  border-radius: 5px;
+  width: 150px;
+  opacity: 1;
+}
+
 #main-header {
   width: auto;
   margin: 0 auto;
@@ -55,7 +61,11 @@ body {
   height: 90px;
   align-items: center;
 }
-#main-header h2 {
+#main-header a {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2em;
+  text-decoration: none;
   color: #EC994B;
   display: inline-block;
   margin-right: 20px;

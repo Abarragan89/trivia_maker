@@ -67,7 +67,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        createGame: async (parent, {topic, gameData, public }, context) => {
+        createGame: async (parent, { topic, gameData, public }, context) => {
             if (context.user) {
                 try {
                     const game = await Game.create({
@@ -82,18 +82,42 @@ const resolvers = {
                         { new: true }
                     )
                     return game;
-                } catch(e) {
+                } catch (e) {
                     console.log(e)
                 }
             }
-        throw new AuthenticationError('You need to be logged in!');
+            throw new AuthenticationError('You need to be logged in!');
         },
         deleteGame: async (parent, { gameId }, context) => {
-            if(context.user) {
+            if (context.user) {
                 try {
                     const game = await Game.deleteOne({ _id: gameId })
                     return game;
-                } catch(e) {
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        updateGame: async (parent, args, context) => {
+            if (context.user) {
+                try {
+                    await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { $pull: { games: args.game._id }}
+                    );
+                    const newGame =  await Game.create({
+                        gameTopic: args.topic,
+                        gameData: args.gameData,
+                        public: args.public,
+                        creator: context.user._id
+                    })
+                    await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { $push: { games: newGame._id }}
+                    )
+                    return newGame;
+                } catch (e) {
                     console.log(e)
                 }
             }

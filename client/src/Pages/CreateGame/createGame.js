@@ -2,6 +2,7 @@ import './createGame.css';
 import Auth from '../../utils/auth';
 import { useMutation } from '@apollo/client'
 import { CREATE_GAME } from '../../utils/mutations'
+import Header from '../../Components/Header/header';
 
 function CreateGame() {
     // used to check if the user is logged in
@@ -325,6 +326,7 @@ function CreateGame() {
     }
     return (
         <>
+            <Header />
             {loggedIn ?
                 <form id='create-game-form' onSubmit={handleSubmit}>
                     <div className='flex-box-sb'>

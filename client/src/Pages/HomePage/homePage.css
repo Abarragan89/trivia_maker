@@ -62,12 +62,19 @@ body {
   color: black;
   text-decoration: none;
 }
+#homepage-feed h1 {
+  margin-bottom: 10px;
+  font-family: "Mochiy Pop One", sans-serif;
+  text-align: center;
+  color: #15133C;
+}
 #homepage-feed section {
   margin: 5% 5%;
   flex-grow: 2;
 }
 #homepage-feed aside {
   margin: 5%;
+  margin-top: 10%;
   margin-bottom: 0;
   flex-basis: 1;
 }

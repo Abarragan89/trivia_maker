@@ -1,6 +1,7 @@
 import { ADD_USER, LOGIN_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Header/header';
 import Auth from '../../utils/auth'
 import './login.css'
@@ -9,6 +10,8 @@ import './login.css'
 function Login() {
     const [signup] = useMutation(ADD_USER)
     const [login] = useMutation(LOGIN_USER);
+    
+    //////////////////////////////signup //////////////////////////
     const [formStateSignup, setFormStateSignup] = useState({
         username: '',
         password: '',
@@ -16,8 +19,6 @@ function Login() {
     })
     const [isUser, setIsUser] = useState(false)
 
-
-    // update state based on form input changes
     const handleChangeSignup = (event) => {
         const { name, value } = event.target;
         setFormStateSignup({
@@ -35,19 +36,16 @@ function Login() {
                 variables: { ...formStateSignup }
             })
             Auth.login(data.addUser.token);
+            window.location.replace('/dashboard')
         } catch (e) {
             console.log(e);
+            const loginError = document.querySelector('.login-error')
+            loginError.innerHTML = 'Username must be unique and email valid'
         }
-        // clear form values
-        setFormStateSignup({
-            email: '',
-            password: '',
-            username: ''
-        });
     };
 
 
-    ////////////////////////////////////////////
+    ////////////////////////////////////////////Login//////////////////////////////
     const [formStateLogin, setFormStateLogin] = useState({
         password: '',
         email: ''
@@ -69,34 +67,32 @@ function Login() {
                 variables: { ...formStateLogin }
             })
             Auth.login(data.login.token);
+            window.location.replace('/dashboard')
         } catch (e) {
             console.log(e);
+            const loginError = document.querySelector('.login-error')
+            console.log('span el', loginError)
+            loginError.innerHTML = 'Incorrect Credentials'
+            return;
         }
-        // clear form values
-        setFormStateLogin({
-            email: '',
-            password: '',
-        });
     };
 
     
-
     return (
         <>
             <Header />
-            <main className='flex-box-sb'>
-                <section>
-                    <p>This is the info sess</p>
-                </section>
+            <main>
                 <aside>
                     {isUser ?
                         <>
                             <form onSubmit={handleSubmitLogin} className='flex-box-col-se login-form'>
                                 <legend><span>Login</span></legend>
                                 <p>Welcome Back</p>
-                                <input type='text' className='login-input' placeholder='Email' name='email' onChange={handleChangeLogin}></input>
-                                <input type='password' className='login-input' placeholder='Password' name='password' onChange={handleChangeLogin}></input>
+                                <input type='text' className='login-input' value={formStateLogin.email} placeholder='Email' name='email' onChange={handleChangeLogin}></input>
+                                <input type='password' className='login-input' value={formStateLogin.password} placeholder='Password' name='password' onChange={handleChangeLogin}></input>
+                                <span className='login-error'></span>
                                 <button type='submit' className='login-btn'>Login</button>
+                                <p id='forgot-password'>Forgot password?</p>
                             </form>
                             <p className='switch-login'>Or<span onClick={() => setIsUser(false)}>create an account.</span></p>
                         </>
@@ -105,12 +101,14 @@ function Login() {
                             <form onSubmit={handleSubmitSignup} className='flex-box-col-se login-form'>
                                 <legend><span>Sign up</span></legend>
                                 <p>Create a free account to start making trivia games!</p>
-                                <input type='text' className='login-input' placeholder='Username' name='username' onChange={handleChangeSignup} autoFocus></input>
-                                <input type='text' className='login-input' placeholder='Email' name='email' onChange={handleChangeSignup}></input>
-                                <input type='password' className='login-input' placeholder='Password' name='password' onChange={handleChangeSignup}></input>
+                                <input type='text' className='login-input' value={formStateSignup.username} placeholder='Username' name='username' onChange={handleChangeSignup} autoFocus required></input>
+                                <input type='text' className='login-input' value={formStateSignup.email} placeholder='Email' name='email' onChange={handleChangeSignup} required></input>
+                                <input type='password' className='login-input' value={formStateSignup.password} placeholder='Password' minLength='6' name='password' onChange={handleChangeSignup} required></input>
+                                <span className='login-error'></span>
                                 <button type='submit' className='login-btn'>Sign up</button>
+                                
                             </form>
-                            <p className='switch-login'>Already have an accout?<span onClick={() => setIsUser(true)}>Sign in.</span></p>
+                            <p className='switch-login'>Already have an accout?<span onClick={() => setIsUser(true)}>Login.</span></p>
                         </>
                     }
                 </aside>

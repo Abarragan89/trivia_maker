@@ -42,3 +42,11 @@ mutation Mutation($gameData: [categorySetInput]!, $topic: String!, $public: Bool
   }
 }
 `;
+
+export const UPDATE_GAME = gql `
+mutation Mutation($gameId: ID!, $gameData: [categorySetInput]!, $topic: String!, $public: Boolean) {
+  updateGame(gameId: $gameId, gameData: $gameData, topic: $topic, public: $public) {
+    gameTopic
+  }
+}
+`

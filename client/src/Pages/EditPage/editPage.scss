@@ -1,0 +1,213 @@
+@import '../../index.scss';
+
+
+// Styles for the scroll bars
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $secondaryColor;
+    width: 8px;
+}
+
+
+
+// styles for outside the accordion
+#create-game-form {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 90%;
+
+    div:first-child {
+        flex-wrap: wrap;
+        text-align: center;
+        margin-bottom: 20px;
+
+        #public-game {
+            margin-right: 5px;
+            height: 18px;
+            width: 18px;
+            margin-top: 10px;
+            accent-color: $tertiaryColor;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: $tertiaryColor;
+        }
+    }
+
+    .create-game-txt-input {
+        padding: 5px;
+        padding-right: 30px;
+        font-size: 1rem;
+        border-radius: 4px;
+        border: 1px solid black;
+        margin-right: 30px;
+    }
+    #create-game-btn {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px 40px;
+        background-color: $secondaryColor;
+        border: none;
+        border-radius: 4px;
+        color: $tertiaryColor;
+        font-size: 1.2em;
+        font-weight: 600;
+        transition: .2s;
+    }
+    #create-game-btn:hover {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+    #create-game-btn:active {
+        border-radius: 10px;
+    }
+}
+
+
+// Styles and logic for the accordion
+#question-accordion {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 0;
+
+    .category-label {
+        font-size: 1.5rem;
+        display: block;
+        text-align: left;
+        font-weight: 700;
+        color: $gray
+    }
+
+    .point-label {
+        margin-bottom: 10px;
+        font-size: 1.3em;
+        margin-top: 10px;
+        text-align: center;
+        font-family: $pointNumber;
+        color: $secondaryColor;
+    }
+
+    textarea {
+        display: block;
+        width: 80%;
+        height: 60px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 1rem;
+        font-family: $primaryFont;
+        border: 2px solid $gray;
+        border-radius: 4px;
+        background-color: $primaryColor;
+    }
+
+    textarea::placeholder {
+        color: $gray;
+    }
+
+    textarea:-ms-input-placeholder {
+        color: $gray
+    }
+
+    textarea::-ms-input-placeholder {
+        color: $gray
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $primaryColor;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        background-color: transparent;
+        padding: 5px;
+        font-size: 1.1rem;
+        color: $secondaryColor;
+    }
+
+    input::placeholder {
+        color: $secondaryColor;
+        font-size: 1.1rem;
+    }
+
+    input:-ms-input-placeholder {
+        color: $secondaryColor;
+        font-size: 1.1rem;
+
+    }
+
+    input::-ms-input-placeholder {
+        color: $secondaryColor;
+        font-size: 1.1rem;
+
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .question-content {
+        padding: 0 10px;
+        max-height: 0;
+        overflow-y: scroll;
+        transition: max-height 0.5s;
+    }
+
+    .single-question-div {
+        border-bottom: 3px solid $primaryColor;
+        margin-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    li {
+        display: block;
+        list-style: none;
+        width: 100%;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        background-color: $tertiaryColor;
+
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked+.question-content {
+            max-height: 300px;
+        }
+    }
+
+    label {
+        align-items: center;
+        cursor: pointer;
+
+        span {
+            transform: rotate(90deg);
+            font-size: 22px;
+        }
+    }
+}

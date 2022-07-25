@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import Login from '../../Components/Login/login';
 import { QUERY_PUBLIC_GAMES } from '../../utils/queries'
 import { useQuery } from '@apollo/client';
 import Header from '../../Components/Header/header';
@@ -24,10 +23,11 @@ function HomePage() {
                     <Header />
                     <main>
                         <form id='search-form'>
-                            <input type='text' placeholder='Search' id='search-public-games' name='search-public-games' />
+                            <input type='text' placeholder='Search Public Games' id='search-public-games' name='search-public-games' />
                         </form>
                         <div id='homepage-feed' className='flex-box-sb'>
                             <section>
+                                <h1>Public Games</h1>
                                 {publicGames &&
                                     publicGames.map((game, index) => (
                                         <article id='link-to-public' key={index} to={`/players/${game._id}`}>
@@ -56,7 +56,7 @@ function HomePage() {
                     </main>
                 </>
                 :
-                <Login />
+                <p>You need to be <Link to='/login'>logged in</Link> to view this page</p>
             }
         </>
     )
