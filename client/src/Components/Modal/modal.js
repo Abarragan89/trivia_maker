@@ -59,7 +59,7 @@ function Modal({
             if (counter > points) {
                 clearInterval(visualIncrease)
             }
-        }, 15)
+        }, 5)
     }
     return (
         <div className='modalBackdrop'>

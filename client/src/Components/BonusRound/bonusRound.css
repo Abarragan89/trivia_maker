@@ -102,13 +102,69 @@ body {
   -webkit-text-stroke: 5px rgb(32, 32, 156);
   font-family: "Mochiy Pop One", sans-serif;
   top: 20%;
-  right: 27%;
+  right: 38%;
   -webkit-animation: appear 1s;
           animation: appear 1s;
   font-size: 10em;
   opacity: 1;
 }
 
+@media screen and (max-width: 1220px) {
+  #number-multiplier {
+    position: absolute;
+    color: #EC994B;
+    -webkit-text-stroke: 5px rgb(32, 32, 156);
+    font-family: "Mochiy Pop One", sans-serif;
+    top: 20%;
+    right: 34%;
+    -webkit-animation: appear 1s;
+            animation: appear 1s;
+    font-size: 10em;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 1040px) {
+  #number-multiplier {
+    position: absolute;
+    color: #EC994B;
+    -webkit-text-stroke: 5px rgb(32, 32, 156);
+    font-family: "Mochiy Pop One", sans-serif;
+    top: 20%;
+    right: 31%;
+    -webkit-animation: appear 1s;
+            animation: appear 1s;
+    font-size: 10em;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 890px) {
+  #number-multiplier {
+    position: absolute;
+    color: #EC994B;
+    -webkit-text-stroke: 5px rgb(32, 32, 156);
+    font-family: "Mochiy Pop One", sans-serif;
+    top: 15%;
+    right: 27%;
+    -webkit-animation: appear 1s;
+            animation: appear 1s;
+    font-size: 10em;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 520px) {
+  #number-multiplier {
+    position: absolute;
+    color: #EC994B;
+    -webkit-text-stroke: 5px rgb(32, 32, 156);
+    font-family: "Mochiy Pop One", sans-serif;
+    top: 15%;
+    right: 20%;
+    -webkit-animation: appear 1s;
+            animation: appear 1s;
+    font-size: 10em;
+    opacity: 1;
+  }
+}
 @-webkit-keyframes appear {
   from {
     top: 50%;
@@ -121,7 +177,6 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes appear {
   from {
     top: 50%;
