@@ -60,7 +60,7 @@ body {
 
 .modalContainer {
   border-radius: 5px;
-  margin: 50px auto;
+  margin: 30px auto;
   width: 90vw;
   -webkit-animation: fadeIn 0.5s;
           animation: fadeIn 0.5s;

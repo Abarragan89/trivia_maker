@@ -56,10 +56,65 @@
     -webkit-text-stroke: 5px rgb(32, 32, 156);
     font-family: $pointNumber;
     top: 20%;
-    right: 27%;
+    right: 38%;
     animation: appear 1s;
     font-size: 10em;
     opacity: 1;
+}
+
+
+
+@media screen and (max-width: 1220px) {
+    #number-multiplier {
+        position: absolute;
+        color: $secondaryColor;
+        -webkit-text-stroke: 5px rgb(32, 32, 156);
+        font-family: $pointNumber;
+        top: 20%;
+        right: 34%;
+        animation: appear 1s;
+        font-size: 10em;
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 1040px) {
+    #number-multiplier {
+        position: absolute;
+        color: $secondaryColor;
+        -webkit-text-stroke: 5px rgb(32, 32, 156);
+        font-family: $pointNumber;
+        top: 20%;
+        right: 31%;
+        animation: appear 1s;
+        font-size: 10em;
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 890px) {
+    #number-multiplier {
+        position: absolute;
+        color: $secondaryColor;
+        -webkit-text-stroke: 5px rgb(32, 32, 156);
+        font-family: $pointNumber;
+        top: 15%;
+        right: 27%;
+        animation: appear 1s;
+        font-size: 10em;
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 520px) {
+    #number-multiplier {
+        position: absolute;
+        color: $secondaryColor;
+        -webkit-text-stroke: 5px rgb(32, 32, 156);
+        font-family: $pointNumber;
+        top: 15%;
+        right: 20%;
+        animation: appear 1s;
+        font-size: 10em;
+        opacity: 1;
+    }
 }
 
 @keyframes appear {
