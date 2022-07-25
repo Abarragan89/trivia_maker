@@ -1,0 +1,130 @@
+@import '../../index.scss';
+
+#search-form {
+    text-align: center;
+}
+
+#search-public-games {
+    width: 90%;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+#homepage-feed {
+
+    #link-to-public {
+        color: black;
+        text-decoration: none;
+    }
+
+    section {
+        margin: 5% 5%;
+        flex-grow: 2
+    }
+
+    aside {
+        margin: 5%;
+        margin-bottom: 0;
+        flex-basis: 1;
+        a {
+            display: block;
+            font-size: 1.25em;
+            width: 170px;
+            text-decoration: none;
+            color: $tertiaryColor;
+            margin: 0 auto;
+            border: 1px solid $tertiaryColor;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 10px 50px;
+            text-align: center;
+            font-weight: 700;
+            background-color: $secondaryColor;
+        }
+        a:hover {
+            cursor: pointer;
+            color: $primaryColor;
+        }
+        a:active {
+            color: $gray;
+            border: 1px solid transparent;
+        }
+    }
+
+
+}
+
+.public-game-card {
+    border: 5px solid $tertiaryColor;
+    border-radius: 4px;
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    background-color: white;
+
+    header {
+        margin-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $secondaryColor;
+    }
+    h2 {
+        text-align: left;
+        font-size: 1.4em;
+        margin-right: 20px;
+        font-weight: bold;    
+        color: $tertiaryColor;
+    }
+    p {
+        color: $gray;
+        font-size: 1em;
+        padding: 10px;
+    }
+    div {
+        flex-wrap: wrap;
+    }
+    .public-feed-btns {
+        background-color: white;
+        border: none;
+        font-size: 1.7em;
+    }
+    .public-feed-btns:first-child {
+        margin-bottom: 10px;
+    }
+    .public-feed-btns:hover {
+        cursor: pointer;
+        color: $secondaryColor;
+    }
+    .public-feed-btns:active {
+        color: $gray;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    #homepage-feed {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-content: center;
+
+        section {
+            margin: 5% 
+        }
+
+        aside {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+
+            a {
+                padding: 10px 30px;
+            }
+        }
+    }
+    .public-game-card {
+        h2 {
+            font-size: 1.2em;
+        }
+    }
+}

@@ -1,5 +1,77 @@
+@import '../../index.scss';
+
 #canvas {
     display: block;
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid $tertiaryColor;
+}
+
+.bonus-buttons {
+    font-size: 1.3em;
+    position: relative;
+    bottom: 20px;
+    border: none;
+    display: block;
+    margin: 20px auto;
+    padding: 8px 40px;
+    border-radius: 4px;
+    font-weight: 700;
+    background-color: $red;
+    color: $primaryColor;
+}
+
+.bonus-buttons:hover {
+    background-color: $tertiaryColor;
+}
+
+.bonus-buttons:active {
+    color: $gray;
+}
+
+#next-player-btn {
+    background-color: green;
+}
+
+.bonus-text {
+    font-size: 1.2em;
+    color: $tertiaryColor;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+#bonus-title {
+    font-size: 2rem;
+    text-align: center;
+    color: $tertiaryColor;
+    font-family: $pointNumber;
+    margin-bottom: 45px;
+    border-bottom: 3px solid $secondaryColor;
+    padding-bottom: 10px;
+}
+
+#number-multiplier {
+    position: absolute;
+    color: $secondaryColor;
+    -webkit-text-stroke: 5px rgb(32, 32, 156);
+    font-family: $pointNumber;
+    top: 20%;
+    right: 27%;
+    animation: appear 1s;
+    font-size: 10em;
+    opacity: 1;
+}
+
+@keyframes appear {
+    from {
+        top: 50%;
+        right: 50%;
+        opacity: 0;
+        font-size: 0;
+    }
+
+    to {
+        font-size: 10em;
+        opacity: 1;
+    }
 }

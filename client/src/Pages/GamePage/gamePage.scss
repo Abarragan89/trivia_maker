@@ -1,22 +1,60 @@
 @import '../../index.scss';
 
-main {
+#main-gamepage {
     padding: 2rem;
     margin: 0 auto;
 
-    h1 {
+    #game-title {
         font-size: 2rem;
         text-align: center;
+        color: $tertiaryColor;
+        font-family: $pointNumber;
+        margin-bottom: 45px;
+        border-bottom: 2px solid $tertiaryColor;
+        padding-bottom: 10px;
     }
 
     #gameBoard {
         margin: 0 auto;
-        border: 1px solid;
+    }
+    #player-info {
+        p {
+            font-size: 1.4em;
+            font-family: $pointNumber;
+            color: $tertiaryColor;
+            text-align: center;
+            margin-bottom: 10px;
+            span {
+                color: $secondaryColor
+            }
+        }
+
+    }
+    #player-info {
+        text-align: center;
+
+        h2 {
+            border-bottom: 3px solid $secondaryColor;
+            padding-bottom: 5px;
+            font-size: 2em;
+            margin-top: 10px;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+    }
+    .player-score {
+        span {
+            margin-left: 50px;
+        }
+    }
+    .player-score {
+        font-size: 1.2em;
     }
 }
 
-@media screen and (max-width: 595px) {
-    main {
-        width: 500px
+@media screen and (max-width: 800px) {
+    #main-gamepage {
+        width: 800px
     }
 }

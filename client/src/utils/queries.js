@@ -10,6 +10,11 @@ query Me {
     games {
       _id
       gameTopic
+      questionCount
+      creator {
+        username
+        _id
+      }
     }
   }
 }
@@ -29,6 +34,20 @@ query GetUserGames($gameId: ID!) {
         points
         question
       }
+    }
+  }
+}
+`;
+
+export const QUERY_PUBLIC_GAMES = gql `
+query GetPublicGames {
+  getPublicGames {
+    _id
+    gameTopic
+    questionCount
+    creator {
+      username
+      _id
     }
   }
 }

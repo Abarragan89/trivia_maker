@@ -1,3 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 /* styles for the modal */
 .modalBackdrop {
   background: rgba(0, 0, 0, 0.75);
@@ -12,38 +60,38 @@
 
 .modalContainer {
   border-radius: 5px;
-  margin: 100px auto;
+  margin: 50px auto;
   width: 90vw;
   -webkit-animation: fadeIn 0.5s;
           animation: fadeIn 0.5s;
+  background-color: #F1EEE9;
 }
 .modalContainer .modalHeader {
-  background-color: green;
-  height: 30px;
+  border-bottom: 3px solid #EC994B;
+  padding-bottom: 10px;
 }
 .modalContainer h4 {
   display: inline;
   vertical-align: text-top;
   position: relative;
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: 0.2em;
   margin: 2px;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+.modalContainer h3 {
+  font-size: 2.5em;
 }
 .modalContainer .cardQuestionText {
   text-align: center;
   padding: 20px 10px;
   line-height: 1.3em;
   font-size: 1.5rem;
+  color: #15133C;
 }
-.modalContainer button:first-child {
-  color: red;
-}
-.modalContainer button:last-child {
-  color: green;
-}
-.modalContainer button:hover {
+.modalContainer modal-buttons:hover {
   cursor: pointer;
-  color: white;
+  color: #73777B;
 }
 .modalContainer #exitModal {
   font-size: 1.3rem;
@@ -57,8 +105,47 @@
   top: -0.125rem;
 }
 .modalContainer .questionContainer {
-  background-color: red;
+  background-color: #F1EEE9;
   margin: 0 auto;
+  min-height: 200px;
+  margin-top: 0px;
+  border-radius: 0 0 4px 4px;
+  margin-bottom: 20px;
+}
+.modalContainer .questionContainer #modal-button-div {
+  flex-wrap: wrap;
+}
+.modalContainer .questionContainer #modal-button-div #correct-answer {
+  background-color: green;
+}
+.modalContainer .questionContainer #modal-button-div #wrong-answer {
+  background-color: rgb(205, 0, 0);
+}
+.modalContainer .questionContainer #modal-button-div #correct-answer:hover, .modalContainer .questionContainer #modal-button-div #wrong-answer:hover {
+  color: #F1EEE9;
+}
+.modalContainer .questionContainer #modal-button-div #correct-answer:active, .modalContainer .questionContainer #modal-button-div #wrong-answer:active {
+  color: #EC994B;
+}
+.modalContainer .questionContainer .modal-buttons {
+  font-size: 1.3em;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-top: 20px;
+  font-weight: 700;
+  background-color: #73777B;
+  color: #15133C;
+}
+.modalContainer .questionContainer .modal-buttons:hover {
+  background-color: #EC994B;
+}
+.modalContainer .questionContainer .modal-buttons:active {
+  color: #F1EEE9;
+}
+.modalContainer .questionContainer .modal-button:nth-child(1) {
+  background-color: green;
 }
 
 .button:disabled {

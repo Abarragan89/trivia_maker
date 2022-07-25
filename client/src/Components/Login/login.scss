@@ -1,0 +1,85 @@
+@import '../../index.scss';
+
+.login-form {
+    // width: auto;
+    margin: auto;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    background-color: $tertiaryColor;
+    border-radius: 4px;
+    box-shadow: 0px 10px 10px 1px rgb(144, 142, 142);
+
+    p {
+        text-align: center;
+        margin-bottom: 30px;
+        color: $primaryColor
+    }
+
+    legend {
+        text-align: center;
+        margin: 20px 0 15px;
+        padding: 0;
+        width: 100%;
+        font-size: 1.7em;
+        line-height: 0.1rem;
+        border-bottom: 1px solid $secondaryColor;
+
+        span {
+            background: $tertiaryColor;
+            color: $primaryColor;
+            padding: 0 10px;
+            margin: 0 auto;
+        }
+    }
+
+    .login-input {
+        margin-bottom: 30px;
+        padding: 8px;
+        font-size: 1rem;
+        border-radius: 4px;
+        background-color: $primaryColor;
+        color: $tertiaryColor;
+        border: 1px solid black;
+    }
+    .login-input:focus {
+        outline: none !important;
+        border: 2px solid $secondaryColor;
+    }
+
+    .login-btn {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        padding: 8px;
+        background-color: $secondaryColor;
+        border: none;
+        border-radius: 4px;
+        color: $tertiaryColor;
+        font-size: 1.2em;
+        font-weight: 600;
+        transition: .2s;
+    }
+    .login-btn:hover {
+        cursor: pointer;
+        color: $primaryColor;
+
+    }
+    .login-btn:active {
+        border-radius: 10px;
+    }
+}
+
+.switch-login {
+    text-align: center;
+    margin-top: 20px;
+    span {
+        margin-left: 5px;
+        text-decoration: underline;
+        color: blue
+    }
+    span:hover {
+        cursor: pointer;
+    }
+    span:active {
+        text-decoration: none;
+    }
+}

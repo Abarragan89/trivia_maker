@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#main-header {
+  width: auto;
+  margin: 0 auto;
+  background-color: #15133C;
+  padding: 0 20px;
+  margin-bottom: 30px;
+  height: 90px;
+  align-items: center;
+}
+#main-header h2 {
+  color: #EC994B;
+  display: inline-block;
+  margin-right: 20px;
+}
+#main-header button {
+  background-color: #EC994B;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+#main-header button:hover {
+  color: #F1EEE9;
+  cursor: pointer;
+}
+#main-header button:active {
+  color: #73777B;
+}
+#main-header #signup-login-link {
+  color: #EC994B;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+#main-header #signup-login-link:hover {
+  cursor: pointer;
+  font-style: italic;
+}
+#main-header #signup-login-link:active {
+  color: #73777B;
+}/*# sourceMappingURL=header.css.map */

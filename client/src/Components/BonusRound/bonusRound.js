@@ -2,14 +2,14 @@ import './bonusRound.css'
 import { useRef, useEffect, useState } from "react";
 import frameRenderer from "../FrameRenderer/frameRenderer";
 
-function BonusRound({ 
-  pointValue, 
-  game, 
-  scoreChange, 
+function BonusRound({
+  pointValue,
+  game,
+  scoreChange,
   setScoreChange,
-  closeModal, 
+  closeModal,
   increasePlayerScore
-  }) {
+}) {
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
   // Make speed 5
@@ -134,22 +134,28 @@ function BonusRound({
 
   return (
     <>
-      <h1>Bonus Round!!!</h1>
+      <h1 id='bonus-title'>Bonus Round!!!</h1>
       <canvas id='canvas' height="400" width="300" ref={canvasRef} />
       {
         ballStopped ?
           <>
-          {
-            multiplier > 1 
-            ? 
-            <div>x{multiplier}!!</div>
-            :
-            <div>Aw, nice try.</div>
-          }
-            <button id='stop-ball-btn' onClick={closeModal}>Next Player</button>
+            {
+              multiplier > 1
+                ?
+                <>
+                <div id='number-multiplier'>x{multiplier}!!</div>
+                <div className='bonus-text'>Way to Go!</div>
+                </>
+                :
+                <div className='bonus-text'>Aw, nice try.</div>
+            }
+            <button id='next-player-btn' className='bonus-buttons' onClick={closeModal}>Next Player</button>
           </>
           :
-          <button id='stop-ball-btn' onClick={stop}>Stop</button>
+          <>
+            <div className='bonus-text'>Hit stop or press spacebar.</div>
+            <button className='bonus-buttons' id='stop-ball-btn' onClick={stop}>Stop</button>
+          </>
       }
     </>
 

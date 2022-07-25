@@ -30,13 +30,13 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     }
 
     const [endGameData, setEndGameData] = useState(null)
-    console.log(endGameData)
     function closeModal() {
         setIsModal(!isModal);
         if(game.endGame()) {
             setEndGameData(game.endGame())
         }
         game.switchPlayer();
+        setScoreChange(scoreChange++)
     }
 
     // disable the buttons that have been clicked
@@ -44,6 +44,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
         let listEl = document.getElementById(listElId)
         listEl.setAttribute('disabled', 'true')
         listEl.removeAttribute('class', 'activeQuestions')
+        listEl.setAttribute('class', 'deactivated-button')
     }
 
     return (
@@ -57,9 +58,10 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                 scoreChange={scoreChange}
                 setScoreChange={setScoreChange}    
                 />}
+                <p id='upNext'>Up Next: <span>{game && game.currentPlayer.name}</span></p>
                 {gameData.map((question, index) => (
                     <div className='column' key={index + question.category}>
-                        <h3>{question.category}</h3>
+                        <h3 className={question.category ? `font-cat-${Math.floor(question.category.length/10) * 10}` : '' }>{question.category}</h3>
                         <ul>
                             {question.clues.map((set, index) => {
                                 {/* get the id of the button that will be disabled. */}
@@ -67,7 +69,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                                 if (!set.points) {
                                    return (
                                     <li key={index}>
-                                        <p>NA</p>
+                                    <button className='deactivated-button' id={index + question.category} disabled>N/A</button>
                                     </li>
                                    ) 
                                 }

@@ -1,4 +1,29 @@
-$primaryColor: blue;
+// Resets 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// Variables for Colors
+$primaryColor: #F1EEE9;
+$secondaryColor: #EC994B;
+$tertiaryColor: #15133C;
+$gray: #73777B;
+$red: rgb(205, 0, 0);
+
+// Variables for Fonts
+$pointNumber:'Mochiy Pop One', sans-serif;
+$primaryFont: 'Roboto', sans-serif;
+
+
+html {
+    background-color: $primaryColor;
+}
+
+body {
+    font-family: $primaryFont;
+}
 
 /* UTILITY Classes */
 .flex-box-sa {

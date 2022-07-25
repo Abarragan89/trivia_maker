@@ -1,5 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 #canvas {
   display: block;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid #15133C;
+}
+
+.bonus-buttons {
+  font-size: 1.3em;
+  position: relative;
+  bottom: 20px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  padding: 8px 40px;
+  border-radius: 4px;
+  font-weight: 700;
+  background-color: rgb(205, 0, 0);
+  color: #F1EEE9;
+}
+
+.bonus-buttons:hover {
+  background-color: #15133C;
+}
+
+.bonus-buttons:active {
+  color: #73777B;
+}
+
+#next-player-btn {
+  background-color: green;
+}
+
+.bonus-text {
+  font-size: 1.2em;
+  color: #15133C;
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+#bonus-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #15133C;
+  font-family: "Mochiy Pop One", sans-serif;
+  margin-bottom: 45px;
+  border-bottom: 3px solid #EC994B;
+  padding-bottom: 10px;
+}
+
+#number-multiplier {
+  position: absolute;
+  color: #EC994B;
+  -webkit-text-stroke: 5px rgb(32, 32, 156);
+  font-family: "Mochiy Pop One", sans-serif;
+  top: 20%;
+  right: 27%;
+  -webkit-animation: appear 1s;
+          animation: appear 1s;
+  font-size: 10em;
+  opacity: 1;
+}
+
+@-webkit-keyframes appear {
+  from {
+    top: 50%;
+    right: 50%;
+    opacity: 0;
+    font-size: 0;
+  }
+  to {
+    font-size: 10em;
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    top: 50%;
+    right: 50%;
+    opacity: 0;
+    font-size: 0;
+  }
+  to {
+    font-size: 10em;
+    opacity: 1;
+  }
 }/*# sourceMappingURL=bonusRound.css.map */

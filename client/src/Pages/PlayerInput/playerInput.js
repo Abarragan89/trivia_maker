@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import ConfirmGameModal  from '../../Components/ConfirmGameModal/confirmGameModal';
-import { Player } from '../../utils/gameStart'
+import ConfirmGameModal from '../../Components/ConfirmGameModal/confirmGameModal';
+import Header from '../../Components/Header/header';
+import './playerInput.css';
 
 function PlayerInput() {
     const [showPlayerNames, setShowPlayerNames] = useState(false);
@@ -10,6 +11,13 @@ function PlayerInput() {
     function handlePlayerCount(e) {
         e.preventDefault();
         const playerCount = document.getElementById('player-count').value
+        if(isNaN(parseInt(playerCount))) {
+            document.getElementById('error').innerHTML = 'Pick a number between 1 and 25.';
+            return
+        } else if (parseInt(playerCount) > 25) {
+            document.getElementById('error').innerHTML = 'Pick a number between 1 and 25.';
+            return
+        }
         setNumberOfPlayers(playerCount)
         setShowPlayerNames(true);
     }
@@ -19,12 +27,10 @@ function PlayerInput() {
     for (let i = 0; i < numberOfPlayers; i++) {
         playerInputElements.push(
             <div key={i}>
-                <label htmlFor={`player${i + 1}`}>Player {i + 1}:</label>
-                <input data-player='name' type='text' name={`player${i + 1}`} required></input>
+                <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} required></input>
             </div>
         )
     }
-
 
     // create the player objects
     const [playerNameArray, setPlayerNameArray] = useState([])
@@ -41,31 +47,31 @@ function PlayerInput() {
 
     return (
         <>
-        {showConfirmationModal && <ConfirmGameModal players={playerNameArray} />}
-            <h2>Players</h2>
-            {showPlayerNames ?
-                <form onSubmit={handleGameStart}>
-                {playerInputElements}
-                    <button type='submit'>Start Game</button>
-                </form>
-                :
-                <>
-                    <form onSubmit={handlePlayerCount}>
-                        <label htmlFor='player-count'>How many players?</label>
-                        <select name="player-count" id='player-count'>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
-                            <option value='7'>7</option>
-                            <option value='8'>8</option>
-                        </select>
-                        <button type='submit'>Continue</button>
+            <Header />
+            <section id='player-input-section'>
+                {showConfirmationModal && 
+                <ConfirmGameModal 
+                players={playerNameArray} 
+                setShowConfirmationModal={setShowConfirmationModal}
+                showConfirmationModal={showConfirmationModal}    
+                />}
+                <h2>Players</h2>
+                {showPlayerNames ?
+                    <form id='player-names-form' onSubmit={handleGameStart}>
+                        {playerInputElements}
+                        <button className='player-input-button' type='submit'>Ready?</button>
                     </form>
-                </>
-            }
+                    :
+                    <>
+                        <form id='player-amount-form' onSubmit={handlePlayerCount}>
+                            <label htmlFor='player-count'>How many players/teams?</label>
+                            <input type='text' id='player-count' maxLength="2" required></input>
+                            <span id='error'></span>
+                            <button className='player-input-button' type='submit'>Continue</button>
+                        </form>
+                    </>
+                }
+            </section>
         </>
     )
 }

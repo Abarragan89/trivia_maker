@@ -44,5 +44,4 @@ return bcrypt.compare(password, this.password);
 };
 
 const User = model('user', userSchema);
-
 module.exports = User;
