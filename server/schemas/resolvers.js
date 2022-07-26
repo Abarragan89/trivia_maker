@@ -38,7 +38,7 @@ const resolvers = {
         },
         // Get single User by Username
         userByName: async (parent, { username }) => {
-            return User.findOne({ username })
+            return User.findOne({ name_lower: username.toLowerCase()})
                 .select('-__v -password')
         },
         getUserGames: async (parent, { gameId }, context) => {
@@ -51,7 +51,7 @@ const resolvers = {
         },
         // Query to reset user password by email
         userByEmail: async (parent, { email }, context) => {
-            const userInfo = await User.findOne({ email: email }).select('-__v -password')
+            const userInfo = await User.findOne({ email: email.toLowerCase()}).select('-__v -password')
             if (!userInfo) {
                 throw new AuthenticationError('No account associated with that email.')
             }
@@ -64,10 +64,9 @@ const resolvers = {
         },
         getGameByTitle: async (parent, { name }, context) => {
             try {
-                const game = await User.find(
-                    { gameTopic: /.*name.*/i }
-                )
-                return  game;
+                const regex = new RegExp(name, 'gi')
+                return Game.find({public: true, gameTopic: regex}).sort({ duplicates: -1}).populate('creator')
+                
             } catch (e) {
                 console.log(e)
             }
@@ -77,7 +76,12 @@ const resolvers = {
     Mutation: {
         // Add a new user
         addUser: async (parent, args) => {
-            const user = await User.create(args);
+            const user = await User.create({
+                username: args.username,
+                name_lower: args.username.toLowerCase(),
+                email: args.email,
+                password: args.password
+            });
             const token = signToken(user);
 
             return { token, user };
@@ -87,18 +91,23 @@ const resolvers = {
                 throw new AuthenticationError('Please complete all fields.')
             }
             // Check to see if email is already registered
-            const rUser = await User.findOne({ email });
-            const pUser = await TempUser.findOne({ email });
+            const rUser = await User.findOne({ email: email.toLowerCase() });
+            const pUser = await TempUser.findOne({ email: email.toLowerCase() });
             if (pUser || rUser) {
                 throw new AuthenticationError('Email is already registered.')
             }
             // Check to see if username is already taken. 
-            const rUserName = await User.findOne({ username });
-            const pUserName = await TempUser.findOne({ username });
+            const rUserName = await User.findOne({ name_lower: username.toLowerCase() });
+            const pUserName = await TempUser.findOne({ name_lower: username.toLowerCase()});
             if (pUserName || rUserName) {
                 throw new AuthenticationError('Username is already taken.')
             }
-            const newUser = await TempUser.create({ email, username, password });
+            const newUser = await TempUser.create({ 
+                email, 
+                username,
+                password,
+                name_lower: username.toLowerCase()
+             });
             const toUser = { username, email }
             const hash = newUser._id
             await sendConfirmationEmail({ toUser, hash })
@@ -133,19 +142,17 @@ const resolvers = {
             }
         },
         deleteAllTempUsers: async (parent, args, context) => {
-            const deletedUsers = await TempUser.deleteMany({ email: 'anthonybarragan87@yahoo.com' })
+            const deletedUsers = await TempUser.deleteMany({})
             return deletedUsers
         },
         // Login User
         login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+            const user = await User.findOne({ email: email.toLowerCase() });
 
             if (!user) {
                 throw new AuthenticationError('Incorrect credentials');
             }
-
             const correctPw = await user.isCorrectPassword(password);
-
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect Password');
             }
@@ -158,6 +165,7 @@ const resolvers = {
                 try {
                     const game = await Game.create({
                         gameTopic: topic,
+                        gameTopic_lower: topic.toLowerCase(),
                         gameData: gameData,
                         public: public,
                         creator: context.user._id
@@ -179,6 +187,7 @@ const resolvers = {
                 try {
                     const game = await Game.create({
                         gameTopic: topic,
+                        gameTopic_lower: topic.toLowerCase(),
                         gameData: gameData,
                         public: public,
                         creator: context.user._id,
@@ -227,6 +236,7 @@ const resolvers = {
                     );
                     const newGame = await Game.create({
                         gameTopic: args.topic,
+                        gameTopic_lower: args.topic.toLowerCase(),
                         gameData: args.gameData,
                         public: args.public,
                         creator: context.user._id

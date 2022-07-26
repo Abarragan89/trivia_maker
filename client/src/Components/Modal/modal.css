@@ -66,6 +66,9 @@ body {
           animation: fadeIn 0.5s;
   background-color: #F1EEE9;
 }
+.modalContainer .player-info-in-modal {
+  color: #15133C;
+}
 .modalContainer .modalHeader {
   border-bottom: 3px solid #EC994B;
   padding-bottom: 10px;
@@ -124,9 +127,6 @@ body {
 .modalContainer .questionContainer #modal-button-div #correct-answer:hover, .modalContainer .questionContainer #modal-button-div #wrong-answer:hover {
   color: #F1EEE9;
 }
-.modalContainer .questionContainer #modal-button-div #correct-answer:active, .modalContainer .questionContainer #modal-button-div #wrong-answer:active {
-  color: #EC994B;
-}
 .modalContainer .questionContainer .modal-buttons {
   font-size: 1.3em;
   border: none;
@@ -137,12 +137,13 @@ body {
   font-weight: 700;
   background-color: #73777B;
   color: #15133C;
+  transition: all 0.2s;
 }
 .modalContainer .questionContainer .modal-buttons:hover {
   background-color: #EC994B;
 }
 .modalContainer .questionContainer .modal-buttons:active {
-  color: #F1EEE9;
+  border-radius: 8px;
 }
 .modalContainer .questionContainer .modal-button:nth-child(1) {
   background-color: green;

@@ -4,6 +4,24 @@
     padding: 2rem;
     margin: 0 auto;
 
+    #quit-game {
+        position: absolute;
+        font-size: 1.2em;
+        color: $primaryColor;
+        background-color: $red;
+        text-decoration: none;
+        border: 1px solid $tertiaryColor;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: all .2s;
+    }
+    #quit-game:hover {
+        color: $tertiaryColor;
+    }
+    #quit-game:active {
+        border-radius: 8px;
+    }
+
     #game-title {
         font-size: 2rem;
         text-align: center;

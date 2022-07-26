@@ -78,4 +78,18 @@ export const QUERY_USER_BY_EMAIL = gql `
   }
 `;
 
+export const SEARCH_PUBLIC_GAMES = gql `
+query GetGameByTitle($name: String!) {
+  getGameByTitle(name: $name) {
+    _id
+    gameTopic
+    duplicates
+    questionCount
+    creator {
+      username
+      _id
+    }
+  }
+}
+`;
 

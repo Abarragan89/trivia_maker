@@ -34,7 +34,7 @@ exports.sendConfirmationEmail = async function ({ toUser, hash }) {
             html: `
                 <h3>Hello ${toUser.username}</h3>
                 <p>Thank you for registering! Just one more step...</p>
-                <p>To activate your account please follow this link: <a target="_" href="${process.env.DOMAIN}/register-user/${hash}">Activate Link</a> </p>
+                <p>To activate your account please follow this link. It will expire in 3 minutes. <a target="_" href="${process.env.DOMAIN}/register-user/${hash}">Activate Link</a> </p>
                 <p>Thank you,</p>
                 <p>-Who Nose That? Team</p>
             `
