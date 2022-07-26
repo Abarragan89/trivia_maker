@@ -62,6 +62,16 @@ const resolvers = {
             return TempUser.findOne({ _id })
                 .select('-__v')
         },
+        getGameByTitle: async (parent, { name }, context) => {
+            try {
+                const game = await User.find(
+                    { gameTopic: /.*name.*/i }
+                )
+                return  game;
+            } catch (e) {
+                console.log(e)
+            }
+        }
     },
     //Mutations
     Mutation: {
@@ -112,7 +122,7 @@ const resolvers = {
             }
             return user
         },
-        
+
         // Delete temporary user once login confirmed. 
         deleteTempUser: async (parent, { _id }, context) => {
             const deletedUser = await TempUser.deleteOne({ _id })
