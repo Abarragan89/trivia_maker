@@ -9,11 +9,20 @@ const userSchema = new Schema(
             unique: true,
             trim: true
         },
+        name_lower: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+            lowercase: true
+        },
         email: {
             type: String,
             required: true,
             unique: true,
-            match: [/.+@.+\..+/, 'Must match an email address!']
+            match: [/.+@.+\..+/, 'Must match an email address!'],
+            lowercase: true,
+            trim: true
         },
         password: {
             type: String,
@@ -38,7 +47,7 @@ userSchema.pre('save', async function(next) {
     next();
 });
   
-  // compare the incoming password with the hashed password
+// compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function(password) {
 return bcrypt.compare(password, this.password);
 };

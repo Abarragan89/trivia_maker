@@ -9,6 +9,13 @@ const TempUserSchema = new Schema(
             unique: true,
             trim: true
         },
+        name_lower: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+            lowercase: true
+        },
         email: {
             type: String,
             required: true,

@@ -6,12 +6,14 @@ const typeDefs = gql `
         username: String 
         email: String
         games: [Game] 
+        name_lower: String
     }
     type TempUser {
         _id: ID
         username: String!
         email: String!
         password: String!
+        name_lower: String
     }
     type DeletedItem {
         acknowledged: Boolean
@@ -64,7 +66,7 @@ const typeDefs = gql `
         userByEmail(email: String!): User
         tempUser(_id: ID!): TempUser
 
-        getGameByTitle(name: String): Game
+        getGameByTitle(name: String!): Game
     }
     type Mutation {
         login(email: String!, password: String!): Auth 

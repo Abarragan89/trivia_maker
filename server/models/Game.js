@@ -32,6 +32,10 @@ const GameSchema = new Schema(
             type: String,
             require: true
         },
+        gameTopic_lower: {
+            type: String,
+            lowercase: true
+        },
         gameData: [gameData],
         
         public: {
