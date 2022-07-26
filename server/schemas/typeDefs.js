@@ -7,6 +7,16 @@ const typeDefs = gql `
         email: String
         games: [Game] 
     }
+    type TempUser {
+        _id: ID
+        username: String!
+        email: String!
+        password: String!
+    }
+    type DeletedItem {
+        acknowledged: Boolean
+        deletedCount: Int
+    }
     type categorySet {
         category: String
         clues: [cluesInfo]
@@ -23,6 +33,7 @@ const typeDefs = gql `
         gameData: [categorySet]
         questionCount: Int   
         public: Boolean
+        duplicates: Int
         creator: User
     }
 
@@ -50,14 +61,24 @@ const typeDefs = gql `
         userByName(username: String!): User
         getUserGames(gameId: ID!): Game
         getPublicGames: [Game]
+        userByEmail(email: String!): User
+        tempUser(_id: ID!): TempUser
     }
     type Mutation {
         login(email: String!, password: String!): Auth 
-        addUser(username: String!, password: String!, email: String!): Auth 
         createGame( gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
         deleteGame( gameId: ID!): Game
-        updateGame(gameId: ID!, gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
+        duplicateGame( gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
+        updateGame(gameId: ID!, gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: String): Game
+        increaseDuplicateScore(gameId: ID!): Game
+        updatePassword(userId: ID!, newPassword: String! ): User
+
+        signup(username: String!, email: String!, password: String!): TempUser
+        deleteTempUser(_id: ID): DeletedItem
+        addTempUser(username: String!, email: String!, password: String!): TempUser
+        deleteAllTempUsers: [TempUser]
+        addUser(username: String!, password: String!, email: String!): Auth 
     }
-`;
+    `;
 
 module.exports = typeDefs;

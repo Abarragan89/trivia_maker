@@ -322,7 +322,7 @@ function CreateGame() {
                 public: publicGame
             }
         })
-        window.location.replace('/')
+        window.location.replace('/my-games')
     }
     return (
         <>

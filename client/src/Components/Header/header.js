@@ -4,16 +4,14 @@ import Auth from '../../utils/auth';
 import './header.css'
 import { Link } from 'react-router-dom';
 import '../../assets/photos/headerLogo.png';
-import { useState } from 'react';
 
 
 function Header() {
-    const [goToLogin, setGoToLogin] = useState(true)
+
+    const { data } = useQuery(QUERY_ME_BASIC)
+    const username = data?.me?.username || '';
     const loggedIn = Auth.loggedIn();
-    const loginOrSignup = {
-        goToLogin, 
-        setGoToLogin
-    }
+    
 
     return (
         <header id='main-header' className='flex-box-sb'>
@@ -24,12 +22,12 @@ function Header() {
             </div>
             {loggedIn ?
                 <div>
-                    <Link to='/dashboard'>Dashboard</Link>
+                    <Link to='/my-games'>{username}</Link>
                     <button onClick={() => Auth.logout()}>Log out</button>
                 </div>
                 :
                 <div>
-                    <Link to='/login'>Sign In</Link>
+                    <Link to='/login'><button>Sign In</button></Link>
                 </div>
             }
         </header>

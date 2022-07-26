@@ -1,7 +1,9 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Game } = require('../models');
+const { User, Game, TempUser } = require('../models');
 const { signToken } = require('../utils/auth');
 require('dotenv').config();
+const { sendConfirmationEmail } = require('../mailer');
+const { resetPassword } = require('../mailer')
 
 const resolvers = {
     // Queries
@@ -11,7 +13,14 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
-                    .populate('games')
+                    .populate({
+                        path: 'games',
+                        options: { sort: { createdAt: -1 } },
+                        populate: {
+                            path: 'creator'
+                        }
+                    })
+
                 return userData;
             }
             throw new AuthenticationError('Not logged in');
@@ -38,8 +47,21 @@ const resolvers = {
         getPublicGames: async () => {
             return Game.find({
                 public: true
-            }).populate('creator')
-        }
+            }).sort({ duplicates: -1 }).populate('creator')
+        },
+        // Query to reset user password by email
+        userByEmail: async (parent, { email }, context) => {
+            const userInfo = await User.findOne({ email: email }).select('-__v -password')
+            if (!userInfo) {
+                throw new AuthenticationError('No account associated with that email.')
+            }
+            await resetPassword(userInfo)
+            return userInfo;
+        },
+        tempUser: async (parent, { _id }) => {
+            return TempUser.findOne({ _id })
+                .select('-__v')
+        },
     },
     //Mutations
     Mutation: {
@@ -49,6 +71,60 @@ const resolvers = {
             const token = signToken(user);
 
             return { token, user };
+        },
+        signup: async (parent, { username, email, password }, context) => {
+            if (!username || !email || !password) {
+                throw new AuthenticationError('Please complete all fields.')
+            }
+            // Check to see if email is already registered
+            const rUser = await User.findOne({ email });
+            const pUser = await TempUser.findOne({ email });
+            if (pUser || rUser) {
+                throw new AuthenticationError('Email is already registered.')
+            }
+            // Check to see if username is already taken. 
+            const rUserName = await User.findOne({ username });
+            const pUserName = await TempUser.findOne({ username });
+            if (pUserName || rUserName) {
+                throw new AuthenticationError('Username is already taken.')
+            }
+            const newUser = await TempUser.create({ email, username, password });
+            const toUser = { username, email }
+            const hash = newUser._id
+            await sendConfirmationEmail({ toUser, hash })
+            return newUser;
+        },
+        // Update password 
+        updatePassword: async (parent, { userId, newPassword }, context) => {
+            const user = await User.findOne(
+                { _id: userId },
+                function (error, user) {
+                    user.password = newPassword;
+                    user.save(function (error) {
+                        if (error) {
+                            console.log('something wrong happened.')
+                        }
+                    })
+                }
+            ).clone().catch(function (err) { console.log(err) })
+            if (!user) {
+                throw new AuthenticationError('No account registered with that email.');
+            }
+            return user
+        },
+        
+        // Delete temporary user once login confirmed. 
+        deleteTempUser: async (parent, { _id }, context) => {
+            const deletedUser = await TempUser.deleteOne({ _id })
+            if (deletedUser) {
+                return deletedUser;
+            } else {
+                throw new AuthenticationError('User does not exist');
+            }
+        },
+        deleteAllTempUsers: async (parent, args, context) => {
+            const deletedUsers = await TempUser.deleteMany({ email: 'anthonybarragan87@yahoo.com' })
+            return deletedUsers
         },
         // Login User
         login: async (parent, { email, password }) => {
@@ -88,10 +164,43 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        duplicateGame: async (parent, { creator, topic, gameData, public }, context) => {
+            if (context.user) {
+                try {
+                    const game = await Game.create({
+                        gameTopic: topic,
+                        gameData: gameData,
+                        public: public,
+                        creator: context.user._id,
+                    })
+                    const user = await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { $addToSet: { games: game._id } },
+                        { new: true }
+                    )
+                    return game;
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        increaseDuplicateScore: async (parent, { gameId }, context) => {
+            try {
+                const game = await Game.findOneAndUpdate(
+                    { _id: gameId },
+                    { $inc: { duplicates: 1 } },
+                    { new: true }
+                )
+                return game
+            } catch (e) {
+                console.log(e)
+            }
+        },
         deleteGame: async (parent, { gameId }, context) => {
             if (context.user) {
                 try {
-                    const game = await Game.deleteOne({ _id: gameId })
+                    const game = await Game.findByIdAndDelete({ _id: gameId });
                     return game;
                 } catch (e) {
                     console.log(e)
@@ -104,9 +213,9 @@ const resolvers = {
                 try {
                     await User.findOneAndUpdate(
                         { _id: context.user._id },
-                        { $pull: { games: args.game._id }}
+                        { $pull: { games: args.gameId } }
                     );
-                    const newGame =  await Game.create({
+                    const newGame = await Game.create({
                         gameTopic: args.topic,
                         gameData: args.gameData,
                         public: args.public,
@@ -114,7 +223,7 @@ const resolvers = {
                     })
                     await User.findOneAndUpdate(
                         { _id: context.user._id },
-                        { $push: { games: newGame._id }}
+                        { $push: { games: newGame._id } }
                     )
                     return newGame;
                 } catch (e) {

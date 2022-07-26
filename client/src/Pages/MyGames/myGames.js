@@ -34,7 +34,8 @@ function MyGames() {
                                     </div>
                                     <div id='my-games-info-div' className='flex-box-sb'>
                                         <p>Questions:{game.questionCount}</p>
-                                        <p>Creator: {game.creator.username}</p>
+                                        <p>Owner: {game.creator.username}</p>
+                                        <p>Copied: {game.duplicates}</p>
                                     </div>
                                 </div>
                             ))}

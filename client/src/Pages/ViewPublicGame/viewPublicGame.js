@@ -1,12 +1,12 @@
-import './editPage.css';
+import './viewPublicGame.css';
 import Auth from '../../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
+import { DUPLICATE_GAME, ADD_DUPLICATION } from '../../utils/mutations'
 import { QUERY_GAME_INFO } from '../../utils/queries';
-import { UPDATE_GAME, DELETE_GAME } from '../../utils/mutations';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../Components/Header/header';
 
-function EditGame() {
+function ViewPublicGame() {
     // used to check if the user is logged in
     const loggedIn = Auth.loggedIn()
 
@@ -15,7 +15,8 @@ function EditGame() {
         variables: { gameId }
     })
 
-    const [updateGame] = useMutation(UPDATE_GAME)
+    const [increaseDuplicateScore] = useMutation(ADD_DUPLICATION);
+    const [duplicateGame] = useMutation(DUPLICATE_GAME)
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -55,7 +56,6 @@ function EditGame() {
         // Series of switch statements to organzie questions/answers/points into individual objects
         let formDataAnswers = document.querySelectorAll('.question-input');
         formDataAnswers.forEach((answer, index) => {
-            console.log('formDataAnswer', formDataAnswers[1].dataset.category)
             if (answer.value && answer.dataset.category === 'c0') {
                 switch (answer.name) {
                     case 'q1':
@@ -320,37 +320,23 @@ function EditGame() {
         // Get game topic and check to see if it's public
         let topic = document.querySelector('#game-topic').value;
         let publicGame = document.querySelector('#public-game').checked
-        console.log('gameData', allAnswers)
 
-        await updateGame({
+        await duplicateGame({
             variables: {
-                gameId: gameId,
                 gameData: allAnswers,
                 topic: topic,
-                public: publicGame
+                public: publicGame,
             }
         })
+        
+        await increaseDuplicateScore ({
+            variables: { gameId }
+        })
+
         window.location.replace('/my-games')
     }
 
-    const [deleteGame] = useMutation(DELETE_GAME);
 
-    console.log(deleteGame)
-
-    async function deleteGameFun(gameId) {
-        const message = 'Are you sure you want to delete this game? This is irreversible.'
-        const confirmation = window.confirm(message)
-        if (confirmation) {
-            try {
-                await deleteGame({
-                    variables: { gameId: gameId }
-                })
-                window.location.replace('/my-games')
-            } catch (e) {
-                console.log('game could not be found')
-            }
-        }
-    }
     return (
         <>
             <Header />
@@ -392,8 +378,7 @@ function EditGame() {
                                 </li>
                             ))}
                         </ul>
-                        <button type='submit' className='edit-game-btns'>Update Game</button>
-                        <p onClick={() => deleteGameFun(gameId)} id='delete-game-btn' className='edit-game-btns'>Delete Game</p>
+                        <button type='submit' className='edit-game-btns'>Add to library</button>
                     </form>
                 </>
                 :
@@ -403,4 +388,4 @@ function EditGame() {
     )
 }
 
-export default EditGame;
+export default ViewPublicGame;

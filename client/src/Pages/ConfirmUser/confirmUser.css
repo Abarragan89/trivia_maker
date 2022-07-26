@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.verify-user {
+  display: block;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  padding: 10px 40px;
+  background-color: #EC994B;
+  border: 1px solid #15133C;
+  border-radius: 4px;
+  color: #15133C;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.verify-user:hover {
+  cursor: pointer;
+  color: #F1EEE9;
+}
+
+.verify-user:active {
+  border-radius: 10px;
+}
+
+.confirmation-message {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #15133C;
+  color: #EC994B;
+  width: 90%;
+  border: 1px solid #EC994B;
+  margin-top: 80px;
+  font-size: 1.5em;
+}/*# sourceMappingURL=confirmUser.css.map */
