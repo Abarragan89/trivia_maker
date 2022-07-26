@@ -5,7 +5,7 @@ import { useRef, useEffect, useState } from 'react'
 import { QUERY_GAME_INFO } from '../../utils/queries';
 import { GameStart  } from '../../utils/gameStart';
 import { useQuery } from '@apollo/client';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 
 function GamePage() {
     // pass this state to children to trigger rerender of parents
@@ -30,6 +30,7 @@ function GamePage() {
 
     return (
         <main id='main-gamepage'>
+            <Link id='quit-game' to='/'>Quit</Link>
             <h1 id='game-title' ref={h1Text}>{gameTopic}</h1>
             <section id="gameBoard">
                 <GameBoard 

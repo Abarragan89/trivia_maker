@@ -50,6 +50,23 @@ body {
   padding: 2rem;
   margin: 0 auto;
 }
+#main-gamepage #quit-game {
+  position: absolute;
+  font-size: 1.2em;
+  color: #F1EEE9;
+  background-color: rgb(205, 0, 0);
+  text-decoration: none;
+  border: 1px solid #15133C;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+#main-gamepage #quit-game:hover {
+  color: #15133C;
+}
+#main-gamepage #quit-game:active {
+  border-radius: 8px;
+}
 #main-gamepage #game-title {
   font-size: 2rem;
   text-align: center;
