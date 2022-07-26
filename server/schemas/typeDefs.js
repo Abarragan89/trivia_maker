@@ -63,8 +63,6 @@ const typeDefs = gql `
         getPublicGames: [Game]
         userByEmail(email: String!): User
         tempUser(_id: ID!): TempUser
-
-        getGameByTitle(name: String): Game
     }
     type Mutation {
         login(email: String!, password: String!): Auth 
