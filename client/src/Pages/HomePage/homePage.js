@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import Login from '../../Components/Login/login';
 import { QUERY_PUBLIC_GAMES } from '../../utils/queries'
 import { useQuery } from '@apollo/client';
 import Header from '../../Components/Header/header';
 import './homePage.css';
-import { GoPlus } from 'react-icons/go';
+import { FaPlay } from 'react-icons/fa'
 import { AiFillEye } from 'react-icons/ai';
 
 function HomePage() {
@@ -24,10 +23,11 @@ function HomePage() {
                     <Header />
                     <main>
                         <form id='search-form'>
-                            <input type='text' placeholder='Search' id='search-public-games' name='search-public-games' />
+                            <input type='text' placeholder='Search Public Games' id='search-public-games' name='search-public-games' />
                         </form>
                         <div id='homepage-feed' className='flex-box-sb'>
                             <section>
+                                <h1>Public Games</h1>
                                 {publicGames &&
                                     publicGames.map((game, index) => (
                                         <article id='link-to-public' key={index} to={`/players/${game._id}`}>
@@ -35,13 +35,21 @@ function HomePage() {
                                                 <header className='flex-box-sb'>
                                                     <h2>{game.gameTopic}</h2>
                                                     <div>
-                                                        <button title='Add to your games' className='public-feed-btns'><GoPlus /></button><br />
-                                                        <button title='View questions' className='public-feed-btns'><AiFillEye /></button>
+                                                        <Link to={`/players/${game._id}`}
+                                                        >
+                                                        <button title='Play' className='public-feed-btns'><FaPlay /></button><br />
+                                                        </Link>
+                                                        <Link 
+                                                        to={`/view-game/${game._id}`}
+                                                        title='View questions' 
+                                                        className='public-feed-btns'><AiFillEye />
+                                                        </Link>
                                                     </div>
                                                 </header>
                                                 <div className='flex-box-sb'>
-                                                    <p>Creator: {game.creator.username}</p>
+                                                    <p>Owner: {game.creator.username}</p>
                                                     <p>Questions: {game.questionCount}</p>
+                                                    <p>Copied: {game.duplicates}</p>
                                                 </div>
                                             </div>
                                         </article>
@@ -56,7 +64,10 @@ function HomePage() {
                     </main>
                 </>
                 :
-                <Login />
+                <>
+                <Header />
+                <p>Infosession</p>
+                </>
             }
         </>
     )

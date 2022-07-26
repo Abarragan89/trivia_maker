@@ -1,5 +1,11 @@
 @import '../../index.scss';
 
+#home-logo {
+    border-radius: 5px;
+    width: 150px;
+    opacity: 1;
+}
+
 #main-header {
     width: auto;
     margin: 0 auto;
@@ -9,10 +15,15 @@
     height: 90px;
     align-items: center;
 
-    h2 {
+    a {
+        display: block;
+        font-weight: 700;
+        font-size: 1.2em;
+        text-decoration: none;
         color: $secondaryColor;
         display: inline-block;
         margin-right: 20px;
+        
     }
     button {
         background-color: $secondaryColor;

@@ -46,55 +46,43 @@ body {
   justify-content: space-around;
 }
 
-#home-logo {
-  border-radius: 5px;
-  width: 150px;
-  opacity: 1;
+.verify-user {
+  display: block;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  padding: 10px 40px;
+  background-color: #EC994B;
+  border: 1px solid #15133C;
+  border-radius: 4px;
+  color: #15133C;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-#main-header {
-  width: auto;
-  margin: 0 auto;
-  background-color: #15133C;
-  padding: 0 20px;
-  margin-bottom: 30px;
-  height: 90px;
-  align-items: center;
-}
-#main-header a {
-  display: block;
-  font-weight: 700;
-  font-size: 1.2em;
-  text-decoration: none;
-  color: #EC994B;
-  display: inline-block;
-  margin-right: 20px;
-}
-#main-header button {
-  background-color: #EC994B;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #15133C;
-}
-#main-header button:hover {
+.verify-user:hover {
+  cursor: pointer;
   color: #F1EEE9;
-  cursor: pointer;
 }
-#main-header button:active {
-  color: #73777B;
+
+.verify-user:active {
+  border-radius: 10px;
 }
-#main-header #signup-login-link {
+
+.confirmation-message {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #15133C;
   color: #EC994B;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-#main-header #signup-login-link:hover {
-  cursor: pointer;
-  font-style: italic;
-}
-#main-header #signup-login-link:active {
-  color: #73777B;
-}/*# sourceMappingURL=header.css.map */
+  width: 90%;
+  border: 1px solid #EC994B;
+  margin-top: 80px;
+  font-size: 1.5em;
+}/*# sourceMappingURL=confirmUser.css.map */

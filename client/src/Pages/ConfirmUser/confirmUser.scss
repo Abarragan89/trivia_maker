@@ -1,0 +1,39 @@
+@import '../../index.scss';
+
+.verify-user {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    padding: 10px 40px;
+    background-color: $secondaryColor;
+    border: 1px solid $tertiaryColor;
+    border-radius: 4px;
+    color: $tertiaryColor;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: .2s;
+}
+.verify-user:hover {
+    cursor: pointer;
+    color: $primaryColor;
+
+}
+.verify-user:active {
+    border-radius: 10px;
+}
+
+.confirmation-message {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    background-color: $tertiaryColor;
+    color: $secondaryColor;
+    width: 90%;
+    border: 1px solid $secondaryColor;
+    margin-top: 80px;
+    font-size: 1.5em;
+}

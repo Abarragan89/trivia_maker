@@ -9,6 +9,7 @@ query Me {
     email
     games {
       _id
+      duplicates
       gameTopic
       questionCount
       creator {
@@ -27,6 +28,7 @@ query GetUserGames($gameId: ID!) {
     _id
     gameTopic
     questionCount
+    duplicates
     gameData {
       category
       clues {
@@ -44,6 +46,7 @@ query GetPublicGames {
   getPublicGames {
     _id
     gameTopic
+    duplicates
     questionCount
     creator {
       username
@@ -52,3 +55,27 @@ query GetPublicGames {
   }
 }
 `;
+
+// Query for temporary user 
+export const QUERY_TEMP_USER = gql`
+  query TempUser($id: ID!) {
+    tempUser(_id: $id) {
+      username
+      email
+      _id
+      password
+    }
+  }
+`;
+
+export const QUERY_USER_BY_EMAIL = gql `
+  query Query($email: String!) {
+    userByEmail(email: $email) {
+      _id
+      username
+      email
+    }
+  }
+`;
+
+

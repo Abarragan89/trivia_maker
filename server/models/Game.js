@@ -38,9 +38,17 @@ const GameSchema = new Schema(
             type: Boolean,
             default: false
         },
+        duplicates: {
+            type: Number,
+            default: 0
+        },
         creator: {
             type: Schema.Types.ObjectId,
             ref: 'user'
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now
         }
     },
     {
