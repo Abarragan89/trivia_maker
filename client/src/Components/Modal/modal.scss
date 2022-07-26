@@ -19,6 +19,10 @@
     animation: fadeIn .5s;
     background-color: $primaryColor;
 
+    .player-info-in-modal {
+        color: $tertiaryColor;
+    }
+
     .modalHeader {
         border-bottom: 3px solid $secondaryColor;
         padding-bottom: 10px;
@@ -83,9 +87,6 @@
             #correct-answer:hover, #wrong-answer:hover {
                 color: $primaryColor;
             }
-            #correct-answer:active, #wrong-answer:active {
-                color: $secondaryColor;
-            }
         }
         .modal-buttons {
             font-size: 1.3em;
@@ -97,12 +98,13 @@
             font-weight: 700;
             background-color: $gray;
             color: $tertiaryColor;
+            transition: all .2s;
         }
         .modal-buttons:hover {
             background-color: $secondaryColor;
         }
         .modal-buttons:active {
-            color: $primaryColor;
+            border-radius: 8px;
         }
         .modal-button:nth-child(1) {
             background-color: green;

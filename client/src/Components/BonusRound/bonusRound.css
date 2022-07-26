@@ -64,6 +64,7 @@ body {
   font-weight: 700;
   background-color: rgb(205, 0, 0);
   color: #F1EEE9;
+  transition: all 0.2s;
 }
 
 .bonus-buttons:hover {
@@ -71,11 +72,20 @@ body {
 }
 
 .bonus-buttons:active {
-  color: #73777B;
+  border-radius: 8px;
 }
 
 #next-player-btn {
   background-color: green;
+  transition: all 0.2s;
+}
+
+#next-player-btn:hover {
+  color: #15133C;
+}
+
+#next-player-btn:active {
+  border-radius: 8px;
 }
 
 .bonus-text {

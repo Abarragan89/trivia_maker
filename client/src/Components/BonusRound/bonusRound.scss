@@ -18,6 +18,7 @@
     font-weight: 700;
     background-color: $red;
     color: $primaryColor;
+    transition: all .2s;
 }
 
 .bonus-buttons:hover {
@@ -25,11 +26,19 @@
 }
 
 .bonus-buttons:active {
-    color: $gray;
+    border-radius: 8px;
 }
 
 #next-player-btn {
     background-color: green;
+    transition: all .2s;
+}
+#next-player-btn:hover {
+   color: $tertiaryColor;
+}
+
+#next-player-btn:active {
+    border-radius: 8px;
 }
 
 .bonus-text {

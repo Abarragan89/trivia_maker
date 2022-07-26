@@ -64,8 +64,9 @@ const resolvers = {
         },
         getGameByTitle: async (parent, { name }, context) => {
             try {
-                const game = await Game.find({gameTopic_lower: /.*name.toLowerCase().*/});
-                return  game;
+                const regex = new RegExp(name, 'gi')
+                return Game.find({public: true, gameTopic: regex}).sort({ duplicates: -1}).populate('creator')
+                
             } catch (e) {
                 console.log(e)
             }

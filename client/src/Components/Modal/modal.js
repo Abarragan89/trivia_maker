@@ -65,8 +65,8 @@ function Modal({
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
                 <div className='modalHeader flex-box-sb'>
-                    <h4>{game.currentPlayer.name}</h4>
-                    <h3>{playerScore}</h3>
+                    <h4 className='player-info-in-modal'>{game.currentPlayer.name}</h4>
+                    <h3 className='player-info-in-modal'>{playerScore}</h3>
                 </div>
                 {correctAnswer ?
                     <BonusRound
