@@ -5,6 +5,8 @@ import './header.css'
 import { Link } from 'react-router-dom';
 import '../../assets/photos/headerLogo.png';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import Navigation from '../Navigation/';
+import MobileNav from '../MobileNav';
 
 
 function Header() {
@@ -26,14 +28,14 @@ function Header() {
                 </Link>
             </div>
             {loggedIn ?
-                <div>
-                    <Link to='/my-games'>{username}</Link>
-                    <button onClick={() => Auth.logout()}>Log out</button>
-                </div>
-                :
-                <div>
-                    <Link to='/login' onClick={() => mouseClickSound.play()}><button>Sign In</button></Link>
-                </div>
+                <nav>
+                    <MobileNav />
+                    <Navigation />
+                </nav>
+            :
+            <div>
+                <Link to='/login' onClick={() => mouseClickSound.play()}><button>Sign In</button></Link>
+            </div>
             }
         </header>
     )
