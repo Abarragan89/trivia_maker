@@ -115,7 +115,7 @@ function HomePage() {
                                 }
                             </section>
                             <aside>
-                                <Link onClick={() => mouseClickSound.play()} to={`/create-game`}>Create Game</Link>
+                                <Link onClick={() => mouseClickSound.play()} to={`/create-game`}>Create</Link>
                                 <Link onClick={() => mouseClickSound.play()} to={`/my-games`}>My Games</Link>
                             </aside>
                         </div>

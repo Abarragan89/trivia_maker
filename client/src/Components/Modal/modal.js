@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import correctAnswerSound from '../../assets/sounds/correct-answer.wav';
 import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
-import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
 
 
 
@@ -16,6 +15,8 @@ function Modal({
     game, 
     scoreChange, 
     setScoreChange,
+    triggerSuspenseOff,
+    setTriggerSuspenseOff,
     }) {
 
     const correctAnswerNoise = new Audio(correctAnswerSound);
@@ -23,9 +24,6 @@ function Modal({
 
     const incorrectAnswer = new Audio(wrongAnswerNotification);
     correctAnswerNoise.volume = .6;
-
-    const suspenseMusicSound = new Audio(suspenseMusic);
-    suspenseMusicSound.volume = .6;
 
     const gameId = useParams().gameId
     // This triggers the bonus round
@@ -91,10 +89,12 @@ function Modal({
     }   
 
     function showAnswerFunction() {
-        // suspenseMusicSound.play();
-        // suspenseMusicSound.stop();
+        setTriggerSuspenseOff(true)
         setShowAnswer(true);
-
+    }
+    function hideAnswerFunction() {
+        setTriggerSuspenseOff(false)
+        setShowAnswer(false);
     }
 
     return (
@@ -128,7 +128,7 @@ function Modal({
                                         <button className='modal-buttons' onClick={onClose}>Next Player</button>
                                         :
                                         <>
-                                            <button className='modal-buttons' onClick={() => setShowAnswer(false)}>Hide Answer</button>
+                                            <button className='modal-buttons' onClick={hideAnswerFunction}>Hide Answer</button>
                                             <button className='modal-buttons' onClick={skipQuestion}>Skip</button>
                                             <button id='wrong-answer' className='modal-buttons' onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
                                             <button id='correct-answer' className='modal-buttons' onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>

@@ -90,18 +90,25 @@ body {
   border-radius: 4px;
   font-size: 1.4em;
   padding: 10px 40px;
+  transition: 0.2s;
 }
 .confirmationModalBackdrop .modalContainer a:hover {
   cursor: pointer;
   color: #F1EEE9;
 }
 .confirmationModalBackdrop .modalContainer a:active {
-  color: #73777B;
-  border: 1px solid transparent;
+  border-radius: 8px;
 }
 .confirmationModalBackdrop .modalContainer #cancel-confirmation {
   font-size: 0.9em;
   padding: 10px 20px;
   color: #EC994B;
   margin-top: 20px;
+  transition: 0.2s;
+}
+.confirmationModalBackdrop .modalContainer #cancel-confirmation:hover {
+  color: #F1EEE9;
+}
+.confirmationModalBackdrop .modalContainer #cancel-confirmation:active {
+  border-radius: 8px;
 }/*# sourceMappingURL=confirmGame.css.map */

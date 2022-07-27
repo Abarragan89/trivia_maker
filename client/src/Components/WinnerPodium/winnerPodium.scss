@@ -29,6 +29,7 @@
     }
     button:hover {
         color: $primaryColor;
+        cursor: pointer;
     }
     button:active {
         border-radius: 8px;

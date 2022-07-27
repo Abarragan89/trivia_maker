@@ -74,6 +74,7 @@ body {
 }
 #winner-podium-container button:hover {
   color: #F1EEE9;
+  cursor: pointer;
 }
 #winner-podium-container button:active {
   border-radius: 8px;
