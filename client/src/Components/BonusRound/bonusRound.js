@@ -159,10 +159,10 @@ function BonusRound({
                 ?
                 <>
                 <div id='number-multiplier'>x{multiplier}!!</div>
-                <div className='bonus-text'>Way to Go!</div>
+                <div className='bonus-text' id='got-bonus-text'>Way to Go!</div>
                 </>
                 :
-                <div className='bonus-text'>Aw, nice try.</div>
+                <div className='bonus-text' id='no-bonus-text'>Aw, nice try.</div>
             }
             {game.endGame() ? 
               <Link id='end-game-link' state={game} to={`/winner-podium/${gameId}`}><button id='end-game-bonus'>End Game</button></Link>

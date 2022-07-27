@@ -8,6 +8,7 @@ import './homePage.css';
 import { FaPlay } from 'react-icons/fa'
 import { AiFillEye } from 'react-icons/ai';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import LandingPage from '../LandingPage/landingPage';
 
 
 
@@ -124,7 +125,7 @@ function HomePage() {
                 :
                 <>
                     <Header />
-                    <p>Infosession</p>
+                    <LandingPage />
                 </>
             }
         </>

@@ -60,6 +60,7 @@ body {
   margin-bottom: 30px;
   height: 100px;
   align-items: center;
+  flex-wrap: wrap;
 }
 #main-header a {
   display: block;
@@ -78,13 +79,14 @@ body {
   font-size: 1rem;
   font-weight: bold;
   color: #15133C;
+  transition: 0.2s;
 }
 #main-header button:hover {
   color: #F1EEE9;
   cursor: pointer;
 }
 #main-header button:active {
-  color: #73777B;
+  border-radius: 8px;
 }
 #main-header #signup-login-link {
   color: #EC994B;
@@ -97,4 +99,10 @@ body {
 }
 #main-header #signup-login-link:active {
   color: #73777B;
+}
+
+@media screen and (max-width: 498px) {
+  #home-logo {
+    width: 150px;
+  }
 }/*# sourceMappingURL=header.css.map */
