@@ -75,13 +75,13 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                         setTriggerSuspenseOff={setTriggerSuspenseOff}
                     />}
                 <p id='upNext'>Up Next: <span>{game && game.currentPlayer.name}</span></p>
-                {gameData.map((question, index) => (
-                    <div className='column' key={index + question.category}>
+                {gameData.map((question, gameIndex) => (
+                    <div className='column' key={gameIndex + question.category}>
                         <h3 className={question.category ? `font-cat-${Math.floor(question.category.length / 10) * 10}` : ''}>{question.category}</h3>
                         <ul>
                             {question.clues.map((set, index) => {
                                 {/* get the id of the button that will be disabled. */ }
-                                set.listEl = index + question.category
+                                set.listEl = Math.random() * 2 + index + question.category
                                 if (!set.points) {
                                     return (
                                         <li key={index}>
@@ -93,7 +93,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                                     <li
                                         key={index}
                                         onClick={() => toggleModal(set)}>
-                                        <button className='activeQuestions questionButtons' id={index + question.category}>{set.points}</button>
+                                        <button className='activeQuestions questionButtons' id={set.listEl}>{set.points}</button>
                                     </li>
                                 )
                             })}
