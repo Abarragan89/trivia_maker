@@ -99,14 +99,14 @@ body {
   text-align: center;
   font-weight: 700;
   background-color: #EC994B;
+  transition: 0.2s;
 }
 #homepage-feed aside a:hover {
   cursor: pointer;
   color: #F1EEE9;
 }
 #homepage-feed aside a:active {
-  color: #73777B;
-  border: 1px solid transparent;
+  border-radius: 8px;
 }
 
 .public-game-card {

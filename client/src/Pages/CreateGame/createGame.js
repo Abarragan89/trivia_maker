@@ -498,7 +498,7 @@ function CreateGame() {
                         </li>
                         {/* Category Five */}
                         <li>
-                            <label htmlFor='category-five-radio' className='flex-box-sb category-label'>Category One</label>
+                            <label htmlFor='category-five-radio' className='flex-box-sb category-label'>Category Five</label>
                             <input type='radio' id='category-five-radio' name='accordion'></input>
                             <section className='question-content'>
                                 <input type='text' data-category='c5' placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115'/>

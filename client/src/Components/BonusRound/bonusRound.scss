@@ -43,10 +43,21 @@
 
 .bonus-text {
     font-size: 1.2em;
+    font-weight: 700;
     color: $tertiaryColor;
     text-align: center;
     margin-top: 10px;
     padding-bottom: 10px;
+}
+
+#got-bonus-text {
+    color: green;
+    font-size: 1.3em;
+}
+
+#no-bonus-text {
+    color: $red;
+    font-size: 1.3em;
 }
 
 #bonus-title {

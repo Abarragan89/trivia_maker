@@ -51,7 +51,7 @@ function Modal({
             if (counter > points) {
                 clearInterval(visualIncrease)
             }
-        }, 15)
+        }, 0)
     }
 
     // If the player gets the answer wrong
@@ -75,7 +75,7 @@ function Modal({
             if (counter > points) {
                 clearInterval(visualIncrease)
             }
-        }, 5)
+        }, 0)
     }
 
     function skipQuestion() {

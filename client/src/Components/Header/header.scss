@@ -14,6 +14,7 @@
     margin-bottom: 30px;
     height: 100px;
     align-items: center;
+    flex-wrap: wrap;
 
     a {
         display: block;
@@ -33,13 +34,14 @@
         font-size: 1rem;
         font-weight: bold;
         color: $tertiaryColor;
+        transition: .2s;
     }
     button:hover {
         color: $primaryColor;
         cursor: pointer;
     }
     button:active {
-        color: $gray;
+        border-radius: 8px;
     }
     #signup-login-link {
         color: $secondaryColor;
@@ -52,5 +54,11 @@
     }
     #signup-login-link:active {
         color: $gray;
+    }
+}
+
+@media screen and (max-width: 498px) {
+    #home-logo {
+        width: 150px;
     }
 }
