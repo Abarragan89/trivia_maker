@@ -84,9 +84,6 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                         </ul>
                     </div>
                 ))}
-            {endGameData &&
-                <WinnerPodium endGameData={endGameData}/>
-            }    
             </div>
         </>
     )

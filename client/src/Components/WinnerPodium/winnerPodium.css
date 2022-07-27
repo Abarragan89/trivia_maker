@@ -1,0 +1,395 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#winner-podium-container {
+  margin: 0 auto;
+  text-align: center;
+}
+#winner-podium-container h1 {
+  text-align: center;
+  color: #15133C;
+  margin-bottom: 30px;
+  background-color: #EC994B;
+  padding: 10px 0;
+  font-size: 2em;
+  letter-spacing: 0.2em;
+}
+#winner-podium-container button {
+  font-size: 1.3em;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-top: 20px;
+  font-weight: 700;
+  border: 1px solid #15133C;
+  background-color: #15133C;
+  color: #EC994B;
+  transition: all 0.2s;
+}
+#winner-podium-container button:hover {
+  color: #F1EEE9;
+}
+#winner-podium-container button:active {
+  border-radius: 8px;
+}
+#winner-podium-container #podium {
+  background-color: #15133C;
+  width: 90%;
+  border-radius: 8px;
+  border: 5px solid #73777B;
+  margin: 0 auto;
+  padding: 25px;
+  margin-bottom: 100px;
+  -webkit-animation: grow 2s;
+          animation: grow 2s;
+  flex-direction: column-reverse;
+}
+#winner-podium-container #podium #ranking-section:nth-child(25) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 25s both;
+          animation: appearIn 0.7s 25s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(25) p {
+  font-size: 10.9166666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(24) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 24s both;
+          animation: appearIn 0.7s 24s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(24) p {
+  font-size: 10.5em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(23) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 23s both;
+          animation: appearIn 0.7s 23s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(23) p {
+  font-size: 10.0833333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(22) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 22s both;
+          animation: appearIn 0.7s 22s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(22) p {
+  font-size: 9.6666666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(21) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 21s both;
+          animation: appearIn 0.7s 21s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(21) p {
+  font-size: 9.25em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(20) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 20s both;
+          animation: appearIn 0.7s 20s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(20) p {
+  font-size: 8.8333333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(19) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 19s both;
+          animation: appearIn 0.7s 19s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(19) p {
+  font-size: 8.4166666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(18) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 18s both;
+          animation: appearIn 0.7s 18s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(18) p {
+  font-size: 8em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(17) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 17s both;
+          animation: appearIn 0.7s 17s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(17) p {
+  font-size: 7.5833333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(16) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 16s both;
+          animation: appearIn 0.7s 16s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(16) p {
+  font-size: 7.1666666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(15) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 15s both;
+          animation: appearIn 0.7s 15s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(15) p {
+  font-size: 6.75em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(14) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 14s both;
+          animation: appearIn 0.7s 14s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(14) p {
+  font-size: 6.3333333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(13) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 13s both;
+          animation: appearIn 0.7s 13s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(13) p {
+  font-size: 5.9166666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(12) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 12s both;
+          animation: appearIn 0.7s 12s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(12) p {
+  font-size: 5.5em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(11) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 11s both;
+          animation: appearIn 0.7s 11s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(11) p {
+  font-size: 5.0833333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(10) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 10s both;
+          animation: appearIn 0.7s 10s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(10) p {
+  font-size: 4.6666666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(9) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 9s both;
+          animation: appearIn 0.7s 9s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(9) p {
+  font-size: 4.25em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(8) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 8s both;
+          animation: appearIn 0.7s 8s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(8) p {
+  font-size: 3.8333333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(7) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 7s both;
+          animation: appearIn 0.7s 7s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(7) p {
+  font-size: 3.4166666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(6) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 6s both;
+          animation: appearIn 0.7s 6s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(6) p {
+  font-size: 3em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(5) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 5s both;
+          animation: appearIn 0.7s 5s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(5) p {
+  font-size: 2.5833333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(4) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 4s both;
+          animation: appearIn 0.7s 4s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(4) p {
+  font-size: 2.1666666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(3) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 3s both;
+          animation: appearIn 0.7s 3s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(3) p {
+  font-size: 1.75em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(2) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 2s both;
+          animation: appearIn 0.7s 2s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(2) p {
+  font-size: 1.3333333333em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(1) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 1s both;
+          animation: appearIn 0.7s 1s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(1) p {
+  font-size: 0.9166666667em;
+}
+#winner-podium-container #podium #ranking-section:nth-child(0) {
+  opacity: 0;
+  -webkit-animation: appearIn 0.7s 0s both;
+          animation: appearIn 0.7s 0s both;
+}
+#winner-podium-container #podium #ranking-section:nth-child(0) p {
+  font-size: 0.5em;
+}
+#winner-podium-container #podium #ranking-section {
+  margin-bottom: 20px;
+  opacity: 0;
+}
+#winner-podium-container #podium #ranking-section .score-header {
+  align-items: baseline;
+  border-bottom: 2px solid #EC994B;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#winner-podium-container #podium #ranking-section h3 {
+  color: #F1EEE9;
+  font-size: 1.5em;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+#winner-podium-container #podium #ranking-section h5 {
+  font-size: 1.4em;
+  color: #73777B;
+  align-self: baseline;
+}
+#winner-podium-container #podium #ranking-section p {
+  color: #EC994B;
+  font-weight: 700;
+  border: 1px solid #EC994B;
+  border-radius: 40px;
+  background-color: #15133C;
+  padding: 3px 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+#winner-podium-container #exit-winner-circle {
+  font-size: 1.3em;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-top: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #15133C;
+  background-color: #EC994B;
+  color: #15133C;
+  transition: all 0.2s;
+}
+#winner-podium-container #exit-winner-circle:hover {
+  color: #F1EEE9;
+}
+#winner-podium-container #exit-winner-circle:active {
+  border-radius: 8px;
+}
+
+@-webkit-keyframes grow {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    width: 90%;
+    opacity: 1;
+  }
+}
+
+@keyframes grow {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    width: 90%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes appearIn {
+  from {
+    opacity: 0;
+    font-size: 0em;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes appearIn {
+  from {
+    opacity: 0;
+    font-size: 0em;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 598px) {
+  #podium {
+    width: 100%;
+  }
+}/*# sourceMappingURL=winnerPodium.css.map */

@@ -3,6 +3,8 @@ import { FaCheck } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
 
 function Modal({ 
     questionData, 
@@ -11,6 +13,7 @@ function Modal({
     scoreChange, 
     setScoreChange }) {
 
+    const gameId = useParams().gameId
     // This triggers the bonus round
     const [correctAnswer, setCorrectAnswer] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
@@ -44,7 +47,6 @@ function Modal({
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
 
-        // game.switchPlayer();
         setScoreChange(scoreChange + 1);
     }
     // visually display the score decreasing
@@ -61,6 +63,17 @@ function Modal({
             }
         }, 5)
     }
+
+    function skipQuestion() {
+        game.decreaseQuestions();
+        if (game.endGame()){
+            setWrongAnswerChosen(true)
+        } else {
+            onClose();
+        }
+
+    }   
+
     return (
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
@@ -86,10 +99,14 @@ function Modal({
                             {showAnswer ?
                                 <>
                                     {wrongAnswerChosen ?
+                                        game.endGame() ? 
+                                        <Link state={game} to={`/winner-podium/${gameId}`}><button className='modal-buttons'>End Game</button></Link>
+                                        :
                                         <button className='modal-buttons' onClick={onClose}>Next Player</button>
                                         :
                                         <>
                                             <button className='modal-buttons' onClick={() => setShowAnswer(false)}>Hide Answer</button>
+                                            <button className='modal-buttons' onClick={skipQuestion}>Skip</button>
                                             <button id='wrong-answer' className='modal-buttons' onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
                                             <button id='correct-answer' className='modal-buttons' onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>
                                         </>
