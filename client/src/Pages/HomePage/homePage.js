@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { QUERY_PUBLIC_GAMES, SEARCH_PUBLIC_GAMES } from '../../utils/queries'
-import { useQuery, useLazyQuery} from '@apollo/client';
-import { useEffect, useState, useRef } from 'react';
+import { useQuery, useLazyQuery } from '@apollo/client';
+import { useState, useRef } from 'react';
 import Header from '../../Components/Header/header';
 import './homePage.css';
 import { FaPlay } from 'react-icons/fa'
 import { AiFillEye } from 'react-icons/ai';
+import mouseClick from '../../assets/sounds/mouse-click.wav';
+
+
 
 function HomePage() {
+
+    // MouseClick Sound
+    const mouseClickSound = new Audio(mouseClick);
+    mouseClickSound.volume = .6;
+
+
     // check if user is logged in
     const loggedIn = Auth.loggedIn()
 
@@ -52,11 +61,12 @@ function HomePage() {
                                                     <header className='flex-box-sb'>
                                                         <h2>{game.gameTopic}</h2>
                                                         <div>
-                                                            <Link to={`/players/${game._id}`}
+                                                            <Link onClick={() => mouseClickSound.play()} to={`/players/${game._id}`}
                                                             >
                                                                 <button title='Play' className='public-feed-btns'><FaPlay /></button><br />
                                                             </Link>
                                                             <Link
+                                                                onClick={() => mouseClickSound.play()}
                                                                 to={`/view-game/${game._id}`}
                                                                 title='View questions'
                                                                 className='public-feed-btns'><AiFillEye />
@@ -81,11 +91,12 @@ function HomePage() {
                                                     <header className='flex-box-sb'>
                                                         <h2>{game.gameTopic}</h2>
                                                         <div>
-                                                            <Link to={`/players/${game._id}`}
+                                                            <Link onClick={() => mouseClickSound.play()} to={`/players/${game._id}`}
                                                             >
                                                                 <button title='Play' className='public-feed-btns'><FaPlay /></button><br />
                                                             </Link>
                                                             <Link
+                                                                onClick={() => mouseClickSound.play()}
                                                                 to={`/view-game/${game._id}`}
                                                                 title='View questions'
                                                                 className='public-feed-btns'><AiFillEye />
@@ -101,11 +112,11 @@ function HomePage() {
                                             </article>
                                         ))}
                                     </>
-}
+                                }
                             </section>
                             <aside>
-                                <Link to={`/create-game`}>Create Game</Link>
-                                <Link to={`/my-games`}>My Games</Link>
+                                <Link onClick={() => mouseClickSound.play()} to={`/create-game`}>Create Game</Link>
+                                <Link onClick={() => mouseClickSound.play()} to={`/my-games`}>My Games</Link>
                             </aside>
                         </div>
                     </main>

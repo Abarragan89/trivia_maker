@@ -119,6 +119,32 @@ body {
   opacity: 1;
 }
 
+#end-game-bonus {
+  font-size: 1.3em;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-weight: 700;
+  background-color: #73777B;
+  color: #15133C;
+  transition: all 0.2s;
+}
+
+#end-game-bonus:hover {
+  background-color: #EC994B;
+}
+
+#end-game-bonus:active {
+  border-radius: 8px;
+}
+
+#end-game-link {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1220px) {
   #number-multiplier {
     position: absolute;

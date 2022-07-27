@@ -70,6 +70,28 @@
     font-size: 10em;
     opacity: 1;
 }
+#end-game-bonus {
+    font-size: 1.3em;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: 700;
+    background-color: $gray;
+    color: $tertiaryColor;
+    transition: all .2s;
+}
+#end-game-bonus:hover {
+    background-color: $secondaryColor;
+}
+#end-game-bonus:active {
+    border-radius: 8px;
+}
+#end-game-link {
+    text-decoration: none;
+}
 
 
 

@@ -2,6 +2,8 @@ import './bonusRound.css'
 import { useRef, useEffect, useState } from "react";
 import frameRenderer from "../FrameRenderer/frameRenderer";
 import { Link, useParams } from 'react-router-dom';
+import bonusReceived from '../../assets/sounds/bonus-received.wav'
+import missedBonus from '../../assets/sounds/missed-bonus.wav'
 
 function BonusRound({
   pointValue,
@@ -11,6 +13,13 @@ function BonusRound({
   closeModal,
   increasePlayerScore
 }) {
+
+  // Bonus received sound
+  const gotBonus = new Audio(bonusReceived)
+  gotBonus.volume = .60;
+  // Bonus missed sound
+  const missedBonusSound = new Audio(missedBonus)
+  gotBonus.volume = .60;
 
   const gameId = useParams().gameId
 
@@ -82,6 +91,7 @@ function BonusRound({
       distance2x2 * distance2x2 + distance2y2 * distance2y2 <= radii_sum2 * radii_sum2) {
       setMultiplier(2);
       pointMultiplier(pointValue, 2);
+      gotBonus.play();
       return;
     }
     // If close to the two X3, multiply points by two for user
@@ -95,6 +105,7 @@ function BonusRound({
       distance3x2 * distance3x2 + distance3y2 * distance3y2 <= radii_sum3 * radii_sum3) {
       setMultiplier(3);
       pointMultiplier(pointValue, 3);
+      gotBonus.play();
       return;
     }
 
@@ -109,6 +120,7 @@ function BonusRound({
       distance4x2 * distance4x2 + distance4y2 * distance4y2 <= radii_sum4 * radii_sum4) {
       setMultiplier(4)
       pointMultiplier(pointValue, 4)
+      gotBonus.play();
       return;
     }
 
@@ -119,8 +131,10 @@ function BonusRound({
     if (distance5x1 * distance5x1 + distance5y1 * distance5y1 <= radii_sum5 * radii_sum5) {
       setMultiplier(5);
       pointMultiplier(pointValue, 5);
+      gotBonus.play();
       return;
     }
+    missedBonusSound.play();
     setMultiplier(1);
     pointMultiplier(pointValue, 1);
   }
@@ -151,7 +165,7 @@ function BonusRound({
                 <div className='bonus-text'>Aw, nice try.</div>
             }
             {game.endGame() ? 
-              <Link state={game} to={`/winner-podium/${gameId}`}><button className='modal-buttons'>End Game</button></Link>
+              <Link id='end-game-link' state={game} to={`/winner-podium/${gameId}`}><button id='end-game-bonus'>End Game</button></Link>
             :
             <button id='next-player-btn' className='bonus-buttons' onClick={closeModal}>Next Player</button>
             

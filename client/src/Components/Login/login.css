@@ -140,8 +140,18 @@ body {
 .login-form .back-to-login {
   margin-bottom: 0;
   margin-top: 0;
-  font-size: 0.9em;
   padding: 5px 10px;
+  color: rgb(250, 251, 252);
+  text-decoration: underline;
+  font-size: 0.9em;
+  background-color: transparent;
+  border: none;
+}
+.login-form .back-to-login:hover {
+  cursor: pointer;
+}
+.login-form .back-to-login:active {
+  text-decoration: none;
 }
 
 .switch-login {

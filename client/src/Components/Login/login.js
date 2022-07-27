@@ -6,9 +6,14 @@ import Auth from '../../utils/auth'
 import { SIGN_UP } from '../../utils/mutations';
 import { QUERY_USER_BY_EMAIL } from '../../utils/queries';
 import './login.css'
-
+import mouseClick from '../../assets/sounds/mouse-click.wav';
 
 function Login() {
+
+    // MouseClick Sound
+    const mouseClickSound = new Audio(mouseClick);
+    mouseClickSound.volume = .6;
+
     // const [signup] = useMutation(ADD_USER)
     const [login] = useMutation(LOGIN_USER);
     const [signup, { error }] = useMutation(SIGN_UP);
@@ -124,7 +129,7 @@ function Login() {
                         {didReset ?
                             <section>
                                 <form className='flex-box-col-se login-form'onSubmit={handleFormSubmitForgot}>
-                                <legend><span>Forgot Password</span></legend>
+                                <legend><span>Oops!</span></legend>
                                         <input
                                             placeholder="Email"
                                             className="login-input"
@@ -136,8 +141,8 @@ function Login() {
                                         />
                                         {error2 && <div className="login-error">No account found with that email</div>}
                                         {success && <div className='success-signup'>Check your email to reset your password.</div>}
-                                        <button className='login-btn' type="submit">Reset Password</button>
-                                        <p className='back-to-login'><button className='login-btn back-to-login' onClick={() => setDidReset(false)}>Back to Login</button></p>
+                                        <button onClick={() => mouseClickSound.play()} className='login-btn' type="submit">Reset Password</button>
+                                        <p className='back-to-login' onClick={() => setDidReset(false)}>Back to Login</p>
                            
                                 </form>
                             </section>
@@ -149,7 +154,7 @@ function Login() {
                                     <input type='text' className='login-input' value={formStateLogin.email} placeholder='Email' name='email' onChange={handleChangeLogin}></input>
                                     <input type='password' className='login-input' value={formStateLogin.password} placeholder='Password' name='password' onChange={handleChangeLogin}></input>
                                     <span className='login-error'></span>
-                                    <button type='submit' className='login-btn'>Login</button>
+                                    <button onClick={() => mouseClickSound.play()} type='submit' className='login-btn'>Login</button>
                                     <p id='forgot-password' onClick={() => setDidReset(true)}>Forgot password?</p>
                                 </form>
                                 <p className='switch-login'>Or<span onClick={() => setIsUser(true)}>create an account.</span></p>
@@ -170,7 +175,7 @@ function Login() {
                             {error && error.message !== "Response not successful: Received status code 400" &&
                                 <div className="login-error">{error.message}</div>}
                             {successSignup && !error && <div className='success-signup'>Check your email to verify your account.</div>}
-                            <button type='submit' className='login-btn'>Sign up</button>
+                            <button onClick={() => mouseClickSound.play()} type='submit' className='login-btn'>Sign up</button>
 
                         </form>
                         <p className='switch-login'>Already have an accout?<span onClick={() => setIsUser(false)}>Login.</span></p>

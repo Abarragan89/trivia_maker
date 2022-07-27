@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { QUERY_GAME_INFO } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import WinnerPodium from '../WinnerPodium/winnerPodium';
+import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
 
 function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
+    const suspenseMusicSound = new Audio(suspenseMusic)
+    suspenseMusicSound.volume = .6;
+
     const gameId = useParams().gameId
     const { data } = useQuery(QUERY_GAME_INFO, {
         variables: { gameId }
@@ -17,6 +20,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     const [currentQuestionSet, setCurrentQuestionSet] = useState('') 
 
     function toggleModal(questionButton) {
+        suspenseMusicSound.play()
         h1ref.current.scrollIntoView(
             {
                 behavior: 'auto',
@@ -52,7 +56,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
             <div className='category-columns flex-box-sa'>
                 {isModal && 
                 <Modal 
-                game={game} 
+                game={game}
                 questionData={currentQuestionSet} 
                 onClose={closeModal} 
                 scoreChange={scoreChange}

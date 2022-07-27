@@ -4,6 +4,10 @@ import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import correctAnswerSound from '../../assets/sounds/correct-answer.wav';
+import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
+import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
+
 
 
 function Modal({ 
@@ -11,7 +15,17 @@ function Modal({
     onClose, 
     game, 
     scoreChange, 
-    setScoreChange }) {
+    setScoreChange,
+    }) {
+
+    const correctAnswerNoise = new Audio(correctAnswerSound);
+    correctAnswerNoise.volume = .6;
+
+    const incorrectAnswer = new Audio(wrongAnswerNotification);
+    correctAnswerNoise.volume = .6;
+
+    const suspenseMusicSound = new Audio(suspenseMusic);
+    suspenseMusicSound.volume = .6;
 
     const gameId = useParams().gameId
     // This triggers the bonus round
@@ -20,6 +34,7 @@ function Modal({
     const [pointValue, setPointValue] = useState(0)
 
     function bonusRound(points) {
+        correctAnswerNoise.play();
         setPointValue(points)
         const modal = document.getElementById('modalContainer')
         modal.style.animation = 'bonusAppear 1s'
@@ -43,6 +58,7 @@ function Modal({
 
     // If the player gets the answer wrong
     function wrongAnswer(questionPoints) {
+        incorrectAnswer.play();
         decreasePlayerScore(questionPoints);
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
@@ -73,6 +89,13 @@ function Modal({
         }
 
     }   
+
+    function showAnswerFunction() {
+        // suspenseMusicSound.play();
+        // suspenseMusicSound.stop();
+        setShowAnswer(true);
+
+    }
 
     return (
         <div className='modalBackdrop'>
@@ -113,7 +136,7 @@ function Modal({
                                     }
                                 </>
                                 :
-                                <button className='modal-buttons' onClick={() => setShowAnswer(true)}>Show Answer</button>
+                                <button className='modal-buttons' onClick={showAnswerFunction}>Show Answer</button>
                             }
                         </div>
                     </article>
