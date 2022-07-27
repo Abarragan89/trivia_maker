@@ -1,6 +1,9 @@
 import './bonusRound.css'
 import { useRef, useEffect, useState } from "react";
 import frameRenderer from "../FrameRenderer/frameRenderer";
+import { Link, useParams } from 'react-router-dom';
+import bonusReceived from '../../assets/sounds/bonus-received.wav'
+import missedBonus from '../../assets/sounds/missed-bonus.wav'
 
 function BonusRound({
   pointValue,
@@ -10,6 +13,17 @@ function BonusRound({
   closeModal,
   increasePlayerScore
 }) {
+
+  // Bonus received sound
+  const gotBonus = new Audio(bonusReceived)
+  gotBonus.volume = .60;
+  // Bonus missed sound
+  const missedBonusSound = new Audio(missedBonus)
+  gotBonus.volume = .60;
+
+  const gameId = useParams().gameId
+
+
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
   // Make speed 5
@@ -75,9 +89,9 @@ function BonusRound({
     if (distance2x1 * distance2x1 + distance2y1 * distance2y1 <= radii_sum2 * radii_sum2
       ||
       distance2x2 * distance2x2 + distance2y2 * distance2y2 <= radii_sum2 * radii_sum2) {
-      console.log('collided with two');
       setMultiplier(2);
       pointMultiplier(pointValue, 2);
+      gotBonus.play();
       return;
     }
     // If close to the two X3, multiply points by two for user
@@ -89,9 +103,9 @@ function BonusRound({
     if (distance3x1 * distance3x1 + distance3y1 * distance3y1 <= radii_sum3 * radii_sum3
       ||
       distance3x2 * distance3x2 + distance3y2 * distance3y2 <= radii_sum3 * radii_sum3) {
-      console.log('collided with three');
       setMultiplier(3);
       pointMultiplier(pointValue, 3);
+      gotBonus.play();
       return;
     }
 
@@ -104,9 +118,9 @@ function BonusRound({
     if (distance4x1 * distance4x1 + distance4y1 * distance4y1 <= radii_sum4 * radii_sum4
       ||
       distance4x2 * distance4x2 + distance4y2 * distance4y2 <= radii_sum4 * radii_sum4) {
-      console.log('collided with four')
       setMultiplier(4)
       pointMultiplier(pointValue, 4)
+      gotBonus.play();
       return;
     }
 
@@ -117,9 +131,10 @@ function BonusRound({
     if (distance5x1 * distance5x1 + distance5y1 * distance5y1 <= radii_sum5 * radii_sum5) {
       setMultiplier(5);
       pointMultiplier(pointValue, 5);
+      gotBonus.play();
       return;
     }
-    console.log('missed')
+    missedBonusSound.play();
     setMultiplier(1);
     pointMultiplier(pointValue, 1);
   }
@@ -149,7 +164,12 @@ function BonusRound({
                 :
                 <div className='bonus-text'>Aw, nice try.</div>
             }
+            {game.endGame() ? 
+              <Link id='end-game-link' state={game} to={`/winner-podium/${gameId}`}><button id='end-game-bonus'>End Game</button></Link>
+            :
             <button id='next-player-btn' className='bonus-buttons' onClick={closeModal}>Next Player</button>
+            
+            }
           </>
           :
           <>

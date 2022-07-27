@@ -1,0 +1,145 @@
+@import '../../index.scss';
+
+#winner-podium-container {
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+        text-align: center;
+        color: $tertiaryColor;
+        margin-bottom: 30px;
+        background-color: $secondaryColor;
+        padding: 10px 0;
+        font-size: 2em;
+        letter-spacing: .2em;
+    }
+
+    button {
+        font-size: 1.3em;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 4px;
+        margin-right: 10px;
+        margin-top: 20px;
+        font-weight: 700;
+        border: 1px solid $tertiaryColor;
+        background-color: $tertiaryColor;
+        color: $secondaryColor;
+        transition: all .2s;
+    }
+    button:hover {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+    button:active {
+        border-radius: 8px;
+    }
+
+    #podium {
+        background-color: $tertiaryColor;
+        width: 90%;
+        border-radius: 8px;
+        border: 5px solid $gray;
+        margin: 0 auto;
+        padding: 25px;
+        margin-bottom: 100px;
+        animation: grow 2s;
+        flex-direction: column-reverse;
+
+
+        @for $i from 25 through 0 {
+            #ranking-section:nth-child(#{$i}) {
+                opacity: 0;
+                animation: appearIn .7s (1s * $i)  both;
+                p {
+                    font-size: (.5em + ($i / 2.4));
+                }
+            }
+        }
+        
+        
+        #ranking-section {
+            margin-bottom: 20px;
+            opacity: 0;
+            
+            
+            .score-header {
+                align-items: baseline;
+                border-bottom: 2px solid $secondaryColor;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            
+            h3 {
+                color: $primaryColor;
+                font-size: 1.5em;
+                font-family: $pointNumber;
+            }
+            
+            h5 {
+                font-size: 1.4em;
+                color: $gray;
+                align-self: baseline;
+            }
+            p {
+                color: $secondaryColor;
+                font-weight: 700;
+                border: 1px solid $secondaryColor;
+                border-radius: 40px;
+                background-color: $tertiaryColor;
+                padding: 3px 10px;
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+        }
+    }
+    #exit-winner-circle {
+        font-size: 1.3em;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 4px;
+        margin-right: 10px;
+        margin-top: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid $tertiaryColor;
+        background-color: $secondaryColor;
+        color: $tertiaryColor;
+        transition: all .2s;
+    }
+    #exit-winner-circle:hover {
+        color: $primaryColor;
+    }
+    #exit-winner-circle:active {
+        border-radius: 8px;
+    }
+}
+
+@keyframes grow {
+    from {
+        opacity: 0;
+        width: 0;
+    }
+    to {
+        width: 90%;
+        opacity: 1;
+    }
+    
+}
+
+@keyframes appearIn {
+    from {
+        opacity: 0;
+        font-size: 0em;
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@media screen and (max-width: 598px) {
+    #podium {
+        width: 100%;
+    }
+    
+}

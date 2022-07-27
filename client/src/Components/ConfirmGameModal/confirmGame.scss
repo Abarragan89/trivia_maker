@@ -43,20 +43,27 @@
             border-radius: 4px;
             font-size: 1.4em;
             padding: 10px 40px;
+            transition: .2s;
         }
         a:hover {
             cursor: pointer;
             color: $primaryColor;
         }
         a:active {
-            color: $gray;
-            border: 1px solid transparent;
+            border-radius: 8px;
         }
         #cancel-confirmation {
             font-size: .9em;
             padding: 10px 20px;
             color: $secondaryColor;
             margin-top: 20px;
+            transition: .2s;
+        }
+        #cancel-confirmation:hover {
+            color: $primaryColor;
+        }
+        #cancel-confirmation:active {
+            border-radius: 8px;
         }
     }
 }

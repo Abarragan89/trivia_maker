@@ -3,20 +3,36 @@ import { FaCheck } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import correctAnswerSound from '../../assets/sounds/correct-answer.wav';
+import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
+
+
 
 function Modal({ 
     questionData, 
     onClose, 
     game, 
     scoreChange, 
-    setScoreChange }) {
+    setScoreChange,
+    triggerSuspenseOff,
+    setTriggerSuspenseOff,
+    }) {
 
+    const correctAnswerNoise = new Audio(correctAnswerSound);
+    correctAnswerNoise.volume = .6;
+
+    const incorrectAnswer = new Audio(wrongAnswerNotification);
+    correctAnswerNoise.volume = .6;
+
+    const gameId = useParams().gameId
     // This triggers the bonus round
     const [correctAnswer, setCorrectAnswer] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
     const [pointValue, setPointValue] = useState(0)
 
     function bonusRound(points) {
+        correctAnswerNoise.play();
         setPointValue(points)
         const modal = document.getElementById('modalContainer')
         modal.style.animation = 'bonusAppear 1s'
@@ -40,11 +56,11 @@ function Modal({
 
     // If the player gets the answer wrong
     function wrongAnswer(questionPoints) {
+        incorrectAnswer.play();
         decreasePlayerScore(questionPoints);
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
 
-        // game.switchPlayer();
         setScoreChange(scoreChange + 1);
     }
     // visually display the score decreasing
@@ -61,6 +77,26 @@ function Modal({
             }
         }, 5)
     }
+
+    function skipQuestion() {
+        game.decreaseQuestions();
+        if (game.endGame()){
+            setWrongAnswerChosen(true)
+        } else {
+            onClose();
+        }
+
+    }   
+
+    function showAnswerFunction() {
+        setTriggerSuspenseOff(true)
+        setShowAnswer(true);
+    }
+    function hideAnswerFunction() {
+        setTriggerSuspenseOff(false)
+        setShowAnswer(false);
+    }
+
     return (
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
@@ -86,17 +122,21 @@ function Modal({
                             {showAnswer ?
                                 <>
                                     {wrongAnswerChosen ?
+                                        game.endGame() ? 
+                                        <Link state={game} to={`/winner-podium/${gameId}`}><button className='modal-buttons'>End Game</button></Link>
+                                        :
                                         <button className='modal-buttons' onClick={onClose}>Next Player</button>
                                         :
                                         <>
-                                            <button className='modal-buttons' onClick={() => setShowAnswer(false)}>Hide Answer</button>
+                                            <button className='modal-buttons' onClick={hideAnswerFunction}>Hide Answer</button>
+                                            <button className='modal-buttons' onClick={skipQuestion}>Skip</button>
                                             <button id='wrong-answer' className='modal-buttons' onClick={() => wrongAnswer(questionData.points)}><FaTimes className='grading-icon' /></button>
                                             <button id='correct-answer' className='modal-buttons' onClick={() => bonusRound(questionData.points)}><FaCheck className='grading-icon' /></button>
                                         </>
                                     }
                                 </>
                                 :
-                                <button className='modal-buttons' onClick={() => setShowAnswer(true)}>Show Answer</button>
+                                <button className='modal-buttons' onClick={showAnswerFunction}>Show Answer</button>
                             }
                         </div>
                     </article>

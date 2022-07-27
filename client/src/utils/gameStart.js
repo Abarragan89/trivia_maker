@@ -39,21 +39,20 @@ class GameStart {
     // end game
     endGame() {
         if (this.questions === 0) {
-            let winner = [];
-            let highscore = null;
-            this.players.forEach(player => {
-                console.log('in class', player.name)
-                if (!highscore) {
-                    highscore = parseInt(player.score);
-                    winner.push(player.name)
-                    return;
-                } else if (player.score >= highscore) {
-                    highscore = parseInt(player.score);
-                    winner.push(player.name) 
-                    return;
-                }
-            })
-            return {winner, highscore};
+            // let winner = [];
+            // let highscore = null;
+            // this.players.forEach(player => {
+            //     if (!highscore) {
+            //         highscore = parseInt(player.score);
+            //         winner.push(player.name)
+            //         return;
+            //     } else if (player.score >= highscore) {
+            //         highscore = parseInt(player.score);
+            //         winner.push(player.name) 
+            //         return;
+            //     }
+            // })
+            return 'done';
         }
     }
 }

@@ -2,8 +2,14 @@ import { useState } from 'react';
 import ConfirmGameModal from '../../Components/ConfirmGameModal/confirmGameModal';
 import Header from '../../Components/Header/header';
 import './playerInput.css';
+import mouseClick from '../../assets/sounds/mouse-click.wav';
 
 function PlayerInput() {
+
+    // MouseClick Sound
+    const mouseClickSound = new Audio(mouseClick);
+    mouseClickSound.volume = .6;
+
     const [showPlayerNames, setShowPlayerNames] = useState(false);
     const [numberOfPlayers, setNumberOfPlayers] = useState(1);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false)
@@ -59,7 +65,7 @@ function PlayerInput() {
                 {showPlayerNames ?
                     <form id='player-names-form' onSubmit={handleGameStart}>
                         {playerInputElements}
-                        <button className='player-input-button' type='submit'>Ready?</button>
+                        <button onClick={() => mouseClickSound.play()}  className='player-input-button' type='submit'>Ready?</button>
                     </form>
                     :
                     <>
@@ -67,7 +73,7 @@ function PlayerInput() {
                             <label htmlFor='player-count'>How many players/teams?</label>
                             <input type='text' id='player-count' maxLength="2" required></input>
                             <span id='error'></span>
-                            <button className='player-input-button' type='submit'>Continue</button>
+                            <button onClick={() => mouseClickSound.play()} className='player-input-button' type='submit'>Continue</button>
                         </form>
                     </>
                 }

@@ -48,7 +48,7 @@ body {
 
 #home-logo {
   border-radius: 5px;
-  width: 150px;
+  width: 200px;
   opacity: 1;
 }
 
@@ -58,7 +58,7 @@ body {
   background-color: #15133C;
   padding: 0 20px;
   margin-bottom: 30px;
-  height: 90px;
+  height: 100px;
   align-items: center;
 }
 #main-header a {

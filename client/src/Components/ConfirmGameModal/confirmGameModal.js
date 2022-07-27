@@ -2,8 +2,16 @@ import { Link, useParams } from 'react-router-dom';
 import './confirmGame.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAME_INFO } from '../../utils/queries'
+import mouseClick from '../../assets/sounds/mouse-click.wav';
+
 
 function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationModal }) {
+
+    // MouseClick Sound
+    const mouseClickSound = new Audio(mouseClick);
+    mouseClickSound.volume = .6;
+
+
     const gameId = useParams().gameId
 
     const { data } = useQuery(QUERY_GAME_INFO, {
@@ -21,7 +29,7 @@ function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationM
                         <p key={index} className='player-names-confirmation'>{player}</p>
                     ))}
                 </div>
-                <Link state={players} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br/>
+                <Link onClick={() => mouseClickSound.play()} state={players} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br/>
                 <Link id='cancel-confirmation' to='/my-games' onClick={() => setShowConfirmationModal(false)}>Cancel</Link>
             </div>
         </div>
