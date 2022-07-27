@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import correctAnswerSound from '../../assets/sounds/correct-answer.wav';
 import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
+import '../Navigation/navigation.css';
 
 
 
