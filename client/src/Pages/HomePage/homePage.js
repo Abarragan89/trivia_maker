@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import { QUERY_PUBLIC_GAMES, SEARCH_PUBLIC_GAMES } from '../../utils/queries'
+import { QUERY_ME_BASIC, QUERY_PUBLIC_GAMES, SEARCH_PUBLIC_GAMES } from '../../utils/queries'
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { useState, useRef } from 'react';
 import Header from '../../Components/Header/header';
@@ -9,15 +9,37 @@ import { FaPlay } from 'react-icons/fa'
 import { AiFillEye } from 'react-icons/ai';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import LandingPage from '../LandingPage/landingPage';
-
-
+import axios from 'axios'
+import { useEffect } from 'react';
 
 function HomePage() {
+
+    // random fact functionality
+    const [randomFactText, setRandomFactText] = useState(null)
+    function randomFact() {
+        axios
+            .get('https://api.api-ninjas.com/v1/facts?limit=1', {
+                headers: {
+                    'X-Api-Key': 'f4JX5j/Zg0wWIMYSF4L3qA==gS4WFyjnCm6T2RLs',
+                    Accept: "application/json",
+                    "Content-Type": "application/json;charset=UTF-8",
+                },
+            })
+            .then(({ data }) => {
+                setRandomFactText(data[0].fact);
+            });
+    }
+    useEffect(() => {
+        randomFact()
+    }, [])
+
 
     // MouseClick Sound
     const mouseClickSound = new Audio(mouseClick);
     mouseClickSound.volume = .6;
 
+    const { data: userInfo } = useQuery(QUERY_ME_BASIC)
+    const username = userInfo?.me?.username
 
     // check if user is logged in
     const loggedIn = Auth.loggedIn()
@@ -39,7 +61,6 @@ function HomePage() {
             variables: { name: characters.current }
         });
         setSearchedGames(searchedData.getGameByTitle);
-        console.log('searched Games', searchedGames)
     }
 
     return (
@@ -55,7 +76,7 @@ function HomePage() {
                             <section>
                                 {publicGames && characters.current === '' ?
                                     <>
-                                        <h1>Public Games</h1>
+                                        <h1><span>Public Games</span></h1>
                                         {publicGames.map((game, index) => (
                                             <article id='link-to-public' key={index} to={`/players/${game._id}`}>
                                                 <div className='public-game-card'>
@@ -85,7 +106,7 @@ function HomePage() {
                                     </>
                                     :
                                     <>
-                                        <h1>{characters.current}</h1>
+                                        <h1><span>{characters.current}</span></h1>
                                         {searchedGames && searchedGames.map((game, index) => (
                                             <article id='link-to-public' key={index} to={`/players/${game._id}`}>
                                                 <div className='public-game-card'>
@@ -116,8 +137,14 @@ function HomePage() {
                                 }
                             </section>
                             <aside>
-                                <Link onClick={() => mouseClickSound.play()} to={`/create-game`}>Create</Link>
-                                <Link onClick={() => mouseClickSound.play()} to={`/my-games`}>My Games</Link>
+                                <div>
+                                    <h2>Welcome</h2>
+                                    <p>{username}</p>
+                                </div>
+                                <div>
+                                    <h3 onClick={randomFact}>Get Nosey</h3>
+                                    <p>{randomFactText}</p>
+                                </div>
                             </aside>
                         </div>
                     </main>

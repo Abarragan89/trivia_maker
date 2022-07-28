@@ -53,6 +53,7 @@ body {
 #landing-page-main .landing-page-section {
   margin-bottom: 20px;
   padding-bottom: 40px;
+  border-bottom: 5px solid #73777B;
 }
 #landing-page-main .landing-page-txt-div {
   width: 60%;
