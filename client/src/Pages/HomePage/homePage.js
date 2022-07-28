@@ -11,6 +11,7 @@ import mouseClick from '../../assets/sounds/mouse-click.wav';
 import LandingPage from '../LandingPage/landingPage';
 import axios from 'axios'
 import { useEffect } from 'react';
+import Footer from '../../Components/Footer/footer';
 
 function HomePage() {
 
@@ -148,6 +149,7 @@ function HomePage() {
                             </aside>
                         </div>
                     </main>
+                    <Footer />
                 </>
                 :
                 <>

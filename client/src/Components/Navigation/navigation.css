@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -132,6 +136,7 @@ nav a.active {
     background-color: #15133C;
     border-top: 2px solid;
     border-radius: 0 0 0 8px;
+    z-index: 999;
   }
   nav ul li {
     padding-left: 5%;

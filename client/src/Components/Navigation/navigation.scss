@@ -81,6 +81,7 @@ nav a.active {
         background-color: $tertiaryColor;
         border-top: 2px solid ;
         border-radius: 0 0 0 8px;
+        z-index: 999;
     }
     nav ul li {
         padding-left: 5%;

@@ -61,7 +61,7 @@
     #create-game-btn {
         display: block;
         margin: 0 auto;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         padding: 10px 40px;
         background-color: $secondaryColor;
         border: none;
@@ -71,6 +71,7 @@
         font-weight: 600;
         transition: .2s;
     }
+    
     #create-game-btn:hover {
         color: $primaryColor;
         cursor: pointer;

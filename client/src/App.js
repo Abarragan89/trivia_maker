@@ -17,6 +17,7 @@ import ConfirmUser from './Pages/ConfirmUser/confirmUser.js';
 import ViewPublicGame from './Pages/ViewPublicGame/viewPublicGame.js';
 import ForgotPassword from './Pages/ForgotPassword/forgotPassword.js';
 import WinnerPodium from './Components/WinnerPodium/winnerPodium.js';
+import Contact from './Pages/Contact/contact.js';
 
 // import Apollo Client package for context
 import {
@@ -73,6 +74,7 @@ function App() {
           <Route path="/register-user/:id" element={<ConfirmUser />}></Route>
           <Route path="/password-reset/:userId" element={<ForgotPassword />}></Route>
           <Route path="/winner-podium/:gameId" element={<WinnerPodium />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
 
           
         </Routes>

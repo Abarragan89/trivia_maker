@@ -7,6 +7,7 @@ import './myGames.css';
 import { MdEdit } from 'react-icons/md';
 import { FaPlay } from 'react-icons/fa';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import Footer from '../../Components/Footer/footer';
  
 function MyGames() {
 
@@ -51,8 +52,8 @@ function MyGames() {
                 </>
                 :
                 <p>You need to be <span><Link to='/'>logged in </Link></span>to see this page</p>
-
             }
+            <Footer />
         </>
     )
 }

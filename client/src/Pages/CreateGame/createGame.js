@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client'
 import { CREATE_GAME } from '../../utils/mutations'
 import Header from '../../Components/Header/header';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import Footer from '../../Components/Footer/footer';
 
 function CreateGame() {
 
@@ -540,6 +541,7 @@ function CreateGame() {
                 :
                 <p>404: You must be signed in to see this page</p>
             }
+            <Footer />
         </>
     )
 }

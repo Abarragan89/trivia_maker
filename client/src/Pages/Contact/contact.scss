@@ -1,0 +1,93 @@
+@import '../../index.scss';
+
+#contact-page {
+    h3{
+        text-align: center;
+        color: $tertiaryColor;
+        margin-bottom: 30px;
+        background-color: $secondaryColor;
+        padding: 10px 0;
+        font-size: 1.7em;
+        letter-spacing: .5em;
+    }
+
+#contact-form {
+    background-color: $tertiaryColor;
+    width: 80%;
+    padding: 30px;
+    margin: 0 auto;
+    opacity: 100%;
+    border: 1px solid $secondaryColor;
+    border-radius: 4px;
+    animation: fadeInContactForm 0.8s 0.8s both;
+}
+label {
+    color: $primaryColor;
+    font-family: $primaryFont;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+.form-div {
+    width: 60%;
+    margin: 0 auto 2vw;
+    text-align: left;
+    justify-items: center;
+}
+input, textarea {
+    width: 100%;
+    font-family: $primaryFont;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: $primaryColor;
+    font-weight: 500;
+    border: 2px solid black;
+}
+input {
+    height: 2.2em;
+}
+input:focus, textarea:focus {
+    background-color: rgb(243, 233, 233);
+    border: 2px solid transparent;
+    outline: 2px solid $secondaryColor;
+}
+#contact-submit {
+    padding: 5px 35px;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-family: $primaryFont;
+    font-weight: 700;
+    border: none;
+    text-decoration: none;
+    color: $tertiaryColor;
+    background-color: $secondaryColor;
+    transition: .3s;
+    display: block;
+    margin: 0 auto;
+}
+#contact-submit:hover {
+    color: $primaryColor;
+    cursor: pointer;
+}
+#contact-submit:active {
+    border-radius: 8px;
+}
+.error-text {
+    color: $red;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+@keyframes fadeInContactForm {
+    from {
+        margin-top: 5vw;
+        margin-bottom: 6vw;
+        opacity: 0%;
+    }
+    to {
+        margin-top: 5vw;
+        margin-bottom: 6vw;
+        opacity: 100%;
+    }
+}
+
+}

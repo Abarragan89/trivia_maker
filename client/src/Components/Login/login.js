@@ -7,6 +7,7 @@ import { SIGN_UP } from '../../utils/mutations';
 import { QUERY_USER_BY_EMAIL } from '../../utils/queries';
 import './login.css'
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import Footer from '../Footer/footer';
 
 function Login() {
 
@@ -182,7 +183,7 @@ function Login() {
                     </>
                 }
             </main>
-
+            <Footer />
         </>
     )
 }
