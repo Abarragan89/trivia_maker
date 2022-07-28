@@ -3,7 +3,7 @@ import Modal from '../Modal/modal';
 import { useState } from 'react';
 import { QUERY_GAME_INFO } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
 import { useEffect } from 'react';
 
@@ -16,10 +16,10 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     useEffect(() => {
         if (triggerSuspenseOff === true) {
             suspenseMusicSound.pause();
-        } 
+        }
     })
 
-    
+
     const gameId = useParams().gameId
     const { data } = useQuery(QUERY_GAME_INFO, {
         variables: { gameId }
@@ -74,7 +74,10 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                         triggerSuspenseOff={triggerSuspenseOff}
                         setTriggerSuspenseOff={setTriggerSuspenseOff}
                     />}
-                <p id='upNext'>Up Next: <span>{game && game.currentPlayer.name}</span></p>
+                <div id='gameboard-header-info' className='flex-box-sb'>
+                    <p id='upNext'>Up Next: <span>{game && game.currentPlayer.name}</span></p>
+                    <Link id='quit-game' to='/'>Quit</Link>
+                </div>
                 {gameData.map((question, gameIndex) => (
                     <div className='column' key={gameIndex + question.category}>
                         <h3 className={question.category ? `font-cat-${Math.floor(question.category.length / 10) * 10}` : ''}>{question.category}</h3>
