@@ -83,8 +83,8 @@ function HomePage() {
     }
 
     ////////////Pagination/////////////////
-    const [currentPage, setCurrentPage] = useState(15);
-    const [gamesPerPage] = useState(3)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [gamesPerPage] = useState(15)
     // Get current posts of All Public
     const indexOfLastGame = currentPage * gamesPerPage;
     const indexOfFirstGame = indexOfLastGame - gamesPerPage;
