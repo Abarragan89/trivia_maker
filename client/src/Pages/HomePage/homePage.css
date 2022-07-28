@@ -9,6 +9,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: "Roboto", sans-serif;
 }
 
@@ -90,6 +93,7 @@ body {
 }
 #homepage-feed section {
   margin: 5% 5%;
+  margin-bottom: 0;
   flex-grow: 2;
 }
 #homepage-feed aside {
@@ -187,7 +191,7 @@ body {
   color: #73777B;
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 698px) {
   #homepage-feed {
     flex-direction: column-reverse;
     justify-content: center;

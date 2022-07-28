@@ -46,6 +46,7 @@
     }
     section {
         margin: 5% 5%;
+        margin-bottom: 0;
         flex-grow: 2
     }
 
@@ -151,7 +152,7 @@
     }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 698px) {
     #homepage-feed {
         flex-direction: column-reverse;
         justify-content: center;

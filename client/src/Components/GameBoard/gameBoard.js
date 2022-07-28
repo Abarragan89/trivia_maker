@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
 
     //////////// music set up and useEffect that is triggered by the hide question modal button press
-    const [suspenseMusicSound, setSuspenseMusicSound] = useState(new Audio(suspenseMusic))
+    const [suspenseMusicSound ] = useState(new Audio(suspenseMusic))
     suspenseMusicSound.volume = .4;
     const [triggerSuspenseOff, setTriggerSuspenseOff] = useState(false)
     useEffect(() => {
