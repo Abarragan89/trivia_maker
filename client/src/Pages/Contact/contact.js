@@ -49,19 +49,19 @@ function Contact() {
         <>
             <Header />
             <section className='section' id='contact-page'>
-                <h3 id='contact-heading'>Contact  Me</h3>
+                <h1><span>Contact  Me</span></h1>
                 <form ref={form} id='contact-form' onSubmit={handleSubmit}>
                     <div className="form-div">
                         <label htmlFor='name'>Name:</label><br />
-                        <input type='text' defaultValue={name} name='name' id='name' onBlur={handleChange} />
+                        <input type='text' defaultValue={name} name='name' id='name' onBlur={handleChange} required/>
                     </div>
                     <div className="form-div">
                         <label htmlFor='email'>Email:</label><br />
-                        <input type='email' defaultValue={email} name='email' id='email' onBlur={handleChange} />
+                        <input type='email' defaultValue={email} name='email' id='email' onBlur={handleChange} required/>
                     </div>
                     <div className="form-div">
                         <label htmlFor='message'>Message:</label><br />
-                        <textarea type='message' defaultValue={message} rows='5' name='message' id='message' onBlur={handleChange} />
+                        <textarea type='message' defaultValue={message} rows='5' name='message' id='message' onBlur={handleChange} required/>
                     </div>
                     {errorMessage && (
                         <div>

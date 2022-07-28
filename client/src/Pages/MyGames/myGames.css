@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -46,14 +50,25 @@ body {
   justify-content: space-around;
 }
 
-#mygames-main h2 {
+#mygames-main h1 {
+  margin-bottom: 10px;
+  font-family: "Mochiy Pop One", sans-serif;
+  font-size: 1.8em;
   text-align: center;
   color: #15133C;
-  margin-bottom: 30px;
-  background-color: #EC994B;
-  padding: 10px 0;
+  margin: 50px auto;
+  margin-top: 60px;
+  padding: 0;
+  width: 90%;
   font-size: 1.7em;
-  letter-spacing: 0.5em;
+  line-height: 0.1rem;
+  border-bottom: 3px solid #EC994B;
+}
+#mygames-main h1 span {
+  background: #F1EEE9;
+  color: #15133C;
+  padding: 0 10px;
+  margin: 0 auto;
 }
 #mygames-main div {
   align-items: center;

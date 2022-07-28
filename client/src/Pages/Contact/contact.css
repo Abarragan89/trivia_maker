@@ -50,14 +50,24 @@ body {
   justify-content: space-around;
 }
 
-#contact-page h3 {
+#contact-page h1 {
+  margin-bottom: 10px;
+  font-family: "Mochiy Pop One", sans-serif;
+  font-size: 1.8em;
   text-align: center;
   color: #15133C;
-  margin-bottom: 30px;
-  background-color: #EC994B;
-  padding: 10px 0;
+  margin: 20px 0 35px;
+  padding: 0;
+  width: 100%;
   font-size: 1.7em;
-  letter-spacing: 0.5em;
+  line-height: 0.1rem;
+  border-bottom: 3px solid #EC994B;
+}
+#contact-page h1 span {
+  background: #F1EEE9;
+  color: #15133C;
+  padding: 0 10px;
+  margin: 0 auto;
 }
 #contact-page #contact-form {
   background-color: #15133C;
@@ -124,6 +134,8 @@ body {
   color: rgb(205, 0, 0);
   text-align: center;
   font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 @-webkit-keyframes fadeInContactForm {
   from {

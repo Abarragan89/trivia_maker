@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -56,24 +60,16 @@ body {
   width: auto;
   margin: 0 auto;
   background-color: #15133C;
-  padding: 0 20px;
+  padding-left: 20px;
   margin-bottom: 30px;
   height: 100px;
   align-items: center;
   flex-wrap: wrap;
 }
-#main-header a {
-  display: block;
-  font-weight: 700;
-  font-size: 1.2em;
-  text-decoration: none;
-  color: #EC994B;
-  display: inline-block;
-  margin-right: 20px;
-}
 #main-header button {
   background-color: #EC994B;
-  padding: 5px;
+  margin-right: 20px;
+  padding: 5px 10px;
   border: 1px solid black;
   border-radius: 4px;
   font-size: 1rem;
@@ -87,18 +83,6 @@ body {
 }
 #main-header button:active {
   border-radius: 8px;
-}
-#main-header #signup-login-link {
-  color: #EC994B;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-#main-header #signup-login-link:hover {
-  cursor: pointer;
-  font-style: italic;
-}
-#main-header #signup-login-link:active {
-  color: #73777B;
 }
 
 @media screen and (max-width: 498px) {

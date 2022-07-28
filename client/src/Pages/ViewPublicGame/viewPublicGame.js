@@ -342,7 +342,7 @@ function ViewPublicGame() {
             <Header />
             {loggedIn && data ?
                 <>
-                    <form id='create-game-form' onSubmit={handleSubmit}>
+                    <form id='create-game-form-view-public' onSubmit={handleSubmit}>
                         <div className='flex-box-sb'>
                             <input type='text' className='create-game-txt-input' defaultValue={data.getUserGames.gameTopic}
                                 placeholder='Game Title' id='game-topic' name='game-topic' required></input>
@@ -351,10 +351,10 @@ function ViewPublicGame() {
                                 <label htmlFor='public-game'>Make Public</label>
                             </div>
                         </div>
-                        <ul id='question-accordion'>
+                        <ul id='question-accordion-view-public'>
 
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
-                                <li key={gameIndex}>
+                                <li key={gameIndex} id={`form-el-view-${gameIndex + 1}`}>
                                     <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
                                         {gameSet.category ? gameSet.category : `Empty`}</label>
 

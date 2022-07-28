@@ -30,11 +30,12 @@
     margin: 0 auto;
     margin-top: 20px;
     width: 90%;
-
-    div:first-child {
+    
+    #form-el-1 {
         flex-wrap: wrap;
         text-align: center;
         margin-bottom: 20px;
+        
 
         #public-game {
             margin-right: 5px;
@@ -58,6 +59,7 @@
         border: 1px solid black;
         margin-right: 30px;
     }
+
     #create-game-btn {
         display: block;
         margin: 0 auto;
@@ -69,13 +71,15 @@
         color: $tertiaryColor;
         font-size: 1.2em;
         font-weight: 600;
-        transition: .2s;
+        opacity: 0;
+        animation: appearIn .8s 1.5s both;
     }
-    
+
     #create-game-btn:hover {
         color: $primaryColor;
         cursor: pointer;
     }
+
     #create-game-btn:active {
         border-radius: 10px;
     }
@@ -189,7 +193,9 @@
         border: 1px solid black;
         padding: 5px;
         border-radius: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        position: relative;
+        top: -1000px;
         background-color: $tertiaryColor;
 
 
@@ -202,13 +208,43 @@
         }
     }
 
-    label {
-        align-items: center;
-        cursor: pointer;
 
-        span {
-            transform: rotate(90deg);
-            font-size: 22px;
+    // loop through form elements to give them animations at different times
+    @for $i from 1 through 6 {
+        #form-el-#{$i} {
+            animation: dropDown .7s  .1s + ($i / 6)  both;
         }
     }
+
+}
+
+label {
+    align-items: center;
+    cursor: pointer;
+
+    span {
+        transform: rotate(90deg);
+        font-size: 22px;
+    }
+}
+
+
+@keyframes dropDown {
+    from {
+        top: -1000px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes appearIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
 }
