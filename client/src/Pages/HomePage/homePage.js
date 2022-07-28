@@ -12,8 +12,25 @@ import LandingPage from '../LandingPage/landingPage';
 import axios from 'axios'
 import { useEffect } from 'react';
 import Footer from '../../Components/Footer/footer';
+import Pagination from '../../Components/Pagination/pagination';
+import PaginationSearch from '../../Components/PaginationSearch/paginationSearch';
 
 function HomePage() {
+
+    // Scroll to Top of Page
+    const upperPage = useRef(null);
+    const handleScroll = (ref) => {
+        window.scrollTo({
+            top: ref.offsetTop,
+            left: 0,
+            behavior: "smooth",
+        });
+    };
+
+    // useEffect(() => {
+    //     handleScroll(upperPage)
+    // },[])
+
 
     // random fact functionality
     const [randomFactText, setRandomFactText] = useState(null)
@@ -56,12 +73,39 @@ function HomePage() {
     /////////////Search functionality///////////////
     const [searchedGames, setSearchedGames] = useState('')
     const characters = useRef('')
+
     async function searchPublicGames(event) {
         characters.current = event.target.value
         let { data: searchedData } = await searchGames({
             variables: { name: characters.current }
         });
         setSearchedGames(searchedData.getGameByTitle);
+    }
+
+    ////////////Pagination/////////////////
+    const [currentPage, setCurrentPage] = useState(15);
+    const [gamesPerPage] = useState(3)
+    // Get current posts of All Public
+    const indexOfLastGame = currentPage * gamesPerPage;
+    const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+    const currentPublicGames = publicGames.slice(indexOfFirstGame, indexOfLastGame);
+    //change page 
+    function paginate(pageNumber) {
+        setCurrentPage(pageNumber)
+        handleScroll(upperPage.current)
+    }
+
+    ////////////Pagination Search/////////////////
+    const [currentPageSearch, setCurrentPageSearch] = useState(1);
+    const [searchedGamesPerPage] = useState(15)
+    // Get current posts of All Public
+    const indexOfLastGameSearch = currentPageSearch * searchedGamesPerPage;
+    const indexOfFirstGameSearch = indexOfLastGameSearch - searchedGamesPerPage;
+    const currentPublicGamesSearch = searchedGames.slice(indexOfFirstGameSearch, indexOfLastGameSearch);
+
+    function paginateSearch(pageNumber) {
+        setCurrentPageSearch(pageNumber)
+        handleScroll(upperPage.current)
     }
 
     return (
@@ -71,14 +115,14 @@ function HomePage() {
                     <Header />
                     <main>
                         <form id='search-form'>
-                            <input type='text' value={characters.current} onChange={searchPublicGames} placeholder='Search Public Games' id='search-public-games' name='search-public-games' />
+                            <input ref={upperPage} type='text' value={characters.current} onChange={searchPublicGames} placeholder='Search Public Games' id='search-public-games' name='search-public-games' />
                         </form>
                         <div id='homepage-feed' className='flex-box-sb'>
                             <section>
                                 {publicGames && characters.current === '' ?
                                     <>
                                         <h1><span>Public Games</span></h1>
-                                        {publicGames.map((game, index) => (
+                                        {currentPublicGames.map((game, index) => (
                                             <article id='link-to-public' key={index} to={`/players/${game._id}`}>
                                                 <div className='public-game-card'>
                                                     <header className='flex-box-sb'>
@@ -108,7 +152,7 @@ function HomePage() {
                                     :
                                     <>
                                         <h1><span>{characters.current}</span></h1>
-                                        {searchedGames && searchedGames.map((game, index) => (
+                                        {searchedGames && currentPublicGamesSearch.map((game, index) => (
                                             <article id='link-to-public' key={index} to={`/players/${game._id}`}>
                                                 <div className='public-game-card'>
                                                     <header className='flex-box-sb'>
@@ -149,6 +193,11 @@ function HomePage() {
                             </aside>
                         </div>
                     </main>
+                    {characters.current !== '' && searchedGames.length ?
+                        <PaginationSearch paginate={paginateSearch} searchedGamesPerPage={searchedGamesPerPage} totalGames={searchedGames.length} />
+                        :
+                        <Pagination paginate={paginate} gamesPerPage={gamesPerPage} totalGames={publicGames.length} />
+                    }
                     <Footer />
                 </>
                 :
