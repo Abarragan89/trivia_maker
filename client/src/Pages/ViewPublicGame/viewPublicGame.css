@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -67,28 +71,28 @@ body {
   width: 8px;
 }
 
-#create-game-form {
+#create-game-form-view-public {
   margin: 0 auto;
   margin-top: 20px;
   width: 90%;
 }
-#create-game-form div:first-child {
+#create-game-form-view-public div:first-child {
   flex-wrap: wrap;
   text-align: center;
   margin-bottom: 20px;
 }
-#create-game-form div:first-child #public-game {
+#create-game-form-view-public div:first-child #public-game {
   margin-right: 5px;
   height: 18px;
   width: 18px;
   margin-top: 10px;
   accent-color: #15133C;
 }
-#create-game-form div:first-child label {
+#create-game-form-view-public div:first-child label {
   font-size: 1.1em;
   color: #15133C;
 }
-#create-game-form .create-game-txt-input {
+#create-game-form-view-public .create-game-txt-input {
   padding: 5px;
   padding-right: 30px;
   font-size: 1rem;
@@ -96,7 +100,7 @@ body {
   border: 1px solid black;
   margin-right: 30px;
 }
-#create-game-form .edit-game-btns {
+#create-game-form-view-public .edit-game-btns {
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -107,16 +111,19 @@ body {
   color: #15133C;
   font-size: 1.2em;
   font-weight: 600;
+  opacity: 0;
+  -webkit-animation: appearIn 0.8s 1.5s both;
+          animation: appearIn 0.8s 1.5s both;
   transition: 0.2s;
 }
-#create-game-form .edit-game-btns:hover {
+#create-game-form-view-public .edit-game-btns:hover {
   color: #F1EEE9;
   cursor: pointer;
 }
-#create-game-form .edit-game-btns:active {
+#create-game-form-view-public .edit-game-btns:active {
   border-radius: 10px;
 }
-#create-game-form #delete-game-btn {
+#create-game-form-view-public #delete-game-btn {
   font-size: 1em;
   padding: 5px 10px;
   background-color: rgb(205, 0, 0);
@@ -125,23 +132,23 @@ body {
   width: -moz-fit-content;
   width: fit-content;
 }
-#create-game-form #delete-game-btn:hover {
+#create-game-form-view-public #delete-game-btn:hover {
   color: #15133C;
 }
 
-#question-accordion {
+#question-accordion-view-public {
   margin: 0 auto;
   margin-bottom: 30px;
   padding: 0;
 }
-#question-accordion .category-label {
+#question-accordion-view-public .category-label {
   font-size: 1.5rem;
   display: block;
   text-align: left;
   font-weight: 700;
   color: #73777B;
 }
-#question-accordion .point-label {
+#question-accordion-view-public .point-label {
   margin-bottom: 10px;
   font-size: 1.3em;
   margin-top: 10px;
@@ -149,7 +156,7 @@ body {
   font-family: "Mochiy Pop One", sans-serif;
   color: #EC994B;
 }
-#question-accordion textarea {
+#question-accordion-view-public textarea {
   display: block;
   width: 80%;
   height: 60px;
@@ -162,25 +169,25 @@ body {
   border-radius: 4px;
   background-color: #F1EEE9;
 }
-#question-accordion textarea::-moz-placeholder {
+#question-accordion-view-public textarea::-moz-placeholder {
   color: #73777B;
 }
-#question-accordion textarea:-ms-input-placeholder {
+#question-accordion-view-public textarea:-ms-input-placeholder {
   color: #73777B;
 }
-#question-accordion textarea::placeholder {
+#question-accordion-view-public textarea::placeholder {
   color: #73777B;
 }
-#question-accordion textarea:-ms-input-placeholder {
+#question-accordion-view-public textarea:-ms-input-placeholder {
   color: #73777B;
 }
-#question-accordion textarea::-ms-input-placeholder {
+#question-accordion-view-public textarea::-ms-input-placeholder {
   color: #73777B;
 }
-#question-accordion textarea:focus {
+#question-accordion-view-public textarea:focus {
   outline: none;
 }
-#question-accordion input {
+#question-accordion-view-public input {
   display: block;
   width: 100%;
   border: none;
@@ -192,41 +199,41 @@ body {
   font-size: 1.1rem;
   color: #EC994B;
 }
-#question-accordion input::-moz-placeholder {
+#question-accordion-view-public input::-moz-placeholder {
   color: #EC994B;
   font-size: 1.1rem;
 }
-#question-accordion input:-ms-input-placeholder {
+#question-accordion-view-public input:-ms-input-placeholder {
   color: #EC994B;
   font-size: 1.1rem;
 }
-#question-accordion input::placeholder {
+#question-accordion-view-public input::placeholder {
   color: #EC994B;
   font-size: 1.1rem;
 }
-#question-accordion input:-ms-input-placeholder {
+#question-accordion-view-public input:-ms-input-placeholder {
   color: #EC994B;
   font-size: 1.1rem;
 }
-#question-accordion input::-ms-input-placeholder {
+#question-accordion-view-public input::-ms-input-placeholder {
   color: #EC994B;
   font-size: 1.1rem;
 }
-#question-accordion input:focus {
+#question-accordion-view-public input:focus {
   outline: none;
 }
-#question-accordion .question-content {
+#question-accordion-view-public .question-content {
   padding: 0 10px;
   max-height: 0;
   overflow-y: scroll;
   transition: max-height 0.5s;
 }
-#question-accordion .single-question-div {
+#question-accordion-view-public .single-question-div {
   border-bottom: 3px solid #F1EEE9;
   margin-top: 20px;
   padding-bottom: 30px;
 }
-#question-accordion li {
+#question-accordion-view-public li {
   display: block;
   list-style: none;
   width: 100%;
@@ -235,18 +242,78 @@ body {
   border-radius: 5px;
   margin-bottom: 10px;
   background-color: #15133C;
+  position: relative;
+  top: -100px;
 }
-#question-accordion li input[type=radio] {
+#question-accordion-view-public li input[type=radio] {
   display: none;
 }
-#question-accordion li input[type=radio]:checked + .question-content {
+#question-accordion-view-public li input[type=radio]:checked + .question-content {
   max-height: 300px;
 }
-#question-accordion label {
+#question-accordion-view-public #form-el-view-1 {
+  -webkit-animation: dropDown 0.7s 0.3s both;
+          animation: dropDown 0.7s 0.3s both;
+}
+#question-accordion-view-public #form-el-view-2 {
+  -webkit-animation: dropDown 0.7s 0.5s both;
+          animation: dropDown 0.7s 0.5s both;
+}
+#question-accordion-view-public #form-el-view-3 {
+  -webkit-animation: dropDown 0.7s 0.7s both;
+          animation: dropDown 0.7s 0.7s both;
+}
+#question-accordion-view-public #form-el-view-4 {
+  -webkit-animation: dropDown 0.7s 0.9s both;
+          animation: dropDown 0.7s 0.9s both;
+}
+#question-accordion-view-public #form-el-view-5 {
+  -webkit-animation: dropDown 0.7s 1.1s both;
+          animation: dropDown 0.7s 1.1s both;
+}
+#question-accordion-view-public #form-el-view-6 {
+  -webkit-animation: dropDown 0.7s 1.3s both;
+          animation: dropDown 0.7s 1.3s both;
+}
+#question-accordion-view-public label {
   align-items: center;
   cursor: pointer;
 }
-#question-accordion label span {
+#question-accordion-view-public label span {
   transform: rotate(90deg);
   font-size: 22px;
+}
+
+@-webkit-keyframes dropDown {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes dropDown {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 0px;
+  }
+}
+@-webkit-keyframes appearIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes appearIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=viewPublicGame.css.map */

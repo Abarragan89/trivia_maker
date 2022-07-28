@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -157,6 +161,7 @@ body {
 .switch-login {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 .switch-login span {
   margin-left: 5px;

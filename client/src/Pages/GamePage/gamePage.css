@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -50,17 +54,6 @@ body {
   padding: 2rem;
   margin: 0 auto;
 }
-#main-gamepage #quit-game {
-  position: absolute;
-  font-size: 1.2em;
-  color: #F1EEE9;
-  background-color: rgb(205, 0, 0);
-  text-decoration: none;
-  border: 1px solid #15133C;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
 #main-gamepage #quit-game:hover {
   color: #15133C;
 }
@@ -72,8 +65,9 @@ body {
   text-align: center;
   color: #15133C;
   font-family: "Mochiy Pop One", sans-serif;
-  margin-bottom: 45px;
-  border-bottom: 2px solid #15133C;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  border-bottom: 5px solid #EC994B;
   padding-bottom: 10px;
 }
 #main-gamepage #gameBoard {

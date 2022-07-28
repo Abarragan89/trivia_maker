@@ -26,7 +26,7 @@
 
 
 // styles for outside the accordion
-#create-game-form {
+#create-game-form-view-public {
     margin: 0 auto;
     margin-top: 20px;
     width: 90%;
@@ -69,8 +69,11 @@
         color: $tertiaryColor;
         font-size: 1.2em;
         font-weight: 600;
+        opacity: 0;
+        animation: appearIn .8s 1.5s both;
         transition: .2s;
     }
+    
     .edit-game-btns:hover {
         color: $primaryColor;
         cursor: pointer;
@@ -92,7 +95,7 @@
 
 
 // Styles and logic for the accordion
-#question-accordion {
+#question-accordion-view-public {
     margin: 0 auto;
     margin-bottom: 30px;
     padding: 0;
@@ -200,6 +203,8 @@
         border-radius: 5px;
         margin-bottom: 10px;
         background-color: $tertiaryColor;
+        position: relative;
+        top: -100px;
 
 
         input[type="radio"] {
@@ -208,6 +213,13 @@
 
         input[type="radio"]:checked+.question-content {
             max-height: 300px;
+        }
+    }
+
+    // loop through form elements to give them animations at different times
+    @for $i from 1 through 6 {
+        #form-el-view-#{$i} {
+            animation: dropDown .7s .1s + ($i / 5) both;
         }
     }
 
@@ -220,4 +232,25 @@
             font-size: 22px;
         }
     }
+}
+
+@keyframes dropDown {
+    from {
+        top: -1000px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes appearIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
 }

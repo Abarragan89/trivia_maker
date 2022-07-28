@@ -9,6 +9,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -57,10 +61,6 @@ body {
   justify-content: center;
 }
 
-.navigation {
-  padding: 0.5em;
-}
-
 .navigation ul {
   padding-left: 0;
 }
@@ -71,18 +71,19 @@ body {
 
 .link-el {
   font-size: 1.25em;
-  font-family: var(--body-font);
-  color: var(--main-color);
+  font-family: "Roboto", sans-serif;
   display: inline;
-}
-
-.link-el {
-  margin-left: 10px;
-  margin-right: 30px;
+  display: block;
+  font-weight: 700;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #EC994B;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .link-el:hover {
-  color: var(--font-color);
+  color: #F1EEE9;
 }
 
 .link-el a {
@@ -130,14 +131,15 @@ nav a.active {
     top: 100px;
     right: 0;
     background-color: #15133C;
-    border-top: 2px solid;
     border-radius: 0 0 0 8px;
+    z-index: 999;
   }
   nav ul li {
-    padding-left: 5%;
+    padding-left: 10%;
     padding-bottom: 20px;
   }
   .link-el {
-    font-size: 1.4em;
+    font-size: 1.1em;
+    margin-bottom: 2px;
   }
 }/*# sourceMappingURL=navigation.css.map */

@@ -30,10 +30,20 @@
         font-family: $pointNumber;
         font-size: 1.8em;
         text-align: center;
-        color: $tertiaryColor
+        color: $tertiaryColor;
+        margin: 20px 0 35px;
+        padding: 0;
+        width: 100%;
+        font-size: 1.7em;
+        line-height: 0.1rem;
+        border-bottom: 3px solid $secondaryColor;
+        span {
+            background: $primaryColor;
+            color: $tertiaryColor;
+            padding: 0 10px;
+            margin: 0 auto;
+        }
     }
-
-
     section {
         margin: 5% 5%;
         flex-grow: 2
@@ -42,29 +52,52 @@
     aside {
         margin: 5%;
         margin-bottom: 0;
+        margin-top: 110px;
         flex-basis: 1;
-        a {
-            display: block;
-            font-size: 1.25em;
-            width: 170px;
-            text-decoration: none;
+        width: 200px;
+        border: 1px solid $tertiaryColor;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: $tertiaryColor;
+
+        div:first-child {
+            p {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+        }
+
+        h2 {
+            color: $secondaryColor;
+            text-align: center;
+            font-family: $pointNumber;
+            margin-bottom: 10px;
+        }
+
+        h3:hover {
+            cursor: pointer;
+        }
+        h3 {
+            margin-bottom: 10px;
+            font-family: $pointNumber;
+            font-size: 1em;
+            text-align: center;
+            color: $secondaryColor;
+            padding: 0;
+            width: 100%;
+        }
+        p {
+            text-align: center;
+            font-size: .9em;
             color: $tertiaryColor;
             margin: 0 auto;
             border: 1px solid $tertiaryColor;
             border-radius: 4px;
-            margin-bottom: 10px;
             padding: 10px 20px;
             text-align: center;
             font-weight: 700;
-            background-color: $secondaryColor;
-            transition: .2s;
-        }
-        a:hover {
-            cursor: pointer;
-            color: $primaryColor;
-        }
-        a:active {
-            border-radius: 8px;
+            background-color: $primaryColor;
         }
     }
 
@@ -129,9 +162,8 @@
         }
 
         aside {
-            display: flex;
-            gap: 10px;
-            justify-content: space-between;
+            width: 90%;
+            margin-top: 30px;
 
             a {
                 padding: 10px;

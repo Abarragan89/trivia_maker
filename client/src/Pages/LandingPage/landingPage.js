@@ -1,7 +1,9 @@
 import './landingPage.css';
+import Footer from '../../Components/Footer/footer';
 
 function LandingPage() {
     return(
+        <>
         <main id='landing-page-main'>
             <section className='flex-box-sb landing-page-section'>
                 <div className='landing-page-txt-div'>
@@ -9,12 +11,12 @@ function LandingPage() {
                     <p>Create your own trivia game board! Great for the classroom or just having fun at home. Make as many or as little questions as you like and save the gameboard to your library!</p>
                 </div>
                 <figure>
-                <img className='landing-page-pic' src={require('../../assets/photos/gameboard.png')} alt=''/>
+                <img className='landing-page-pic' src={require('../../assets/photos/gameboard.png')} alt='gameboard during gameplay'/>
                 </figure>
             </section>
             <section className='flex-box-sb landing-page-section' id='middle-section'>
             <figure>
-                <img className='landing-page-pic' src={require('../../assets/photos/bonusRound.png')} alt=''/>
+                <img className='landing-page-pic' src={require('../../assets/photos/bonusRound.png')} alt='bonus round where user has to stop a bouncing ball on top designated areas'/>
                 </figure>
                 <div className='landing-page-txt-div' id='landing-page-middle-section'>
                     <h2>Bonus Round!</h2>
@@ -27,10 +29,12 @@ function LandingPage() {
                     <p>Search public games from other uses. View, edit, and save them to your own library!</p>
                 </div>
                 <figure>
-                <img className='landing-page-pic' src={require('../../assets/photos/publicGames.png')} alt=''/>
+                <img className='landing-page-pic' src={require('../../assets/photos/publicGames.png')} alt='homepage where users are presented with a list of public games'/>
                 </figure>
             </section>
         </main>
+        <Footer />
+        </>
     )
 }
 

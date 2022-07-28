@@ -20,10 +20,13 @@ $primaryFont: 'Roboto', sans-serif;
 html {
     background-color: $primaryColor;
 }
-
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: $primaryFont;
 }
+
 
 /* UTILITY Classes */
 .flex-box-sa {

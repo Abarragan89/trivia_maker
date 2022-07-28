@@ -7,6 +7,7 @@ import './myGames.css';
 import { MdEdit } from 'react-icons/md';
 import { FaPlay } from 'react-icons/fa';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import Footer from '../../Components/Footer/footer';
  
 function MyGames() {
 
@@ -28,7 +29,7 @@ function MyGames() {
                 <>
                     <Header />
                     <main id='mygames-main'>
-                        <h2>My Games</h2>
+                        <h1><span>Library</span></h1>
                         <div className='flex-box-col-sa'>
                             {userGames.map((game, index) => (
                                 <div id='my-games-card' key={index}>
@@ -51,8 +52,8 @@ function MyGames() {
                 </>
                 :
                 <p>You need to be <span><Link to='/'>logged in </Link></span>to see this page</p>
-
             }
+            <Footer />
         </>
     )
 }
