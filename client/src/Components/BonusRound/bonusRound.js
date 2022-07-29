@@ -53,7 +53,7 @@ function BonusRound({
   };
 
   const renderFrame = () => {
-    const ctx = canvasRef.current.getContext('2d', { alpha: false });
+    const ctx = canvasRef.current.getContext('2d');
     let dpr = devicePixelRatio;
     ctx.scale(dpr, dpr)
     updateBall();
