@@ -1,5 +1,5 @@
 import './bonusRound.css'
-import { useRef, useEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 import frameRenderer from "../FrameRenderer/frameRenderer";
 import { Link, useParams } from 'react-router-dom';
 import bonusReceived from '../../assets/sounds/bonus-received.wav'
@@ -22,7 +22,6 @@ function BonusRound({
   gotBonus.volume = .60;
 
   const gameId = useParams().gameId
-
 
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
@@ -65,7 +64,7 @@ function BonusRound({
     requestIdRef.current = requestAnimationFrame(tick);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.getElementById('stop-ball-btn').focus()
     requestIdRef.current = requestAnimationFrame(tick);
     return () => {
