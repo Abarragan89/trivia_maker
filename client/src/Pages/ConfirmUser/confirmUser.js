@@ -16,7 +16,6 @@ function ConfirmUser() {
     });
     const userCredentials = newUserInfo?.tempUser || '';
     // Set user credentials
-    console.log(userCredentials)
     const [addUser] = useMutation(ADD_USER);
 
     const [deleteUser, {data: deleteData}] = useMutation(DELETE_TEMP_USER);

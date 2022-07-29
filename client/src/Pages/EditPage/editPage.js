@@ -55,7 +55,6 @@ function EditGame() {
         // Series of switch statements to organzie questions/answers/points into individual objects
         let formDataAnswers = document.querySelectorAll('.question-input');
         formDataAnswers.forEach((answer, index) => {
-            console.log('formDataAnswer', formDataAnswers[1].dataset.category)
             if (answer.value && answer.dataset.category === 'c0') {
                 switch (answer.name) {
                     case 'q1':
@@ -320,7 +319,6 @@ function EditGame() {
         // Get game topic and check to see if it's public
         let topic = document.querySelector('#game-topic').value;
         let publicGame = document.querySelector('#public-game').checked
-        console.log('gameData', allAnswers)
 
         await updateGame({
             variables: {
@@ -334,8 +332,6 @@ function EditGame() {
     }
 
     const [deleteGame] = useMutation(DELETE_GAME);
-
-    console.log(deleteGame)
 
     async function deleteGameFun(gameId) {
         const message = 'Are you sure you want to delete this game? This is irreversible.'

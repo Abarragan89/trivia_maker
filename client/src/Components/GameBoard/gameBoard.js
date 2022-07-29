@@ -46,9 +46,6 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     // const [endGameData, setEndGameData] = useState(null)
     function closeModal() {
         setIsModal(!isModal);
-        // if(game.endGame()) {
-        //     setEndGameData(game.endGame())
-        // }
         game.switchPlayer();
         setScoreChange(scoreChange++)
     }
