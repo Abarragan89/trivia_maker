@@ -1,16 +1,14 @@
 import './gameBoard.css';
 import Modal from '../Modal/modal';
 import { useState } from 'react';
-import { QUERY_GAME_INFO } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
 import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
 import { useEffect } from 'react';
 
-function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
+function GameBoard({ h1ref, gamePlayers, gameData, scoreChange, setScoreChange }) {
 
     //////////// music set up and useEffect that is triggered by the hide question modal button press
-    const [suspenseMusicSound ] = useState(new Audio(suspenseMusic))
+    const [suspenseMusicSound] = useState(new Audio(suspenseMusic))
     suspenseMusicSound.volume = .4;
     const [triggerSuspenseOff, setTriggerSuspenseOff] = useState(null)
 
@@ -18,17 +16,12 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
         if (triggerSuspenseOff === true) {
             suspenseMusicSound.pause();
             suspenseMusicSound.currentTime = 0;
-        } else if (triggerSuspenseOff === false ) {
+        } else if (triggerSuspenseOff === false) {
             suspenseMusicSound.play();
         }
-    },[triggerSuspenseOff])
-
+    }, [triggerSuspenseOff])
 
     const gameId = useParams().gameId
-    const { data } = useQuery(QUERY_GAME_INFO, {
-        variables: { gameId }
-    })
-    const gameData = data?.getUserGames?.gameData || [];
 
     const [isModal, setIsModal] = useState(false)
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
@@ -50,7 +43,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
     // const [endGameData, setEndGameData] = useState(null)
     function closeModal() {
         setIsModal(!isModal);
-        game.switchPlayer();
+        gamePlayers.switchPlayer();
         setScoreChange(scoreChange++)
     }
 
@@ -67,7 +60,7 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
             <div className='category-columns flex-box-sa'>
                 {isModal &&
                     <Modal
-                        game={game}
+                        game={gamePlayers}
                         questionData={currentQuestionSet}
                         onClose={closeModal}
                         scoreChange={scoreChange}
@@ -76,8 +69,8 @@ function GameBoard({ h1ref, game, scoreChange, setScoreChange }) {
                         setTriggerSuspenseOff={setTriggerSuspenseOff}
                     />}
                 <div id='gameboard-header-info' className='flex-box-sb'>
-                    <p id='upNext'>Up Next: <span>{game && game.currentPlayer.name}</span></p>
-                    <Link id='quit-game' state={game} to={`/winner-podium/${gameId}`}>End Game</Link>
+                    <p id='upNext'>Up Next: <span>{gamePlayers && gamePlayers.currentPlayer.name}</span></p>
+                    <Link id='quit-game' state={gamePlayers} to={`/winner-podium/${gameId}`}>End Game</Link>
                 </div>
                 {gameData.map((question, gameIndex) => (
                     <div className='column' key={gameIndex + question.category}>
