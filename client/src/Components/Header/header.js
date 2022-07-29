@@ -7,23 +7,19 @@ import '../../assets/photos/headerLogo.png';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import Navigation from '../Navigation/';
 import MobileNav from '../MobileNav';
+import useSound from 'use-sound';
 
 
 function Header() {
-
-    // MouseClick Sound
-    const mouseClickSound = new Audio(mouseClick);
-    mouseClickSound.volume = .6;
-
-    const { data } = useQuery(QUERY_ME_BASIC)
-    const username = data?.me?.username || '';
     const loggedIn = Auth.loggedIn();
+
+    const [mouseClickSound] = useSound(mouseClick, {volume: .6})
 
 
     return (
         <header id='main-header' className='flex-box-sb'>
             <div>
-                <Link onClick={() => mouseClickSound.play()} to='/'>
+                <Link onClick={() => mouseClickSound()} to='/'>
                     <img id='home-logo' src={require('../../assets/photos/headerLogo.png')} alt='who knows that logo' />
                 </Link>
             </div>
@@ -34,7 +30,7 @@ function Header() {
                 </nav>
             :
             <div>
-                <Link to='/login' onClick={() => mouseClickSound.play()}><button>Sign In</button></Link>
+                <Link to='/login' onClick={() => mouseClickSound()}><button>Sign In</button></Link>
             </div>
             }
         </header>

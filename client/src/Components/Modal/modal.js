@@ -2,7 +2,7 @@ import './modal.css';
 import { FaCheck } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useSound from 'use-sound';
 import correctAnswerSound from '../../assets/sounds/correct-answer.wav';

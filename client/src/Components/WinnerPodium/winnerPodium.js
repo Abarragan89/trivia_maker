@@ -1,13 +1,11 @@
 import './winnerPodium.css';
 import { useLocation, Link } from 'react-router-dom';
 import { useState } from 'react';
-import winningMusic from '../../assets/sounds/winners-circle.wav';
+import winningMusicSound from '../../assets/sounds/winners-circle.wav';
+import useSound from 'use-sound';
 
 function WinnerPodium() {
-
-    // winning music
-    const winnerPodiumMusic = new Audio(winningMusic);
-    winnerPodiumMusic.volume = .60;
+    const [winningMusic, {stop}] = useSound(winningMusicSound, { volume: '.5'});
 
     // get game form players
     const gameInstance = useLocation().state;
@@ -22,7 +20,7 @@ function WinnerPodium() {
             return (a.score > b.score) ? 1 : -1
         })
         setPlayerPodium(organizeTiesIntoGroups(sortedPlayers))
-        winnerPodiumMusic.play();
+        winningMusic();
     }
     // groups players with a tie score
     function organizeTiesIntoGroups(players) {
@@ -66,7 +64,7 @@ function WinnerPodium() {
             {playerPodium &&
                 <>
                     <div id='podium' className='flex-box-col-sa' >
-                        <Link onClick={() => winnerPodiumMusic.stop()} id='exit-winner-circle' to='/'>Go Home</Link>
+                        <Link onClick={() => stop()} id='exit-winner-circle' to='/'>Go Home</Link>
                         {playerPodium.map((rankings, Podiumindex) => (
                             <div id='ranking-section' key={Podiumindex}>
                                 <div className='flex-box-se score-header'>

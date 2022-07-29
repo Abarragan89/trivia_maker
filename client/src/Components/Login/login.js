@@ -8,12 +8,12 @@ import { QUERY_USER_BY_EMAIL } from '../../utils/queries';
 import './login.css'
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import Footer from '../Footer/footer';
+import useSound from 'use-sound';
 
 function Login() {
 
     // MouseClick Sound
-    const mouseClickSound = new Audio(mouseClick);
-    mouseClickSound.volume = .6;
+    const [mouseClickSound] = useSound(mouseClick, {volume: .6})
 
     // const [signup] = useMutation(ADD_USER)
     const [login] = useMutation(LOGIN_USER);
@@ -142,7 +142,7 @@ function Login() {
                                         />
                                         {error2 && <div className="login-error">No account found with that email</div>}
                                         {success && <div className='success-signup'>Check your email to reset your password.</div>}
-                                        <button onClick={() => mouseClickSound.play()} className='login-btn' type="submit">Reset Password</button>
+                                        <button onClick={() => mouseClickSound()} className='login-btn' type="submit">Reset Password</button>
                                         <p className='back-to-login' onClick={() => setDidReset(false)}>Back to Login</p>
                            
                                 </form>
@@ -155,7 +155,7 @@ function Login() {
                                     <input type='text' className='login-input' value={formStateLogin.email} placeholder='Email' name='email' onChange={handleChangeLogin}></input>
                                     <input type='password' className='login-input' value={formStateLogin.password} placeholder='Password' name='password' onChange={handleChangeLogin}></input>
                                     <span className='login-error'></span>
-                                    <button onClick={() => mouseClickSound.play()} type='submit' className='login-btn'>Login</button>
+                                    <button onClick={() => mouseClickSound()} type='submit' className='login-btn'>Login</button>
                                     <p id='forgot-password' onClick={() => setDidReset(true)}>Forgot password?</p>
                                 </form>
                                 <p className='switch-login'>Or<span onClick={() => setIsUser(true)}>create an account.</span></p>
@@ -176,7 +176,7 @@ function Login() {
                             {error && error.message !== "Response not successful: Received status code 400" &&
                                 <div className="login-error">{error.message}</div>}
                             {successSignup && !error && <div className='success-signup'>Check your email to verify your account.</div>}
-                            <button onClick={() => mouseClickSound.play()} type='submit' className='login-btn'>Sign up</button>
+                            <button onClick={() => mouseClickSound()} type='submit' className='login-btn'>Sign up</button>
 
                         </form>
                         <p className='switch-login'>Already have an accout?<span onClick={() => setIsUser(false)}>Login.</span></p>

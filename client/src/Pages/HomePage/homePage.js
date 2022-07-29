@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import Footer from '../../Components/Footer/footer';
 import Pagination from '../../Components/Pagination/pagination';
 import PaginationSearch from '../../Components/PaginationSearch/paginationSearch';
+import useSound from 'use-sound';
 
 function HomePage() {
 
@@ -48,8 +49,7 @@ function HomePage() {
 
 
     // MouseClick Sound
-    const mouseClickSound = new Audio(mouseClick);
-    mouseClickSound.volume = .6;
+    const [mouseClickSound] = useSound(mouseClick, {volume: .6})
 
     const { data: userInfo } = useQuery(QUERY_ME_BASIC)
     const username = userInfo?.me?.username
@@ -128,12 +128,12 @@ function HomePage() {
                                                     <header className='flex-box-sb'>
                                                         <h2>{game.gameTopic}</h2>
                                                         <div>
-                                                            <Link onClick={() => mouseClickSound.play()} to={`/players/${game._id}`}
+                                                            <Link onClick={() => mouseClickSound()} to={`/players/${game._id}`}
                                                             >
                                                                 <button title='Play' className='public-feed-btns'><FaPlay /></button><br />
                                                             </Link>
                                                             <Link
-                                                                onClick={() => mouseClickSound.play()}
+                                                                onClick={() => mouseClickSound()}
                                                                 to={`/view-game/${game._id}`}
                                                                 title='View questions'
                                                                 className='public-feed-btns'><AiFillEye />
@@ -160,12 +160,12 @@ function HomePage() {
                                                     <header className='flex-box-sb'>
                                                         <h2>{game.gameTopic}</h2>
                                                         <div>
-                                                            <Link onClick={() => mouseClickSound.play()} to={`/players/${game._id}`}
+                                                            <Link onClick={() => mouseClickSound()} to={`/players/${game._id}`}
                                                             >
                                                                 <button title='Play' className='public-feed-btns'><FaPlay /></button><br />
                                                             </Link>
                                                             <Link
-                                                                onClick={() => mouseClickSound.play()}
+                                                                onClick={() => mouseClickSound()}
                                                                 to={`/view-game/${game._id}`}
                                                                 title='View questions'
                                                                 className='public-feed-btns'><AiFillEye />
