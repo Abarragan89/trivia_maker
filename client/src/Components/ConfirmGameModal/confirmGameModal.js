@@ -3,19 +3,17 @@ import './confirmGame.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAME_INFO } from '../../utils/queries'
 import mouseClick from '../../assets/sounds/mouse-click.wav';
+import useSound from 'use-sound';
 
 
 function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationModal }) {
-
     // MouseClick Sound
-    const mouseClickSound = new Audio(mouseClick);
-    mouseClickSound.volume = .6;
-
+    const [mouseClickSound] = useSound(mouseClick, { volume: .6 })
 
     const gameId = useParams().gameId
 
     const { data } = useQuery(QUERY_GAME_INFO, {
-        variables: { gameId: gameId}
+        variables: { gameId: gameId }
     });
     const confirmGameData = data?.getUserGames || ''
 
@@ -28,7 +26,7 @@ function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationM
                         <p key={index} className='player-names-confirmation'>{player}</p>
                     ))}
                 </div>
-                <Link onClick={() => mouseClickSound.play()} state={players} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br/>
+                <Link onClick={() => mouseClickSound()} state={players} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br />
                 <Link id='cancel-confirmation' to='/my-games' onClick={() => setShowConfirmationModal(false)}>Cancel</Link>
             </div>
         </div>

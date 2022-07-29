@@ -4,13 +4,12 @@ import { useMutation } from '@apollo/client'
 import { CREATE_GAME } from '../../utils/mutations'
 import Header from '../../Components/Header/header';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
-import Footer from '../../Components/Footer/footer';
+import useSound from 'use-sound';
 
 function CreateGame() {
 
     // MouseClick Sound
-    const mouseClickSound = new Audio(mouseClick);
-    mouseClickSound.volume = .6;
+    const [mouseClickSound] = useSound(mouseClick, { volume: .6})
 
     // used to check if the user is logged in
     const loggedIn = Auth.loggedIn()
@@ -536,7 +535,7 @@ function CreateGame() {
                             </section>
                         </li>
                     </ul>
-                    <button onClick={() => mouseClickSound.play()} type='submit' id='create-game-btn'>Create Game</button>
+                    <button onClick={() => mouseClickSound()} type='submit' id='create-game-btn'>Create Game</button>
                 </form>
                 :
                 <p>404: You must be signed in to see this page</p>
