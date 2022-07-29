@@ -18,12 +18,14 @@ function Modal({
     // triggerSuspenseOff,
     // setTriggerSuspenseOff,
     }) {
+    
+    
 
-    const correctAnswerNoise = useRef(new Audio(correctAnswerSound));
-    correctAnswerNoise.current.volume = .6;
+    // const correctAnswerNoise = useRef(new Audio(correctAnswerSound));
+    // correctAnswerNoise.current.volume = .6;
 
-    const incorrectAnswer = useRef(new Audio(wrongAnswerNotification));
-    correctAnswerNoise.current.volume = .6;
+    // const incorrectAnswer = useRef(new Audio(wrongAnswerNotification));
+    // correctAnswerNoise.current.volume = .6;
 
     const gameId = useParams().gameId
     // This triggers the bonus round
@@ -32,7 +34,8 @@ function Modal({
     const [pointValue, setPointValue] = useState(0)
 
     function bonusRound(points) {
-        correctAnswerNoise.current.play();
+        // correctAnswerNoise.current.play();
+        new Audio(correctAnswerSound).play();
         setPointValue(points)
         const modal = document.getElementById('modalContainer')
         modal.style.animation = 'bonusAppear 1s'
@@ -56,7 +59,8 @@ function Modal({
 
     // If the player gets the answer wrong
     function wrongAnswer(questionPoints) {
-        incorrectAnswer.current.play();
+        // incorrectAnswer.current.play();
+        new Audio(wrongAnswerNotification).play();
         decreasePlayerScore(questionPoints);
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
