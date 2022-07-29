@@ -46,17 +46,18 @@
 #gameboard-header-info {
     position: absolute;
     top: 10px;
-    width: 100%;
+    width: 95%;
     padding: 10px;
 }
 #quit-game {
-
-    font-size: 1.2em;
+    font-size: 1em;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
     color: $primaryColor;
     background-color: $red;
     text-decoration: none;
     border: 1px solid $tertiaryColor;
-    padding: 5px 10px;
     border-radius: 4px;
     transition: all .2s;
 }

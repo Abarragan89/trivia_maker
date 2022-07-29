@@ -30,7 +30,6 @@ function GamePage() {
 
     return (
         <main id='main-gamepage'>
-                {/* <Link id='quit-game' to='/'>Quit</Link> */}
             <h1 id='game-title' ref={h1Text}><span>{gameTopic}</span></h1>
             <section id="gameBoard">
                 <GameBoard 

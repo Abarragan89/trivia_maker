@@ -9,7 +9,6 @@ import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
 import '../Navigation/navigation.css';
 
 
-
 function Modal({ 
     questionData, 
     onClose, 
@@ -66,6 +65,7 @@ function Modal({
     }
     // visually display the score decreasing
     const [wrongAnswerChosen, setWrongAnswerChosen] = useState(false)
+
     function decreasePlayerScore(points) {
         setWrongAnswerChosen(true)
         let playerIntegerScore = parseInt(playerScore)

@@ -12,7 +12,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
 
@@ -101,17 +100,19 @@ body {
 #gameboard-header-info {
   position: absolute;
   top: 10px;
-  width: 100%;
+  width: 95%;
   padding: 10px;
 }
 
 #quit-game {
-  font-size: 1.2em;
+  font-size: 1em;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
   color: #F1EEE9;
   background-color: rgb(205, 0, 0);
   text-decoration: none;
   border: 1px solid #15133C;
-  padding: 5px 10px;
   border-radius: 4px;
   transition: all 0.2s;
 }
