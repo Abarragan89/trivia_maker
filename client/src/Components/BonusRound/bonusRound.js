@@ -27,7 +27,7 @@ function BonusRound({
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
   // Make speed 5
-  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 5, vy: 5, radius: 5 });
+  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 6, vy: 6, radius: 5 });
   const size = { width: 300, height: 400 };
 
   const updateBall = () => {
