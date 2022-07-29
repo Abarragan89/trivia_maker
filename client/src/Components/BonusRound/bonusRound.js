@@ -61,7 +61,7 @@ function BonusRound({
   const tick = () => {
     if (!canvasRef.current) return;
     renderFrame();
-    requestIdRef.current = requestAnimationFrame(tick);
+    // requestIdRef.current = requestAnimationFrame(tick);
   };
 
   useLayoutEffect(() => {
