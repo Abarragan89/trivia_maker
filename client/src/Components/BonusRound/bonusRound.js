@@ -54,8 +54,6 @@ function BonusRound({
 
   const renderFrame = () => {
     const ctx = canvasRef.current.getContext('2d');
-    let dpr = devicePixelRatio;
-    ctx.scale(dpr, dpr)
     updateBall();
     // draws the circle
     frameRenderer.call(ctx, size, ballRef.current);

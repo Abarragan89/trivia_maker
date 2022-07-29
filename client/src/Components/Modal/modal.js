@@ -15,8 +15,8 @@ function Modal({
     game, 
     scoreChange, 
     setScoreChange,
-    triggerSuspenseOff,
-    setTriggerSuspenseOff,
+    // triggerSuspenseOff,
+    // setTriggerSuspenseOff,
     }) {
 
     const [correctAnswerNoise] = useState(new Audio(correctAnswerSound));
@@ -90,11 +90,11 @@ function Modal({
     }   
 
     function showAnswerFunction() {
-        setTriggerSuspenseOff(true)
+        // setTriggerSuspenseOff(true)
         setShowAnswer(true);
     }
     function hideAnswerFunction() {
-        setTriggerSuspenseOff(false)
+        // setTriggerSuspenseOff(false)
         setShowAnswer(false);
     }
 
