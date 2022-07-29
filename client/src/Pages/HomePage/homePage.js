@@ -17,7 +17,7 @@ import PaginationSearch from '../../Components/PaginationSearch/paginationSearch
 
 function HomePage() {
 
-    // Scroll to Top of Page
+    // Scroll to Top of Page when user clicks pagination
     const upperPage = useRef(null);
     const handleScroll = (ref) => {
         window.scrollTo({
@@ -26,11 +26,6 @@ function HomePage() {
             behavior: "smooth",
         });
     };
-
-    // useEffect(() => {
-    //     handleScroll(upperPage)
-    // },[])
-
 
     // random fact functionality
     const [randomFactText, setRandomFactText] = useState(null)
@@ -66,8 +61,12 @@ function HomePage() {
 
     // query all of the public games to display
     let { data } = useQuery(QUERY_PUBLIC_GAMES)
-    let publicGames = data?.getPublicGames || [];
+    let gameData = data?.getPublicGames || [];
 
+    const [publicGames, setPublicGames] = useState (gameData)
+    useEffect(() => {
+        setPublicGames(gameData)
+    }, [gameData])
 
 
     /////////////Search functionality///////////////
@@ -84,7 +83,7 @@ function HomePage() {
 
     ////////////Pagination/////////////////
     const [currentPage, setCurrentPage] = useState(1);
-    const [gamesPerPage] = useState(15)
+    const [gamesPerPage] = useState(7)
     // Get current posts of All Public
     const indexOfLastGame = currentPage * gamesPerPage;
     const indexOfFirstGame = indexOfLastGame - gamesPerPage;
@@ -93,11 +92,12 @@ function HomePage() {
     function paginate(pageNumber) {
         setCurrentPage(pageNumber)
         handleScroll(upperPage.current)
+
     }
 
     ////////////Pagination Search/////////////////
     const [currentPageSearch, setCurrentPageSearch] = useState(1);
-    const [searchedGamesPerPage] = useState(15)
+    const [searchedGamesPerPage] = useState(6)
     // Get current posts of All Public
     const indexOfLastGameSearch = currentPageSearch * searchedGamesPerPage;
     const indexOfFirstGameSearch = indexOfLastGameSearch - searchedGamesPerPage;
@@ -148,6 +148,8 @@ function HomePage() {
                                                 </div>
                                             </article>
                                         ))}
+                                        <Pagination currentPage={currentPage} paginate={paginate} gamesPerPage={gamesPerPage} totalGames={publicGames.length} />
+
                                     </>
                                     :
                                     <>
@@ -178,6 +180,7 @@ function HomePage() {
                                                 </div>
                                             </article>
                                         ))}
+                                        <PaginationSearch currentPage={currentPageSearch} paginate={paginateSearch} searchedGamesPerPage={searchedGamesPerPage} totalGames={searchedGames.length} />
                                     </>
                                 }
                             </section>
@@ -193,11 +196,6 @@ function HomePage() {
                             </aside>
                         </div>
                     </main>
-                    {characters.current !== '' && searchedGames.length ?
-                        <PaginationSearch paginate={paginateSearch} searchedGamesPerPage={searchedGamesPerPage} totalGames={searchedGames.length} />
-                        :
-                        <Pagination paginate={paginate} gamesPerPage={gamesPerPage} totalGames={publicGames.length} />
-                    }
                     <Footer />
                 </>
                 :
