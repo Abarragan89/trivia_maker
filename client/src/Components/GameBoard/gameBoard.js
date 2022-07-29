@@ -2,24 +2,24 @@ import './gameBoard.css';
 import Modal from '../Modal/modal';
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
-import { useEffect } from 'react';
+// import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
+// import { useEffect } from 'react';
 
 function GameBoard({ h1ref, gamePlayers, gameData, scoreChange, setScoreChange }) {
 
     //////////// music set up and useEffect that is triggered by the hide question modal button press
-    const [suspenseMusicSound] = useState(new Audio(suspenseMusic))
-    suspenseMusicSound.volume = .4;
-    const [triggerSuspenseOff, setTriggerSuspenseOff] = useState(null)
+    // const [suspenseMusicSound] = useState(new Audio(suspenseMusic))
+    // suspenseMusicSound.volume = .4;
+    // const [triggerSuspenseOff, setTriggerSuspenseOff] = useState(null)
 
-    useEffect(() => {
-        if (triggerSuspenseOff === true) {
-            suspenseMusicSound.pause();
-            suspenseMusicSound.currentTime = 0;
-        } else if (triggerSuspenseOff === false) {
-            suspenseMusicSound.play();
-        }
-    }, [triggerSuspenseOff])
+    // useEffect(() => {
+    //     if (triggerSuspenseOff === true) {
+    //         suspenseMusicSound.pause();
+    //         suspenseMusicSound.currentTime = 0;
+    //     } else if (triggerSuspenseOff === false) {
+    //         suspenseMusicSound.play();
+    //     }
+    // }, [triggerSuspenseOff])
 
     const gameId = useParams().gameId
 
@@ -27,7 +27,7 @@ function GameBoard({ h1ref, gamePlayers, gameData, scoreChange, setScoreChange }
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
 
     function toggleModal(questionButton) {
-        setTriggerSuspenseOff(false)
+        // setTriggerSuspenseOff(false)
         h1ref.current.scrollIntoView(
             {
                 behavior: 'auto',
@@ -65,8 +65,8 @@ function GameBoard({ h1ref, gamePlayers, gameData, scoreChange, setScoreChange }
                         onClose={closeModal}
                         scoreChange={scoreChange}
                         setScoreChange={setScoreChange}
-                        triggerSuspenseOff={triggerSuspenseOff}
-                        setTriggerSuspenseOff={setTriggerSuspenseOff}
+                        // triggerSuspenseOff={triggerSuspenseOff}
+                        // setTriggerSuspenseOff={setTriggerSuspenseOff}
                     />}
                 <div id='gameboard-header-info' className='flex-box-sb'>
                     <p id='upNext'>Up Next: <span>{gamePlayers && gamePlayers.currentPlayer.name}</span></p>
