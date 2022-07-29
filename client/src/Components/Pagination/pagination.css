@@ -51,23 +51,45 @@ body {
 
 .pagination-ul {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   margin-bottom: 30px;
-  margin-left: 10%;
-  margin-right: 5%;
+}
+.pagination-ul .chevron {
+  font-size: 1.43em;
+  padding-top: 3px;
 }
 .pagination-ul li {
   list-style-type: none;
+}
+.pagination-ul li button {
   border: 1px solid black;
-  border-radius: 30px;
-  margin-right: 20px;
-  font-size: 1.5em;
-  padding: 0 5px;
-  background-color: #EC994B;
+  font-size: 1.7em;
+  padding: 0 10px;
+  background-color: white;
   font-weight: 700;
   color: #15133C;
 }
-.pagination-ul li:hover {
+.pagination-ul button:hover {
   cursor: pointer;
-  color: #F1EEE9;
+  color: #EC994B;
+}
+.pagination-ul button.currentPaginate {
+  background-color: #EC994B;
+  cursor: default;
+}
+.pagination-ul button.currentPaginate:hover {
+  color: #15133C;
+}
+.pagination-ul button.disabled-chevron {
+  color: #73777B;
+}
+.pagination-ul button.chev-left {
+  border-radius: 4px 0 0 4px;
+}
+.pagination-ul button.chev-right {
+  border-radius: 0 4px 4px 0;
+}
+.pagination-ul button.disabled-chevron:hover {
+  cursor: default;
 }/*# sourceMappingURL=pagination.css.map */

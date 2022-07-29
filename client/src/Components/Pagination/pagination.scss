@@ -2,24 +2,47 @@
 
 .pagination-ul {
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    margin-bottom: 30px; 
-    margin-left: 10%;
-    margin-right: 5%;
+    margin-bottom: 30px;
+
+    .chevron {
+        font-size: 1.43em;
+        padding-top: 3px; 
+    }
 
     li {
         list-style-type: none;
-        border: 1px solid black;
-        border-radius: 30px;
-        margin-right: 20px; 
-        font-size: 1.5em;
-        padding: 0 5px;
-        background-color: $secondaryColor;
-        font-weight: 700;
-        color: $tertiaryColor;
+        button {
+            border: 1px solid black;
+            font-size: 1.7em;
+            padding: 0 10px;
+            background-color: white;
+            font-weight: 700;
+            color: $tertiaryColor;
+        }
     }
-    li:hover {
+    button:hover {
         cursor: pointer;
-        color: $primaryColor;
+        color: $secondaryColor;
+    }
+    button.currentPaginate {
+        background-color: $secondaryColor;
+        cursor: default;
+    }
+    button.currentPaginate:hover {
+        color: $tertiaryColor
+    }
+    button.disabled-chevron {
+        color: $gray;
+    } 
+    button.chev-left {
+        border-radius: 4px 0 0 4px;
+    }
+    button.chev-right {
+        border-radius: 0 4px 4px 0;
+    }
+    button.disabled-chevron:hover { 
+        cursor: default; 
     }
 }
