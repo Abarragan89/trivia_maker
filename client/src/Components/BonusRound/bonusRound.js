@@ -25,6 +25,7 @@ function BonusRound({
 
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
+
   // Make speed 5
   const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 8, vy: 8, radius: 5 });
   const size = { width: 300, height: 400 };
@@ -52,7 +53,9 @@ function BonusRound({
   };
 
   const renderFrame = () => {
-    const ctx = canvasRef.current.getContext("2d");
+    const ctx = canvasRef.current.getContext('2d', { alpha: false });
+    let dpr = devicePixelRatio;
+    ctx.scale(dpr, dpr)
     updateBall();
     // draws the circle
     frameRenderer.call(ctx, size, ballRef.current);
@@ -61,7 +64,7 @@ function BonusRound({
   const tick = () => {
     if (!canvasRef.current) return;
     renderFrame();
-    // requestIdRef.current = requestAnimationFrame(tick);
+    requestIdRef.current = requestAnimationFrame(tick);
   };
 
   useLayoutEffect(() => {
@@ -139,6 +142,7 @@ function BonusRound({
   }
 
   const [ballStopped, setBallStopped] = useState(false);
+
   function pointMultiplier(points, multiplier) {
     game.currentPlayer.addPoints(points * multiplier);
     setScoreChange(scoreChange + 1);
