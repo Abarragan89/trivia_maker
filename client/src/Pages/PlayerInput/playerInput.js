@@ -48,7 +48,6 @@ function PlayerInput() {
             setPlayerNameArray(playerNameArray => [...playerNameArray, (player.value)])
         }
         setShowConfirmationModal(true)
-        console.log(playerNameArray)
     }
 
     return (

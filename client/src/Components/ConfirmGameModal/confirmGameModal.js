@@ -18,7 +18,6 @@ function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationM
         variables: { gameId: gameId}
     });
     const confirmGameData = data?.getUserGames || ''
-    console.log(players)
 
     return (
         <div className='confirmationModalBackdrop'>
