@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import useSound from 'use-sound';
 import correctAnswerSound from '../../assets/sounds/correct-answer.wav';
 import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
 import '../Navigation/navigation.css';
@@ -18,14 +19,9 @@ function Modal({
     // triggerSuspenseOff,
     // setTriggerSuspenseOff,
     }) {
-    
-    
 
-    // const correctAnswerNoise = useRef(new Audio(correctAnswerSound));
-    // correctAnswerNoise.current.volume = .6;
-
-    // const incorrectAnswer = useRef(new Audio(wrongAnswerNotification));
-    // correctAnswerNoise.current.volume = .6;
+    const [correctAnswerNoise] = useSound(correctAnswerSound, { volume: '.5'});
+    const [incorrectAnswer] = useSound(wrongAnswerNotification, { volume: '.5'})
 
     const gameId = useParams().gameId
     // This triggers the bonus round
@@ -34,8 +30,7 @@ function Modal({
     const [pointValue, setPointValue] = useState(0)
 
     function bonusRound(points) {
-        // correctAnswerNoise.current.play();
-        new Audio(correctAnswerSound).play();
+        correctAnswerNoise();
         setPointValue(points)
         const modal = document.getElementById('modalContainer')
         modal.style.animation = 'bonusAppear 1s'
@@ -59,8 +54,7 @@ function Modal({
 
     // If the player gets the answer wrong
     function wrongAnswer(questionPoints) {
-        // incorrectAnswer.current.play();
-        new Audio(wrongAnswerNotification).play();
+        incorrectAnswer();
         decreasePlayerScore(questionPoints);
         game.decreaseQuestions();
         game.currentPlayer.subtractPoints(questionPoints)
