@@ -19,10 +19,10 @@ function Modal({
     setTriggerSuspenseOff,
     }) {
 
-    const correctAnswerNoise = new Audio(correctAnswerSound);
+    const [correctAnswerNoise] = useState(new Audio(correctAnswerSound));
     correctAnswerNoise.volume = .6;
 
-    const incorrectAnswer = new Audio(wrongAnswerNotification);
+    const [incorrectAnswer] = useState(new Audio(wrongAnswerNotification));
     correctAnswerNoise.volume = .6;
 
     const gameId = useParams().gameId
