@@ -5,7 +5,7 @@ import winningMusicSound from '../../assets/sounds/winners-circle.wav';
 import useSound from 'use-sound';
 
 function WinnerPodium() {
-    const [winningMusic, {stop}] = useSound(winningMusicSound, { volume: '.5'});
+    const [winningMusic, {stop}] = useSound(winningMusicSound, { volume: '.3'});
 
     // get game form players
     const gameInstance = useLocation().state;

@@ -17,7 +17,7 @@ function Login() {
 
     // const [signup] = useMutation(ADD_USER)
     const [login] = useMutation(LOGIN_USER);
-    const [signup, { error }] = useMutation(SIGN_UP);
+    let [signup, { error }] = useMutation(SIGN_UP);
     const [successSignup, setSuccessSignup] = useState(false)
 
     //////////////////////////////signup //////////////////////////
