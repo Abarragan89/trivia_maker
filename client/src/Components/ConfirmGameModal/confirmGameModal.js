@@ -6,7 +6,7 @@ import mouseClick from '../../assets/sounds/mouse-click.wav';
 import useSound from 'use-sound';
 
 
-function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationModal }) {
+function ConfirmGameModal({ ballSpeed, players, setShowConfirmationModal, showConfirmationModal }) {
     // MouseClick Sound
     const [mouseClickSound] = useSound(mouseClick, { volume: .6 })
 
@@ -26,7 +26,7 @@ function ConfirmGameModal({ players, setShowConfirmationModal, showConfirmationM
                         <p key={index} className='player-names-confirmation'>{player}</p>
                     ))}
                 </div>
-                <Link onClick={() => mouseClickSound()} state={players} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br />
+                <Link onClick={() => mouseClickSound()} state={[players, ballSpeed]} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br />
                 <Link id='cancel-confirmation' to='/my-games' onClick={() => setShowConfirmationModal(false)}>Cancel</Link>
             </div>
         </div>

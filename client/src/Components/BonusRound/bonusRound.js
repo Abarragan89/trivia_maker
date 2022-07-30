@@ -12,7 +12,8 @@ function BonusRound({
   scoreChange,
   setScoreChange,
   closeModal,
-  increasePlayerScore
+  increasePlayerScore,
+  ballSpeed
 }) {
 
   const [hitBonus] = useSound(bonusReceived, { volume: '.5'});
@@ -25,7 +26,7 @@ function BonusRound({
   const requestIdRef = useRef(null);
 
   // Make speed 5
-  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: 38, vy: 38, radius: 5 });
+  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: ballSpeed, vy: ballSpeed, radius: 5 });
   const size = { width: 300, height: 400 };
 
   const updateBall = () => {

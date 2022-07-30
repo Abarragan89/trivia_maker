@@ -13,7 +13,8 @@ function GamePage() {
     
     // Get game data and player data
     const gameId = useParams().gameId
-    const players  = useLocation().state
+    const players  = useLocation().state[0]
+    const ballSpeed = useLocation().state[1]
 
 
     const [getGameInfo, {data}] = useLazyQuery(QUERY_GAME_INFO)
@@ -27,13 +28,6 @@ function GamePage() {
     const gameTopic = data?.getUserGames.gameTopic || '';
     const gameData = data?.getUserGames.gameData || [];
     const h1Text = useRef(null) 
-
-
-
-
-
-
-
 
     // Create Game 
     const [gamePlayers, setGamePlayers] = useState(null)
@@ -51,6 +45,7 @@ function GamePage() {
                 h1ref={h1Text}
                 scoreChange={scoreChange}
                 setScoreChange={setScoreChange}   
+                ballSpeed={ballSpeed}
                 /> 
             </section>
             <section id='player-info'>

@@ -17,7 +17,8 @@ function Modal({
     scoreChange, 
     setScoreChange,
     stopSuspense,
-    suspenseMusicSound
+    suspenseMusicSound,
+    ballSpeed
     }) {
 
     const [correctAnswerNoise] = useSound(correctAnswerSound, { volume: '.5'});
@@ -109,6 +110,7 @@ function Modal({
                         setScoreChange={setScoreChange}
                         closeModal={onClose}
                         increasePlayerScore={increasePlayerScore}
+                        ballSpeed={ballSpeed}
                     />
                     :
                     <article className='questionContainer flex-box-col-sa'>
