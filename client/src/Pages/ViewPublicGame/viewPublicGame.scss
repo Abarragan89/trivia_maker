@@ -234,6 +234,12 @@
     }
 }
 
+#isOwner-message {
+    text-align: center;
+    color: $red;
+    font-size: 1.2em;
+}
+
 @keyframes dropDown {
     from {
         top: -1000px;

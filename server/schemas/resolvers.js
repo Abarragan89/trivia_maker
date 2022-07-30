@@ -38,7 +38,7 @@ const resolvers = {
         },
         // Get single User by Username
         userByName: async (parent, { username }) => {
-            return User.findOne({ name_lower: username.toLowerCase()})
+            return User.findOne({ name_lower: username.toLowerCase() })
                 .select('-__v -password')
         },
         getUserGames: async (parent, { gameId }, context) => {
@@ -51,7 +51,7 @@ const resolvers = {
         },
         // Query to reset user password by email
         userByEmail: async (parent, { email }, context) => {
-            const userInfo = await User.findOne({ email: email.toLowerCase()}).select('-__v -password')
+            const userInfo = await User.findOne({ email: email.toLowerCase() }).select('-__v -password')
             if (!userInfo) {
                 throw new AuthenticationError('No account associated with that email.')
             }
@@ -65,10 +65,26 @@ const resolvers = {
         getGameByTitle: async (parent, { name }, context) => {
             try {
                 const regex = new RegExp(name, 'gi')
-                return Game.find({public: true, gameTopic: regex}).sort({ duplicates: -1}).populate('creator')
-                
+                return Game.find({ public: true, gameTopic: regex }).sort({ duplicates: -1 }).populate('creator')
+
             } catch (e) {
                 console.log(e)
+            }
+        },
+        checkIfOwner: async (parent, { gameId }, context) => {
+            if (context.user) {
+                try {
+                    const gameFound = await Game.findOne({ _id: gameId }).populate('creator')
+                    const ownerId = gameFound.creator._id;
+                    if (context.user._id == ownerId) {
+                        return 'true'
+                    } else {
+                        return 'false'
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+
             }
         }
     },
@@ -98,16 +114,16 @@ const resolvers = {
             }
             // Check to see if username is already taken. 
             const rUserName = await User.findOne({ name_lower: username.toLowerCase() });
-            const pUserName = await TempUser.findOne({ name_lower: username.toLowerCase()});
+            const pUserName = await TempUser.findOne({ name_lower: username.toLowerCase() });
             if (pUserName || rUserName) {
                 throw new AuthenticationError('Username is already taken.')
             }
-            const newUser = await TempUser.create({ 
-                email, 
+            const newUser = await TempUser.create({
+                email,
                 username,
                 password,
                 name_lower: username.toLowerCase()
-             });
+            });
             const toUser = { username, email }
             const hash = newUser._id
             await sendConfirmationEmail({ toUser, hash })

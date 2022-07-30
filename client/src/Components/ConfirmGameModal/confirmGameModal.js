@@ -20,7 +20,7 @@ function ConfirmGameModal({ ballSpeed, players, setShowConfirmationModal, showCo
     return (
         <div className='confirmationModalBackdrop'>
             <div className='modalContainer'>
-                <h2>{confirmGameData.gameTopic}</h2>
+                <h2 id='confirmation-title'>{confirmGameData.gameTopic}</h2>
                 <div className='flex-box-sa'>
                     {players.map((player, index) => (
                         <p key={index} className='player-names-confirmation'>{player}</p>

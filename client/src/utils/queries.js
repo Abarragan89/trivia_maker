@@ -93,3 +93,10 @@ query GetGameByTitle($name: String!) {
 }
 `;
 
+
+// Check if game already belongs to user
+export const CHECK_IF_OWNER = gql `
+query Query($gameId: ID!) {
+  checkIfOwner(gameId: $gameId)
+}
+`;

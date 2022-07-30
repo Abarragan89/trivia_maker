@@ -5,6 +5,7 @@ import { QUERY_GAME_INFO } from '../../utils/queries';
 import { UPDATE_GAME, DELETE_GAME } from '../../utils/mutations';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../Components/Header/header';
+import { useState } from 'react';
 
 function EditGame() {
     // used to check if the user is logged in
@@ -347,6 +348,37 @@ function EditGame() {
             }
         }
     }
+    const [category1, setCategory1] = useState('Empty')
+    function cat1OnChange(e) {
+        const { value } = e.target
+        setCategory1(value)
+    }
+    const [category2, setCategory2] = useState('Empty')
+    function cat2OnChange(e) {
+        const { value } = e.target
+        setCategory2(value)
+    }
+    const [category3, setCategory3] = useState('Empty')
+    function cat3OnChange(e) {
+        const { value } = e.target
+        setCategory3(value)
+    }
+    const [category4, setCategory4] = useState('Empty')
+    function cat4OnChange(e) {
+        const { value } = e.target
+        setCategory4(value)
+    }
+    const [category5, setCategory5] = useState('Empty')
+    function cat5OnChange(e) {
+        const { value } = e.target
+        setCategory5(value)
+    }
+
+
+    const arrayOfCats = [category1, category2, category3, category4, category5]
+
+    const arrayOfCatFuncts = [cat1OnChange, cat2OnChange, cat3OnChange, cat4OnChange, cat5OnChange]
+
     return (
         <>
             <Header />
@@ -366,14 +398,19 @@ function EditGame() {
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
                                 <li key={gameIndex} id={`form-el-edit-${gameIndex + 1}`}>
                                     <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
-                                        {gameSet.category ? gameSet.category : `Empty`}</label>
+                                        {gameSet.category && `${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
 
                                     <input type='radio' defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
-
                                     <section className='question-content'>
-                                    
-                                        <input type='text' data-category={`c${gameIndex}`} defaultValue={gameSet.category ? gameSet.category : ''} placeholder='Enter Topic'
+
+                                        <input type='text'
+                                            data-category={`c${gameIndex}`}
+                                            defaultValue={gameSet.category && !`${arrayOfCats[gameIndex]}` ? gameSet.category : arrayOfCats[gameIndex]}
+                                            placeholder='Enter Topic'
+                                            onChange={arrayOfCatFuncts[gameIndex]}
                                             data-name='category' className='question-input' name='category-name' maxLength='115' />
+
+
 
                                         {gameSet.clues.map((clues, index) => (
                                             <div className='single-question-div' key={index + gameIndex}>

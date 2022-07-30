@@ -5,6 +5,7 @@ import { CREATE_GAME } from '../../utils/mutations'
 import Header from '../../Components/Header/header';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import useSound from 'use-sound';
+import { useState } from 'react';
 
 function CreateGame() {
 
@@ -330,6 +331,32 @@ function CreateGame() {
         })
         window.location.replace('/my-games')
     }
+
+    const [category1, setCategory1] = useState('')
+    function cat1OnChange (e) {
+        const { value } = e.target
+        setCategory1( value)
+    }
+    const [category2, setCategory2] = useState('')
+    function cat2OnChange (e) {
+        const { value } = e.target
+        setCategory2( value)
+    }
+    const [category3, setCategory3] = useState('')
+    function cat3OnChange (e) {
+        const { value } = e.target
+        setCategory3( value)
+    }
+    const [category4, setCategory4] = useState('')
+    function cat4OnChange (e) {
+        const { value } = e.target
+        setCategory4( value)
+    }
+    const [category5, setCategory5] = useState('')
+    function cat5OnChange (e) {
+        const { value } = e.target
+        setCategory5( value)
+    }
     return (
         <>
             <Header />
@@ -344,10 +371,10 @@ function CreateGame() {
                     </div>
                     <ul id='question-accordion'>
                         <li id='form-el-2'>
-                            <label htmlFor='category-one-radio' className='flex-box-sb category-label'>Category One</label>
+                            <label htmlFor='category-one-radio' className='flex-box-sb category-label'>{`${!category1 ? 'Category One': category1}`}</label>
                             <input type='radio' id='category-one-radio' name='accordion'></input>
                             <section className='question-content'>
-                                <input type='text' data-category='c1' placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                <input type='text' data-category='c1' value={category1} onChange={cat1OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                 <div className='single-question-div'>
                                     <p className='point-label'>100 Points</p>
@@ -383,10 +410,10 @@ function CreateGame() {
 
                         {/* Category Two */}
                         <li id='form-el-3'>
-                            <label htmlFor='category-two-radio' className='flex-box-sb category-label'>Category Two</label>
+                            <label htmlFor='category-two-radio' className='flex-box-sb category-label'>{`${!category2 ? 'Category Two': category2}`}</label>
                             <input type='radio' id='category-two-radio' name='accordion'></input>
                             <section className='question-content'>
-                                <input type='text' data-name='category' placeholder='Enter Topic' className='question-input' data-category='c2' name='category-name' maxLength='115' />
+                                <input type='text' data-name='category' placeholder='Enter Topic' value={category2} onChange={cat2OnChange} className='question-input' data-category='c2' name='category-name' maxLength='115' />
 
                                 <div className='single-question-div'>
                                     <p className='point-label'>100 Points</p>
@@ -422,10 +449,10 @@ function CreateGame() {
 
                         {/* Category Three */}
                         <li id='form-el-4' >
-                            <label htmlFor='category-three-radio' className='flex-box-sb category-label'>Category Three</label>
+                            <label htmlFor='category-three-radio' className='flex-box-sb category-label'>{`${!category3 ? 'Category Three': category3}`}</label>
                             <input type='radio' id='category-three-radio' name='accordion'></input>
                             <section className='question-content'>
-                                <input type='text' data-category='c3' placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                <input type='text' data-category='c3' value={category3} onChange={cat3OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                 <div className='single-question-div'>
                                     <p className='point-label'>100 Points</p>
@@ -460,10 +487,10 @@ function CreateGame() {
                         </li>
                         {/* category four */}
                         <li id='form-el-5'>
-                            <label htmlFor='category-four-radio' className='flex-box-sb category-label'>Category Four</label>
+                            <label htmlFor='category-four-radio' className='flex-box-sb category-label'>{`${!category4 ? 'Category Four': category4}`}</label>
                             <input type='radio' id='category-four-radio' name='accordion'></input>
                             <section className='question-content'>
-                                <input type='text' data-category='c4' placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                <input type='text' data-category='c4' value={category4} onChange={cat4OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                 <div className='single-question-div'>
                                     <p className='point-label'>100 Points</p>
@@ -498,10 +525,10 @@ function CreateGame() {
                         </li>
                         {/* Category Five */}
                         <li id='form-el-6'>
-                            <label htmlFor='category-five-radio' className='flex-box-sb category-label'>Category Five</label>
+                            <label htmlFor='category-five-radio' className='flex-box-sb category-label'>{`${!category5 ? 'Category Five': category5}`}</label>
                             <input type='radio' id='category-five-radio' name='accordion'></input>
                             <section className='question-content'>
-                                <input type='text' data-category='c5' placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                <input type='text' data-category='c5' value={category5} onChange={cat5OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                 <div className='single-question-div'>
                                     <p className='point-label'>100 Points</p>

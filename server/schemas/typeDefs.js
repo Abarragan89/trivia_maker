@@ -66,6 +66,7 @@ const typeDefs = gql `
         userByEmail(email: String!): User
         tempUser(_id: ID!): TempUser
 
+        checkIfOwner(gameId: ID!): String
         getGameByTitle(name: String!): [Game]
     }
     type Mutation {
