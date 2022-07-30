@@ -31,6 +31,12 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -281,6 +287,12 @@ body {
 #question-accordion-view-public label span {
   transform: rotate(90deg);
   font-size: 22px;
+}
+
+#isOwner-message {
+  text-align: center;
+  color: rgb(205, 0, 0);
+  font-size: 1.2em;
 }
 
 @-webkit-keyframes dropDown {

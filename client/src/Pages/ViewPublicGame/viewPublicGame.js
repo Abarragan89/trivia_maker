@@ -2,15 +2,22 @@ import './viewPublicGame.css';
 import Auth from '../../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import { DUPLICATE_GAME, ADD_DUPLICATION } from '../../utils/mutations'
-import { QUERY_GAME_INFO } from '../../utils/queries';
+import { QUERY_GAME_INFO, CHECK_IF_OWNER } from '../../utils/queries';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../Components/Header/header';
 
 function ViewPublicGame() {
     // used to check if the user is logged in
     const loggedIn = Auth.loggedIn()
-
     const gameId = useParams().gameId
+
+    // Check if user is owner of game(if so, they cannot add to library)
+    let {data: isOwner} = useQuery(CHECK_IF_OWNER, {
+        variables: { gameId }
+    })
+
+    console.log(isOwner)
+
     const { data } = useQuery(QUERY_GAME_INFO, {
         variables: { gameId }
     })

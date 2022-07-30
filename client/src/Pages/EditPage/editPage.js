@@ -5,6 +5,7 @@ import { QUERY_GAME_INFO } from '../../utils/queries';
 import { UPDATE_GAME, DELETE_GAME } from '../../utils/mutations';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../Components/Header/header';
+import { useState } from 'react';
 
 function EditGame() {
     // used to check if the user is logged in
@@ -347,6 +348,32 @@ function EditGame() {
             }
         }
     }
+    const [category1, setCategory1] = useState('')
+    function cat1OnChange (e) {
+        const { value } = e.target
+        setCategory1( value)
+    }
+    const [category2, setCategory2] = useState('')
+    function cat2OnChange (e) {
+        const { value } = e.target
+        setCategory2( value)
+    }
+    const [category3, setCategory3] = useState('')
+    function cat3OnChange (e) {
+        const { value } = e.target
+        setCategory3( value)
+    }
+    const [category4, setCategory4] = useState('')
+    function cat4OnChange (e) {
+        const { value } = e.target
+        setCategory4( value)
+    }
+    const [category5, setCategory5] = useState('')
+    function cat5OnChange (e) {
+        const { value } = e.target
+        setCategory5( value)
+    }
+
     return (
         <>
             <Header />
@@ -366,9 +393,9 @@ function EditGame() {
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
                                 <li key={gameIndex} id={`form-el-edit-${gameIndex + 1}`}>
                                     <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
-                                        {gameSet.category ? gameSet.category : `Empty`}</label>
+                                        {gameSet.category && !`category${gameIndex + 1}` ? gameSet.category : `category${gameIndex + 1}` }</label>
 
-                                    <input type='radio' defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
+                                    <input type='radio' value={`category${gameIndex + 1}`} onChange={`cat${gameIndex + 1}OnChange()`} defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
 
                                     <section className='question-content'>
                                     
