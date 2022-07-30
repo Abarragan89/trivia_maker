@@ -22,7 +22,7 @@ query Me {
 `;
 
 // Get Game information for specific game play
-export const QUERY_GAME_INFO = gql `
+export const QUERY_GAME_INFO = gql`
 query GetUserGames($gameId: ID!) {
   getUserGames(gameId: $gameId) {
     _id
@@ -41,7 +41,7 @@ query GetUserGames($gameId: ID!) {
 }
 `;
 
-export const QUERY_PUBLIC_GAMES = gql `
+export const QUERY_PUBLIC_GAMES = gql`
 query GetPublicGames {
   getPublicGames {
     _id
@@ -68,7 +68,7 @@ export const QUERY_TEMP_USER = gql`
   }
 `;
 
-export const QUERY_USER_BY_EMAIL = gql `
+export const QUERY_USER_BY_EMAIL = gql`
   query Query($email: String!) {
     userByEmail(email: $email) {
       _id
@@ -78,7 +78,7 @@ export const QUERY_USER_BY_EMAIL = gql `
   }
 `;
 
-export const SEARCH_PUBLIC_GAMES = gql `
+export const SEARCH_PUBLIC_GAMES = gql`
 query GetGameByTitle($name: String!) {
   getGameByTitle(name: $name) {
     _id
@@ -95,8 +95,24 @@ query GetGameByTitle($name: String!) {
 
 
 // Check if game already belongs to user
-export const CHECK_IF_OWNER = gql `
+export const CHECK_IF_OWNER = gql`
 query Query($gameId: ID!) {
   checkIfOwner(gameId: $gameId)
 }
 `;
+
+// query user's library
+export const QUERY_USER_LIBRARY = gql`
+query queryGameLibrary($name: String!) {
+  queryGameLibrary(name: $name) {
+    _id
+    gameTopic
+    duplicates
+    questionCount
+    creator {
+      username
+      _id
+    }
+  }
+}
+`

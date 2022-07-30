@@ -84,9 +84,21 @@ const resolvers = {
                 } catch (e) {
                     console.log(e)
                 }
-
+                throw new AuthenticationError('Not logged in');
+            }
+        },
+        queryGameLibrary: async(parent, { name }, context) => {
+            if (context.user) {
+                try {
+                    const regex = new RegExp(name, 'gi')
+                    return Game.find({ creator: context.user._id, gameTopic: regex }).sort({ duplicates: -1 }).populate('creator')
+    
+                } catch (e) {
+                    console.log(e)
+                }
             }
         }
+
     },
     //Mutations
     Mutation: {

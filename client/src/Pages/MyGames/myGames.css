@@ -31,6 +31,12 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -68,6 +74,22 @@ body {
   color: #15133C;
   padding: 0 10px;
   margin: 0 auto;
+}
+#mygames-main #search-library-games {
+  display: block;
+  width: 90%;
+  padding: 8px;
+  font-size: 1.2rem;
+  color: #15133C;
+  border-radius: 4px;
+  border: 1px solid #15133C;
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+#mygames-main #search-library-games:focus {
+  outline: 2px solid #EC994B;
+  border: 1px solid transparent;
 }
 #mygames-main div {
   align-items: center;
