@@ -230,9 +230,8 @@ const resolvers = {
         updateGame: async (parent, args, context) => {
             if (context.user) {
                 try {
-                    await User.findOneAndUpdate(
-                        { _id: context.user._id },
-                        { $pull: { games: args.gameId } }
+                    await Game.findOneAndDelete(
+                        { _id: args.gameId }
                     );
                     const newGame = await Game.create({
                         gameTopic: args.topic,
