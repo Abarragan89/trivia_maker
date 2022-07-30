@@ -31,6 +31,12 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -72,7 +78,7 @@ body {
 .confirmationModalBackdrop .modalContainer div {
   flex-wrap: wrap;
 }
-.confirmationModalBackdrop .modalContainer h2 {
+.confirmationModalBackdrop .modalContainer #confirmation-title {
   color: #15133C;
   font-size: 2.5em;
 }
