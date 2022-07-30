@@ -17,7 +17,7 @@ function PlayerInput() {
     function handlePlayerCount(e) {
         e.preventDefault();
         const playerCount = document.getElementById('player-count').value
-        if(isNaN(parseInt(playerCount))) {
+        if (isNaN(parseInt(playerCount))) {
             document.getElementById('error').innerHTML = 'Pick a number between 1 and 25.';
             return
         } else if (parseInt(playerCount) > 25) {
@@ -38,33 +38,58 @@ function PlayerInput() {
         )
     }
 
-    // create the player objects
+
+    // create the player objects and ball speed
+    const [ballSpeed, setBallSpeed] = useState(null)
     const [playerNameArray, setPlayerNameArray] = useState([])
     function handleGameStart(e) {
         e.preventDefault();
         const names = document.querySelectorAll("[data-player]");
         for (let player of names) {
-
             setPlayerNameArray(playerNameArray => [...playerNameArray, (player.value)])
         }
         setShowConfirmationModal(true)
+    }
+    function ballSpeedSetter(e) {
+        setBallSpeed(e.target.value);
     }
 
     return (
         <>
             <Header />
             <section id='player-input-section'>
-                {showConfirmationModal && 
-                <ConfirmGameModal 
-                players={playerNameArray} 
-                setShowConfirmationModal={setShowConfirmationModal}
-                showConfirmationModal={showConfirmationModal}    
-                />}
+                {showConfirmationModal &&
+                    <ConfirmGameModal
+                        players={playerNameArray}
+                        setShowConfirmationModal={setShowConfirmationModal}
+                        showConfirmationModal={showConfirmationModal}
+                        ballSpeed={ballSpeed}
+                    />}
                 <h2>Players</h2>
                 {showPlayerNames ?
                     <form id='player-names-form' onSubmit={handleGameStart}>
                         {playerInputElements}
-                        <button onClick={() => mouseClickSound.play()}  className='player-input-button' type='submit'>Ready?</button>
+                        <h2 htmlFor='ball-speed' id='ball-speed-title'>Ball Speed</h2>
+                        <div onChange={ballSpeedSetter} className='flex-box-se-wrap'>
+                            <div className='radio-div-ball-speed'>
+                                <input type='radio' id='easy' name='ball-speed' value='3' defaultChecked/>
+                                <label htmlFor='easy'>Easy</label>
+                            </div>
+                            <div className='radio-div-ball-speed'>
+                                <input type='radio' id='medium' name='ball-speed' value='7' />
+                                <label htmlFor='medium'>Medium</label>
+                            </div>
+                            <div className='radio-div-ball-speed'> 
+                                <input type='radio' id='hard' name='ball-speed' value='12' />
+                                <label htmlFor='hard'>Hard</label>
+                            </div>
+                            <div className='radio-div-ball-speed'>
+                                <input type='radio' id='insane' name='ball-speed' value='25' />
+                                <label htmlFor='insane'>Insane!</label>
+                            </div>
+                        </div>
+
+                        <button onClick={() => mouseClickSound.play()} className='player-input-button' type='submit'>Ready?</button>
                     </form>
                     :
                     <>
