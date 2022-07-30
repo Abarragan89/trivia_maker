@@ -21,6 +21,22 @@
             margin: 0 auto;
         }
     }
+    #search-library-games {
+        display: block;
+        width: 90%;
+        padding:8px;
+        font-size: 1.2rem;
+        color: $tertiaryColor;
+        border-radius: 4px;
+        border: 1px solid $tertiaryColor;
+        font-family: $primaryFont;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    #search-library-games:focus {
+        outline: 2px solid $secondaryColor;
+        border: 1px solid transparent;
+    }
     div {
         align-items:center;
     }

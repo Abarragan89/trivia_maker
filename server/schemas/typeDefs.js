@@ -68,6 +68,8 @@ const typeDefs = gql `
 
         checkIfOwner(gameId: ID!): String
         getGameByTitle(name: String!): [Game]
+
+        queryGameLibrary(name: String!): [Game]
     }
     type Mutation {
         login(email: String!, password: String!): Auth 
