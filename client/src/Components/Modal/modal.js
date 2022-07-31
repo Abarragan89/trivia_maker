@@ -7,22 +7,23 @@ import { Link, useParams } from 'react-router-dom';
 import useSound from 'use-sound';
 import correctAnswerSound from '../../assets/sounds/correct-answer.wav';
 import wrongAnswerNotification from '../../assets/sounds/wrong-answer.wav';
+import runnerUpWinning from '../../assets/sounds/runnerup-win.wav';
 import '../Navigation/navigation.css';
 
 
-function Modal({ 
-    questionData, 
-    onClose, 
-    game, 
-    scoreChange, 
+function Modal({
+    questionData,
+    onClose,
+    game,
+    scoreChange,
     setScoreChange,
     stopSuspense,
     suspenseMusicSound,
     ballSpeed
-    }) {
-
-    const [correctAnswerNoise] = useSound(correctAnswerSound, { volume: '.5'});
-    const [incorrectAnswer] = useSound(wrongAnswerNotification, { volume: '.5'})
+}) {
+    const [correctAnswerNoise] = useSound(correctAnswerSound, { volume: '.5' });
+    const [incorrectAnswer] = useSound(wrongAnswerNotification, { volume: '.5' });
+    const [runnerUpWinSound] = useSound(runnerUpWinning, { volume: '.5'}); 
 
     const gameId = useParams().gameId
     // This triggers the bonus round
@@ -80,12 +81,12 @@ function Modal({
 
     function skipQuestion() {
         game.decreaseQuestions();
-        if (game.endGame()){
+        if (game.endGame()) {
             setWrongAnswerChosen(true)
         } else {
             onClose();
         }
-    }   
+    }
     function showAnswerFunction() {
         stopSuspense();
         setShowAnswer(true);
@@ -95,6 +96,30 @@ function Modal({
         setShowAnswer(false);
     }
 
+
+    // set random runner up
+    const [runnerUp, setRunnerUp] = useState('')
+    function addPointsToRunnerUp(e, points) {
+        runnerUpWinSound();
+        e.target.style.opacity = '0';
+        e.target.disabled = true;
+        let counter = 0;
+        const visualIncrease = setInterval(() => {
+            // setScoreChange is just state passed to trigger change in parent element
+            setScoreChange(scoreChange++)
+            setRunnerUp(player => {
+                const updatedPlayer = { ...player };
+                updatedPlayer.score += 1;
+                return updatedPlayer
+            })
+            counter++;
+            if (counter > points - 1) {
+                clearInterval(visualIncrease)
+                runnerUp.addPoints(points)
+            }
+        }, 4)
+
+    }
     return (
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
@@ -121,10 +146,32 @@ function Modal({
                             {showAnswer ?
                                 <>
                                     {wrongAnswerChosen ?
-                                        game.endGame() ? 
-                                        <Link state={game} to={`/winner-podium/${gameId}`}><button className='modal-buttons'>End Game</button></Link>
-                                        :
-                                        <button className='modal-buttons' onClick={onClose}>Next Player</button>
+                                        game.endGame() ?
+                                            <>
+                                                {runnerUp &&
+                                                    <div>
+                                                        <button className='modal-buttons' onClick={() => addPointsToRunnerUp(questionData.points)}>Award to Runner-Up</button>
+                                                        <div className='flex-box-sa'>
+                                                            <p className='runnerup-name-adding'>{runnerUp.name}</p>
+                                                            <p className='runnerup-name-adding'>{runnerUp.score}</p>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <Link state={game} to={`/winner-podium/${gameId}`}><button id='end-game-btn' className='modal-buttons'>End Game</button></Link>
+                                            </>
+                                            :
+                                            <>
+                                                {runnerUp &&
+                                                    <div>
+                                                        <button className='modal-buttons' onClick={(e) => addPointsToRunnerUp(e, questionData.points)}>Award to Runner-Up</button>
+                                                        <div className='flex-box-sa'>
+                                                            <p className='runnerup-name-adding'>{runnerUp.name}</p>
+                                                            <p className='runnerup-name-adding'>{runnerUp.score}</p>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <button className='modal-buttons' id='next-player-btn' onClick={onClose}>Next Player</button>
+                                            </>
                                         :
                                         <>
                                             <button className='modal-buttons' onClick={hideAnswerFunction}>Hide Answer</button>
@@ -135,7 +182,15 @@ function Modal({
                                     }
                                 </>
                                 :
-                                <button className='modal-buttons' onClick={showAnswerFunction}>Show Answer</button>
+                                <div id='show-answer-reveal-div'>
+                                    {
+                                        runnerUp ?
+                                            <p id='runnerup-name'>{runnerUp.name}</p>
+                                            :
+                                            <button className='modal-buttons' id='runnerup-btn' onClick={() => setRunnerUp(game.pickRunnerUp())}>Reveal Runner-up</button>
+                                    }
+                                    <button className='modal-buttons' id='show-answer-btn' onClick={showAnswerFunction}>Show Answer</button>
+                                </div>
                             }
                         </div>
                     </article>

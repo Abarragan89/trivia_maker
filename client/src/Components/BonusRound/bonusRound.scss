@@ -31,10 +31,11 @@
 
 #next-player-btn {
     background-color: green;
+    color: $tertiaryColor;
     transition: all .2s;
 }
 #next-player-btn:hover {
-   color: $tertiaryColor;
+   color: $primaryColor;
 }
 
 #next-player-btn:active {
