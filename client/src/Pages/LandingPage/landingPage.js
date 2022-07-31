@@ -14,6 +14,7 @@ function LandingPage() {
                 <img className='landing-page-pic' src={require('../../assets/photos/gameboard.png')} alt='gameboard during gameplay'/>
                 </figure>
             </section>
+
             <section className='flex-box-sb landing-page-section' id='middle-section'>
             <figure>
                 <img className='landing-page-pic' src={require('../../assets/photos/bonusRound.png')} alt='bonus round where user has to stop a bouncing ball on top designated areas'/>
@@ -23,6 +24,17 @@ function LandingPage() {
                     <p>Get a question correct and move on to the Bonus Round! try to stop the ball over a multiplier to add to your score.</p>
                 </div>
             </section>
+
+            <section className='flex-box-sb landing-page-section'>
+                <div className='landing-page-txt-div'>
+                    <h2>Random Runner-Up</h2>
+                    <p>Once the current player shares their response and before you display the answer, you can show a random runner up. This player can steal the points if the current player gets the question wrong and theirs is correct! Keeps all participates engaged for all questions.</p>
+                </div>
+                <figure>
+                <img className='landing-page-pic bordered-pic' src={require('../../assets/photos/runner-up.png')} alt='gameboard during gameplay'/>
+                </figure>
+            </section>
+
             <section className='flex-box-sb landing-page-section'>
                 <div className='landing-page-txt-div'>
                     <h2>Search, Edit, Save.</h2>
