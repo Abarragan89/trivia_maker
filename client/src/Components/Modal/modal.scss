@@ -54,13 +54,18 @@
         color: $gray;
     }
 
-    #exitModal {
-        font-size: 1.3rem;
-        color: black;
-        margin: 6px;
-        margin-right: 15px;
+    #runnerup-btn {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
-
+    #runnerup-name {
+        font-size: 1.6em;
+        font-family: $pointNumber;
+        margin-bottom: 10px;
+        color: $secondaryColor;
+        animation: fadeIn 1s ease-in;
+    }
     .grading-icon {
         vertical-align: middle;
         position: relative;
@@ -87,6 +92,32 @@
             #correct-answer:hover, #wrong-answer:hover {
                 color: $primaryColor;
             }
+            #show-answer-reveal-div{
+                text-align: center;
+            }
+            #show-answer-btn {
+                margin-right: 0;
+                background-color: green;
+            }
+            #show-answer-btn:hover {
+                color: $primaryColor;
+            }
+            .runnerup-name-adding {
+                font-size: 1.2em;
+                font-family: $pointNumber;
+                margin-right: 20px;
+                color: $tertiaryColor;
+
+            }
+            #end-game-btn {
+                background-color: $red;
+            }
+            #next-player-btn {
+                background-color: green;
+            }
+            #next-player-btn:hover {
+                color: $primaryColor;
+            }
         }
         .modal-buttons {
             font-size: 1.3em;
@@ -99,6 +130,7 @@
             background-color: $gray;
             color: $tertiaryColor;
             transition: all .2s;
+            margin-bottom: 10px;
         }
         .modal-buttons:hover {
             background-color: $secondaryColor;

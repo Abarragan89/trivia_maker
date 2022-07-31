@@ -31,6 +31,12 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -99,11 +105,18 @@ body {
   cursor: pointer;
   color: #73777B;
 }
-.modalContainer #exitModal {
-  font-size: 1.3rem;
-  color: black;
-  margin: 6px;
-  margin-right: 15px;
+.modalContainer #runnerup-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.modalContainer #runnerup-name {
+  font-size: 1.6em;
+  font-family: "Mochiy Pop One", sans-serif;
+  margin-bottom: 10px;
+  color: #EC994B;
+  -webkit-animation: fadeIn 1s ease-in;
+          animation: fadeIn 1s ease-in;
 }
 .modalContainer .grading-icon {
   vertical-align: middle;
@@ -130,6 +143,31 @@ body {
 .modalContainer .questionContainer #modal-button-div #correct-answer:hover, .modalContainer .questionContainer #modal-button-div #wrong-answer:hover {
   color: #F1EEE9;
 }
+.modalContainer .questionContainer #modal-button-div #show-answer-reveal-div {
+  text-align: center;
+}
+.modalContainer .questionContainer #modal-button-div #show-answer-btn {
+  margin-right: 0;
+  background-color: green;
+}
+.modalContainer .questionContainer #modal-button-div #show-answer-btn:hover {
+  color: #F1EEE9;
+}
+.modalContainer .questionContainer #modal-button-div .runnerup-name-adding {
+  font-size: 1.2em;
+  font-family: "Mochiy Pop One", sans-serif;
+  margin-right: 20px;
+  color: #15133C;
+}
+.modalContainer .questionContainer #modal-button-div #end-game-btn {
+  background-color: rgb(205, 0, 0);
+}
+.modalContainer .questionContainer #modal-button-div #next-player-btn {
+  background-color: green;
+}
+.modalContainer .questionContainer #modal-button-div #next-player-btn:hover {
+  color: #F1EEE9;
+}
 .modalContainer .questionContainer .modal-buttons {
   font-size: 1.3em;
   border: none;
@@ -141,6 +179,7 @@ body {
   background-color: #73777B;
   color: #15133C;
   transition: all 0.2s;
+  margin-bottom: 10px;
 }
 .modalContainer .questionContainer .modal-buttons:hover {
   background-color: #EC994B;

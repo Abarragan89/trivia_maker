@@ -24,6 +24,13 @@ class GameStart {
     subtractPlayerPoints(points) {
         this.currentPlayer.subtractPoints(points)
     }
+    // Pick random runner up
+    pickRunnerUp() {
+        const randomPlayerArray = this.players.filter((player) => {
+            return player.name !== this.currentPlayer.name 
+        });
+        return randomPlayerArray[Math.floor(Math.random() * randomPlayerArray.length)]
+    }
     // switch players
     switchPlayer() {
         if(this.players.indexOf(this.currentPlayer) + 1 === this.players.length){
@@ -39,19 +46,6 @@ class GameStart {
     // end game
     endGame() {
         if (this.questions === 0) {
-            // let winner = [];
-            // let highscore = null;
-            // this.players.forEach(player => {
-            //     if (!highscore) {
-            //         highscore = parseInt(player.score);
-            //         winner.push(player.name)
-            //         return;
-            //     } else if (player.score >= highscore) {
-            //         highscore = parseInt(player.score);
-            //         winner.push(player.name) 
-            //         return;
-            //     }
-            // })
             return 'done';
         }
     }

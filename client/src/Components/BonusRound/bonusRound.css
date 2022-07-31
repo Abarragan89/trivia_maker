@@ -31,6 +31,12 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -80,11 +86,12 @@ body {
 
 #next-player-btn {
   background-color: green;
+  color: #15133C;
   transition: all 0.2s;
 }
 
 #next-player-btn:hover {
-  color: #15133C;
+  color: #F1EEE9;
 }
 
 #next-player-btn:active {

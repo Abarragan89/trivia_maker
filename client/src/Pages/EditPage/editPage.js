@@ -398,7 +398,7 @@ function EditGame() {
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
                                 <li key={gameIndex} id={`form-el-edit-${gameIndex + 1}`}>
                                     <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
-                                        {gameSet.category && `${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
+                                        {gameSet.category && !`${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
 
                                     <input type='radio' defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
                                     <section className='question-content'>

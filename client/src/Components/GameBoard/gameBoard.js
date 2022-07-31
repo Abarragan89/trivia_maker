@@ -32,8 +32,8 @@ function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setSc
     function closeModal() {
         setIsModal(!isModal);
         gamePlayers.switchPlayer();
-        setScoreChange(scoreChange++)
-    }
+        setScoreChange(scoreChange++) 
+    } 
 
     // disable the buttons that have been clicked
     function disableButton(listElId) {
