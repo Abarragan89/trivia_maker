@@ -31,6 +31,12 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -87,6 +93,9 @@ body {
   margin-left: 20px;
   margin-right: 0;
   margin-top: 150px;
+}
+#landing-page-main .bordered-pic {
+  border: 1px solid #15133C;
 }
 
 @media screen and (max-width: 840px) {
