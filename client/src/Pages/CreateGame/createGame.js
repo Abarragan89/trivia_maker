@@ -321,14 +321,17 @@ function CreateGame() {
         // Get game topic and check to see if it's public
         let topic = document.querySelector('#game-topic').value;
         let publicGame = document.querySelector('#public-game').checked
+        let isStudySet = document.querySelector('#study-set').checked
 
         await createGame({
             variables: {
                 gameData: allAnswers,
                 topic: topic,
-                public: publicGame
+                public: publicGame,
+                isStudySet: isStudySet
             }
         })
+        // if isStudySet create flashcards
         window.location.replace('/my-games')
     }
 
@@ -364,6 +367,10 @@ function CreateGame() {
                 <form id='create-game-form' onSubmit={handleSubmit}>
                     <div className='flex-box-sb' id='form-el-1'>
                         <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' required></input>
+                        <div>
+                            <input type='checkbox' id='study-set' name='study-set'></input>
+                            <label htmlFor='study-set'>Generate Study Set</label>
+                        </div>
                         <div>
                             <input type='checkbox' id='public-game' name='public-game'></input>
                             <label htmlFor='public-game'>Make Public</label>

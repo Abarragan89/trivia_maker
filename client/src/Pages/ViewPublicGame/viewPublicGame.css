@@ -88,10 +88,19 @@ body {
 }
 #create-game-form-view-public div:first-child #public-game {
   margin-right: 5px;
+  margin-left: 5px;
   height: 18px;
   width: 18px;
   margin-top: 10px;
-  accent-color: #15133C;
+  accent-color: #EC994B;
+}
+#create-game-form-view-public div:first-child #study-set {
+  margin-right: 5px;
+  margin-left: 5px;
+  height: 18px;
+  width: 18px;
+  margin-top: 10px;
+  accent-color: #EC994B;
 }
 #create-game-form-view-public div:first-child label {
   font-size: 1.1em;

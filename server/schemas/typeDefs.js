@@ -36,6 +36,7 @@ const typeDefs = gql `
         questionCount: Int   
         public: Boolean
         duplicates: Int
+        isStudySet: Boolean
         creator: User
     }
 
@@ -73,10 +74,10 @@ const typeDefs = gql `
     }
     type Mutation {
         login(email: String!, password: String!): Auth 
-        createGame( gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
+        createGame( gameData: [categorySetInput]!, isStudySet: Boolean,  topic: String!, public: Boolean, creator: ID): Game
         deleteGame( gameId: ID!): Game
-        duplicateGame( gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: ID): Game
-        updateGame(gameId: ID!, gameData: [categorySetInput]!,  topic: String!, public: Boolean, creator: String): Game
+        duplicateGame( gameData: [categorySetInput]!, isStudySet: Boolean,  topic: String!, public: Boolean, creator: ID): Game
+        updateGame(gameId: ID!, gameData: [categorySetInput]!, isStudySet: Boolean,  topic: String!, public: Boolean, creator: String): Game
         increaseDuplicateScore(gameId: ID!): Game
         updatePassword(userId: ID!, newPassword: String! ): User
 

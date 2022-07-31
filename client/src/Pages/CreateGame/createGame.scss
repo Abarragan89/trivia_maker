@@ -39,13 +39,24 @@
 
         #public-game {
             margin-right: 5px;
+            margin-left: 5px;
             height: 18px;
             width: 18px;
             margin-top: 10px;
-            accent-color: $tertiaryColor;
+            accent-color: $secondaryColor;
+        }
+        #study-set {
+            margin-right: 5px;
+            margin-left: 5px;
+            height: 18px;
+            width: 18px;
+            margin-top: 10px;
+            accent-color: $secondaryColor;
         }
 
         label {
+            display: inline-block;
+            margin-right: 10px;
             font-size: 1.1em;
             color: $tertiaryColor;
         }

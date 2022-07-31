@@ -25,8 +25,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_GAME = gql `
-mutation Mutation($gameData: [categorySetInput]!, $topic: String!, $public: Boolean) {
-  createGame(gameData: $gameData, topic: $topic, public: $public) {
+mutation Mutation($gameData: [categorySetInput]!, $isStudySet: Boolean, $topic: String!, $public: Boolean) {
+  createGame(gameData: $gameData, isStudySet: $isStudySet, topic: $topic, public: $public) {
     _id
     gameTopic
     questionCount
@@ -43,8 +43,8 @@ mutation Mutation($gameData: [categorySetInput]!, $topic: String!, $public: Bool
 }
 `;
 export const DUPLICATE_GAME = gql `
-mutation Mutation($gameData: [categorySetInput]!, $topic: String!, $public: Boolean) {
-  duplicateGame(gameData: $gameData, topic: $topic, public: $public) {
+mutation Mutation($gameData: [categorySetInput]!, $isStudySet: Boolean, $topic: String!, $public: Boolean) {
+  duplicateGame(gameData: $gameData, isStudySet: $isStudySet, topic: $topic, public: $public) {
     _id
     gameTopic
     questionCount
@@ -62,8 +62,8 @@ mutation Mutation($gameData: [categorySetInput]!, $topic: String!, $public: Bool
 `;
 
 export const UPDATE_GAME = gql `
-mutation Mutation($gameId: ID!, $gameData: [categorySetInput]!, $topic: String!, $public: Boolean) {
-  updateGame(gameId: $gameId, gameData: $gameData, topic: $topic, public: $public) {
+mutation Mutation($gameId: ID!, $gameData: [categorySetInput]!, $isStudySet: Boolean, $topic: String!, $public: Boolean) {
+  updateGame(gameId: $gameId, gameData: $gameData, isStudySet: $isStudySet, topic: $topic, public: $public) {
     gameTopic
   }
 }

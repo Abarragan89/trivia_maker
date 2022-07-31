@@ -29,6 +29,7 @@ query GetUserGames($gameId: ID!) {
     gameTopic
     questionCount
     duplicates
+    isStudySet
     gameData {
       category
       clues {

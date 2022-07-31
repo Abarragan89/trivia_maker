@@ -188,7 +188,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        createGame: async (parent, { topic, gameData, public }, context) => {
+        createGame: async (parent, { topic, gameData, public, isStudySet }, context) => {
             if (context.user) {
                 try {
                     const game = await Game.create({
@@ -196,6 +196,7 @@ const resolvers = {
                         gameTopic_lower: topic.toLowerCase(),
                         gameData: gameData,
                         public: public,
+                        isStudySet: isStudySet,
                         creator: context.user._id
                     })
                     const user = await User.findOneAndUpdate(
@@ -210,7 +211,7 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        duplicateGame: async (parent, { creator, topic, gameData, public }, context) => {
+        duplicateGame: async (parent, { isStudySet, topic, gameData, public }, context) => {
             if (context.user) {
                 try {
                     const game = await Game.create({
@@ -218,6 +219,7 @@ const resolvers = {
                         gameTopic_lower: topic.toLowerCase(),
                         gameData: gameData,
                         public: public,
+                        isStudySet: isStudySet,
                         creator: context.user._id,
                     })
                     const user = await User.findOneAndUpdate(
@@ -266,6 +268,7 @@ const resolvers = {
                         gameTopic_lower: args.topic.toLowerCase(),
                         gameData: args.gameData,
                         public: args.public,
+                        isStudySet: args.isStudySet,
                         creator: context.user._id
                     })
                     await User.findOneAndUpdate(
