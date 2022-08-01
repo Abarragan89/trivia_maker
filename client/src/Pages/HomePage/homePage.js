@@ -10,7 +10,7 @@ import { AiFillEye } from 'react-icons/ai';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import LandingPage from '../LandingPage/landingPage';
 import axios from 'axios'
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import Footer from '../../Components/Footer/footer';
 import Pagination from '../../Components/Pagination/pagination';
 import PaginationSearch from '../../Components/PaginationSearch/paginationSearch';
@@ -61,7 +61,7 @@ function HomePage() {
 
     // query all of the public games to display
     let { data } = useQuery(QUERY_PUBLIC_GAMES)
-    let gameData = data?.getPublicGames || [];
+    let gameData = useMemo(() => data?.getPublicGames || [], [data]);
 
     const [publicGames, setPublicGames] = useState (gameData)
     useEffect(() => {
@@ -123,7 +123,7 @@ function HomePage() {
                                     <>
                                         <h1><span>Public Games</span></h1>
                                         {currentPublicGames.map((game, index) => (
-                                            <article id='link-to-public' key={index} to={`/players/${game._id}`}>
+                                            <article id='link-to-public' key={index}>
                                                 <div className='public-game-card'>
                                                     <header className='flex-box-sb'>
                                                         <h2>{game.gameTopic}</h2>

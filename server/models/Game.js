@@ -42,6 +42,10 @@ const GameSchema = new Schema(
             type: Boolean,
             default: false
         },
+        isStudySet: {
+            type: Boolean,
+            default: false
+        },
         duplicates: {
             type: Number,
             default: 0

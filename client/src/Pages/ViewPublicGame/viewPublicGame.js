@@ -321,16 +321,18 @@ function ViewPublicGame() {
         // Get game topic and check to see if it's public
         let topic = document.querySelector('#game-topic').value;
         let publicGame = document.querySelector('#public-game').checked
+        let isStudySet = document.querySelector('#study-set').checked
 
         await duplicateGame({
             variables: {
                 gameData: allAnswers,
                 topic: topic,
+                isStudySet: isStudySet,
                 public: publicGame,
             }
         })
-        
-        await increaseDuplicateScore ({
+
+        await increaseDuplicateScore({
             variables: { gameId }
         })
 
@@ -376,7 +378,11 @@ function ViewPublicGame() {
                     <form id='create-game-form-view-public' onSubmit={handleSubmit}>
                         <div className='flex-box-sb'>
                             <input type='text' className='create-game-txt-input' defaultValue={data.getUserGames.gameTopic}
-                                placeholder='Game Title' id='game-topic' name='game-topic' required></input>
+                                placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
+                            <div>
+                                <input type='checkbox' id='study-set' name='study-set'></input>
+                                <label htmlFor='study-set'>Generate Study Set</label>
+                            </div>
                             <div>
                                 <input type='checkbox' id='public-game' name='public-game'></input>
                                 <label htmlFor='public-game'>Make Public</label>
@@ -386,14 +392,14 @@ function ViewPublicGame() {
 
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
                                 <li key={gameIndex} id={`form-el-view-${gameIndex + 1}`}>
-                                <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
-                                {gameSet.category && `${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
+                                    <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
+                                        {gameSet.category && `${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
 
                                     <input type='radio' defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
 
                                     <section className='question-content'>
-                                    
-                                    <input type='text'
+
+                                        <input type='text'
                                             data-category={`c${gameIndex}`}
                                             defaultValue={gameSet.category && !`${arrayOfCats[gameIndex]}` ? gameSet.category : arrayOfCats[gameIndex]}
                                             placeholder='Enter Topic'

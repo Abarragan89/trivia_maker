@@ -320,12 +320,14 @@ function EditGame() {
         // Get game topic and check to see if it's public
         let topic = document.querySelector('#game-topic').value;
         let publicGame = document.querySelector('#public-game').checked
+        let isStudySet = document.querySelector('#study-set').checked
 
         await updateGame({
             variables: {
                 gameId: gameId,
                 gameData: allAnswers,
                 topic: topic,
+                isStudySet: isStudySet,
                 public: publicGame
             }
         })
@@ -387,7 +389,11 @@ function EditGame() {
                     <form id='create-game-form-edit' onSubmit={handleSubmit}>
                         <div className='flex-box-sb'>
                             <input type='text' className='create-game-txt-input' defaultValue={data.getUserGames.gameTopic}
-                                placeholder='Game Title' id='game-topic' name='game-topic' required></input>
+                                placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
+                            <div>
+                                <input type='checkbox' id='study-set' name='study-set'></input>
+                                <label htmlFor='study-set'>Generate Study Set</label>
+                            </div>
                             <div>
                                 <input type='checkbox' id='public-game' name='public-game'></input>
                                 <label htmlFor='public-game'>Make Public</label>

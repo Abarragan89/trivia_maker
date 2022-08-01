@@ -3,7 +3,8 @@ const { User, Game, TempUser } = require('../models');
 const { signToken } = require('../utils/auth');
 require('dotenv').config();
 const { sendConfirmationEmail } = require('../mailer');
-const { resetPassword } = require('../mailer')
+const { resetPassword } = require('../mailer');
+const { findOne } = require('../models/User');
 
 const resolvers = {
     // Queries
@@ -97,7 +98,14 @@ const resolvers = {
                     console.log(e)
                 }
             }
-        }
+        },
+        queryStudySets: async (parent, { name }, context) => {
+            const teacher = await User.findOne({ name_lower: name })
+            const games = await Game.find(
+                {creator: teacher._id, isStudySet: true},  
+            )
+            return games;
+        },
 
     },
     //Mutations
@@ -188,7 +196,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        createGame: async (parent, { topic, gameData, public }, context) => {
+        createGame: async (parent, { topic, gameData, public, isStudySet }, context) => {
             if (context.user) {
                 try {
                     const game = await Game.create({
@@ -196,6 +204,7 @@ const resolvers = {
                         gameTopic_lower: topic.toLowerCase(),
                         gameData: gameData,
                         public: public,
+                        isStudySet: isStudySet,
                         creator: context.user._id
                     })
                     const user = await User.findOneAndUpdate(
@@ -210,7 +219,7 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        duplicateGame: async (parent, { creator, topic, gameData, public }, context) => {
+        duplicateGame: async (parent, { isStudySet, topic, gameData, public }, context) => {
             if (context.user) {
                 try {
                     const game = await Game.create({
@@ -218,6 +227,7 @@ const resolvers = {
                         gameTopic_lower: topic.toLowerCase(),
                         gameData: gameData,
                         public: public,
+                        isStudySet: isStudySet,
                         creator: context.user._id,
                     })
                     const user = await User.findOneAndUpdate(
@@ -266,6 +276,7 @@ const resolvers = {
                         gameTopic_lower: args.topic.toLowerCase(),
                         gameData: args.gameData,
                         public: args.public,
+                        isStudySet: args.isStudySet,
                         creator: context.user._id
                     })
                     await User.findOneAndUpdate(

@@ -168,7 +168,6 @@ body {
   background-color: #15133C;
   color: #EC994B;
 }
-
 @media screen and (max-width: 480px) {
   #player-input-section .player-names-input {
     font-size: 1em;

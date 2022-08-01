@@ -163,6 +163,10 @@ body {
 .login-form .back-to-login:active {
   text-decoration: none;
 }
+.login-form #student-login-btn {
+  text-decoration: none;
+  text-align: center;
+}
 
 .switch-login {
   text-align: center;

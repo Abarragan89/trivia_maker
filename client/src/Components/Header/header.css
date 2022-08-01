@@ -94,4 +94,16 @@ body {
   #home-logo {
     width: 150px;
   }
+  #main-header {
+    padding-left: 0;
+  }
+  #main-header button {
+    margin-right: 10px;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 335px) {
+  #main-header {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=header.css.map */

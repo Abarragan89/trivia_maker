@@ -341,10 +341,14 @@ body {
 #winner-podium-container #exit-winner-circle {
   font-size: 1.3em;
   border: none;
-  padding: 5px 20px;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  padding: 7px 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   border-radius: 4px;
-  margin-right: 10px;
-  margin-top: 20px;
   font-weight: 700;
   text-decoration: none;
   border: 1px solid #15133C;
