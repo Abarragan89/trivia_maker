@@ -393,7 +393,11 @@ function ViewPublicGame() {
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
                                 <li key={gameIndex} id={`form-el-view-${gameIndex + 1}`}>
                                     <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
-                                        {gameSet.category && `${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
+                                     {gameSet.category && arrayOfCats[gameIndex] === 'Empty' ? `#${gameIndex + 1} ` +  gameSet.category : `#${gameIndex + 1} ` + arrayOfCats[gameIndex]}
+                                     </label>
+
+
+
 
                                     <input type='radio' defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
 
@@ -401,7 +405,7 @@ function ViewPublicGame() {
 
                                         <input type='text'
                                             data-category={`c${gameIndex}`}
-                                            defaultValue={gameSet.category && !`${arrayOfCats[gameIndex]}` ? gameSet.category : arrayOfCats[gameIndex]}
+                                            defaultValue={!gameSet.category ? arrayOfCats[gameIndex] : gameSet.category}
                                             placeholder='Enter Topic'
                                             onChange={arrayOfCatFuncts[gameIndex]}
                                             data-name='category' className='question-input' name='category-name' maxLength='115' />

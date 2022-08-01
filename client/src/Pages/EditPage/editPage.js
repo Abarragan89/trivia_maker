@@ -350,6 +350,7 @@ function EditGame() {
             }
         }
     }
+    
     const [category1, setCategory1] = useState('Empty')
     function cat1OnChange(e) {
         const { value } = e.target
@@ -376,10 +377,9 @@ function EditGame() {
         setCategory5(value)
     }
 
-
     const arrayOfCats = [category1, category2, category3, category4, category5]
-
     const arrayOfCatFuncts = [cat1OnChange, cat2OnChange, cat3OnChange, cat4OnChange, cat5OnChange]
+
 
     return (
         <>
@@ -403,15 +403,18 @@ function EditGame() {
 
                             {data.getUserGames.gameData.map((gameSet, gameIndex) => (
                                 <li key={gameIndex} id={`form-el-edit-${gameIndex + 1}`}>
-                                    <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'>
-                                        {gameSet.category && !`${arrayOfCats[gameIndex] !== 'Empty'}` ? gameSet.category : arrayOfCats[gameIndex]} </label>
+                                    <label htmlFor={`category-${gameIndex}-radio`} className='flex-box-sb category-label'
+                                    defaultValue={!gameSet.category ? arrayOfCats[gameIndex] : gameSet.category}
+                                    >
+                                    {gameSet.category && arrayOfCats[gameIndex] === 'Empty' ? `#${gameIndex + 1} ` +  gameSet.category : `#${gameIndex + 1} ` + arrayOfCats[gameIndex]}
+                                    </label>
 
                                     <input type='radio' defaultValue={gameSet.category ? gameSet.category : 'Empty'} id={`category-${gameIndex}-radio`} name='accordion'></input>
                                     <section className='question-content'>
 
                                         <input type='text'
                                             data-category={`c${gameIndex}`}
-                                            defaultValue={gameSet.category && !`${arrayOfCats[gameIndex]}` ? gameSet.category : arrayOfCats[gameIndex]}
+                                            defaultValue={!gameSet.category ? arrayOfCats[gameIndex] : gameSet.category}
                                             placeholder='Enter Topic'
                                             onChange={arrayOfCatFuncts[gameIndex]}
                                             data-name='category' className='question-input' name='category-name' maxLength='115' />
