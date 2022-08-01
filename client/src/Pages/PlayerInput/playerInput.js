@@ -31,11 +31,20 @@ function PlayerInput() {
     // dynamically created player name inputs
     const playerInputElements = [];
     for (let i = 0; i < numberOfPlayers; i++) {
-        playerInputElements.push(
-            <div key={i}>
-                <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} required></input>
-            </div>
-        )
+        // auto focus the first input
+        if (i === 0 ) {
+            playerInputElements.push(
+                <div key={i}>
+                    <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} autoFocus required></input>
+                </div>
+            )
+        } else {
+            playerInputElements.push(
+                <div key={i}>
+                    <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} required></input>
+                </div>
+            )
+        }
     }
 
 
@@ -72,19 +81,19 @@ function PlayerInput() {
                         <h2 htmlFor='ball-speed' id='ball-speed-title'>Ball Speed</h2>
                         <div onChange={ballSpeedSetter} className='flex-box-se-wrap'>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='easy' name='ball-speed' value='3' defaultChecked/>
+                                <input type='radio' id='easy' name='ball-speed' value='3' required/>
                                 <label htmlFor='easy'>Easy</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='medium' name='ball-speed' value='7' />
+                                <input type='radio' id='medium' name='ball-speed' value='7' required/>
                                 <label htmlFor='medium'>Medium</label>
                             </div>
                             <div className='radio-div-ball-speed'> 
-                                <input type='radio' id='hard' name='ball-speed' value='12' />
+                                <input type='radio' id='hard' name='ball-speed' value='12' required/>
                                 <label htmlFor='hard'>Hard</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='insane' name='ball-speed' value='25' />
+                                <input type='radio' id='insane' name='ball-speed' value='25' required/>
                                 <label htmlFor='insane'>Insane!</label>
                             </div>
                         </div>
@@ -95,7 +104,7 @@ function PlayerInput() {
                     <>
                         <form id='player-amount-form' onSubmit={handlePlayerCount}>
                             <label htmlFor='player-count'>How many players/teams?</label>
-                            <input type='text' id='player-count' maxLength="2" required></input>
+                            <input type='text' id='player-count' maxLength="2" autoFocus required></input>
                             <span id='error'></span>
                             <button onClick={() => mouseClickSound.play()} className='player-input-button' type='submit'>Continue</button>
                         </form>

@@ -8,7 +8,7 @@ import useSound from 'use-sound'
 function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setScoreChange }) {
 
 
-    const [suspenseMusicSound, { stop: stopSuspense }] = useSound(suspenseMusic, { volume: '.4'})
+    const [suspenseMusicSound, { stop: stopSuspense }] = useSound(suspenseMusic, { volume: '.3'})
 
     const gameId = useParams().gameId
 

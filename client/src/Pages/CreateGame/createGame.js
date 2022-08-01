@@ -366,7 +366,7 @@ function CreateGame() {
             {loggedIn ?
                 <form id='create-game-form' onSubmit={handleSubmit}>
                     <div className='flex-box-sb' id='form-el-1'>
-                        <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' required></input>
+                        <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
                         <div>
                             <input type='checkbox' id='study-set' name='study-set'></input>
                             <label htmlFor='study-set'>Generate Study Set</label>

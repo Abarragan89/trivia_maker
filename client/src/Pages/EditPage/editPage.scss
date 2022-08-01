@@ -67,6 +67,10 @@
         border: 1px solid black;
         margin-right: 30px;
     }
+    .create-game-txt-input:focus {
+        border: 1px solid transparent;
+        outline: 2px solid $secondaryColor;
+    }
 
     .edit-game-btns {
         display: block;
