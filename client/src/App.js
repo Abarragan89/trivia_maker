@@ -18,6 +18,8 @@ import ViewPublicGame from './Pages/ViewPublicGame/viewPublicGame.js';
 import ForgotPassword from './Pages/ForgotPassword/forgotPassword.js';
 import WinnerPodium from './Components/WinnerPodium/winnerPodium.js';
 import Contact from './Pages/Contact/contact.js';
+import StudentLogin from './Pages/StudentLogin/studentLogin.js';
+import StudentDashboard from './Pages/StudentDashboard/studentDashboard.js';
 
 // import Apollo Client package for context
 import {
@@ -71,12 +73,12 @@ function App() {
           <Route path='/my-games' element={<MyGames />}></Route>
           <Route path='/players/:gameId' element={<PlayerInput />}></Route>
           <Route path='/edit/:gameId' element={<EditGame />}></Route>
-          <Route path="/register-user/:id" element={<ConfirmUser />}></Route>
-          <Route path="/password-reset/:userId" element={<ForgotPassword />}></Route>
-          <Route path="/winner-podium/:gameId" element={<WinnerPodium />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-
-          
+          <Route path='/register-user/:id' element={<ConfirmUser />}></Route>
+          <Route path='/password-reset/:userId' element={<ForgotPassword />}></Route>
+          <Route path='/winner-podium/:gameId' element={<WinnerPodium />}></Route>
+          <Route path='/contact' element={<Contact />}></Route>
+          <Route path='/student-login' element={<StudentLogin />}></Route>
+          <Route path="/student-dashboard/:teacher" element={<StudentDashboard />}></Route>
         </Routes>
       </Router>
     </ApolloProvider>
