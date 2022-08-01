@@ -19,7 +19,7 @@ function StudentLogin() {
         <>
             <Header />
             <section>
-                <form className='flex-box-col-se login-form'>
+                <form className='flex-box-col-se login-form' onSubmit={(e) => e.preventDefault()}>
                     <legend><span>Student</span></legend>
                     <input
                         placeholder="Enter Teacher Username"
