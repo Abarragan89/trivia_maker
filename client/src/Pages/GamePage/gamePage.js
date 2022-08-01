@@ -28,7 +28,6 @@ function GamePage() {
     const gameTopic = data?.getUserGames.gameTopic || '';
     const gameData = data?.getUserGames.gameData || [];
     const h1Text = useRef(null) 
-    console.log(data)
 
     // Create Game 
     const [gamePlayers, setGamePlayers] = useState(null)

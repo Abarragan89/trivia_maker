@@ -71,6 +71,8 @@ const typeDefs = gql `
         getGameByTitle(name: String!): [Game]
 
         queryGameLibrary(name: String!): [Game]
+
+        queryStudySets(name: String!): [Game]
     }
     type Mutation {
         login(email: String!, password: String!): Auth 

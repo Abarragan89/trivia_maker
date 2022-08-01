@@ -1,5 +1,3 @@
-import { QUERY_ME_BASIC } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import './header.css'
 import { Link } from 'react-router-dom';
@@ -29,9 +27,12 @@ function Header() {
                     <Navigation />
                 </nav>
             :
+            <>
             <div>
+                <Link to='/student-login' onClick={() => mouseClickSound()}><button>Students</button></Link>
                 <Link to='/login' onClick={() => mouseClickSound()}><button>Sign In</button></Link>
             </div>
+            </>
             }
         </header>
     )

@@ -1,0 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F1EEE9;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+/* UTILITY Classes */
+.flex-box-sa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-box-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-se {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-box-se-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.flex-box-col-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-box-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-box-col-sa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#student-study h1 {
+  font-family: "Mochiy Pop One", sans-serif;
+  color: #15133C;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+#student-study .card-line > div:not(:nth-child(1)) {
+  display: none;
+}
+#student-study .card-line .question-label {
+  position: absolute;
+  top: -170px;
+  font-weight: 700;
+}
+#student-study .study-card {
+  background-color: #EC994B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+  width: 90%;
+  height: 500px;
+  box-shadow: 0 6px 5px 2px rgba(0, 0, 0, 0.3);
+  transition: 220ms;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+}
+#student-study .study-card:hover {
+  cursor: pointer;
+  box-shadow: 0 6px 5px 2px rgba(0, 0, 0, 0.5);
+  --translate-y: -2px;
+}
+#student-study .flip {
+  --rotate-y: 180deg;
+}
+#student-study .study-info {
+  position: absolute;
+  font-size: 1.4em;
+  line-height: 1.4;
+  color: #15133C;
+  padding: 2rem;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+#student-study .card-back {
+  transform: rotateY(180deg);
+}
+#student-study .card-back p {
+  font-weight: 700;
+}
+#student-study .move-card {
+  font-size: 1.3em;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  background-color: #15133C;
+  color: #F1EEE9;
+  transition: all 0.2s;
+  margin-bottom: 10px;
+}
+#student-study .move-card:hover {
+  background-color: #EC994B;
+}
+#student-study .move-card:active {
+  border-radius: 8px;
+}
+#student-study .studyset-btns p {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #15133C;
+}/*# sourceMappingURL=studentStudy.css.map */

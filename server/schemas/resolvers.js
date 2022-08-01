@@ -3,7 +3,8 @@ const { User, Game, TempUser } = require('../models');
 const { signToken } = require('../utils/auth');
 require('dotenv').config();
 const { sendConfirmationEmail } = require('../mailer');
-const { resetPassword } = require('../mailer')
+const { resetPassword } = require('../mailer');
+const { findOne } = require('../models/User');
 
 const resolvers = {
     // Queries
@@ -97,7 +98,14 @@ const resolvers = {
                     console.log(e)
                 }
             }
-        }
+        },
+        queryStudySets: async (parent, { name }, context) => {
+            const teacher = await User.findOne({ name_lower: name })
+            const games = await Game.find(
+                {creator: teacher._id, isStudySet: true},  
+            )
+            return games;
+        },
 
     },
     //Mutations

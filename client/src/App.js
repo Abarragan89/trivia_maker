@@ -20,6 +20,7 @@ import WinnerPodium from './Components/WinnerPodium/winnerPodium.js';
 import Contact from './Pages/Contact/contact.js';
 import StudentLogin from './Pages/StudentLogin/studentLogin.js';
 import StudentDashboard from './Pages/StudentDashboard/studentDashboard.js';
+import StudentStudy from './Pages/StudentStudy/studentStudy.js';
 
 // import Apollo Client package for context
 import {
@@ -79,6 +80,8 @@ function App() {
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/student-login' element={<StudentLogin />}></Route>
           <Route path="/student-dashboard/:teacher" element={<StudentDashboard />}></Route>
+          <Route path="/student-study/:gameId" element={<StudentStudy />}></Route>
+
         </Routes>
       </Router>
     </ApolloProvider>

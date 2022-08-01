@@ -55,6 +55,18 @@ body {
   justify-content: space-around;
 }
 
+#student-dashboard h1 {
+  font-family: "Mochiy Pop One", sans-serif;
+  color: #15133C;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+#student-dashboard #student-dashboard-card-section {
+  width: 80%;
+  margin: 0 auto;
+}
+
 #search-form {
   text-align: center;
 }

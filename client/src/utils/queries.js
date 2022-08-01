@@ -116,4 +116,32 @@ query queryGameLibrary($name: String!) {
     }
   }
 }
-`
+`;
+
+// Query teacher's study sets
+export const QUERY_STUDY_SETS = gql `
+query Query($name: String!) {
+  queryStudySets(name: $name) {
+    _id
+    gameTopic
+    questionCount
+  }
+}
+`;
+
+// Query individual game for study set
+// Get Game information for specific game play
+export const QUERY_SINGLE_STUDY_SET = gql`
+query GetUserGames($gameId: ID!) {
+  getUserGames(gameId: $gameId) {
+    gameTopic
+    gameData {
+      clues {
+        answer
+        question
+      }
+    }
+  }
+}
+`;
+

@@ -1,0 +1,88 @@
+@import '../../index.scss';
+
+#student-study {
+    h1 {
+        font-family: $pointNumber;
+        color: $tertiaryColor;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+    }
+    .card-line {
+        > div:not(:nth-child(1)) {
+            display: none;
+        }
+
+        .question-label {
+            position: absolute;
+            top: -170px;
+            font-weight: 700;
+        }
+    }
+    .study-card {
+        background-color: $secondaryColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        transform-style: preserve-3d;
+        border-radius: 8px;
+        width: 90%;
+        height: 500px;
+        box-shadow: 0 6px 5px 2px rgba(0, 0, 0, .3);
+        transition: 220ms;
+        transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+        translateY(var(--translate-y, 0));
+    }
+    .study-card:hover {
+        cursor: pointer;
+        box-shadow: 0 6px 5px 2px rgba(0, 0, 0, .5);
+        --translate-y: -2px;
+    }
+    .flip {
+        --rotate-y: 180deg;
+    }
+    .study-info {
+        position: absolute;
+        font-size: 1.4em;
+        line-height: 1.4;
+        color: $tertiaryColor;
+        padding: 2rem;
+        backface-visibility: hidden;
+    }
+    .card-back {
+        transform: rotateY(180deg);
+        p {
+            font-weight: 700;
+        }
+    
+    }
+    .move-card {
+        font-size: 1.3em;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 4px;
+        margin-right: 10px;
+        font-weight: 700;
+        margin-bottom: 50px;
+        background-color: $tertiaryColor;
+        color: $primaryColor;
+        transition: all .2s;
+        margin-bottom: 10px;
+    }
+    .move-card:hover {
+        background-color: $secondaryColor;
+    }
+    .move-card:active {
+        border-radius: 8px;
+    }
+    .studyset-btns {
+        p {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: $tertiaryColor;
+        }
+    }
+}
