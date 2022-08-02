@@ -1,6 +1,25 @@
 @import '../../index.scss';
 
 #student-study {
+    .study-set-back-btn {
+        position: asbolute;
+        font-size: 1em;
+        border: 1px solid black;
+        border-radius: 4px;
+        background-color: $tertiaryColor;
+        color: $primaryColor;
+        margin-left: 2.5%;
+        padding: 7px 20px;
+        transition: .2s;
+    }
+    .study-set-back-btn:hover {
+        cursor: pointer;
+        color: $secondaryColor;
+    }
+    .study-set-back-btn:active {
+        border-radius: 8px;
+    }
+
     h1 {
         font-family: $pointNumber;
         color: $tertiaryColor;
@@ -29,8 +48,8 @@
         margin-bottom: 30px;
         transform-style: preserve-3d;
         border-radius: 8px;
-        width: 90%;
-        height: 500px;
+        width: 95%;
+        height: 375px;
         box-shadow: 0 6px 5px 2px rgba(0, 0, 0, .3);
         transition: 220ms;
         transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -62,9 +81,8 @@
     .move-card {
         font-size: 1.3em;
         border: none;
-        padding: 5px 20px;
+        padding: 5px 20px  0px;
         border-radius: 4px;
-        margin-right: 10px;
         font-weight: 700;
         margin-bottom: 50px;
         background-color: $tertiaryColor;
@@ -73,7 +91,7 @@
         margin-bottom: 10px;
     }
     .move-card:hover {
-        background-color: $secondaryColor;
+        color: $secondaryColor;
     }
     .move-card:active {
         border-radius: 8px;

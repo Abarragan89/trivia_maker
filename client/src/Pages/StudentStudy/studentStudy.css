@@ -55,6 +55,24 @@ body {
   justify-content: space-around;
 }
 
+#student-study .study-set-back-btn {
+  position: asbolute;
+  font-size: 1em;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #15133C;
+  color: #F1EEE9;
+  margin-left: 2.5%;
+  padding: 7px 20px;
+  transition: 0.2s;
+}
+#student-study .study-set-back-btn:hover {
+  cursor: pointer;
+  color: #EC994B;
+}
+#student-study .study-set-back-btn:active {
+  border-radius: 8px;
+}
 #student-study h1 {
   font-family: "Mochiy Pop One", sans-serif;
   color: #15133C;
@@ -80,8 +98,8 @@ body {
   margin-bottom: 30px;
   transform-style: preserve-3d;
   border-radius: 8px;
-  width: 90%;
-  height: 500px;
+  width: 95%;
+  height: 375px;
   box-shadow: 0 6px 5px 2px rgba(0, 0, 0, 0.3);
   transition: 220ms;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
@@ -112,9 +130,8 @@ body {
 #student-study .move-card {
   font-size: 1.3em;
   border: none;
-  padding: 5px 20px;
+  padding: 5px 20px 0px;
   border-radius: 4px;
-  margin-right: 10px;
   font-weight: 700;
   margin-bottom: 50px;
   background-color: #15133C;
@@ -123,7 +140,7 @@ body {
   margin-bottom: 10px;
 }
 #student-study .move-card:hover {
-  background-color: #EC994B;
+  color: #EC994B;
 }
 #student-study .move-card:active {
   border-radius: 8px;
