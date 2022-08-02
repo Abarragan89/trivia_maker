@@ -375,6 +375,7 @@ function ViewPublicGame() {
             <Header />
             {loggedIn && data ?
                 <>
+                    <h1 className='header-title'><span>Copy Game</span></h1>
                     <form id='create-game-form-view-public' onSubmit={handleSubmit}>
                         <div className='flex-box-sb'>
                             <input type='text' className='create-game-txt-input' defaultValue={data.getUserGames.gameTopic}

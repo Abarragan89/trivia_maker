@@ -364,6 +364,8 @@ function CreateGame() {
         <>
             <Header />
             {loggedIn ?
+            <>
+                <h1 className='header-title'><span>Create Game</span></h1>
                 <form id='create-game-form' onSubmit={handleSubmit}>
                     <div className='flex-box-sb' id='form-el-1'>
                         <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
@@ -571,6 +573,7 @@ function CreateGame() {
                     </ul>
                     <button onClick={() => mouseClickSound()} type='submit' id='create-game-btn'>Create Game</button>
                 </form>
+            </>
                 :
                 <p>404: You must be signed in to see this page</p>
             }

@@ -76,6 +76,26 @@ body {
   width: 8px;
 }
 
+.header-title {
+  margin-bottom: 10px;
+  font-family: "Mochiy Pop One", sans-serif;
+  font-size: 2em;
+  text-align: center;
+  color: #15133C;
+  margin: 55px 0 50px;
+  padding: 0;
+  width: 100%;
+  font-size: 1.7em;
+  line-height: 0.1rem;
+  border-bottom: 3px solid #EC994B;
+}
+.header-title span {
+  background: #F1EEE9;
+  color: #15133C;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
 #create-game-form {
   margin: 0 auto;
   margin-top: 20px;
