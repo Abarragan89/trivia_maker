@@ -200,7 +200,7 @@ function HomePage() {
                                     </div>
                                 </aside>
                                 <div id='donation-texts'>
-                                    <p>Any and all donatins are greatly appreciated!</p>
+                                    <p>Any and all donations are greatly appreciated!</p>
                                     <a href="https://www.buymeacoffee.com/anthonybar" rel='noreferrer' target="_blank">
                                         <img id='buy-me-coffee-img'
                                             src={"https://cdn.buymeacoffee.com/buttons/v2/default-blue.png"} alt="Buy Me A Coffee"
