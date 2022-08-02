@@ -15,7 +15,6 @@
     }
 }
 
-
 #search-form {
     text-align: center;
 }
@@ -69,6 +68,7 @@
     aside {
         margin: 5%;
         margin-bottom: 0;
+        margin-right: 30px;
         margin-top: 110px;
         flex-basis: 1;
         width: 200px;
@@ -117,8 +117,16 @@
             background-color: $primaryColor;
         }
     }
-
-
+    
+    #donation-texts {
+       margin: 5%;
+       text-align: center;
+       width: 200px;
+       p {
+          font-size: .9em;  
+          font-style: italic;
+       }
+    }
 }
 
 .public-game-card {
@@ -186,6 +194,13 @@
                 padding: 10px;
                 font-size: 1.1em;
             }
+        }
+        #donation-texts {
+            width: fit-content;
+            margin: 0 auto;
+            margin-top: 10px;
+            display:flex;
+            flex-direction: column;
         }
     }
     .public-game-card {

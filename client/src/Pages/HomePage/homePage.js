@@ -49,7 +49,7 @@ function HomePage() {
 
 
     // MouseClick Sound
-    const [mouseClickSound] = useSound(mouseClick, {volume: .6})
+    const [mouseClickSound] = useSound(mouseClick, { volume: .6 })
 
     const { data: userInfo } = useQuery(QUERY_ME_BASIC)
     const username = userInfo?.me?.username
@@ -63,7 +63,7 @@ function HomePage() {
     let { data } = useQuery(QUERY_PUBLIC_GAMES)
     let gameData = useMemo(() => data?.getPublicGames || [], [data]);
 
-    const [publicGames, setPublicGames] = useState (gameData)
+    const [publicGames, setPublicGames] = useState(gameData)
     useEffect(() => {
         setPublicGames(gameData)
     }, [gameData])
@@ -184,16 +184,38 @@ function HomePage() {
                                     </>
                                 }
                             </section>
-                            <aside>
-                                <div>
-                                    <h2>Welcome</h2>
-                                    <p>{username}</p>
+                            <div>
+                                <aside>
+                                    <div>
+                                        <h2>Welcome</h2>
+                                        <p>{username}</p>
+                                    </div>
+                                    <div>
+                                        <h3 onClick={randomFact}>Get Nosey</h3>
+                                        <p>{randomFactText}</p>
+                                    </div>
+                                    <div>
+
+
+                                    </div>
+                                </aside>
+                                <div id='donation-texts'>
+                                    <p>Any and all donatins are greatly appreciated!</p>
+                                    <a href="https://www.buymeacoffee.com/anthonybar" rel='noreferrer' target="_blank">
+                                        <img id='buy-me-coffee-img'
+                                            src={"https://cdn.buymeacoffee.com/buttons/v2/default-blue.png"} alt="Buy Me A Coffee"
+                                            style={{
+                                                height: '40px',
+                                                width: '150px',
+                                                display: 'block',
+                                                margin: '0 auto',
+                                                marginTop: '5px'
+                                            }} />
+                                    </a>
+
                                 </div>
-                                <div>
-                                    <h3 onClick={randomFact}>Get Nosey</h3>
-                                    <p>{randomFactText}</p>
-                                </div>
-                            </aside>
+
+                            </div>
                         </div>
                     </main>
                     <Footer />
