@@ -23,6 +23,25 @@
     width: 8px;
 }
 
+.header-title {
+    margin-bottom: 10px;
+    font-family: $pointNumber;
+    font-size: 2em;
+    text-align: center;
+    color: $tertiaryColor;
+    margin: 55px 0 50px;
+    padding: 0;
+    width: 100%;
+    font-size: 1.7em;
+    line-height: 0.1rem;
+    border-bottom: 3px solid $secondaryColor;
+    span {
+        background: $primaryColor;
+        color: $tertiaryColor;
+        padding: 0 10px;
+        margin: 0 auto;
+    }
+}
 
 
 // styles for outside the accordion
