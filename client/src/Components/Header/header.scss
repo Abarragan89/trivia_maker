@@ -50,8 +50,10 @@
 }
 
 @media screen and (max-width: 335px) {
-
     #main-header {
         flex-direction: column;
+        .mobile-nav {
+            padding-bottom: 1.5em;
+        }
     }
 }

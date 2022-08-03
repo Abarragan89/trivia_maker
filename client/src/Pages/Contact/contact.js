@@ -51,6 +51,7 @@ function Contact() {
             <section className='section' id='contact-page'>
                 <h1><span>Contact  Me</span></h1>
                 <form ref={form} id='contact-form' onSubmit={handleSubmit}>
+                <p>Feedback is welcomed. I am always looking for ways to improve user experience.</p>
                     <div className="form-div">
                         <label htmlFor='name'>Name:</label><br />
                         <input type='text' defaultValue={name} name='name' id='name' onBlur={handleChange} required/>

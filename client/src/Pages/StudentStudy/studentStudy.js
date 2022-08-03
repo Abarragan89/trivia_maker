@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_STUDY_SET } from '../../utils/queries';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Header from '../../Components/Header/header';
 import './studentStudy.css';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
@@ -9,18 +9,24 @@ import mouseClick from '../../assets/sounds/mouse-click.wav';
 import flipCard from '../../assets/sounds/flip-card.wav';
 import wrongAnswer from '../../assets/sounds/wrong-answer-flashcard.wav';
 import correctAnswer from '../../assets/sounds/correct-answer-flashcard.wav';
+import endGame from '../../assets/sounds/end-game-study-set.wav';
 import { useEffect, useState } from 'react';
 
 
 function StudentStudy() {
-    // MouseClick Sound
+    //saved highscore
+    const highScore = localStorage.getItem('highscore')
+
+    // Sounds
     const [mouseClickSound] = useSound(mouseClick, { volume: .3 })
     const [wrongAnswerSound] = useSound(wrongAnswer, { volume: .3 })
     const [flipCardSound] = useSound(flipCard, { volume: .3 })
     const [correctAnswerSound] = useSound(correctAnswer, { volume: .3 })
+    const [endGameSound] = useSound(endGame, { volume: .3 })
 
 
     const gameId = useParams().gameId
+    const teacherName = useParams().teacher
     const navigate = useNavigate();
     const { data } = useQuery(QUERY_SINGLE_STUDY_SET, {
         variables: { gameId }
@@ -63,13 +69,10 @@ function StudentStudy() {
     //   }
 
 
-    const [currentCard, setCurrentCard] = useState(0, )
+    const [currentCard, setCurrentCard] = useState(0,)
     const [flip, setFlip] = useState(false)
 
     function nextCard(number) {
-        console.log('currentCard next ', currentCard)
-        console.log('studySet next', studySet)
-        console.log('length in Next', studySet.length)
         mouseClickSound();
         setFlip(false)
         const allStudyCards = document.querySelectorAll('.study-card');
@@ -87,9 +90,6 @@ function StudentStudy() {
     }
 
     function previousCard(number) {
-        console.log('currentCard previous', currentCard)
-        console.log('studySet previous', studySet)
-        console.log('length in previous', studySet.length)
         mouseClickSound();
         setFlip(false);
         const allStudyCards = document.querySelectorAll('.study-card')
@@ -109,7 +109,7 @@ function StudentStudy() {
     function flipCardFunct(deduce) {
         flipCardSound();
         setFlip(!flip);
-        if (!flip && deduce) {
+        if (!flip && !deduce) {
             setScore(score - 1)
         }
     }
@@ -121,12 +121,12 @@ function StudentStudy() {
         let response = e.target.firstChild.value;
         if (response.toLowerCase() === answer.toLowerCase()) {
             correctAnswerSound();
-            setScore(score + 1) 
             flipCardFunct(true);
             correctAnswerAnimation();
             return;
         } else {
             wrongAnswerSound()
+            setScore(score => score - 1)
             return
         }
     }
@@ -143,62 +143,98 @@ function StudentStudy() {
             setStudySet((studySet) => studySet.filter((_, index) => index !== currentCard))
             flashcardEl.style.animation = 'none'
             if (studySet.length === 1) {
-                winningScreen()
+                if (score > highScore) {
+                    localStorage.setItem('highscore', score)
+                }
+                setHasWon(true)
+                endGameSound();
             } else if (studySet.length === 2 && currentCard === 0) {
                 // I have to decrement the card value because it will increase in the nextCard function and be out of order
                 setCurrentCard(currentCard - 1)
-                nextCard(0) 
-            } else if (currentCard === 0 ) {
+                nextCard(0)
+            } else if (currentCard === 0) {
                 // I have to decrement the card value because it will increase in the nextCard function and be out of order
                 setCurrentCard(currentCard - 1)
                 nextCard(0)
             } else {
                 previousCard(currentCard - 1)
             }
-        }, 1500)
+        }, 1800)
     }
 
-    function winningScreen() {
-
-    }
     return (
         <>
             <Header />
             <main id='student-study'>
-                <div className='flex-box-sb-wrap'>
-                    <button className='study-set-back-btn' onClick={() => navigate(-1)}>Quit</button>
-                    <h1>{studyTopic}</h1>
-                    <h2>Score: <span>{score}</span></h2>
-                </div>
+                {
+                    hasWon ?
+                        <>
+                            <div className='flex-box-sb-wrap'>
+                                <Link className='study-set-back-btn' to={`/student-dashboard/${teacherName}`}>Quit</Link>
+                                <p className='studySet-highscore'>Highscore: <span>{highScore}</span></p>
+                            </div>
+                                <h1>{studyTopic}</h1>
 
-                <section className='flex-box-sa card-line'>
-                    {studySet && studySet.map((card, index) => (
-                        <div
-                            onClick={flipCardFunct}
-                            className={`study-card ${flip ? 'flip' : ''}`}
-                            key={index}>
-                            <div className='study-info card-front'>
-                                <p>{card.question}</p>
+                            {score === 100 ?
+                                <div className='end-game-div'>
+                                    <h2 className='end-game-text'>Way to Go!! You kept it <span>💯</span></h2>
+                                    <p className='study-set-back-btn retry-btn' onClick={() => window.location.reload()}>retry</p>
+
+                                </div>
+                                :
+                                score >= highScore ?
+                                    <div className='end-game-div'>
+                                        <p className='end-game-text'>Score: <span>{score}</span></p>
+                                        <h3 className=''>You set a new high score!</h3>
+                                        <p className='study-set-back-btn retry-btn'  onClick={() => window.location.reload()}>retry</p>
+
+                                    </div>
+                                    :
+                                    <div className='end-game-div'>
+                                        <p className='end-game-text'>Score: <span>{score}</span></p>
+                                        <h3 className=''>Nice try, Keep practicing!</h3>
+                                        <p className='study-set-back-btn retry-btn' onClick={() => window.location.reload()}>retry</p>
+                                    </div>
+                            }
+                        </>
+                        :
+                        <>
+                            <div className='flex-box-sb-wrap'>
+                                <Link className='study-set-back-btn' to={`/student-dashboard/${teacherName}`}>Quit</Link>
+                                <h2 className='studySet-highscore'>Score: <span>{score}</span></h2>
                             </div>
-                            <div className='study-info card-back'>
-                                <p>{card.answer}</p>
+                                <h1>{studyTopic}</h1>
+
+                            <section className='flex-box-sa card-line'>
+                                {studySet && studySet.map((card, index) => (
+                                    <div
+                                        onClick={() => flipCardFunct(false)}
+                                        className={`study-card ${flip ? 'flip' : ''}`}
+                                        key={index}>
+                                        <div className='study-info card-front'>
+                                            <p>{card.question}</p>
+                                        </div>
+                                        <div className='study-info card-back'>
+                                            <p>{card.answer}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </section>
+                            <div className='flex-box-sa studyset-btns'>
+                                <button className='move-card' onClick={() => previousCard(currentCard - 1)}><AiOutlineArrowLeft /></button>
+                                <p>{studySet.length === 1 ? 1 : currentCard + 1} / {studySet.length}</p>
+                                <button className='move-card' onClick={() => nextCard(currentCard + 1)}><AiOutlineArrowRight /></button>
                             </div>
-                        </div>
-                    ))}
-                </section>
-                <div className='flex-box-sa studyset-btns'>
-                    <button className='move-card' onClick={() => previousCard(currentCard - 1)}><AiOutlineArrowLeft /></button>
-                    <p>{studySet.length === 1 ? 1 : currentCard + 1} / {studySet.length}</p>
-                    <button className='move-card' onClick={() => nextCard(currentCard + 1)}><AiOutlineArrowRight /></button>
-                </div>
-                <div>
-                    {!flip &&
-                        <form onSubmit={(e) => scoreResponse(e, studySet[currentCard].answer)}>
-                            <input type='text' id='answer-flashcard' autoComplete='off' className='search-public-games' />
-                            <button className='submit-answer'>Submit</button>
-                        </form>
-                    }
-                </div>
+                            <div>
+                                {!flip &&
+                                    <form onSubmit={(e) => scoreResponse(e, studySet[currentCard].answer)}>
+                                        <input type='text' id='answer-flashcard' autoComplete='off' className='search-public-games' />
+                                        <button className='submit-answer'>Submit</button>
+                                    </form>
+                                }
+                            </div>
+                        </>
+                }
             </main>
         </>
     )

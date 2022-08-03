@@ -1,6 +1,69 @@
 @import '../../index.scss';
 
 #student-study {
+    .studySet-highscore {
+        font-size: 1.3em;
+        font-weight: 700;
+        align-self: baseline;
+        color: $tertiaryColor;
+        margin-right: 2.5%;
+        letter-spacing: .1em;
+        span {
+            color: $secondaryColor;
+        }
+    }
+    .end-game-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        border: 3px solid black;
+        position: relative;
+        padding: 2rem;
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 20px;
+        border-radius: 4px;
+        background-color: white;
+        animation: appearIn 2s;
+
+        .retry-btn {
+            width: fit-content;
+            margin: 0 auto;
+            background-color: $tertiaryColor;
+            color: $secondaryColor;
+        }
+        .retry-btn:hover {
+            color: $primaryColor
+        }
+        .end-game-text {
+            font-size: 2.5em;
+            font-family: $pointNumber;
+            color: $tertiaryColor;
+            text-align: center;
+            span {
+                display: block;
+                font-size: 4.5em;
+            }
+            .score {
+                color: $secondaryColor;
+            }
+        }
+        p.end-game-text {
+            span {
+                font-size: 1.4em;
+                color: $secondaryColor;
+                display: inline;
+            }
+        }
+        h3 {
+            color: $tertiaryColor;
+            font-size: 1.2em;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+    }
+
     h1 {
         align-self: baseline;
         font-family: $pointNumber;
@@ -9,13 +72,9 @@
         margin-bottom: 30px;
         font-size: 2em;
     }
-    h2 {
-        align-self: baseline;
-        margin-right: 2.5%;
-        font-size: 1.3em;
-    }
     .study-set-back-btn {
         align-self: baseline;
+        text-decoration: none;
         font-size: 1em;
         font-weight: 700;
         border: 1px solid black;
@@ -23,8 +82,9 @@
         background-color: $red;
         color: $primaryColor;
         margin-left: 2.5%;
-        padding: 6px 20px;
+        padding: 5px 10px;
         transition: .2s;
+        margin-bottom: 10px;
     }
     .study-set-back-btn:hover {
         cursor: pointer;
@@ -159,11 +219,34 @@
     
 }
 
+@keyframes appearIn {
+    from {
+        top: -500px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
 
 @media screen and (max-width: 500px) {
-    .study-card {
-        p {
-            font-size: .85em;
+    #main-header {
+        margin-bottom: 20px;
+    }
+    #student-study {
+        h1 {
+            margin-bottom: 10px;
+        }
+        .study-card {
+            height: 280px;
+            p {
+                font-size: .7em;
+            }
+        }
+        .study-set-back-btn {
+            margin-bottom: 0;
         }
     }
     

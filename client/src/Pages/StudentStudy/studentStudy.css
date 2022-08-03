@@ -61,6 +61,68 @@ body {
   justify-content: space-around;
 }
 
+#student-study .studySet-highscore {
+  font-size: 1.3em;
+  font-weight: 700;
+  align-self: baseline;
+  color: #15133C;
+  margin-right: 2.5%;
+  letter-spacing: 0.1em;
+}
+#student-study .studySet-highscore span {
+  color: #EC994B;
+}
+#student-study .end-game-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  border: 3px solid black;
+  position: relative;
+  padding: 2rem;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 4px;
+  background-color: white;
+  -webkit-animation: appearIn 2s;
+          animation: appearIn 2s;
+}
+#student-study .end-game-div .retry-btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #15133C;
+  color: #EC994B;
+}
+#student-study .end-game-div .retry-btn:hover {
+  color: #F1EEE9;
+}
+#student-study .end-game-div .end-game-text {
+  font-size: 2.5em;
+  font-family: "Mochiy Pop One", sans-serif;
+  color: #15133C;
+  text-align: center;
+}
+#student-study .end-game-div .end-game-text span {
+  display: block;
+  font-size: 4.5em;
+}
+#student-study .end-game-div .end-game-text .score {
+  color: #EC994B;
+}
+#student-study .end-game-div p.end-game-text span {
+  font-size: 1.4em;
+  color: #EC994B;
+  display: inline;
+}
+#student-study .end-game-div h3 {
+  color: #15133C;
+  font-size: 1.2em;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
 #student-study h1 {
   align-self: baseline;
   font-family: "Mochiy Pop One", sans-serif;
@@ -69,13 +131,9 @@ body {
   margin-bottom: 30px;
   font-size: 2em;
 }
-#student-study h2 {
-  align-self: baseline;
-  margin-right: 2.5%;
-  font-size: 1.3em;
-}
 #student-study .study-set-back-btn {
   align-self: baseline;
+  text-decoration: none;
   font-size: 1em;
   font-weight: 700;
   border: 1px solid black;
@@ -83,8 +141,9 @@ body {
   background-color: rgb(205, 0, 0);
   color: #F1EEE9;
   margin-left: 2.5%;
-  padding: 6px 20px;
+  padding: 5px 10px;
   transition: 0.2s;
+  margin-bottom: 10px;
 }
 #student-study .study-set-back-btn:hover {
   cursor: pointer;
@@ -218,8 +277,40 @@ body {
     top: -2000px;
   }
 }
+@-webkit-keyframes appearIn {
+  from {
+    top: -500px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes appearIn {
+  from {
+    top: -500px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
 @media screen and (max-width: 500px) {
-  .study-card p {
-    font-size: 0.85em;
+  #main-header {
+    margin-bottom: 20px;
+  }
+  #student-study h1 {
+    margin-bottom: 10px;
+  }
+  #student-study .study-card {
+    height: 280px;
+  }
+  #student-study .study-card p {
+    font-size: 0.7em;
+  }
+  #student-study .study-set-back-btn {
+    margin-bottom: 0;
   }
 }/*# sourceMappingURL=studentStudy.css.map */
