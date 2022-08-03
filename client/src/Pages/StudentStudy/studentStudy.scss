@@ -1,32 +1,39 @@
 @import '../../index.scss';
 
 #student-study {
+    h1 {
+        align-self: baseline;
+        font-family: $pointNumber;
+        color: $tertiaryColor;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+    h2 {
+        align-self: baseline;
+        margin-right: 2.5%;
+        font-size: 1.3em;
+    }
     .study-set-back-btn {
-        position: asbolute;
+        align-self: baseline;
         font-size: 1em;
+        font-weight: 700;
         border: 1px solid black;
         border-radius: 4px;
-        background-color: $tertiaryColor;
+        background-color: $red;
         color: $primaryColor;
         margin-left: 2.5%;
-        padding: 7px 20px;
+        padding: 6px 20px;
         transition: .2s;
     }
     .study-set-back-btn:hover {
         cursor: pointer;
-        color: $secondaryColor;
+        color: $tertiaryColor;
     }
     .study-set-back-btn:active {
         border-radius: 8px;
     }
 
-    h1 {
-        font-family: $pointNumber;
-        color: $tertiaryColor;
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 2.2em;
-    }
     .card-line {
         > div:not(:nth-child(1)) {
             display: none;
@@ -49,7 +56,7 @@
         transform-style: preserve-3d;
         border-radius: 8px;
         width: 95%;
-        height: 375px;
+        height: 350px;
         box-shadow: 0 6px 5px 2px rgba(0, 0, 0, .3);
         transition: 220ms;
         transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -103,4 +110,61 @@
             color: $tertiaryColor;
         }
     }
+    #answer-flashcard {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        text-align: center;
+        padding: 5px;
+        font-size: 1rem;
+        color: $tertiaryColor;
+        border-radius: 4px;
+        border: 1px solid $tertiaryColor;
+        font-family: $primaryFont;
+    }
+    #answer-flashcard:focus {
+        outline: 2px solid $secondaryColor;
+        border: 1px solid transparent;
+    }
+    .submit-answer {
+        background-color: $tertiaryColor;
+        display: block;
+        margin: 0 auto;
+        padding: 6px 40px;
+        margin-top: 20px;
+        border: 1px solid black;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $primaryColor;
+        transition: .2s;
+    }
+    .submit-answer:hover {
+        color: $secondaryColor;
+        cursor: pointer;
+    }
+    .submit-answer:active {
+        border-radius: 8px;
+    }
+}
+
+@keyframes flyAway {
+    from {
+        top: 0;
+    }
+    to {
+        top: -2000px;
+    }
+    
+}
+
+
+@media screen and (max-width: 500px) {
+    .study-card {
+        p {
+            font-size: .85em;
+        }
+    }
+    
 }
