@@ -31,7 +31,7 @@ function StudentDashboard() {
                                         <header className='flex-box-sb'>
                                             <h2>{studySet.gameTopic}</h2>
                                             <div>
-                                                <Link onClick={() => mouseClickSound()} to={`/student-study/${studySet._id}`}
+                                                <Link onClick={() => mouseClickSound()} to={`/student-study/${teacherName}/${studySet._id}`}
                                                 >
                                                     <button title='Play' className='public-feed-btns'><FaPlay /></button><br />
                                                 </Link>

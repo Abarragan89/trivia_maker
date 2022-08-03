@@ -37,6 +37,12 @@ body {
   flex-wrap: wrap;
 }
 
+.flex-box-sb-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -105,5 +111,8 @@ body {
 @media screen and (max-width: 335px) {
   #main-header {
     flex-direction: column;
+  }
+  #main-header .mobile-nav {
+    padding-bottom: 1.5em;
   }
 }/*# sourceMappingURL=header.css.map */

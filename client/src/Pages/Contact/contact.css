@@ -37,6 +37,12 @@ body {
   flex-wrap: wrap;
 }
 
+.flex-box-sb-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .flex-box-col-se {
   display: flex;
   flex-direction: column;
@@ -80,10 +86,14 @@ body {
   padding: 30px;
   margin: 0 auto;
   opacity: 100%;
-  border: 1px solid #EC994B;
   border-radius: 4px;
   -webkit-animation: fadeInContactForm 0.8s 0.8s both;
           animation: fadeInContactForm 0.8s 0.8s both;
+}
+#contact-page #contact-form > p {
+  color: #EC994B;
+  text-align: center;
+  margin-bottom: 20px;
 }
 #contact-page label {
   color: #F1EEE9;
@@ -164,5 +174,14 @@ body {
     margin-top: 5vw;
     margin-bottom: 6vw;
     opacity: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #contact-page #contact-form {
+    width: 98%;
+  }
+  #contact-page .form-div {
+    width: 100%;
   }
 }/*# sourceMappingURL=contact.css.map */

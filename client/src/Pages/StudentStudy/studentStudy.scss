@@ -1,13 +1,99 @@
 @import '../../index.scss';
 
 #student-study {
+    .studySet-highscore {
+        font-size: 1.3em;
+        font-weight: 700;
+        align-self: baseline;
+        color: $tertiaryColor;
+        margin-right: 2.5%;
+        letter-spacing: .1em;
+        span {
+            color: $secondaryColor;
+        }
+    }
+    .end-game-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        border: 3px solid black;
+        position: relative;
+        padding: 2rem;
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 20px;
+        border-radius: 4px;
+        background-color: white;
+        animation: appearIn 2s;
+
+        .retry-btn {
+            width: fit-content;
+            margin: 0 auto;
+            background-color: $tertiaryColor;
+            color: $secondaryColor;
+        }
+        .retry-btn:hover {
+            color: $primaryColor
+        }
+        .end-game-text {
+            font-size: 2.5em;
+            font-family: $pointNumber;
+            color: $tertiaryColor;
+            text-align: center;
+            span {
+                display: block;
+                font-size: 4.5em;
+            }
+            .score {
+                color: $secondaryColor;
+            }
+        }
+        p.end-game-text {
+            span {
+                font-size: 1.4em;
+                color: $secondaryColor;
+                display: inline;
+            }
+        }
+        h3 {
+            color: $tertiaryColor;
+            font-size: 1.2em;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+    }
+
     h1 {
+        align-self: baseline;
         font-family: $pointNumber;
         color: $tertiaryColor;
         text-align: center;
         margin-bottom: 30px;
-        font-size: 2.2em;
+        font-size: 2em;
     }
+    .study-set-back-btn {
+        align-self: baseline;
+        text-decoration: none;
+        font-size: 1em;
+        font-weight: 700;
+        border: 1px solid black;
+        border-radius: 4px;
+        background-color: $red;
+        color: $primaryColor;
+        margin-left: 2.5%;
+        padding: 5px 10px;
+        transition: .2s;
+        margin-bottom: 10px;
+    }
+    .study-set-back-btn:hover {
+        cursor: pointer;
+        color: $tertiaryColor;
+    }
+    .study-set-back-btn:active {
+        border-radius: 8px;
+    }
+
     .card-line {
         > div:not(:nth-child(1)) {
             display: none;
@@ -29,8 +115,8 @@
         margin-bottom: 30px;
         transform-style: preserve-3d;
         border-radius: 8px;
-        width: 90%;
-        height: 500px;
+        width: 95%;
+        height: 350px;
         box-shadow: 0 6px 5px 2px rgba(0, 0, 0, .3);
         transition: 220ms;
         transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -62,9 +148,8 @@
     .move-card {
         font-size: 1.3em;
         border: none;
-        padding: 5px 20px;
+        padding: 5px 20px  0px;
         border-radius: 4px;
-        margin-right: 10px;
         font-weight: 700;
         margin-bottom: 50px;
         background-color: $tertiaryColor;
@@ -73,7 +158,7 @@
         margin-bottom: 10px;
     }
     .move-card:hover {
-        background-color: $secondaryColor;
+        color: $secondaryColor;
     }
     .move-card:active {
         border-radius: 8px;
@@ -85,4 +170,84 @@
             color: $tertiaryColor;
         }
     }
+    #answer-flashcard {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        text-align: center;
+        padding: 5px;
+        font-size: 1rem;
+        color: $tertiaryColor;
+        border-radius: 4px;
+        border: 1px solid $tertiaryColor;
+        font-family: $primaryFont;
+    }
+    #answer-flashcard:focus {
+        outline: 2px solid $secondaryColor;
+        border: 1px solid transparent;
+    }
+    .submit-answer {
+        background-color: $tertiaryColor;
+        display: block;
+        margin: 0 auto;
+        padding: 6px 40px;
+        margin-top: 20px;
+        border: 1px solid black;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $primaryColor;
+        transition: .2s;
+    }
+    .submit-answer:hover {
+        color: $secondaryColor;
+        cursor: pointer;
+    }
+    .submit-answer:active {
+        border-radius: 8px;
+    }
+}
+
+@keyframes flyAway {
+    from {
+        top: 0;
+    }
+    to {
+        top: -2000px;
+    }
+    
+}
+
+@keyframes appearIn {
+    from {
+        top: -500px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    #main-header {
+        margin-bottom: 20px;
+    }
+    #student-study {
+        h1 {
+            margin-bottom: 10px;
+        }
+        .study-card {
+            height: 280px;
+            p {
+                font-size: .7em;
+            }
+        }
+        .study-set-back-btn {
+            margin-bottom: 0;
+        }
+    }
+    
 }
