@@ -40,6 +40,14 @@
     h3 {
         font-size: 2.5em;
     }
+    .mute-speaker {
+        font-size: 2em;
+        padding: 10px;
+        padding-bottom: 0;
+    }
+    .mute-speaker:hover {
+        cursor: pointer;
+    }
 
     .cardQuestionText {
         text-align: center;
