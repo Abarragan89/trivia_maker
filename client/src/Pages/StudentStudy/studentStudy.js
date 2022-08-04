@@ -99,7 +99,7 @@ function StudentStudy() {
         e.preventDefault();
         const inputEl = document.querySelector('#answer-flashcard');
         let response = e.target.firstChild.value;
-        if (response.toLowerCase() === answer.toLowerCase()) {
+        if (response.toLowerCase().trim() === answer.toLowerCase().trim()) {
             correctAnswerSound();
             flipCardFunct(true);
             correctAnswerAnimation();
