@@ -48,7 +48,7 @@ function Contact() {
     return (
         <>
             <Header />
-            <section className='section' id='contact-page'>
+            <section className=' section contact-page'>
                 <h1><span>Contact  Me</span></h1>
                 <form ref={form} id='contact-form' onSubmit={handleSubmit}>
                 <p>Feedback is welcomed. I am always looking for ways to improve user experience.</p>

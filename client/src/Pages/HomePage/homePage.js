@@ -114,7 +114,7 @@ function HomePage() {
                 <>
                     <Header />
                     <main>
-                        <form id='search-form'>
+                        <form id='search-form' onSubmit={(e) => e.preventDefault()}>
                             <input ref={upperPage} type='text' value={characters.current} onChange={searchPublicGames} placeholder='Search Public Games' id='search-public-games' name='search-public-games' />
                         </form>
                         <div id='homepage-feed' className='flex-box-sb'>

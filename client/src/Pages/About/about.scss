@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+#about-page {
+    width: 80%;
+    border: 3px solid $tertiaryColor;
+    border-radius: 4px;
+    padding: 2em;
+    margin: 60px auto;
+    line-height: 1.5em;
+    font-size: 1.2em;
+    p:not(:first-child):not(:last-child) {
+        text-indent: 30px;
+    }
+}
