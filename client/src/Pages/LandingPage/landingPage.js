@@ -21,7 +21,7 @@ function LandingPage() {
                 </figure>
                 <div className='landing-page-txt-div' id='landing-page-middle-section'>
                     <h2>Bonus Round!</h2>
-                    <p>Get a question correct and move on to the Bonus Round! try to stop the ball over a multiplier to add to your score.</p>
+                    <p>Get a question correct and move on to the Bonus Round! Try to stop the ball over a multiplier to add to your score.</p>
                 </div>
             </section>
 
@@ -49,7 +49,7 @@ function LandingPage() {
             <section className='flex-box-sb landing-page-section'>
                 <div className='landing-page-txt-div'>
                     <h2>Search, Edit, Save.</h2>
-                    <p>Search public games from other uses. View, edit, and save them to your own library!</p>
+                    <p>Search public games from other users. View, edit, and save them to your own library!</p>
                 </div>
                 <figure>
                 <img className='landing-page-pic' src={require('../../assets/photos/publicGames.png')} alt='homepage where users are presented with a list of public games'/>

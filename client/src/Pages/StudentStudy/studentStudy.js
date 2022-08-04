@@ -130,7 +130,7 @@ function StudentStudy() {
             flashcardEl.style.animation = 'none'
             if (studySet.length === 1) {
                 if (score > highScore) {
-                    localStorage.setItem('highscore', score)
+                    localStorage.setItem(`highscore${gameId}`, score)
                 }
                 setHasWon(true)
                 endGameSound();
