@@ -105,14 +105,14 @@ function StudentStudy() {
             correctAnswerAnimation();
             return;
         } else {
-            inputEl.style.animation = 'turnRed .5s'
+            inputEl.style.animation = 'turnRed 1.8s'
             inputEl.style.color = 'white'
             wrongAnswerSound()
             setScore(score => score - 1)
             setTimeout(() => {
                 inputEl.style.animation = '';
                 inputEl.style.color = 'black';
-            }, 500)
+            }, 1800)
             return
         }
     }
