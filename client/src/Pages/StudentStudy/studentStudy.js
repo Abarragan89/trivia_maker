@@ -97,6 +97,7 @@ function StudentStudy() {
     const [score, setScore] = useState(100)
     function scoreResponse(e, answer) {
         e.preventDefault();
+        const inputEl = document.querySelector('#answer-flashcard');
         let response = e.target.firstChild.value;
         if (response.toLowerCase() === answer.toLowerCase()) {
             correctAnswerSound();
@@ -104,8 +105,14 @@ function StudentStudy() {
             correctAnswerAnimation();
             return;
         } else {
+            inputEl.style.animation = 'turnRed .5s'
+            inputEl.style.color = 'white'
             wrongAnswerSound()
             setScore(score => score - 1)
+            setTimeout(() => {
+                inputEl.style.animation = '';
+                inputEl.style.color = 'black';
+            }, 500)
             return
         }
     }
@@ -115,8 +122,8 @@ function StudentStudy() {
 
     // need to remove card once correct
     function correctAnswerAnimation() {
-        const flashcardArray = document.querySelectorAll('.study-card')
-        const flashcardEl = flashcardArray[currentCard]
+        const flashcardArray = document.querySelectorAll('.study-card');
+        const flashcardEl = flashcardArray[currentCard];
         flashcardEl.style.animation = 'flyAway 2s .5s both';
         setTimeout(() => {
             setStudySet((studySet) => studySet.filter((_, index) => index !== currentCard))
