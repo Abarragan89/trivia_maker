@@ -93,7 +93,7 @@ function PlayerInput() {
                                 <label htmlFor='hard'>Hard</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='insane' name='ball-speed' value='25' required/>
+                                <input type='radio' id='insane' name='ball-speed' value='45' required/>
                                 <label htmlFor='insane'>Insane!</label>
                             </div>
                         </div>

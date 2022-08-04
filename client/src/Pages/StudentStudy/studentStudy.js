@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_STUDY_SET } from '../../utils/queries';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Header from '../../Components/Header/header';
 import './studentStudy.css';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
@@ -27,7 +27,6 @@ function StudentStudy() {
 
     const gameId = useParams().gameId
     const teacherName = useParams().teacher
-    const navigate = useNavigate();
     const { data } = useQuery(QUERY_SINGLE_STUDY_SET, {
         variables: { gameId }
     })
@@ -48,26 +47,6 @@ function StudentStudy() {
             }
         })
     }, [studyData])
-
-    // Fisher-Yates shuffle function 
-    // function shuffle(array) {
-    //     let currentIndex = array.length,  randomIndex;
-
-    //     // While there remain elements to shuffle.
-    //     while (currentIndex != 0) {
-
-    //       // Pick a remaining element.
-    //       randomIndex = Math.floor(Math.random() * currentIndex);
-    //       currentIndex--;
-
-    //       // And swap it with the current element.
-    //       [array[currentIndex], array[randomIndex]] = [
-    //         array[randomIndex], array[currentIndex]];
-    //     }
-
-    //     return array;
-    //   }
-
 
     const [currentCard, setCurrentCard] = useState(0,)
     const [flip, setFlip] = useState(false)
@@ -118,6 +97,7 @@ function StudentStudy() {
     const [score, setScore] = useState(100)
     function scoreResponse(e, answer) {
         e.preventDefault();
+        const inputEl = document.querySelector('#answer-flashcard');
         let response = e.target.firstChild.value;
         if (response.toLowerCase() === answer.toLowerCase()) {
             correctAnswerSound();
@@ -125,8 +105,14 @@ function StudentStudy() {
             correctAnswerAnimation();
             return;
         } else {
+            inputEl.style.animation = 'turnRed .5s'
+            inputEl.style.color = 'white'
             wrongAnswerSound()
             setScore(score => score - 1)
+            setTimeout(() => {
+                inputEl.style.animation = '';
+                inputEl.style.color = 'black';
+            }, 500)
             return
         }
     }
@@ -136,8 +122,8 @@ function StudentStudy() {
 
     // need to remove card once correct
     function correctAnswerAnimation() {
-        const flashcardArray = document.querySelectorAll('.study-card')
-        const flashcardEl = flashcardArray[currentCard]
+        const flashcardArray = document.querySelectorAll('.study-card');
+        const flashcardEl = flashcardArray[currentCard];
         flashcardEl.style.animation = 'flyAway 2s .5s both';
         setTimeout(() => {
             setStudySet((studySet) => studySet.filter((_, index) => index !== currentCard))

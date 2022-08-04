@@ -69,7 +69,7 @@
         font-family: $pointNumber;
         color: $tertiaryColor;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         font-size: 2em;
     }
     .study-set-back-btn {
@@ -84,7 +84,6 @@
         margin-left: 2.5%;
         padding: 5px 10px;
         transition: .2s;
-        margin-bottom: 10px;
     }
     .study-set-back-btn:hover {
         cursor: pointer;
@@ -116,7 +115,7 @@
         transform-style: preserve-3d;
         border-radius: 8px;
         width: 95%;
-        height: 350px;
+        height: 300px;
         box-shadow: 0 6px 5px 2px rgba(0, 0, 0, .3);
         transition: 220ms;
         transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -132,7 +131,7 @@
     }
     .study-info {
         position: absolute;
-        font-size: 1.4em;
+        font-size: 1.15em;
         line-height: 1.4;
         color: $tertiaryColor;
         padding: 2rem;
@@ -190,9 +189,8 @@
     .submit-answer {
         background-color: $tertiaryColor;
         display: block;
-        margin: 0 auto;
+        margin: 20px auto;
         padding: 6px 40px;
-        margin-top: 20px;
         border: 1px solid black;
         border-radius: 4px;
         font-size: 1rem;
@@ -230,6 +228,15 @@
     }
 }
 
+@keyframes turnRed {
+    from {
+        background-color: $primaryColor;
+    }
+    to {
+        background-color: $red;
+    }
+}
+
 
 @media screen and (max-width: 500px) {
     #main-header {
@@ -242,11 +249,8 @@
         .study-card {
             height: 280px;
             p {
-                font-size: .7em;
+                font-size: .75em;
             }
-        }
-        .study-set-back-btn {
-            margin-bottom: 0;
         }
     }
     

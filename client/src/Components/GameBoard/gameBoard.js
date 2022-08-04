@@ -8,15 +8,18 @@ import useSound from 'use-sound'
 function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setScoreChange }) {
 
 
-    const [suspenseMusicSound, { stop: stopSuspense }] = useSound(suspenseMusic, { volume: '.1'})
+    const [suspenseMusicSound, { stop: stopSuspense }] = useSound(suspenseMusic, { volume: '.2'})
 
     const gameId = useParams().gameId
 
     const [isModal, setIsModal] = useState(false)
     const [currentQuestionSet, setCurrentQuestionSet] = useState('')
+    const [muted, setMuted] = useState(false);
 
     function toggleModal(questionButton) {
-        suspenseMusicSound();
+        if(!muted) {
+            suspenseMusicSound();
+        }
         h1ref.current.scrollIntoView(
             {
                 behavior: 'auto',
@@ -56,6 +59,8 @@ function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setSc
                         stopSuspense={stopSuspense}
                         suspenseMusicSound={suspenseMusicSound}
                         ballSpeed={ballSpeed}
+                        muted={muted}
+                        setMuted={setMuted}
                     />}
                 <div id='gameboard-header-info' className='flex-box-sb'>
                     <p id='upNext'>Up Next: <span>{gamePlayers && gamePlayers.currentPlayer.name}</span></p>

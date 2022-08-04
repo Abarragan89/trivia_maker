@@ -128,7 +128,7 @@ body {
   font-family: "Mochiy Pop One", sans-serif;
   color: #15133C;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 2em;
 }
 #student-study .study-set-back-btn {
@@ -143,7 +143,6 @@ body {
   margin-left: 2.5%;
   padding: 5px 10px;
   transition: 0.2s;
-  margin-bottom: 10px;
 }
 #student-study .study-set-back-btn:hover {
   cursor: pointer;
@@ -171,7 +170,7 @@ body {
   transform-style: preserve-3d;
   border-radius: 8px;
   width: 95%;
-  height: 350px;
+  height: 300px;
   box-shadow: 0 6px 5px 2px rgba(0, 0, 0, 0.3);
   transition: 220ms;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
@@ -186,7 +185,7 @@ body {
 }
 #student-study .study-info {
   position: absolute;
-  font-size: 1.4em;
+  font-size: 1.15em;
   line-height: 1.4;
   color: #15133C;
   padding: 2rem;
@@ -242,9 +241,8 @@ body {
 #student-study .submit-answer {
   background-color: #15133C;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 6px 40px;
-  margin-top: 20px;
   border: 1px solid black;
   border-radius: 4px;
   font-size: 1rem;
@@ -297,6 +295,22 @@ body {
     opacity: 1;
   }
 }
+@-webkit-keyframes turnRed {
+  from {
+    background-color: #F1EEE9;
+  }
+  to {
+    background-color: rgb(205, 0, 0);
+  }
+}
+@keyframes turnRed {
+  from {
+    background-color: #F1EEE9;
+  }
+  to {
+    background-color: rgb(205, 0, 0);
+  }
+}
 @media screen and (max-width: 500px) {
   #main-header {
     margin-bottom: 20px;
@@ -308,9 +322,6 @@ body {
     height: 280px;
   }
   #student-study .study-card p {
-    font-size: 0.7em;
-  }
-  #student-study .study-set-back-btn {
-    margin-bottom: 0;
+    font-size: 0.75em;
   }
 }/*# sourceMappingURL=studentStudy.css.map */

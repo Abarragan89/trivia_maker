@@ -1,6 +1,6 @@
 import './modal.css';
-import { FaCheck } from 'react-icons/fa';
-import { FaTimes } from 'react-icons/fa';
+import { FaCheck, FaTimes } from 'react-icons/fa';
+import { BiVolumeFull, BiVolumeMute } from 'react-icons/bi';
 import BonusRound from '../BonusRound/bonusRound';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -19,11 +19,13 @@ function Modal({
     setScoreChange,
     stopSuspense,
     suspenseMusicSound,
-    ballSpeed
+    ballSpeed,
+    muted, 
+    setMuted
 }) {
     const [correctAnswerNoise] = useSound(correctAnswerSound, { volume: '.5' });
     const [incorrectAnswer] = useSound(wrongAnswerNotification, { volume: '.5' });
-    const [runnerUpWinSound] = useSound(runnerUpWinning, { volume: '.5'}); 
+    const [runnerUpWinSound] = useSound(runnerUpWinning, { volume: '.5' });
 
     const gameId = useParams().gameId
     // This triggers the bonus round
@@ -92,13 +94,16 @@ function Modal({
         setShowAnswer(true);
     }
     function hideAnswerFunction() {
-        suspenseMusicSound()
+        if (!muted) {
+            suspenseMusicSound()
+        }
         setShowAnswer(false);
     }
 
 
     // set random runner up
     const [runnerUp, setRunnerUp] = useState('')
+
     function addPointsToRunnerUp(e, points) {
         runnerUpWinSound();
         e.target.style.opacity = '0';
@@ -120,12 +125,31 @@ function Modal({
         }, 4)
 
     }
+
+    function muteSuspense () {
+        setMuted(true)
+        stopSuspense();
+    }
+
+    function unmuteSuspense () {
+        setMuted(false)
+        if(!correctAnswer && !showAnswer) {
+            suspenseMusicSound();
+        }
+    }
+
     return (
         <div className='modalBackdrop'>
             <section className='modalContainer' id='modalContainer'>
                 <div className='modalHeader flex-box-sb'>
                     <h4 className='player-info-in-modal'>{game.currentPlayer.name}</h4>
                     <h3 className='player-info-in-modal'>{playerScore}</h3>
+                    {
+                        muted ?
+                            <p className='mute-speaker' onClick={unmuteSuspense}><BiVolumeMute /></p>
+                            :
+                            <p className='mute-speaker' onClick={muteSuspense}><BiVolumeFull /></p>
+                    }
                 </div>
                 {correctAnswer ?
                     <BonusRound
