@@ -7,6 +7,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
 
+
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
@@ -21,6 +22,12 @@ app.use(express.json());
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      res.redirect(`https://who-nose-that.com`)
+    } else
+      next()
+  })
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 

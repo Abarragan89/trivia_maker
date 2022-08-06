@@ -1,12 +1,12 @@
 //////////// ROUTER ///////////////////
 import {
   BrowserRouter as Router,
-  Routes, 
+  Routes,
   Route,
 } from 'react-router-dom';
 
 /////////// COMPONENTS ////////////////
-import GamePage from './Pages/GamePage/gamePage.js'; 
+import GamePage from './Pages/GamePage/gamePage.js';
 import HomePage from './Pages/HomePage/homePage.js';
 import CreateGame from './Pages/CreateGame/createGame.js';
 import MyGames from './Pages/MyGames/myGames.js';
@@ -22,6 +22,7 @@ import StudentLogin from './Pages/StudentLogin/studentLogin.js';
 import StudentDashboard from './Pages/StudentDashboard/studentDashboard.js';
 import StudentStudy from './Pages/StudentStudy/studentStudy.js';
 import About from './Pages/About/about.js';
+import { Helmet } from 'react-helmet';
 
 // import Apollo Client package for context
 import {
@@ -65,8 +66,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Helmet>
+          <title>Who Nose That</title>
+          <meta name='title' content='Who Nose That' />
+          <meta name='description' content='Generate your own gameboard to play with your students or friends' />
+          <meta property='og:title' content='Who Nose That' />
+          <meta property='og:description' content='Generate your own gameboard to play with your students or friends' />
+          <meta property='og:url' content='https://who-nose-that.com' />
+          <meta name='keywords' content='who nose that, education, game, students, games, review games, jeopardy, classroom, classroom games' />
+          <meta name='robots' content='index, follow' />
+          <link rel='canonical' href='https://who-nose-that.com' />
+        </Helmet>
         <Routes>
-          {/* <Route path='/' element={<LandingPage />}></Route> */}
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/create-game' element={<CreateGame />}></Route>
@@ -83,7 +94,6 @@ function App() {
           <Route path='/about' element={<About />}></Route>
           <Route path="/student-dashboard/:teacher" element={<StudentDashboard />}></Route>
           <Route path="/student-study/:teacher/:gameId" element={<StudentStudy />}></Route>
-
         </Routes>
       </Router>
     </ApolloProvider>
