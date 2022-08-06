@@ -53,6 +53,14 @@ function NavLinks({ closeMobileMenu, isMobile }) {
                 transition={{ delay: 0.40 }}
                 className={`link-el`}
                 onClick={closeHamburger}
+            ><NavLink to='/about' className={'link-el'}>About</NavLink></motion.li >
+
+            <motion.li
+                initial={animateFrom}
+                animate={animateTo}
+                transition={{ delay: 0.45 }}
+                className={`link-el`}
+                onClick={closeHamburger}
             ><NavLink onClick={() => Auth.logout()} to='/' className={'link-el'}>Logout</NavLink></motion.li >
         </ul>
     );

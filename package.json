@@ -28,7 +28,6 @@
     "googleapis": "^100.0.0",
     "mongoose": "^5.9.9",
     "nodemailer": "^6.7.5",
-    "react-ga": "^3.3.1",
     "react-icons": "^4.4.0"
   },
   "devDependencies": {

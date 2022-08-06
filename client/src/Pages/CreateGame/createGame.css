@@ -191,7 +191,7 @@ body {
 }
 #question-accordion textarea {
   display: block;
-  width: 80%;
+  width: 100%;
   height: 60px;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -271,7 +271,7 @@ body {
   list-style: none;
   width: 100%;
   border: 1px solid black;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
   position: relative;
@@ -282,31 +282,67 @@ body {
   display: none;
 }
 #question-accordion li input[type=radio]:checked + .question-content {
-  max-height: 300px;
+  max-height: 350px;
 }
 #question-accordion #form-el-1 {
   -webkit-animation: dropDown 0.7s 0.2666666667s both;
           animation: dropDown 0.7s 0.2666666667s both;
+  transition: 0.2s;
+}
+#question-accordion #form-el-1:hover {
+  cursor: pointer;
+  box-shadow: -8px 12px 6px -6px rgb(70, 68, 68);
+  left: 1.5px;
 }
 #question-accordion #form-el-2 {
   -webkit-animation: dropDown 0.7s 0.4333333333s both;
           animation: dropDown 0.7s 0.4333333333s both;
+  transition: 0.2s;
+}
+#question-accordion #form-el-2:hover {
+  cursor: pointer;
+  box-shadow: -8px 12px 6px -6px rgb(70, 68, 68);
+  left: 1.5px;
 }
 #question-accordion #form-el-3 {
   -webkit-animation: dropDown 0.7s 0.6s both;
           animation: dropDown 0.7s 0.6s both;
+  transition: 0.2s;
+}
+#question-accordion #form-el-3:hover {
+  cursor: pointer;
+  box-shadow: -8px 12px 6px -6px rgb(70, 68, 68);
+  left: 1.5px;
 }
 #question-accordion #form-el-4 {
   -webkit-animation: dropDown 0.7s 0.7666666667s both;
           animation: dropDown 0.7s 0.7666666667s both;
+  transition: 0.2s;
+}
+#question-accordion #form-el-4:hover {
+  cursor: pointer;
+  box-shadow: -8px 12px 6px -6px rgb(70, 68, 68);
+  left: 1.5px;
 }
 #question-accordion #form-el-5 {
   -webkit-animation: dropDown 0.7s 0.9333333333s both;
           animation: dropDown 0.7s 0.9333333333s both;
+  transition: 0.2s;
+}
+#question-accordion #form-el-5:hover {
+  cursor: pointer;
+  box-shadow: -8px 12px 6px -6px rgb(70, 68, 68);
+  left: 1.5px;
 }
 #question-accordion #form-el-6 {
   -webkit-animation: dropDown 0.7s 1.1s both;
           animation: dropDown 0.7s 1.1s both;
+  transition: 0.2s;
+}
+#question-accordion #form-el-6:hover {
+  cursor: pointer;
+  box-shadow: -8px 12px 6px -6px rgb(70, 68, 68);
+  left: 1.5px;
 }
 
 label {

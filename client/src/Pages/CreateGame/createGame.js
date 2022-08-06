@@ -6,11 +6,12 @@ import Header from '../../Components/Header/header';
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import useSound from 'use-sound';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet'
 
 function CreateGame() {
 
     // MouseClick Sound
-    const [mouseClickSound] = useSound(mouseClick, { volume: .6})
+    const [mouseClickSound] = useSound(mouseClick, { volume: .6 })
 
     // used to check if the user is logged in
     const loggedIn = Auth.loggedIn()
@@ -336,244 +337,253 @@ function CreateGame() {
     }
 
     const [category1, setCategory1] = useState('')
-    function cat1OnChange (e) {
+    function cat1OnChange(e) {
         const { value } = e.target
-        setCategory1( value)
+        setCategory1(value)
     }
     const [category2, setCategory2] = useState('')
-    function cat2OnChange (e) {
+    function cat2OnChange(e) {
         const { value } = e.target
-        setCategory2( value)
+        setCategory2(value)
     }
     const [category3, setCategory3] = useState('')
-    function cat3OnChange (e) {
+    function cat3OnChange(e) {
         const { value } = e.target
-        setCategory3( value)
+        setCategory3(value)
     }
     const [category4, setCategory4] = useState('')
-    function cat4OnChange (e) {
+    function cat4OnChange(e) {
         const { value } = e.target
-        setCategory4( value)
+        setCategory4(value)
     }
     const [category5, setCategory5] = useState('')
-    function cat5OnChange (e) {
+    function cat5OnChange(e) {
         const { value } = e.target
-        setCategory5( value)
+        setCategory5(value)
     }
     return (
         <>
             <Header />
+            <Helmet>
+                <title>Create Game</title>
+                <meta name='title' content='Who Nose That' />
+                <meta name='description' content='Generate your own gameboard to play with your students or friends' />
+                <meta property='og:title' content='Who Nose That' />
+                <meta property='og:description' content='Generate your own gameboard to play with your students or friends' />
+                <meta property='og:url' content='https://who-nose-that.com' />
+                <link rel='canonical' href='https://who-nose-that.com' />
+            </Helmet>
             {loggedIn ?
-            <>
-                <h1 className='header-title'><span>Create Game</span></h1>
-                <form id='create-game-form' onSubmit={handleSubmit}>
-                    <div className='flex-box-sb' id='form-el-1'>
-                        <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
-                        <div>
-                            <input type='checkbox' id='study-set' name='study-set'></input>
-                            <label htmlFor='study-set'>Generate Study Set</label>
+                <>
+                    <h1 className='header-title'><span>Create Game</span></h1>
+                    <form id='create-game-form' onSubmit={handleSubmit}>
+                        <div className='flex-box-sb' id='form-el-1'>
+                            <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
+                            <div>
+                                <input type='checkbox' id='study-set' name='study-set'></input>
+                                <label htmlFor='study-set'>Generate Study Set</label>
+                            </div>
+                            <div>
+                                <input type='checkbox' id='public-game' name='public-game'></input>
+                                <label htmlFor='public-game'>Make Public</label>
+                            </div>
                         </div>
-                        <div>
-                            <input type='checkbox' id='public-game' name='public-game'></input>
-                            <label htmlFor='public-game'>Make Public</label>
-                        </div>
-                    </div>
-                    <ul id='question-accordion'>
-                        <li id='form-el-2'>
-                            <label htmlFor='category-one-radio' className='flex-box-sb category-label'>{`${!category1 ? 'Category One': category1}`}</label>
-                            <input type='radio' id='category-one-radio' name='accordion'></input>
-                            <section className='question-content'>
-                                <input type='text' data-category='c1' value={category1} onChange={cat1OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                        <ul id='question-accordion'>
+                            <li id='form-el-2'>
+                                <label htmlFor='category-one-radio' className='flex-box-sb category-label'>{`${!category1 ? 'Category One' : category1}`}</label>
+                                <input type='radio' id='category-one-radio' name='accordion'></input>
+                                <section className='question-content'>
+                                    <input type='text' data-category='c1' value={category1} onChange={cat1OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>100 Points</p>
-                                    <textarea data-category='c1' placeholder='Question' name='q1' className='question-input'></textarea>
-                                    <textarea data-category='c1' placeholder='Answer' name='a1' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>100 Points</p>
+                                        <textarea data-category='c1' placeholder='Question' name='q1' className='question-input'></textarea>
+                                        <textarea data-category='c1' placeholder='Answer' name='a1' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p htmlFor='c1-q2' className='point-label'>200 Points</p>
-                                    <textarea data-category='c1' placeholder='Question' name='q2' className='question-input'></textarea>
-                                    <textarea data-category='c1' placeholder='Answer' name='a2' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p htmlFor='c1-q2' className='point-label'>200 Points</p>
+                                        <textarea data-category='c1' placeholder='Question' name='q2' className='question-input'></textarea>
+                                        <textarea data-category='c1' placeholder='Answer' name='a2' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p htmlFor='c1-q3' className='point-label'>300 Points</p>
-                                    <textarea data-category='c1' placeholder='Question' name='q3' className='question-input'></textarea>
-                                    <textarea data-category='c1' placeholder='Answer' name='a3' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p htmlFor='c1-q3' className='point-label'>300 Points</p>
+                                        <textarea data-category='c1' placeholder='Question' name='q3' className='question-input'></textarea>
+                                        <textarea data-category='c1' placeholder='Answer' name='a3' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p htmlFor='c1-q4' className='point-label'>400 Points</p>
-                                    <textarea data-category='c1' placeholder='Question' name='q4' className='question-input'></textarea>
-                                    <textarea data-category='c1' placeholder='Answer' name='a4' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p htmlFor='c1-q4' className='point-label'>400 Points</p>
+                                        <textarea data-category='c1' placeholder='Question' name='q4' className='question-input'></textarea>
+                                        <textarea data-category='c1' placeholder='Answer' name='a4' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p htmlFor='c1-q5' className='point-label'>500 Points</p>
-                                    <textarea data-category='c1' placeholder='Question' name='q5' className='question-input'></textarea>
-                                    <textarea data-category='c1' placeholder='Answer' name='a5' className='question-input'></textarea>
-                                </div>
-                            </section>
-                        </li>
+                                    <div className='single-question-div'>
+                                        <p htmlFor='c1-q5' className='point-label'>500 Points</p>
+                                        <textarea data-category='c1' placeholder='Question' name='q5' className='question-input'></textarea>
+                                        <textarea data-category='c1' placeholder='Answer' name='a5' className='question-input'></textarea>
+                                    </div>
+                                </section>
+                            </li>
 
-                        {/* Category Two */}
-                        <li id='form-el-3'>
-                            <label htmlFor='category-two-radio' className='flex-box-sb category-label'>{`${!category2 ? 'Category Two': category2}`}</label>
-                            <input type='radio' id='category-two-radio' name='accordion'></input>
-                            <section className='question-content'>
-                                <input type='text' data-name='category' placeholder='Enter Topic' value={category2} onChange={cat2OnChange} className='question-input' data-category='c2' name='category-name' maxLength='115' />
+                            {/* Category Two */}
+                            <li id='form-el-3'>
+                                <label htmlFor='category-two-radio' className='flex-box-sb category-label'>{`${!category2 ? 'Category Two' : category2}`}</label>
+                                <input type='radio' id='category-two-radio' name='accordion'></input>
+                                <section className='question-content'>
+                                    <input type='text' data-name='category' placeholder='Enter Topic' value={category2} onChange={cat2OnChange} className='question-input' data-category='c2' name='category-name' maxLength='115' />
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>100 Points</p>
-                                    <textarea data-category='c2' placeholder='Question' name='q1' className='question-input'></textarea>
-                                    <textarea data-category='c2' placeholder='Answer' name='a1' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>100 Points</p>
+                                        <textarea data-category='c2' placeholder='Question' name='q1' className='question-input'></textarea>
+                                        <textarea data-category='c2' placeholder='Answer' name='a1' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>200 Points</p>
-                                    <textarea data-category='c2' placeholder='Question' name='q2' className='question-input'></textarea>
-                                    <textarea data-category='c2' placeholder='Answer' name='a2' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>200 Points</p>
+                                        <textarea data-category='c2' placeholder='Question' name='q2' className='question-input'></textarea>
+                                        <textarea data-category='c2' placeholder='Answer' name='a2' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>300 Points</p>
-                                    <textarea data-category='c2' placeholder='Question' name='q3' className='question-input'></textarea>
-                                    <textarea data-category='c2' placeholder='Answer' name='a3' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>300 Points</p>
+                                        <textarea data-category='c2' placeholder='Question' name='q3' className='question-input'></textarea>
+                                        <textarea data-category='c2' placeholder='Answer' name='a3' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>400 Points</p>
-                                    <textarea data-category='c2' placeholder='Question' name='q4' className='question-input'></textarea>
-                                    <textarea data-category='c2' placeholder='Answer' name='a4' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>400 Points</p>
+                                        <textarea data-category='c2' placeholder='Question' name='q4' className='question-input'></textarea>
+                                        <textarea data-category='c2' placeholder='Answer' name='a4' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>500 Points</p>
-                                    <textarea data-category='c2' placeholder='Question' name='q5' className='question-input'></textarea>
-                                    <textarea data-category='c2' placeholder='Answer' name='a5' className='question-input'></textarea>
-                                </div>
-                            </section>
-                        </li>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>500 Points</p>
+                                        <textarea data-category='c2' placeholder='Question' name='q5' className='question-input'></textarea>
+                                        <textarea data-category='c2' placeholder='Answer' name='a5' className='question-input'></textarea>
+                                    </div>
+                                </section>
+                            </li>
 
-                        {/* Category Three */}
-                        <li id='form-el-4' >
-                            <label htmlFor='category-three-radio' className='flex-box-sb category-label'>{`${!category3 ? 'Category Three': category3}`}</label>
-                            <input type='radio' id='category-three-radio' name='accordion'></input>
-                            <section className='question-content'>
-                                <input type='text' data-category='c3' value={category3} onChange={cat3OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                            {/* Category Three */}
+                            <li id='form-el-4' >
+                                <label htmlFor='category-three-radio' className='flex-box-sb category-label'>{`${!category3 ? 'Category Three' : category3}`}</label>
+                                <input type='radio' id='category-three-radio' name='accordion'></input>
+                                <section className='question-content'>
+                                    <input type='text' data-category='c3' value={category3} onChange={cat3OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>100 Points</p>
-                                    <textarea data-category='c3' placeholder='Question' name='q1' className='question-input'></textarea>
-                                    <textarea data-category='c3' placeholder='Answer' name='a1' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>100 Points</p>
+                                        <textarea data-category='c3' placeholder='Question' name='q1' className='question-input'></textarea>
+                                        <textarea data-category='c3' placeholder='Answer' name='a1' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>200 Points</p>
-                                    <textarea data-category='c3' placeholder='Question' name='q2' className='question-input'></textarea>
-                                    <textarea data-category='c3' placeholder='Answer' name='a2' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>200 Points</p>
+                                        <textarea data-category='c3' placeholder='Question' name='q2' className='question-input'></textarea>
+                                        <textarea data-category='c3' placeholder='Answer' name='a2' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>300 Points</p>
-                                    <textarea data-category='c3' placeholder='Question' name='q3' className='question-input'></textarea>
-                                    <textarea data-category='c3' placeholder='Answer' name='a3' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>300 Points</p>
+                                        <textarea data-category='c3' placeholder='Question' name='q3' className='question-input'></textarea>
+                                        <textarea data-category='c3' placeholder='Answer' name='a3' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>400 Points</p>
-                                    <textarea data-category='c3' placeholder='Question' name='q4' className='question-input'></textarea>
-                                    <textarea data-category='c3' placeholder='Answer' name='a4' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>400 Points</p>
+                                        <textarea data-category='c3' placeholder='Question' name='q4' className='question-input'></textarea>
+                                        <textarea data-category='c3' placeholder='Answer' name='a4' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>500 Points</p>
-                                    <textarea data-category='c3' placeholder='Question' name='q5' className='question-input'></textarea>
-                                    <textarea data-category='c3' placeholder='Answer' name='a5' className='question-input'></textarea>
-                                </div>
-                            </section>
-                        </li>
-                        {/* category four */}
-                        <li id='form-el-5'>
-                            <label htmlFor='category-four-radio' className='flex-box-sb category-label'>{`${!category4 ? 'Category Four': category4}`}</label>
-                            <input type='radio' id='category-four-radio' name='accordion'></input>
-                            <section className='question-content'>
-                                <input type='text' data-category='c4' value={category4} onChange={cat4OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>500 Points</p>
+                                        <textarea data-category='c3' placeholder='Question' name='q5' className='question-input'></textarea>
+                                        <textarea data-category='c3' placeholder='Answer' name='a5' className='question-input'></textarea>
+                                    </div>
+                                </section>
+                            </li>
+                            {/* category four */}
+                            <li id='form-el-5'>
+                                <label htmlFor='category-four-radio' className='flex-box-sb category-label'>{`${!category4 ? 'Category Four' : category4}`}</label>
+                                <input type='radio' id='category-four-radio' name='accordion'></input>
+                                <section className='question-content'>
+                                    <input type='text' data-category='c4' value={category4} onChange={cat4OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>100 Points</p>
-                                    <textarea data-category='c4' placeholder='Question' name='q1' className='question-input'></textarea>
-                                    <textarea data-category='c4' placeholder='Answer' name='a1' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>100 Points</p>
+                                        <textarea data-category='c4' placeholder='Question' name='q1' className='question-input'></textarea>
+                                        <textarea data-category='c4' placeholder='Answer' name='a1' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>200 Points</p>
-                                    <textarea data-category='c4' placeholder='Question' name='q2' className='question-input'></textarea>
-                                    <textarea data-category='c4' placeholder='Answer' name='a2' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>200 Points</p>
+                                        <textarea data-category='c4' placeholder='Question' name='q2' className='question-input'></textarea>
+                                        <textarea data-category='c4' placeholder='Answer' name='a2' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>300 Points</p>
-                                    <textarea data-category='c4' placeholder='Question' name='q3' className='question-input'></textarea>
-                                    <textarea data-category='c4' placeholder='Answer' name='a3' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>300 Points</p>
+                                        <textarea data-category='c4' placeholder='Question' name='q3' className='question-input'></textarea>
+                                        <textarea data-category='c4' placeholder='Answer' name='a3' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>400 Points</p>
-                                    <textarea data-category='c4' placeholder='Question' name='q4' className='question-input'></textarea>
-                                    <textarea data-category='c4' placeholder='Answer' name='a4' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>400 Points</p>
+                                        <textarea data-category='c4' placeholder='Question' name='q4' className='question-input'></textarea>
+                                        <textarea data-category='c4' placeholder='Answer' name='a4' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>500 Points</p>
-                                    <textarea data-category='c4' placeholder='Question' name='q5' className='question-input'></textarea>
-                                    <textarea data-category='c4' placeholder='Answer' name='a5' className='question-input'></textarea>
-                                </div>
-                            </section>
-                        </li>
-                        {/* Category Five */}
-                        <li id='form-el-6'>
-                            <label htmlFor='category-five-radio' className='flex-box-sb category-label'>{`${!category5 ? 'Category Five': category5}`}</label>
-                            <input type='radio' id='category-five-radio' name='accordion'></input>
-                            <section className='question-content'>
-                                <input type='text' data-category='c5' value={category5} onChange={cat5OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>500 Points</p>
+                                        <textarea data-category='c4' placeholder='Question' name='q5' className='question-input'></textarea>
+                                        <textarea data-category='c4' placeholder='Answer' name='a5' className='question-input'></textarea>
+                                    </div>
+                                </section>
+                            </li>
+                            {/* Category Five */}
+                            <li id='form-el-6'>
+                                <label htmlFor='category-five-radio' className='flex-box-sb category-label'>{`${!category5 ? 'Category Five' : category5}`}</label>
+                                <input type='radio' id='category-five-radio' name='accordion'></input>
+                                <section className='question-content'>
+                                    <input type='text' data-category='c5' value={category5} onChange={cat5OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>100 Points</p>
-                                    <textarea data-category='c5' placeholder='Question' name='q1' className='question-input'></textarea>
-                                    <textarea data-category='c5' placeholder='Answer' name='a1' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>100 Points</p>
+                                        <textarea data-category='c5' placeholder='Question' name='q1' className='question-input'></textarea>
+                                        <textarea data-category='c5' placeholder='Answer' name='a1' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>200 Points</p>
-                                    <textarea data-category='c5' placeholder='Question' name='q2' className='question-input'></textarea>
-                                    <textarea data-category='c5' placeholder='Answer' name='a2' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>200 Points</p>
+                                        <textarea data-category='c5' placeholder='Question' name='q2' className='question-input'></textarea>
+                                        <textarea data-category='c5' placeholder='Answer' name='a2' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>300 Points</p>
-                                    <textarea data-category='c5' placeholder='Question' name='q3' className='question-input'></textarea>
-                                    <textarea data-category='c5' placeholder='Answer' name='a3' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>300 Points</p>
+                                        <textarea data-category='c5' placeholder='Question' name='q3' className='question-input'></textarea>
+                                        <textarea data-category='c5' placeholder='Answer' name='a3' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>400 Points</p>
-                                    <textarea data-category='c5' placeholder='Question' name='q4' className='question-input'></textarea>
-                                    <textarea data-category='c5' placeholder='Answer' name='a4' className='question-input'></textarea>
-                                </div>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>400 Points</p>
+                                        <textarea data-category='c5' placeholder='Question' name='q4' className='question-input'></textarea>
+                                        <textarea data-category='c5' placeholder='Answer' name='a4' className='question-input'></textarea>
+                                    </div>
 
-                                <div className='single-question-div'>
-                                    <p className='point-label'>500 Points</p>
-                                    <textarea data-category='c5' placeholder='Question' name='q5' className='question-input'></textarea>
-                                    <textarea data-category='c5' placeholder='Answer' name='a5' className='question-input'></textarea>
-                                </div>
-                            </section>
-                        </li>
-                    </ul>
-                    <button onClick={() => mouseClickSound()} type='submit' id='create-game-btn'>Create Game</button>
-                </form>
-            </>
+                                    <div className='single-question-div'>
+                                        <p className='point-label'>500 Points</p>
+                                        <textarea data-category='c5' placeholder='Question' name='q5' className='question-input'></textarea>
+                                        <textarea data-category='c5' placeholder='Answer' name='a5' className='question-input'></textarea>
+                                    </div>
+                                </section>
+                            </li>
+                        </ul>
+                        <button onClick={() => mouseClickSound()} type='submit' id='create-game-btn'>Create Game</button>
+                    </form>
+                </>
                 :
                 <p>404: You must be signed in to see this page</p>
             }
