@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import useSound from 'use-sound';
 import bonusReceived from '../../assets/sounds/bonus-received.wav'
 import missedBonusSound from '../../assets/sounds/missed-bonus.wav'
+import { useEffect } from 'react';
 
 function BonusRound({
   pointValue,
@@ -19,15 +20,18 @@ function BonusRound({
   const [hitBonus] = useSound(bonusReceived, { volume: '.5'});
   const [missedBonus] = useSound(missedBonusSound, { volume: '.5'})
 
-
   const gameId = useParams().gameId
-
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
-
-  // Make speed 5
-  const ballRef = useRef({ x: Math.floor(Math.random() * 299), y: Math.floor(Math.random() * 299), vx: ballSpeed, vy: ballSpeed, radius: 5 });
+  
   const size = { width: 300, height: 400 };
+  
+  const ballRef = useRef({ x: 0, y: 0, vx: ballSpeed, vy: ballSpeed, radius: 5 });
+  useEffect(() => {
+    ballRef.current.x = Math.random() < 0.5 ? -1 : 1;
+    ballRef.current.y = Math.random() < 0.5 ? -1 : 1;
+  })
+
 
   const updateBall = () => {
     const ball = ballRef.current;
@@ -50,6 +54,8 @@ function BonusRound({
       ball.y = ball.radius;
     }
   };
+  // Make speed 5
+
 
   const renderFrame = () => {
     const ctx = canvasRef.current.getContext('2d');

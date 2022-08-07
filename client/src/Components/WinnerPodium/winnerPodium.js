@@ -5,7 +5,7 @@ import winningMusicSound from '../../assets/sounds/winners-circle.wav';
 import useSound from 'use-sound';
 
 function WinnerPodium() {
-    const [winningMusic, {stop}] = useSound(winningMusicSound, { volume: '.3'});
+    const [winningMusic, { stop }] = useSound(winningMusicSound, { volume: '.3' });
 
     // get game form players
     const gameInstance = useLocation().state;
@@ -68,15 +68,18 @@ function WinnerPodium() {
                         {playerPodium.map((rankings, Podiumindex) => (
                             <div id='ranking-section' key={Podiumindex}>
                                 <div className='flex-box-se score-header'>
-                                    <h3>{playerPodium.length - (playerPodium.length - (playerPodium.length - Podiumindex))}
-                                        <span>{Podiumindex === playerPodium.length -1 ? 'st' : Podiumindex === playerPodium.length -2 ? 'nd' : 'rd'}</span>
-                                    </h3>
-                                    <h5>Score: {rankings.score}</h5>
-                                </div>
-                                <div className='flex-box-se'>
-                                    {rankings.names.map((name, index) => (
-                                        <p key={index}>{name}</p>
-                                    ))}
+                                    <div className='flex-box-col-se'>
+                                        <h3>{playerPodium.length - (playerPodium.length - (playerPodium.length - Podiumindex))}
+                                            <span>{Podiumindex === playerPodium.length - 1 ? 'st' : Podiumindex === playerPodium.length - 2 ? 'nd' : 'rd'}</span>
+                                        </h3>
+                                        <h5>Score: {rankings.score}</h5>
+
+                                    </div>
+                                    <div className='flex-box-se'>
+                                        {rankings.names.map((name, index) => (
+                                            <p key={index}>{name}</p>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         ))}

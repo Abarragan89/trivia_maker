@@ -38,12 +38,6 @@ function GamePage() {
 
     return (
         <main id='main-gamepage'>
-            <Helmet>
-                <title>Game Play</title>
-                <meta name='title' content='Who Nose That' />
-                <meta name='description' content='Gameboard gameplay' />
-                <meta name='keywords' content='who nose that, education, game, students, games, review games, jeopardy, classroom, classroom games' />
-            </Helmet>
             <h1 id='game-title' ref={h1Text}><span>{gameTopic}</span></h1>
             <section id="gameBoard">
                 <GameBoard

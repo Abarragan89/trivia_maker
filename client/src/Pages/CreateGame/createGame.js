@@ -364,15 +364,6 @@ function CreateGame() {
     return (
         <>
             <Header />
-            <Helmet>
-                <title>Create Game</title>
-                <meta name='title' content='Who Nose That' />
-                <meta name='description' content='Generate your own gameboard to play with your students or friends' />
-                <meta property='og:title' content='Who Nose That' />
-                <meta property='og:description' content='Generate your own gameboard to play with your students or friends' />
-                <meta property='og:url' content='https://who-nose-that.com' />
-                <link rel='canonical' href='https://who-nose-that.com' />
-            </Helmet>
             {loggedIn ?
                 <>
                     <h1 className='header-title'><span>Create Game</span></h1>
