@@ -66,17 +66,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Helmet>
+        {/* <Helmet>
           <title>Who Nose That</title>
           <meta name='title' content='Who Nose That' />
           <meta name='description' content='Generate your own gameboard to play with your students or friends' />
           <meta property='og:title' content='Who Nose That' />
           <meta property='og:description' content='Generate your own gameboard to play with your students or friends' />
           <meta property='og:url' content='https://who-nose-that.com' />
-          <meta name='keywords' content='who nose that, education, game, students, games, review games, jeopardy, classroom, classroom games' />
+          <meta name='keywords' content='who nose that, trivia, trivia maker, education, game, students, games, review games, jeopardy, classroom, classroom games' />
           <meta name='robots' content='index, follow' />
           <link rel='canonical' href='https://who-nose-that.com' />
-        </Helmet>
+        </Helmet> */}
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/login' element={<Login />}></Route>

@@ -320,7 +320,7 @@ body {
 }
 #winner-podium-container #podium #ranking-section .score-header {
   align-items: baseline;
-  border-bottom: 2px solid #EC994B;
+  border: 2px solid #EC994B;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -330,7 +330,7 @@ body {
   font-family: "Mochiy Pop One", sans-serif;
 }
 #winner-podium-container #podium #ranking-section h5 {
-  font-size: 1.4em;
+  font-size: 1em;
   color: #73777B;
   align-self: baseline;
 }

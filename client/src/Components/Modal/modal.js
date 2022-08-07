@@ -174,7 +174,7 @@ function Modal({
                                             <>
                                                 {runnerUp &&
                                                     <div>
-                                                        <button className='modal-buttons' onClick={() => addPointsToRunnerUp(questionData.points)}>Award to Runner-Up</button>
+                                                        <button className='modal-buttons' onClick={(e) => addPointsToRunnerUp(e, questionData.points)}>Award to Runner-Up</button>
                                                         <div className='flex-box-sa'>
                                                             <p className='runnerup-name-adding'>{runnerUp.name}</p>
                                                             <p className='runnerup-name-adding'>{runnerUp.score}</p>
