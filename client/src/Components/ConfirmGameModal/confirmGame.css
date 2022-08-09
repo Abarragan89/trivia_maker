@@ -87,6 +87,7 @@ body {
 .confirmationModalBackdrop .modalContainer #confirmation-title {
   color: #15133C;
   font-size: 2.5em;
+  word-break: break-word;
 }
 .confirmationModalBackdrop .modalContainer .player-names-confirmation {
   font-size: 2em;

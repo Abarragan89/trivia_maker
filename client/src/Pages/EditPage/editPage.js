@@ -390,7 +390,7 @@ function EditGame() {
                     <form id='create-game-form-edit' onSubmit={handleSubmit}>
                         <div className='flex-box-sb'>
                             <input type='text' className='create-game-txt-input' defaultValue={data.getUserGames.gameTopic}
-                                placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
+                                placeholder='Game Title' id='game-topic' name='game-topic' autoComplete='off' autoFocus required></input>
                             <div>
                                 <input type='checkbox' id='study-set' name='study-set'></input>
                                 <label htmlFor='study-set'>Generate Study Set</label>
