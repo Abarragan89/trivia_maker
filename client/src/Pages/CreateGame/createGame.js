@@ -369,7 +369,7 @@ function CreateGame() {
                     <h1 className='header-title'><span>Create Game</span></h1>
                     <form id='create-game-form' onSubmit={handleSubmit}>
                         <div className='flex-box-sb' id='form-el-1'>
-                            <input type='text' className='create-game-txt-input' placeholder='Game Title' id='game-topic' name='game-topic' autoFocus required></input>
+                            <input type='text' className='create-game-txt-input' placeholder='Game Title' autoComplete='off' id='game-topic' name='game-topic' autoFocus required></input>
                             <div>
                                 <input type='checkbox' id='study-set' name='study-set'></input>
                                 <label htmlFor='study-set'>Generate Study Set</label>
@@ -384,7 +384,7 @@ function CreateGame() {
                                 <label htmlFor='category-one-radio' className='flex-box-sb category-label'>{`${!category1 ? 'Category One' : category1}`}</label>
                                 <input type='radio' id='category-one-radio' name='accordion'></input>
                                 <section className='question-content'>
-                                    <input type='text' data-category='c1' value={category1} onChange={cat1OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                    <input type='text' data-category='c1' autoComplete='off' value={category1} onChange={cat1OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                     <div className='single-question-div'>
                                         <p className='point-label'>100 Points</p>
@@ -423,7 +423,7 @@ function CreateGame() {
                                 <label htmlFor='category-two-radio' className='flex-box-sb category-label'>{`${!category2 ? 'Category Two' : category2}`}</label>
                                 <input type='radio' id='category-two-radio' name='accordion'></input>
                                 <section className='question-content'>
-                                    <input type='text' data-name='category' placeholder='Enter Topic' value={category2} onChange={cat2OnChange} className='question-input' data-category='c2' name='category-name' maxLength='115' />
+                                    <input type='text' data-name='category' autoComplete='off' placeholder='Enter Topic' value={category2} onChange={cat2OnChange} className='question-input' data-category='c2' name='category-name' maxLength='115' />
 
                                     <div className='single-question-div'>
                                         <p className='point-label'>100 Points</p>
@@ -462,7 +462,7 @@ function CreateGame() {
                                 <label htmlFor='category-three-radio' className='flex-box-sb category-label'>{`${!category3 ? 'Category Three' : category3}`}</label>
                                 <input type='radio' id='category-three-radio' name='accordion'></input>
                                 <section className='question-content'>
-                                    <input type='text' data-category='c3' value={category3} onChange={cat3OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                    <input type='text' data-category='c3' autoComplete='off' value={category3} onChange={cat3OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                     <div className='single-question-div'>
                                         <p className='point-label'>100 Points</p>
@@ -500,7 +500,7 @@ function CreateGame() {
                                 <label htmlFor='category-four-radio' className='flex-box-sb category-label'>{`${!category4 ? 'Category Four' : category4}`}</label>
                                 <input type='radio' id='category-four-radio' name='accordion'></input>
                                 <section className='question-content'>
-                                    <input type='text' data-category='c4' value={category4} onChange={cat4OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                    <input type='text' data-category='c4' autoComplete='off' value={category4} onChange={cat4OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                     <div className='single-question-div'>
                                         <p className='point-label'>100 Points</p>
@@ -538,7 +538,7 @@ function CreateGame() {
                                 <label htmlFor='category-five-radio' className='flex-box-sb category-label'>{`${!category5 ? 'Category Five' : category5}`}</label>
                                 <input type='radio' id='category-five-radio' name='accordion'></input>
                                 <section className='question-content'>
-                                    <input type='text' data-category='c5' value={category5} onChange={cat5OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                    <input type='text' data-category='c5' autoComplete='off' value={category5} onChange={cat5OnChange} placeholder='Enter Topic' data-name='category' className='question-input' name='category-name' maxLength='115' />
 
                                     <div className='single-question-div'>
                                         <p className='point-label'>100 Points</p>

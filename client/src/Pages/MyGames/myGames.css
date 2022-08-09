@@ -111,6 +111,7 @@ body {
 #mygames-main #my-games-card h4 {
   font-size: 1.8em;
   margin-right: 20px;
+  word-break: break-word;
 }
 #mygames-main #my-games-card #play-btn {
   display: block;
