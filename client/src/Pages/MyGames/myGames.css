@@ -141,6 +141,7 @@ body {
 }
 #mygames-main #my-games-card #my-games-info-div {
   border-top: 1px solid #EC994B;
+  color: #73777B;
   padding-top: 20px;
   margin-top: 10px;
   flex-wrap: wrap;

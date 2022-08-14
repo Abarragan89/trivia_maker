@@ -69,7 +69,7 @@ function MyGames() {
                                                 </div>
                                             </div>
                                             <div id='my-games-info-div' className='flex-box-sb'>
-                                                <p>Questions:{game.questionCount}</p>
+                                                <p>Questions: {game.questionCount}</p>
                                                 <p>Owner: {game.creator.username}</p>
                                                 <p>Copied: {game.duplicates}</p>
                                             </div>
