@@ -27,10 +27,9 @@ function BonusRound({
   const size = { width: 300, height: 400 };
   
   const ballRef = useRef({ x: 0, y: 0, vx: ballSpeed, vy: ballSpeed, radius: 5 });
-  useEffect(() => {
-    ballRef.current.x = Math.random() < 0.5 ? -1 : 1;
-    ballRef.current.y = Math.random() < 0.5 ? -1 : 1;
-  })
+  
+  ballRef.current.x = Math.random() < 0.5 ? -1 : 1;
+  ballRef.current.y = Math.random() < 0.5 ? -1 : 1;
 
 
   const updateBall = () => {
