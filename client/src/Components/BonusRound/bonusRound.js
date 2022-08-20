@@ -5,7 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 import useSound from 'use-sound';
 import bonusReceived from '../../assets/sounds/bonus-received.wav'
 import missedBonusSound from '../../assets/sounds/missed-bonus.wav'
-import { useEffect } from 'react';
 
 function BonusRound({
   pointValue,
@@ -24,18 +23,14 @@ function BonusRound({
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
   
-  const size = { width: 300, height: 400 };
-  
-  const ballRef = useRef({ x: 0, y: 0, vx: ballSpeed, vy: ballSpeed, radius: 5 });
-  
-  ballRef.current.x = Math.random() < 0.5 ? -1 : 1;
-  ballRef.current.y = Math.random() < 0.5 ? -1 : 1;
-
+  const size = { width: 400, height: 500 };
+    
+  const ballRef = useRef({ x: Math.floor(Math.random() * size.width), y: Math.floor(Math.random() * size.height), vx: ballSpeed, vy: ballSpeed, radius: 5 });
 
   const updateBall = () => {
     const ball = ballRef.current;
-    ball.x += ball.vx;
-    ball.y += ball.vy;
+    ball.x += parseInt(ball.vx);
+    ball.y += parseInt(ball.vy);
     if (ball.x + ball.radius >= size.width) {
       ball.vx = -ball.vx;
       ball.x = size.width - ball.radius;
@@ -53,7 +48,6 @@ function BonusRound({
       ball.y = ball.radius;
     }
   };
-  // Make speed 5
 
 
   const renderFrame = () => {
@@ -75,7 +69,7 @@ function BonusRound({
     return () => {
       cancelAnimationFrame(requestIdRef.current);
     };
-  }, []);
+  },[]);
 
 
   const [multiplier, setMultiplier] = useState(1);
@@ -85,11 +79,11 @@ function BonusRound({
     const bonusBallY = ballRef.current.y;
 
     // If close to the two X2, multiply points by two for user
-    let distance2x1 = bonusBallX - 50;
-    let distance2y1 = bonusBallY - 50;
-    let distance2x2 = bonusBallX - 250;
-    let distance2y2 = bonusBallY - 350;
-    let radii_sum2 = 5 + 40;
+    let distance2x1 = bonusBallX - 70;
+    let distance2y1 = bonusBallY - 70;
+    let distance2x2 = bonusBallX - 320;
+    let distance2y2 = bonusBallY - 420;
+    let radii_sum2 = 5 + 45;
     if (distance2x1 * distance2x1 + distance2y1 * distance2y1 <= radii_sum2 * radii_sum2
       ||
       distance2x2 * distance2x2 + distance2y2 * distance2y2 <= radii_sum2 * radii_sum2) {
@@ -100,8 +94,8 @@ function BonusRound({
     }
     // If close to the two X3, multiply points by two for user
     let distance3x1 = bonusBallX - 80;
-    let distance3y1 = bonusBallY - 200;
-    let distance3x2 = bonusBallX - 230;
+    let distance3y1 = bonusBallY - 300;
+    let distance3x2 = bonusBallX - 290;
     let distance3y2 = bonusBallY - 100;
     let radii_sum3 = 5 + 35;
     if (distance3x1 * distance3x1 + distance3y1 * distance3y1 <= radii_sum3 * radii_sum3
@@ -114,10 +108,10 @@ function BonusRound({
     }
 
     // If close to the two X4, multiply points by two for user
-    let distance4x1 = bonusBallX - 250;
-    let distance4y1 = bonusBallY - 225;
+    let distance4x1 = bonusBallX - 300;
+    let distance4y1 = bonusBallY - 230;
     let distance4x2 = bonusBallX - 100;
-    let distance4y2 = bonusBallY - 325;
+    let distance4y2 = bonusBallY - 450;
     let radii_sum4 = 5 + 25;
     if (distance4x1 * distance4x1 + distance4y1 * distance4y1 <= radii_sum4 * radii_sum4
       ||
@@ -129,8 +123,8 @@ function BonusRound({
     }
 
     // If close to the two x5, multiply points by two for user
-    let distance5x1 = bonusBallX - 150;
-    let distance5y1 = bonusBallY - 175;
+    let distance5x1 = bonusBallX - 200;
+    let distance5y1 = bonusBallY - 250;
     let radii_sum5 = 5 + 15;
     if (distance5x1 * distance5x1 + distance5y1 * distance5y1 <= radii_sum5 * radii_sum5) {
       setMultiplier(5);
@@ -155,7 +149,7 @@ function BonusRound({
   return (
     <>
       <h1 id='bonus-title'>Bonus Round!!!</h1>
-      <canvas id='canvas' height="400" width="300" ref={canvasRef} />
+      <canvas id='canvas' height="500" width="400" ref={canvasRef} />
       {
         ballStopped ?
           <>

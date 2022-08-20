@@ -16,11 +16,11 @@ function WinnerPodium() {
 
     // function that is called on click to organize players. 
     function orderPlayerPodium(players) {
+        winningMusic();
         let sortedPlayers = allPlayers.sort((a, b) => {
             return (a.score > b.score) ? 1 : -1
         })
         setPlayerPodium(organizeTiesIntoGroups(sortedPlayers))
-        winningMusic();
     }
     // groups players with a tie score
     function organizeTiesIntoGroups(players) {
