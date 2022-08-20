@@ -41,13 +41,16 @@ function frameRenderer(size, ball) {
     }
     drawBackground()
     
-    winningCirles(150, 175, 15, 'x5', 'green');
-    winningCirles(100, 325, 25, 'x4', 'orange');
-    winningCirles(250, 225, 25, 'x4', 'orange');
-    winningCirles(230, 100, 35, 'x3', 'blue');
-    winningCirles(80, 200, 35, 'x3', 'blue');
-    winningCirles(250, 350, 40, 'x2', 'purple');
-    winningCirles(50, 50, 40, 'x2', 'purple');
+    winningCirles(200, 250, 15, 'x5', 'green');
+    
+    winningCirles(100, 450, 25, 'x4', 'orange');
+    winningCirles(300, 230, 25, 'x4', 'orange');
+
+    winningCirles(290, 100,35, 'x3', 'blue');
+    winningCirles(80, 300, 35, 'x3', 'blue');
+
+    winningCirles(320, 420, 45, 'x2', 'purple');
+    winningCirles(70, 70, 45, 'x2', 'purple');
 
     drawCircle(ball.x, ball.y, ball.radius, "white");
   }

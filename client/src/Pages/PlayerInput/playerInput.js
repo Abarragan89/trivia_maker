@@ -81,11 +81,11 @@ function PlayerInput() {
                         <h2 htmlFor='ball-speed' id='ball-speed-title'>Ball Speed</h2>
                         <div onChange={ballSpeedSetter} className='flex-box-se-wrap'>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='easy' name='ball-speed' value='3' required/>
+                                <input type='radio' id='easy' name='ball-speed' value='2' required/>
                                 <label htmlFor='easy'>Easy</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='medium' name='ball-speed' value='7' required/>
+                                <input type='radio' id='medium' name='ball-speed' value='4' required/>
                                 <label htmlFor='medium'>Medium</label>
                             </div>
                             <div className='radio-div-ball-speed'> 
@@ -93,7 +93,7 @@ function PlayerInput() {
                                 <label htmlFor='hard'>Hard</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='insane' name='ball-speed' value='45' required/>
+                                <input type='radio' id='insane' name='ball-speed' value='46' required/>
                                 <label htmlFor='insane'>Insane!</label>
                             </div>
                         </div>
