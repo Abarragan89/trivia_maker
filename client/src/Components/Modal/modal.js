@@ -75,6 +75,10 @@ function Modal({
         const visualIncrease = setInterval(() => {
             setPlayerScore(playerIntegerScore--)
             counter++;
+            if (playerIntegerScore < 0) {
+                playerIntegerScore = 0;
+                clearInterval(visualIncrease)
+            }
             if (counter > points) {
                 clearInterval(visualIncrease)
             }

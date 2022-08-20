@@ -8,6 +8,9 @@ class Player {
     }
     subtractPoints(points) {
         this.score -= points
+        if(this.score <= 0) {
+            this.score = 0;
+        }
     }
 }
 

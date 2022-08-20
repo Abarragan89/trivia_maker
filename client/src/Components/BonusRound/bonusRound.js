@@ -25,13 +25,12 @@ function BonusRound({
   
   const size = { width: 400, height: 500 };
     
-  const ballRef = useRef({ x: Math.floor(Math.random() * size.width - 10), y: Math.floor(Math.random() * size.height - 10), vx: ballSpeed, vy: ballSpeed, radius: 5 });
-  console.log(ballRef.current.x)
+  const ballRef = useRef({ x: Math.floor(Math.random() * size.width), y: Math.floor(Math.random() * size.height), vx: ballSpeed, vy: ballSpeed, radius: 5 });
 
   const updateBall = () => {
     const ball = ballRef.current;
-    ball.x += ball.vx;
-    ball.y += ball.vy;
+    ball.x += parseInt(ball.vx);
+    ball.y += parseInt(ball.vy);
     if (ball.x + ball.radius >= size.width) {
       ball.vx = -ball.vx;
       ball.x = size.width - ball.radius;
@@ -70,7 +69,7 @@ function BonusRound({
     return () => {
       cancelAnimationFrame(requestIdRef.current);
     };
-  }, []);
+  },[]);
 
 
   const [multiplier, setMultiplier] = useState(1);
