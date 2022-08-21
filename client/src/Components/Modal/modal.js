@@ -21,7 +21,8 @@ function Modal({
     suspenseMusicSound,
     ballSpeed,
     muted, 
-    setMuted
+    setMuted,
+    bonusTimer
 }) {
     const [correctAnswerNoise] = useSound(correctAnswerSound, { volume: '.5' });
     const [incorrectAnswer] = useSound(wrongAnswerNotification, { volume: '.5' });
@@ -33,12 +34,21 @@ function Modal({
     const [showAnswer, setShowAnswer] = useState(false)
     const [pointValue, setPointValue] = useState(0)
 
+    console.log(ballSpeed)
     function bonusRound(points) {
         correctAnswerNoise();
-        setPointValue(points)
-        const modal = document.getElementById('modalContainer')
-        modal.style.animation = 'bonusAppear 1s'
-        setCorrectAnswer(true)
+        if(ballSpeed === '0') {
+            console.log('add points')
+            increasePlayerScore(points)
+            game.currentPlayer.addPoints(points);
+            setWrongAnswerChosen(true)
+            setScoreChange(scoreChange + 1);
+        } else {
+            setPointValue(points);
+            const modal = document.getElementById('modalContainer')
+            modal.style.animation = 'bonusAppear 1s'
+            setCorrectAnswer(true)
+        }
     }
 
     const [playerScore, setPlayerScore] = useState(game.currentPlayer.score)
@@ -164,6 +174,7 @@ function Modal({
                         closeModal={onClose}
                         increasePlayerScore={increasePlayerScore}
                         ballSpeed={ballSpeed}
+                        bonusTimer={bonusTimer}
                     />
                     :
                     <article className='questionContainer flex-box-col-sa'>

@@ -13,7 +13,8 @@ function BonusRound({
   setScoreChange,
   closeModal,
   increasePlayerScore,
-  ballSpeed
+  ballSpeed,
+  bonusTimer
 }) {
 
   const [hitBonus] = useSound(bonusReceived, { volume: '.5'});
@@ -49,12 +50,15 @@ function BonusRound({
     }
   };
 
-
+  const backgroundAlpha = useRef(1)
   const renderFrame = () => {
     const ctx = canvasRef.current.getContext('2d');
     updateBall();
+    if (bonusTimer) {
+      backgroundAlpha.current = backgroundAlpha.current - .0015
+    }
     // draws the circle
-    frameRenderer.call(ctx, size, ballRef.current);
+    frameRenderer.call(ctx, size, ballRef.current, backgroundAlpha.current);
   };
 
   const tick = () => {

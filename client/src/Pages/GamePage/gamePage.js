@@ -6,16 +6,16 @@ import { QUERY_GAME_INFO } from '../../utils/queries';
 import { GameStart } from '../../utils/gameStart';
 import { useLazyQuery } from '@apollo/client';
 import { useParams, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 
 function GamePage() {
     // pass this state to children to trigger rerender of parents
     const [scoreChange, setScoreChange] = useState(0)
 
     // Get game data and player data
-    const gameId = useParams().gameId
-    const players = useLocation().state[0]
-    const ballSpeed = useLocation().state[1]
+    const gameId = useParams().gameId;
+    const players = useLocation().state[0];
+    const ballSpeed = useLocation().state[1];
+    const bonusTimer = useLocation().state[2];
 
 
     const [getGameInfo, { data }] = useLazyQuery(QUERY_GAME_INFO)
@@ -24,7 +24,7 @@ function GamePage() {
         getGameInfo({
             variables: { gameId }
         })
-    }, [])
+    },[])
     const questionAmount = data?.getUserGames?.questionCount || 0;
     const gameTopic = data?.getUserGames.gameTopic || '';
     const gameData = data?.getUserGames.gameData || [];
@@ -47,6 +47,7 @@ function GamePage() {
                     scoreChange={scoreChange}
                     setScoreChange={setScoreChange}
                     ballSpeed={ballSpeed}
+                    bonusTimer={bonusTimer}
                 />
             </section>
             <section id='player-info'>

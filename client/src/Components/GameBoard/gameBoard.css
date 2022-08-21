@@ -62,51 +62,27 @@ body {
 }
 
 .font-cat-0 {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
 }
 
 .font-cat-10 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 .font-cat-20 {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .font-cat-30 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .font-cat-40 {
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .font-cat-50 {
-  font-size: 0.8rem;
-}
-
-.font-cat-60 {
-  font-size: 0.75rem;
-}
-
-.font-cat-70 {
-  font-size: 0.8rem;
-}
-
-.font-cat-80 {
-  font-size: 0.75rem;
-}
-
-.font-cat-90 {
-  font-size: 0.72rem;
-}
-
-.font-cat-100 {
-  font-size: 0.71rem;
-}
-
-.font-cat-110 {
-  font-size: 0.65rem;
+  font-size: 0.93rem;
 }
 
 #gameboard-header-info {
@@ -137,6 +113,7 @@ body {
 }
 #upNext span {
   color: #EC994B;
+  font-size: 1.2em;
 }
 
 .column {
@@ -150,6 +127,7 @@ body {
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
+  word-break: break-word;
   height: 70px;
   border: 1px solid black;
   border-radius: 4px;

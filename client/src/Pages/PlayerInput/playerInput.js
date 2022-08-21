@@ -32,7 +32,7 @@ function PlayerInput() {
     const playerInputElements = [];
     for (let i = 0; i < numberOfPlayers; i++) {
         // auto focus the first input
-        if (i === 0 ) {
+        if (i === 0) {
             playerInputElements.push(
                 <div key={i}>
                     <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} autoFocus required></input>
@@ -51,6 +51,7 @@ function PlayerInput() {
     // create the player objects and ball speed
     const [ballSpeed, setBallSpeed] = useState(null)
     const [playerNameArray, setPlayerNameArray] = useState([])
+    const [bonusTimer, setBonusTimer] = useState(false)
     function handleGameStart(e) {
         e.preventDefault();
         const names = document.querySelectorAll("[data-player]");
@@ -63,6 +64,11 @@ function PlayerInput() {
         setBallSpeed(e.target.value);
     }
 
+    function setBonusTimerFunction(e) {
+        setBonusTimer(e.target.value)
+    }
+
+    console.log(ballSpeed)
     return (
         <>
             <Header />
@@ -73,6 +79,8 @@ function PlayerInput() {
                         setShowConfirmationModal={setShowConfirmationModal}
                         showConfirmationModal={showConfirmationModal}
                         ballSpeed={ballSpeed}
+                        bonusTimer={bonusTimer}
+
                     />}
                 <h2>Players</h2>
                 {showPlayerNames ?
@@ -81,22 +89,39 @@ function PlayerInput() {
                         <h2 htmlFor='ball-speed' id='ball-speed-title'>Ball Speed</h2>
                         <div onChange={ballSpeedSetter} className='flex-box-se-wrap'>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='easy' name='ball-speed' value='2' required/>
+                                <input type='radio' id='easy' name='ball-speed' value='2' required />
                                 <label htmlFor='easy'>Easy</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='medium' name='ball-speed' value='4' required/>
+                                <input type='radio' id='medium' name='ball-speed' value='6' required />
                                 <label htmlFor='medium'>Medium</label>
                             </div>
-                            <div className='radio-div-ball-speed'> 
-                                <input type='radio' id='hard' name='ball-speed' value='12' required/>
+                            <div className='radio-div-ball-speed'>
+                                <input type='radio' id='hard' name='ball-speed' value='10' required />
                                 <label htmlFor='hard'>Hard</label>
                             </div>
                             <div className='radio-div-ball-speed'>
-                                <input type='radio' id='insane' name='ball-speed' value='46' required/>
+                                <input type='radio' id='insane' name='ball-speed' value='46' required />
                                 <label htmlFor='insane'>Insane!</label>
                             </div>
                         </div>
+                        <div className='radio-div-ball-speed' onChange={ballSpeedSetter}>
+                            <input type='radio' id='no-bonus' name='ball-speed' value='0' required />
+                            <label htmlFor='no-bonus'>No Bonus Round</label>
+                        </div>
+
+
+                        {ballSpeed !== '0' &&
+                            <>
+                                <h2>Bonus Timer</h2>
+                                <div onChange={setBonusTimerFunction} className='bonus-timer'>
+                                    <input type='checkbox' id='bonus-timer' name='bonus-timer'></input>
+                                    <label htmlFor='bonus-timer'>Enable Timer</label>
+                                </div>
+
+                            </>
+
+                        }
 
                         <button onClick={() => mouseClickSound.play()} className='player-input-button' type='submit'>Ready?</button>
                     </form>

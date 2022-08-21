@@ -418,7 +418,7 @@ function EditGame() {
                                             defaultValue={!gameSet.category ? arrayOfCats[gameIndex] : gameSet.category}
                                             placeholder='Enter Topic'
                                             onChange={arrayOfCatFuncts[gameIndex]}
-                                            data-name='category' className='question-input' name='category-name' maxLength='115' />
+                                            data-name='category' className='question-input' name='category-name' maxLength='50' />
 
 
 
