@@ -34,11 +34,9 @@ function Modal({
     const [showAnswer, setShowAnswer] = useState(false)
     const [pointValue, setPointValue] = useState(0)
 
-    console.log(ballSpeed)
     function bonusRound(points) {
         correctAnswerNoise();
         if(ballSpeed === '0') {
-            console.log('add points')
             increasePlayerScore(points)
             game.currentPlayer.addPoints(points);
             setWrongAnswerChosen(true)

@@ -35,7 +35,7 @@ function PlayerInput() {
         if (i === 0) {
             playerInputElements.push(
                 <div key={i}>
-                    <input data-player='name' autoComplete='off' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} autoFocus required></input>
+                    <input data-player='name' autoComplete='off' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} required></input>
                 </div>
             )
         } else {
@@ -63,12 +63,10 @@ function PlayerInput() {
     function ballSpeedSetter(e) {
         setBallSpeed(e.target.value);
     }
-
     function setBonusTimerFunction(e) {
         setBonusTimer(e.target.value)
     }
 
-    console.log(ballSpeed)
     return (
         <>
             <Header />
@@ -80,7 +78,6 @@ function PlayerInput() {
                         showConfirmationModal={showConfirmationModal}
                         ballSpeed={ballSpeed}
                         bonusTimer={bonusTimer}
-
                     />}
                 <h2>Players</h2>
                 {showPlayerNames ?

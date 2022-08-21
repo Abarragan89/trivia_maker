@@ -55,7 +55,7 @@ function BonusRound({
     const ctx = canvasRef.current.getContext('2d');
     updateBall();
     if (bonusTimer) {
-      backgroundAlpha.current = backgroundAlpha.current - .0015
+      backgroundAlpha.current = backgroundAlpha.current - .001
     }
     // draws the circle
     frameRenderer.call(ctx, size, ballRef.current, backgroundAlpha.current);
