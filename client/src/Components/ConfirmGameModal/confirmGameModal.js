@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_GAME_INFO } from '../../utils/queries'
 import mouseClick from '../../assets/sounds/mouse-click.wav';
 import useSound from 'use-sound';
+import { useEffect } from 'react';
 
 
 function ConfirmGameModal({ ballSpeed, players, setShowConfirmationModal, showConfirmationModal, bonusTimer }) {
@@ -17,6 +18,10 @@ function ConfirmGameModal({ ballSpeed, players, setShowConfirmationModal, showCo
     });
     const confirmGameData = data?.getUserGames || ''
 
+    // focus on link "Let's Play" so user doesn't accidentally add more users. 
+    useEffect(() => {
+        document.getElementById('lets-play').focus();
+    },[])
     return (
         <div className='confirmationModalBackdrop'>
             <div className='modalContainer'>
@@ -26,7 +31,7 @@ function ConfirmGameModal({ ballSpeed, players, setShowConfirmationModal, showCo
                         <p key={index} className='player-names-confirmation'>{player}</p>
                     ))}
                 </div>
-                <Link onClick={() => mouseClickSound()} state={[players, ballSpeed, bonusTimer]} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br />
+                <Link id='lets-play' onClick={() => mouseClickSound()} state={[players, ballSpeed, bonusTimer]} to={`/gamepage/${gameId}`}>Let's Play!</Link> <br />
                 <Link id='cancel-confirmation' to='/my-games' onClick={() => setShowConfirmationModal(false)}>Cancel</Link>
             </div>
         </div>

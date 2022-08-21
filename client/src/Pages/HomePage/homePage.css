@@ -126,7 +126,7 @@ body {
   margin-right: 30px;
   margin-top: 110px;
   flex-basis: 1;
-  width: 200px;
+  width: 220px;
   border: 1px solid #15133C;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -136,7 +136,7 @@ body {
   background-color: #15133C;
 }
 #homepage-feed aside div:first-child p {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 20px;
 }
 #homepage-feed aside h2 {
@@ -172,7 +172,7 @@ body {
 #homepage-feed #donation-texts {
   margin: 5%;
   text-align: center;
-  width: 200px;
+  width: 220px;
 }
 #homepage-feed #donation-texts p {
   font-size: 0.9em;

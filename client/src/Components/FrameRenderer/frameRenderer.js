@@ -21,8 +21,6 @@ function frameRenderer(size, ball, backgroundAlpha) {
       this.save();
       this.beginPath();
       this.arc(x, y, radius, 0, Math.PI * 2);
-      this.strokeStyle = 'black';
-      this.stroke();
       this.fillStyle = color;
       this.fill();
       this.closePath();

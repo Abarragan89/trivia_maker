@@ -70,7 +70,7 @@ function WinnerPodium() {
                                 <div className='flex-box-se score-header'>
                                     <div className='flex-box-col-se'>
                                         <h3>{playerPodium.length - (playerPodium.length - (playerPodium.length - Podiumindex))}
-                                            <span>{Podiumindex === playerPodium.length - 1 ? 'st' : Podiumindex === playerPodium.length - 2 ? 'nd' : 'rd'}</span>
+                                            <span>{Podiumindex === playerPodium.length - 1 ? 'st' : Podiumindex === playerPodium.length - 2 ? 'nd' : Podiumindex === playerPodium.length - 3 ? 'rd' : 'th'}</span>
                                         </h3>
                                         <h5>Score: {rankings.score}</h5>
 
