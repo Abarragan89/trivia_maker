@@ -9,14 +9,22 @@
     background-color: white;
 
     h2 {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         font-family: $pointNumber;
         color: $secondaryColor;
     }
+
     #ball-speed-title {
-        margin-top: 30px;
-        margin-bottom: 20px;
-        font-size: 1.4em;
+        margin-top: 20px;
+    }
+
+    #bonus-timer {
+        margin-right: 5px;
+        margin-left: 5px;
+        height: 18px;
+        width: 18px;
+        margin-top: 10px;
+        accent-color: $secondaryColor;
     }
 
     .radio-div-ball-speed {
@@ -29,12 +37,15 @@
             margin-left: 20px;
             margin-bottom: 15px;
         }
+
         input {
             margin-bottom: 15px;
         }
+
         input:hover {
             cursor: pointer;
         }
+
         input[type='radio']:after {
             width: 15px;
             height: 15px;
@@ -48,7 +59,7 @@
             visibility: visible;
             border: 2px solid white;
         }
-    
+
         input[type='radio']:checked:after {
             width: 15px;
             height: 15px;
@@ -61,6 +72,16 @@
             display: inline-block;
             visibility: visible;
             border: 2px solid white;
+        }
+
+    }
+    .bonus-timer {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: #15133C;
+        display: block;
+        label {
+            margin-left: 5px;
         }
     }
 
@@ -75,14 +96,17 @@
         background-color: $secondaryColor;
         font-weight: 700;
     }
+
     .player-input-button:hover {
         color: white;
         cursor: pointer;
     }
+
     .player-input-button:active {
         color: $gray;
         border: 1px solid transparent;
     }
+
     #player-count {
         font-size: 1.6em;
         width: 60px;
@@ -99,17 +123,20 @@
             background-color: blue;
         }
     }
+
     #player-amount-form {
         label {
             font-size: 1.3em;
             color: $tertiaryColor
         }
+
         #error {
             display: block;
             margin-top: 20px;
             color: $red;
         }
     }
+
     .player-names-input {
         font-size: 1.6em;
         text-align: center;
@@ -120,9 +147,6 @@
         margin-top: 10px;
         background-color: $tertiaryColor;
         color: $secondaryColor;
-    }
-    .player-names-input:first-child {
-        
     }
 }
 

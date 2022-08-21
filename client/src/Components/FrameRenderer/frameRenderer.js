@@ -1,8 +1,8 @@
-function frameRenderer(size, ball) {
+function frameRenderer(size, ball, backgroundAlpha) {
     this.clearRect(0, 0, size.width, size.height);
 
     const drawBackground = () => {
-      this.fillStyle = '#15133C';
+      this.fillStyle = `rgba(0,0,0,${backgroundAlpha})`;
       this.fillRect(0, 0, size.width, size.height)
     }
   
@@ -13,8 +13,6 @@ function frameRenderer(size, ball) {
       this.fillStyle = color;
       this.globalAlpha = alpha;
       this.fill();
-      this.strokeStyle = 'black';
-      this.stroke();
       this.closePath();
       this.restore();
     };
@@ -52,7 +50,7 @@ function frameRenderer(size, ball) {
     winningCirles(320, 420, 45, 'x2', 'purple');
     winningCirles(70, 70, 45, 'x2', 'purple');
 
-    drawCircle(ball.x, ball.y, ball.radius, "white");
+    drawCircle(ball.x, ball.y, ball.radius, "#F1EEE9");
   }
   
   export default frameRenderer;

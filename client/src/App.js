@@ -22,7 +22,6 @@ import StudentLogin from './Pages/StudentLogin/studentLogin.js';
 import StudentDashboard from './Pages/StudentDashboard/studentDashboard.js';
 import StudentStudy from './Pages/StudentStudy/studentStudy.js';
 import About from './Pages/About/about.js';
-import { Helmet } from 'react-helmet';
 
 // import Apollo Client package for context
 import {

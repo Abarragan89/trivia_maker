@@ -12,9 +12,10 @@ function GamePage() {
     const [scoreChange, setScoreChange] = useState(0)
 
     // Get game data and player data
-    const gameId = useParams().gameId
-    const players = useLocation().state[0]
-    const ballSpeed = useLocation().state[1]
+    const gameId = useParams().gameId;
+    const players = useLocation().state[0];
+    const ballSpeed = useLocation().state[1];
+    const bonusTimer = useLocation().state[2];
 
 
     const [getGameInfo, { data }] = useLazyQuery(QUERY_GAME_INFO)
@@ -46,6 +47,7 @@ function GamePage() {
                     scoreChange={scoreChange}
                     setScoreChange={setScoreChange}
                     ballSpeed={ballSpeed}
+                    bonusTimer={bonusTimer}
                 />
             </section>
             <section id='player-info'>

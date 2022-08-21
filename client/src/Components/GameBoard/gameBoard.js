@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import suspenseMusic from '../../assets/sounds/answer-question-suspense.wav'
 import useSound from 'use-sound'
 
-function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setScoreChange }) {
+function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setScoreChange, bonusTimer }) {
 
 
     const [suspenseMusicSound, { stop: stopSuspense }] = useSound(suspenseMusic, { volume: '.2'})
@@ -61,6 +61,7 @@ function GameBoard({ h1ref, ballSpeed, gamePlayers, gameData, scoreChange, setSc
                         ballSpeed={ballSpeed}
                         muted={muted}
                         setMuted={setMuted}
+                        bonusTimer={bonusTimer}
                     />}
                 <div id='gameboard-header-info' className='flex-box-sb'>
                     <p id='upNext'>Up Next: <span>{gamePlayers && gamePlayers.currentPlayer.name}</span></p>

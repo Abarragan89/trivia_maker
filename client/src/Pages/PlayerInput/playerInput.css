@@ -70,14 +70,20 @@ body {
   background-color: white;
 }
 #player-input-section h2 {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-family: "Mochiy Pop One", sans-serif;
   color: #EC994B;
 }
 #player-input-section #ball-speed-title {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 1.4em;
+  margin-top: 20px;
+}
+#player-input-section #bonus-timer {
+  margin-right: 5px;
+  margin-left: 5px;
+  height: 18px;
+  width: 18px;
+  margin-top: 10px;
+  accent-color: #EC994B;
 }
 #player-input-section .radio-div-ball-speed label {
   font-size: 1.2em;
@@ -119,6 +125,15 @@ body {
   display: inline-block;
   visibility: visible;
   border: 2px solid white;
+}
+#player-input-section .bonus-timer {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #15133C;
+  display: block;
+}
+#player-input-section .bonus-timer label {
+  margin-left: 5px;
 }
 #player-input-section .player-input-button {
   display: block;
@@ -174,6 +189,7 @@ body {
   background-color: #15133C;
   color: #EC994B;
 }
+
 @media screen and (max-width: 480px) {
   #player-input-section .player-names-input {
     font-size: 1em;
