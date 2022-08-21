@@ -35,13 +35,13 @@ function PlayerInput() {
         if (i === 0) {
             playerInputElements.push(
                 <div key={i}>
-                    <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} autoFocus required></input>
+                    <input data-player='name' autoComplete='off' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} autoFocus required></input>
                 </div>
             )
         } else {
             playerInputElements.push(
                 <div key={i}>
-                    <input data-player='name' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} required></input>
+                    <input data-player='name' autoComplete='off' className='player-names-input' placeholder={`player${i + 1}`} type='text' name={`player${i + 1}`} required></input>
                 </div>
             )
         }
@@ -129,7 +129,7 @@ function PlayerInput() {
                     <>
                         <form id='player-amount-form' onSubmit={handlePlayerCount}>
                             <label htmlFor='player-count'>How many players/teams?</label>
-                            <input type='text' id='player-count' maxLength="2" autoFocus required></input>
+                            <input type='text' id='player-count' autoComplete='off' maxLength='2' autoFocus required></input>
                             <span id='error'></span>
                             <button onClick={() => mouseClickSound.play()} className='player-input-button' type='submit'>Continue</button>
                         </form>
