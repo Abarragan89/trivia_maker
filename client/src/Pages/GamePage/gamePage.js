@@ -6,7 +6,6 @@ import { QUERY_GAME_INFO } from '../../utils/queries';
 import { GameStart } from '../../utils/gameStart';
 import { useLazyQuery } from '@apollo/client';
 import { useParams, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 
 function GamePage() {
     // pass this state to children to trigger rerender of parents
@@ -24,7 +23,7 @@ function GamePage() {
         getGameInfo({
             variables: { gameId }
         })
-    }, [])
+    },[])
     const questionAmount = data?.getUserGames?.questionCount || 0;
     const gameTopic = data?.getUserGames.gameTopic || '';
     const gameData = data?.getUserGames.gameData || [];

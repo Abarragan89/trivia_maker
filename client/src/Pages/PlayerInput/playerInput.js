@@ -96,6 +96,10 @@ function PlayerInput() {
                                 <input type='radio' id='insane' name='ball-speed' value='46' required/>
                                 <label htmlFor='insane'>Insane!</label>
                             </div>
+                            <div className='radio-div-ball-speed'>
+                                <input type='radio' id='no-bonus' name='ball-speed' value='0' required/>
+                                <label htmlFor='no-bonus'>No Bonus</label>
+                            </div>
                         </div>
 
                         <button onClick={() => mouseClickSound.play()} className='player-input-button' type='submit'>Ready?</button>
