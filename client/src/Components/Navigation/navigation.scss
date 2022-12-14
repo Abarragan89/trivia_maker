@@ -37,12 +37,12 @@
 }
 
 .link-el a {
-    text-decoration: none;
     font-size: 1.25em;
 }
 
 nav a.active {
-    color: var(--font-color);
+    color: $primaryColor;
+    text-decoration: underline;
     cursor: pointer;
 }
 

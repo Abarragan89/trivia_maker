@@ -98,12 +98,12 @@ body {
 }
 
 .link-el a {
-  text-decoration: none;
   font-size: 1.25em;
 }
 
 nav a.active {
-  color: var(--font-color);
+  color: #F1EEE9;
+  text-decoration: underline;
   cursor: pointer;
 }
 
